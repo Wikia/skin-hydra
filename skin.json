@@ -53,22 +53,13 @@
 			"HydraHooks::onSkinPreloadExistence"
 		],
 		"SkinTemplateOutputPageBeforeExec": [
-			"CurseExtension::onSkinTemplateOutputPageBeforeExec"
+			"HydraHooks::onSkinTemplateOutputPageBeforeExec"
 		],
 		"OutputPageBodyAttributes": [
-			"CurseExtension::onOutputPageBodyAttributes"
+			"HydraHooks::onOutputPageBodyAttributes"
 		],
 		"SkinVectorStyleModules": [
-			"CurseExtension::onSkinVectorStyleModules"
-		],
-		"GetPreferences": [
-			"CurseExtension::onGetPreferences"
-		],
-		"CanIPUseHTTPS": [
-			"CurseExtension::onCanIPUseHTTPS"
-		],
-		"ParserFirstCallInit": [
-			"CurseExtension::onParserFirstCallInit"
+			"HydraHooks::onSkinVectorStyleModules"
 		]
 	},
 	"manifest_version": 1

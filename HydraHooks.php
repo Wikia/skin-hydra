@@ -119,31 +119,6 @@ class HydraHooks {
 	}
 
 	/**
-	 * Reorganize email preferences (assuming that the Echo extension exists)
-	 *
-	 * @access	public
-	 * @param	object	user whose preferences are being modified
-	 * @param	array	Preferences description object, to be fed to an HTMLForm
-	 * @return	boolean	true
-	 */
-	static public function onGetPreferences($user, &$preferences) {
-		// only reorganize if the Echo extension exists
-		if (isset($preferences['echo-subscriptions'])) {
-			// Move these from the main "User profile" tab to the notifications tab
-			$emailFields = ['emailaddress', 'emailauthentication', 'disablemail', 'ccmeonemails', 'enotifwatchlistpages', 'enotifminoredits'];
-			foreach ($emailFields as $field) {
-				if (isset($preferences[$field])) {
-					$preferences[$field]['section'] = 'echo/emailsettings';
-				}
-			}
-			// move redundant email reminder to the default tab
-			$preferences['echo-emailaddress']['section'] = 'personal/info';
-			$preferences['echo-emailaddress']['label-message'] = 'youremail';
-		}
-		return true;
-	}
-
-	/**
 	 * The real check if we are using a mobile skin
 	 * @param Skin
 	 * @return boolean
