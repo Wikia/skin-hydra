@@ -1,0 +1,553 @@
+@import  "//fonts.googleapis.com/css?family=Open+Sans+Condensed:100,300,700|Open+Sans:400italic,400,700,600";
+
+@font-face {
+	font-family: "netbar-icons";
+	src: url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.eot);
+	src: url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.eot#iefix) format("embedded-opentype"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.woff) format("woff"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.ttf) format("truetype"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.svg) format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+html body {
+	height: calc(100% - 29px) !important;
+	margin-top: 29px !important;
+	position: relative;
+}
+
+div#netbar {
+	height: 29px;
+	background: #121212;
+	border-bottom: 1px solid #000;
+	font-family: 'Open Sans',sans-serif;
+	font-size: 12px;
+	position: absolute;
+	width: 100%;
+	top: -29px;
+	z-index: 1001;
+}
+
+div#netbar * {
+	box-sizing: border-box;
+}
+
+div#netbar span.label-development {
+	color: red;
+	font-weight: 700;
+	padding: 0 .5em;
+}
+
+div#netbar span.label-hostname {
+	color: #ff0;
+	padding: 0 .5em;
+}
+
+div#netbar a {
+	color: #aeaeae;
+	text-decoration: none;
+}
+
+div#netbar a#login-link,div#netbar a#register-link {
+	font-weight: 700;
+	color: #fc3;
+}
+
+div#netbar a#login-link:hover,div#netbar a#register-link:hover {
+	color: #fff;
+}
+
+div#netbar ul {
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+	line-height: inherit;
+}
+
+div#netbar > ul {
+	line-height: 28px;
+}
+
+div#netbar > ul > li {
+	float: left;
+	height: 28px;
+	position: relative;
+}
+
+div#netbar > ul > li:hover {
+	background: #222;
+}
+
+div#netbar > ul > li:hover > a {
+	color: #fff;
+}
+
+div#netbar > ul > li:hover > ul {
+	display: block;
+}
+
+div#netbar > ul > li > a {
+	display: block;
+	height: 28px;
+	padding: 0 16px;
+}
+
+div#netbar > ul > li > ul {
+	display: none;
+	position: absolute;
+	top: 28px;
+	background: #222;
+	border: 1px solid #000;
+	border-top: none;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+	z-index: 1002;
+}
+
+div#netbar > ul > li > ul li a {
+	display: block;
+	padding: 0 6px;
+}
+
+div#netbar > ul > li > ul li a:hover {
+	background-color: #111;
+	color: #fff;
+}
+
+div#netbar > ul > li > ul #pt-uls a.uls-trigger {
+	padding-left: 36px;
+	line-height: inherit;
+	background-position: 6px;
+}
+
+div#netbar ul.netbar-left {
+	float: left;
+}
+
+div#netbar ul.netbar-left > li {
+	border-right: 1px solid #000;
+	margin-right: 1px;
+}
+
+div#netbar ul.netbar-left > li::after {
+	content: '';
+	position: absolute;
+	right: -2px;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	background: #353535;
+}
+
+div#netbar ul.netbar-left > li a.curse {
+	width: 104px;
+	text-indent: -500px;
+	white-space: nowrap;
+	overflow: hidden;
+	background: url(../images/netbar/logo-fallback.png);
+	background-image: linear-gradient(transparent,transparent),url(../images/netbar/logo.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+@media screen and (max-width: 700px) {
+div#netbar ul.netbar-left > li a.curse {
+	width: 47px;
+	background-position: 16px center;
+	position: relative;
+}
+
+div#netbar ul.netbar-left > li a.curse::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-left: 16px solid #121212;
+	border-right: 16px solid #121212;
+}
+
+div#netbar ul.netbar-left > li a.curse:hover::after {
+	border-color: #222;
+}
+}
+
+div#netbar ul.netbar-left > li.settings {
+	width: 55px;
+}
+
+div#netbar ul.netbar-left > li.settings:hover {
+	cursor: pointer;
+}
+
+div#netbar ul.netbar-left > li.settings:hover i.cog::after {
+	color: #bababa;
+}
+
+div#netbar ul.netbar-left > li.settings i.cog {
+	display: block;
+	width: 23px;
+	height: 14px;
+	position: relative;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+}
+
+div#netbar ul.netbar-left > li.settings i.cog::after {
+	content: '\e602';
+	position: absolute;
+	width: 23px;
+	height: 14px;
+	font-family: 'netbar-icons';
+	font-style: normal;
+	font-size: 14px;
+	color: #b9b9b9;
+	top: 0;
+	left: 0;
+	display: block;
+	line-height: 14px;
+}
+
+div#netbar ul.netbar-left > li.settings ul {
+	left: -2px;
+	border-radius: 0 0 6px 6px;
+}
+
+div#netbar ul.netbar-left > li.settings ul li:last-child {
+	border-radius: 0 0 6px 6px;
+}
+
+@media screen and (max-width: 700px) {
+div#netbar ul.netbar-left > li.settings {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right {
+	float: right;
+}
+
+div#netbar ul.netbar-right > li {
+	border-left: 1px solid #353535;
+	margin-left: 1px;
+}
+
+div#netbar ul.netbar-right > li::after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	background: #000;
+}
+
+div#netbar ul.netbar-right > li a:hover span.mw-echo-unread-notifications {
+	background: #f00101;
+}
+
+div#netbar ul.netbar-right > li a span.option-count {
+	display: none;
+}
+
+div#netbar ul.netbar-right > li a span.mw-echo-unread-notifications {
+	display: block;
+	position: absolute;
+	background: #d70101;
+	padding: 0 6px 0 5px;
+	color: #fff;
+	top: 5px;
+	right: 6px;
+	border-radius: 2px;
+	font-size: 8px;
+	text-indent: 0;
+	line-height: 10px;
+	z-index: 2;
+}
+
+div#netbar ul.netbar-right > li.reports a::after,div#netbar ul.netbar-right > li.notifications a::after {
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	top: 50%;
+}
+
+div#netbar ul.netbar-right > li.user-count a,div#netbar ul.netbar-right > li.reports a,div#netbar ul.netbar-right > li.private-messages a,div#netbar ul.netbar-right > li.notifications a,div#netbar ul.netbar-right > li.user > a {
+	position: relative;
+}
+
+div#netbar ul.netbar-right > li.user-count a::after,div#netbar ul.netbar-right > li.reports a::after,div#netbar ul.netbar-right > li.private-messages a::after,div#netbar ul.netbar-right > li.notifications a::after,div#netbar ul.netbar-right > li.user > a::after {
+	position: absolute;
+	font-family: 'netbar-icons';
+	font-style: normal;
+	font-size: 14px;
+	color: #b9b9b9;
+	display: block;
+	line-height: 14px;
+}
+
+div#netbar ul.netbar-right > li.user-count a {
+	padding: 0 16px 0 42px;
+}
+
+div#netbar ul.netbar-right > li.user-count a::after {
+	content: '\e603';
+	width: 22px;
+	height: 14px;
+	left: 16px;
+	top: 7px;
+}
+
+div#netbar ul.netbar-right > li.user-count a:hover::after {
+	color: #bababa;
+}
+
+@media screen and (max-width: 780px) {
+div#netbar ul.netbar-right > li.user-count {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right > li.reports a {
+	width: 46px;
+	position: relative;
+}
+
+div#netbar ul.netbar-right > li.reports a::after {
+	content: '\e601';
+	width: 14px;
+	height: 14px;
+}
+
+div#netbar ul.netbar-right > li.reports a:hover::after {
+	color: #bababa;
+}
+
+@media screen and (max-width: 400px) {
+div#netbar ul.netbar-right > li.reports {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right > li.private-messages a {
+	width: 47px;
+}
+
+div#netbar ul.netbar-right > li.private-messages a::after {
+	content: '\e604';
+	width: 15px;
+	height: 14px;
+	top: 8px;
+}
+
+div#netbar ul.netbar-right > li.private-messages a:hover::after {
+	color: #bababa;
+}
+
+div#netbar ul.netbar-right > li.notifications.notifications-open {
+	background: #222;
+}
+
+div#netbar ul.netbar-right > li.notifications.notifications-open a::after {
+	color: #bababa;
+}
+
+div#netbar ul.netbar-right > li.notifications a {
+	width: 47px;
+}
+
+div#netbar ul.netbar-right > li.notifications a::after {
+	content: '\e605';
+	width: 14px;
+	height: 14px;
+}
+
+div#netbar ul.netbar-right > li.notifications a:hover::after {
+	color: #bababa;
+}
+
+@media screen and (max-width: 700px) {
+div#netbar ul.netbar-right > li.control-panel {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right > li.achievements ul li {
+	float: left;
+	position: relative;
+	margin-right: 10px;
+	padding-left: 17px;
+}
+
+div#netbar ul.netbar-right > li.achievements ul li:last-child {
+	margin-right: 0;
+}
+
+div#netbar ul.netbar-right > li.achievements ul li::before {
+	content: '';
+	background: url(../images/achievements/post_trophies.png) left top no-repeat;
+	height: 12px;
+	width: 13px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -6px;
+}
+
+div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-1::before {
+	background-position: 0 top;
+}
+
+div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-2::before {
+	background-position: -13px top;
+}
+
+div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-3::before {
+	background-position: -26px top;
+}
+
+@media screen and (max-width: 470px) {
+div#netbar ul.netbar-right > li.achievements {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right > li form {
+	margin-bottom: 0;
+}
+
+div#netbar ul.netbar-right > li form button.sign-out {
+	display: block;
+	width: 100%;
+	text-align: left;
+	line-height: 28px;
+	background: none;
+	border: none;
+	color: #aeaeae;
+	font-family: 'Open Sans',sans-serif;
+	outline: none;
+}
+
+div#netbar ul.netbar-right > li form button.sign-out:hover {
+	color: #fff;
+}
+
+div#netbar ul.netbar-right > li.user:hover > a {
+	color: #fff;
+}
+
+div#netbar ul.netbar-right > li.user:hover > a::after {
+	color: #bababa;
+}
+
+div#netbar ul.netbar-right > li.user > a {
+	padding: 0 25px 0 16px;
+}
+
+div#netbar ul.netbar-right > li.user > a::after {
+	content: '\e600';
+	width: 5px;
+	height: 3px;
+	top: 9px;
+	right: 16px;
+}
+
+div#netbar ul.netbar-right > li.user > a img.avatar {
+	width: 18px;
+	height: 18px;
+	border-radius: 3px;
+	margin-right: 5px;
+	display: block;
+	float: left;
+	position: relative;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	top: 50%;
+}
+
+div#netbar ul.netbar-right > li.user > ul {
+	width: calc(100% + 3px);
+	min-width: 110px;
+	right: 0;
+	border-bottom-left-radius: 6px;
+}
+
+div#netbar ul.netbar-right > li.user > ul > li {
+	border-bottom: 1px solid #3c3c3c;
+}
+
+div#netbar ul.netbar-right > li.user > ul > li:last-child {
+	border-bottom: none;
+}
+
+div#netbar ul.netbar-right > li.user > ul > li button.sign-out {
+	padding: 0 6px;
+}
+
+div#netbar ul.netbar-right > li.user > ul > li button.sign-out:hover {
+	background: #111;
+	border-bottom-left-radius: 6px;
+}
+
+@media screen and (max-width: 940px) {
+div#netbar ul.netbar-right > li.user > a {
+	padding: 0 16px;
+	width: 50px;
+	text-indent: -500px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+div#netbar ul.netbar-right > li.user > a::after {
+	display: none;
+}
+
+div#netbar ul.netbar-right > li.user > ul {
+	display: none;
+}
+}
+
+div#netbar ul.netbar-right > li.mobile-sign-out {
+	display: none;
+}
+
+div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out {
+	padding: 0 16px;
+}
+
+div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
+	background: #222;
+}
+
+@media screen and (max-width: 940px) {
+div#netbar ul.netbar-right > li.mobile-sign-out {
+	display: block;
+}
+}
+
+@media screen and (max-width: 1000px) {
+body.responsive-enabled div#curse-stripe,body.responsive-enabled div#netbar {
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+
+body.responsive-enabled div#curse-stripe {
+	top: 0;
+	z-index: 5;
+}
+
+body.responsive-enabled div#netbar {
+	top: 1px;
+}
+}

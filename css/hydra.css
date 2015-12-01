@@ -1,0 +1,227 @@
+html {
+	min-height:100%;
+}
+
+body {
+	margin-top:29px;
+	position:relative;
+}
+
+#pt-userpage, #pt-anonuserpage, #pt-login {
+	background-image: none !important;
+}
+
+#pt-userpage a, #pt-anonuserpage a, #pt-login a {
+	background-image: url(flame.png) !important;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 10px !important;
+}
+
+#bodyContent {
+	float: left;
+}
+
+#bodyWrapper {
+
+}
+
+#bodyWrapper.withSidebar {
+	padding-right: 310px;
+}
+
+#pageWrapper {
+	padding-left: 10em;
+}
+
+#sidebar {
+	float: right;
+	margin-right: -310px;
+	margin-top: 20px;
+	width: 300px;
+}
+
+div#content {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 100%;
+}
+
+div#content, #mw-head-base, div#footer {
+	margin-left: 0;
+}
+
+div#content:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+#p-logo {
+	height: 160px;
+	left: 0;
+	margin-bottom: 1em;
+	position: relative;
+	top: 0;
+	width: 10em;
+}
+
+#p-logo a {
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: table-cell;
+	height: 160px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	width: 10em;
+}
+
+.htmlform-tip {
+	padding-left: 20% !important;
+	padding-left: -webkit-calc(20% + 0.5em) !important;
+	padding-left: calc(20% + 0.5em) !important;
+}
+
+#sidebar .infobox { background: #fff; clear: right; border: 1px solid #ccc; }
+#sidebar .infobox h2 { padding-left: 10px; }
+#sidebar .infobox ul { font-size: 85%; line-height: 1.2em; list-style: none; margin: 10px; }
+#sidebar .infobox ul li div { font-size: 90%; }
+#sidebar .infobox ul li + li { margin: 0.9em 0 0; }
+
+input.button, a.button { color: #fff !important; }
+input.button:hover, a.button:hover { color: #999 !important; }
+
+.sidebar-float { float: right; margin-left: 1em; width: 300px; }
+#wikiblocks_sidebar .wikiblocks_block { margin-bottom: 1em; }
+
+.tableWrapper { overflow: hidden; padding-top: 2px; }
+
+.vectorMenu .menu { z-index: 1000 !important; }
+
+div#simpleSearch button#searchButton {
+    box-shadow: none;
+}
+
+div#mw-panel {
+    float: left;
+    width: 10em;
+    z-index: 1000;
+    position: inherit;
+    margin: -5em 0 5em 0;
+    padding: 1em 0 0 0;
+}
+
+/***********************/
+/* Advertisement Slots */
+/***********************/
+.aftmrec, .btfmrec { height: 250px !important; width: 300px !important; }
+.atfmrec { border: none !important; float: right; margin: 15px 0 2em 1em; }
+.atflb, .btflb { display: block; height: 90px !important; margin: 0 auto; padding: 5px 0; width: 728px !important; }
+.atflb > iframe, .btflb > iframe { display: block; height: 90px !important; margin: 0 auto; padding: 0; width: 728px !important; }
+.btflb { clear: both; }
+.atflb > div { margin: 0  auto; }
+
+/* A reset for 3rd party tech spitting out styles into [aria-hidden] */
+body[aria-hidden] { text-align: left; padding: 0; margin: 0; position: static; }
+
+div.suggestions, html > body div.suggestions {
+  margin-top: -28px;
+}
+
+/* Special Page Group Fix */
+.mw-special-specialPages .mw-specialpagesgroup {
+	margin-bottom: 0;
+}
+
+.mw-special-specialPages .tableWrapper {
+	padding-top: 10px;
+}
+
+/* Post Edit Notification */
+div.postedit-container {
+	top: 28px;
+}
+
+/*************/
+/* ReCaptcha */
+/*************/
+#recaptcha_table {
+	background: none repeat scroll 0 0 white;
+}
+
+.recaptchatable * {
+	line-height: 100%;
+}
+
+#recaptcha_table:nth-child(1) td {
+	padding-bottom: 0;
+}
+
+/********/
+/* Echo */
+/********/
+div.mw-echo-overlay, div.mw-echo-overlay li.mw-echo-notification .mw-echo-notification-wrapper {
+	background-color: #202020;
+	border: 1px solid #080808;
+	box-shadow: 4px 4px 4px 4px rgba(16, 16, 16, 0.4);
+	color: #e0e0e0;
+}
+
+div.mw-echo-overlay li.mw-echo-notification.mw-echo-unread .mw-echo-notification-wrapper {
+	background-color: #101010;
+}
+
+div.mw-echo-overlay li.mw-echo-notification.mw-echo-unread:hover .mw-echo-notification-wrapper {
+	background-color: #303030;
+}
+
+div.mw-echo-overlay-title {
+	border-bottom: 0 solid #080808;
+}
+
+div.mw-echo-content a:hover {
+	color: #c0c0c0;
+}
+
+div.mw-echo-overlay-footer {
+	border-top: 1px solid #080808;
+}
+
+.mw-echo-overlay .mw-echo-overlay-footer a.mw-echo-grey-link {
+	border-left: 1px solid #080808;
+}
+
+.mw-echo-overlay .mw-echo-overlay-footer a.mw-echo-grey-link:hover {
+	color: #c0c0c0;
+}
+
+div.mw-echo-overlay:before {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAALCAYAAACQy8Z9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTg0MzhBQTQzMDg4MTFFNDkzRDVDMjQ2NUVDQkQ0RTciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTg0MzhBQTUzMDg4MTFFNDkzRDVDMjQ2NUVDQkQ0RTciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpEMDM3RTVFMTMwODcxMUU0OTNENUMyNDY1RUNCRDRFNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpEMDM3RTVFMjMwODcxMUU0OTNENUMyNDY1RUNCRDRFNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqSuUc4AAACuSURBVHjaYmSgEPz//x9DjIlIvaJAXAelqQKcQA4SEBD4z8jICHJWFLpL0TFRBoqKiv5XUFD4LyEhgWEwNkOZCBi4F2ggAzc3N1iAg4ODQVxcnAFo8FJ0FxMTphgGwgAxBjOSYiAy+PHjB8PLly9B3o0A4pX4XEqUgWguXgHE4bgMJdpAQgbDvM8GFPwpIiJCtIE4gkISiF/AXJrMw8NDloEwF/Pz84OYmSACIMAA1uVUMrqncUgAAAAASUVORK5CYII=);
+}
+
+/************/
+/* MsUpload */
+/************/
+#upload_list .file .file-title {
+	color: #000000;
+}
+
+.check_span {
+	color: #1D1D1D;
+	float: right;
+}
+
+/*****************/
+/* Visual Editor */
+/*****************/
+.oo-ui-dialog .oo-ui-window-frame {
+	z-index: 10;
+}
+
+/* For elements which only display in the mobile view */
+.mobileonly {
+	display: none;
+}

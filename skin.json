@@ -9,8 +9,61 @@
 			"i18n"
 		]
 	},
+	"ResourceModules": {
+		"skins.hydra.styles": {
+			"position": "top",
+			"styles": {
+				"css/hydra.css": {
+					"media": "screen"
+				}
+			}
+		},
+		"skins.hydra.footer": {
+			"styles": {
+				"css/footer.css": {
+					"media": "screen"
+				}
+			},
+			"position": "top"
+		},
+		"skins.hydra.netbar": {
+			"styles": {
+				"css/netbar.css": {
+					"media": "screen"
+				}
+			},
+			"position": "top"
+		},
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Hydra"
+	},
 	"AutoloadClasses": {
 		"HydraTemplate": "HydraTemplate.php"
+	},
+	"Hooks": {
+		"SkinPreloadExistence": [
+			"HydraHooks::onSkinPreloadExistence"
+		],
+		"SkinTemplateOutputPageBeforeExec": [
+			"CurseExtension::onSkinTemplateOutputPageBeforeExec"
+		],
+		"OutputPageBodyAttributes": [
+			"CurseExtension::onOutputPageBodyAttributes"
+		],
+		"SkinVectorStyleModules": [
+			"CurseExtension::onSkinVectorStyleModules"
+		],
+		"GetPreferences": [
+			"CurseExtension::onGetPreferences"
+		],
+		"CanIPUseHTTPS": [
+			"CurseExtension::onCanIPUseHTTPS"
+		],
+		"ParserFirstCallInit": [
+			"CurseExtension::onParserFirstCallInit"
+		]
 	},
 	"manifest_version": 1
 }
