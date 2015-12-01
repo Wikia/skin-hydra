@@ -46,7 +46,8 @@
 		"remoteSkinPath": "Hydra"
 	},
 	"AutoloadClasses": {
-		"HydraTemplate": "HydraTemplate.php"
+		"HydraTemplate": "HydraTemplate.php",
+		"HydraHooks": "HydraHooks.php"
 	},
 	"Hooks": {
 		"SkinPreloadExistence": [
