@@ -4,6 +4,12 @@
 	"namemsg": "skinname-hydra",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
+	"ConfigRegistry": {
+		"vector": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"HydraSkinUseDark": false
+	},
 	"MessagesDirs": {
 		"Hydra": [
 			"i18n"

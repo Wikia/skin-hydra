@@ -42,9 +42,16 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinPreloadExistence(array &$titles, Skin $skin) {
-		$skin->skinname = 'hydra';
-		$skin->stylename = 'Hydra';
-		$skin->template = 'HydraTemplate';
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		if ($config->get('HydraSkinUseDark')) {
+			$skin->skinname = 'hydradark';
+			$skin->stylename = 'HydraDark';
+			$skin->template = 'HydraTemplate';
+		} else {
+			$skin->skinname = 'hydra';
+			$skin->stylename = 'Hydra';
+			$skin->template = 'HydraTemplate';
+		}
 		return true;
 	}
 
