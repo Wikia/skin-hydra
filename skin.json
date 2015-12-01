@@ -1,0 +1,16 @@
+{
+	"name": "Hydra",
+	"descriptionmsg": "hydra-skin-desc",
+	"namemsg": "skinname-hydra",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
+	"MessagesDirs": {
+		"Hydra": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"HydraTemplate": "HydraTemplate.php"
+	},
+	"manifest_version": 1
+}
