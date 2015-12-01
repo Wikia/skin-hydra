@@ -5,7 +5,7 @@
 	"license-name": "GPL-2.0+",
 	"type": "skin",
 	"ConfigRegistry": {
-		"vector": "GlobalVarConfig::newInstance"
+		"hydraskin": "GlobalVarConfig::newInstance"
 	},
 	"config": {
 		"HydraSkinUseDark": false
