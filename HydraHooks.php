@@ -76,13 +76,13 @@ class HydraHooks {
 						str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
 			);
 			if (!self::isMobileSkin($template->getSkin())) {
-				$netbar = CurseSkinPartials::get('netbar', ['skin' => $template]);
+				$netbar = self::getPartial('netbar', ['skin' => $template]);
 				$template->set('headelement', $template->data['headelement'].$netbar);
 			}
 		}
 		if (isset($template->data['bottomscripts'])) {
 			if (!self::isMobileSkin($template->getSkin())) {
-				$footer = CurseSkinPartials::get(
+				$footer = self::getPartial(
 					'footer',
 					[
 						'skin'			=> $template->getSkin(),
@@ -125,5 +125,88 @@ class HydraHooks {
 	 */
 	static public function isMobileSkin(Skin $skin) {
 		return $skin->getSkinName() == 'minerva';
+	}
+
+	/**
+	 * Gets the contents of a partial file
+	 *
+	 * @param	string	the name (without extension) of a file in the partials folder
+	 * @param	array	var_name -> value map of variables that should be available in the scope of the partial
+	 * @return	string	the output of the specified partial
+	 */
+	public static function getPartial($__p, $__v) {
+		$file = __DIR__."/partials/$__p.php";
+		if (!file_exists($file)) {
+			throw new MWException("Partial not found");
+		}
+		extract($__v, EXTR_SKIP);
+		ob_start();
+		require_once($file);
+		return ob_get_clean();
+	}
+
+	/**
+	 * Should this page show advertisements?
+	 *
+	 * @access	public
+	 * @param	object	Skin
+	 * @return	boolean	Advertisements Visible
+	 */
+	static public function showAds($skin) {
+		global $wgUser;
+
+		$showAds = false;
+		if (!$wgUser->curse_premium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
+			$showAds = true;
+		}
+		return $showAds;
+	}
+
+	/**
+	 * Should this page show the ATF MREC Advertisement?
+	 *
+	 * @access	public
+	 * @param	object	Skin
+	 * @return	boolean	Show ATF MREC Advertisement
+	 */
+	static public function showAtfMrecAd($skin) {
+		global $wgDisplayMREC, $wgPagesWithNoAtfMrec;
+
+		$disallowedNamespaces = [
+			NS_USER,
+			NS_USER_TALK,
+			NS_MEDIAWIKI,
+			NS_MEDIAWIKI_TALK
+		];
+
+		$show = false;
+
+		$title = $skin->getTitle();
+		if (
+			$wgDisplayMREC
+			&& self::showAds()
+			&& !in_array($title->getNamespace(), $disallowedNamespaces)
+			&& $title->getText() != str_replace("_", " ", wfMessage('mainpage')->inContentLanguage()->text())
+			&& (!is_array($wgPagesWithNoAtfMrec) || !in_array($title->getFullText(), $wgPagesWithNoAtfMrec))
+			&& (!is_array($skin->getOutput()->getModules()) || !in_array('ext.curseprofile.profilepage', $skin->getOutput()->getModules()))
+		) {
+			$show = true;
+		}
+		return $show;
+	}
+
+	/**
+	 * Return an advertisement by slot name.
+	 *
+	 * @access	public
+	 * @return	void
+	 */
+	static function getAdBySlot($slot) {
+		global $curseAdvertisements;
+
+		if (is_array($curseAdvertisements) && array_key_exists($slot, $curseAdvertisements) && !empty($curseAdvertisements[$slot])) {
+			return $curseAdvertisements[$slot];
+		}
+		return false;
 	}
 }
