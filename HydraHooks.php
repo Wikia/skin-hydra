@@ -119,7 +119,7 @@ class HydraHooks {
 		if (empty($bodyName)) {
 			$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
 			$parts = explode('.', $info['host']);
-			array_pop($part); //Remove the TLD.
+			array_pop($parts); //Remove the TLD.
 			$bodyName = implode('-', $parts);
 		}
 
