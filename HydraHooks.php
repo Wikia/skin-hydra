@@ -111,10 +111,17 @@ class HydraHooks {
 	 * @param	array	Array of body attributes.  Example: array('class' => 'lovely');  Attributes should be concatenated to prevent overwriting.
 	 * @return	boolean True
 	 */
-	static public function onOutputPageBodyAttributes($out, $sk, &$bodyAttrs){
+	static public function onOutputPageBodyAttributes($out, $skin, &$bodyAttrs){
 		global $curseBodyName;
 
 		$bodyAttrs['class'] .= ' site-'.$curseBodyName;
+		//Add body class for advertisements.
+		if (self::showAds($skin) && self::getAdBySlot('footermrec')) {
+			$bodyAttrs['class'] .= ' show-ads';
+		} else {
+			$bodyAttrs['class'] .= ' hide-ads';
+		}
+
 		return true;
 	}
 
