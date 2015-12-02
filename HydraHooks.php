@@ -112,10 +112,21 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onOutputPageBodyAttributes($out, $skin, &$bodyAttrs){
-		global $curseBodyName;
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
-		$bodyAttrs['class'] .= ' site-'.$curseBodyName;
-		//Add body class for advertisements.
+		$bodyName = $config->get('HydraSkinBodyName');
+
+		if (empty($bodyName)) {
+			$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
+			$parts = explode('.', $info['host']);
+			array_pop($part); //Remove the TLD.
+			$bodyName = implode('-', $parts);
+		}
+
+		//Add body class for advertisement targetting.
+		$bodyAttrs['class'] .= ' site-'.$bodyName;
+
+		//Add body class for advertisement toggling.
 		if (self::showAds($skin) && self::getAdBySlot('footermrec')) {
 			$bodyAttrs['class'] .= ' show-ads';
 		} else {

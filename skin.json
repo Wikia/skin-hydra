@@ -8,7 +8,10 @@
 		"hydraskin": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"HydraSkinUseDark": false
+		"HydraSkinUseDark": false,
+		"HydraSkinBodyName": "",
+		"HydraSkinDisclaimer": "",
+		"HydraSkinExtraAnalytics": ""
 	},
 	"MessagesDirs": {
 		"Hydra": [
