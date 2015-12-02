@@ -12,11 +12,11 @@ html body #global-wrapper {
 	clear: both;
 	min-height: 100%;
 	height: auto !important;
-	margin-bottom: -292px;
+	margin-bottom: -156px;
 }
 
 html body #global-wrapper #footer-push {
-	height: 292px;
+	height: 156px;
 }
 
 html body.hide-ads #global-wrapper {
