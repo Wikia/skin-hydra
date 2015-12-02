@@ -54,8 +54,8 @@ $showAds = HydraHooks::showAds($skin) && $wgDisplayFooterMREC && HydraHooks::get
 </footer>
 
 <?php
-global $curseGoogleAnalytics;
-echo $curseGoogleAnalytics;
+$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+echo $config->get('HydraSkinExtraAnalytics');
 ?>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>

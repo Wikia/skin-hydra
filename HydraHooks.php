@@ -65,12 +65,14 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
-		global $curseDisclaimer, $wgUser;
+		global $wgUser;
 
-		if (!isset($template->data) || !isset($template->data['headelement'])) {
+		if (!isset($template->data)) {
 			return true;
 		}
+
 		if (isset($template->data['headelement'])) {
+			//Custom Title Replacement
 			$template->set(
 						'headelement',
 						str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
@@ -80,6 +82,8 @@ class HydraHooks {
 				$template->set('headelement', $template->data['headelement'].$netbar);
 			}
 		}
+
+		//Add Footer
 		if (isset($template->data['bottomscripts'])) {
 			if (!self::isMobileSkin($template->getSkin())) {
 				$footer = self::getPartial(
@@ -94,8 +98,10 @@ class HydraHooks {
 		}
 
 		if ($template->data['copyright'] != '') {
+			$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+
 			$copyright = $template->data['copyright'];
-			$copyright = $copyright."  ".nl2br($curseDisclaimer);
+			$copyright = $copyright."  ".nl2br($config->get('HydraSkinDisclaimer'));
 			$template->set('copyright', $copyright);
 		}
 		
