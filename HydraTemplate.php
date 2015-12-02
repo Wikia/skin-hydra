@@ -179,7 +179,7 @@ class HydraTemplate extends VectorTemplate {
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 
 			<div id="mw-head">
-				<?php $this->renderNavigation( 'PERSONAL' ); ?>
+				<?php //$this->renderNavigation( 'PERSONAL' ); Remove for Hydra Skin as it is handled in the netbar. ?>
 				<div id="left-navigation">
 					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
 				</div>

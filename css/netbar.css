@@ -246,29 +246,6 @@ div#netbar ul.netbar-right > li::after {
 	background: #000;
 }
 
-div#netbar ul.netbar-right > li a:hover span.mw-echo-unread-notifications {
-	background: #f00101;
-}
-
-div#netbar ul.netbar-right > li a span.option-count {
-	display: none;
-}
-
-div#netbar ul.netbar-right > li a span.mw-echo-unread-notifications {
-	display: block;
-	position: absolute;
-	background: #d70101;
-	padding: 0 6px 0 5px;
-	color: #fff;
-	top: 5px;
-	right: 6px;
-	border-radius: 2px;
-	font-size: 8px;
-	text-indent: 0;
-	line-height: 10px;
-	z-index: 2;
-}
-
 div#netbar ul.netbar-right > li.reports a::after,div#netbar ul.netbar-right > li.notifications a::after {
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
@@ -527,6 +504,26 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out {
 
 div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 	background: #222;
+}
+
+/* Notifications */
+#netbar #pt-notifications-alert .mw-echo-notifications-badge, #netbar #pt-notifications-message .mw-echo-notifications-badge {
+	background-color: transparent;
+	background-position: 0.12em 0.6em;
+	height: auto;
+	margin-left: 0;
+}
+
+#netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a, #netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a.new {
+	color: #666666;
+}
+
+#netbar .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+	color: #555555;
+}
+
+#netbar .oo-ui-buttonElement-framed.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+	position: static;
 }
 
 @media screen and (max-width: 940px) {

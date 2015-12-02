@@ -30,11 +30,14 @@ if (array_key_exists('userpage', $personalTools)) {
 		<?php } ?>
 	</ul>
 	<ul class="netbar-right">
-		<?php if (!$wgUser->isAnon() && $personalTools['notifications']) { ?>
-			<li class="notifications" id="pt-notifications"><a href="<?= $personalTools['notifications']['links'][0]['href'] ?>" class="j-netbar-link">
-				<span class="option-count <?= implode(' ', $personalTools['notifications']['links'][0]['class']) ?>"><?= $personalTools['notifications']['links'][0]['text'] ?></span>
-			</a></li>
-		<?php } ?>
+		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
+			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);
+			unset($personalTools['notifications-alert']);
+		} ?>
+		<?php if (!$wgUser->isAnon() && $personalTools['notifications-message']) {
+			echo $skin->makeListItem('notifications-message', $personalTools['notifications-message']);
+			unset($personalTools['notifications-message']);
+		} ?>
 		<?php if ($wgUser->isAnon()) { ?>
 			<li><a href="<?= $personalTools['login']['links'][0]['href'] ?>" id="login-link"><?= wfMessage('netbar-signin')->text() ?></a></li>
 			<?php if ($wgUser->isAllowed( 'createaccount' )) { ?>
