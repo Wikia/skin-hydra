@@ -8,14 +8,14 @@
 	font-style: normal;
 }
 
-html body.show-ads #global-wrapper {
+html body #global-wrapper {
 	clear: both;
 	min-height: 100%;
 	height: auto !important;
 	margin-bottom: -292px;
 }
 
-html body.show-ads #global-wrapper #footer-push {
+html body #global-wrapper #footer-push {
 	height: 292px;
 }
 
