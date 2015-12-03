@@ -71,6 +71,9 @@ class HydraHooks {
 			return true;
 		}
 
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		$showAds = self::showAds();
+
 		if (isset($template->data['headelement'])) {
 			//Custom Title Replacement
 			$template->set(
@@ -83,8 +86,10 @@ class HydraHooks {
 			}
 		}
 
-		//Add Footer
 		if (isset($template->data['bottomscripts'])) {
+			global $wgWikiCategory;
+
+			//Add Footer
 			if (!self::isMobileSkin($template->getSkin())) {
 				$footer = self::getPartial(
 					'footer',
@@ -93,8 +98,27 @@ class HydraHooks {
 						'personalUrls'	=> $template->data['personal_urls']
 					]
 				);
+				$_bottomExtra .= $footer;
 				$template->set('bottomscripts', $template->data['bottomscripts'].$footer);
 			}
+
+			//"Javascript" Bottom Advertisement Stuff
+			if ($showAds && self::getAdBySlot('jsbot')) {
+				$_bottomExtra .= self::getAdBySlot('jsbot');
+			}
+
+			//Anchor Advertisement
+			if ($showAds && $config->get('HydraSkinShowAnchorAd') && self::getAdBySlot('anchorad') > 0) {
+				$_bottomExtra .= self::getAdBySlot('anchorad');
+			}
+
+			//Wiki Category Helper
+			$_bottomExtra .= "
+			<script type=\"text/javascript\">
+				window.genreCategory = '{$wgWikiCategory}';
+			</script>";
+
+			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
 
 		if ($template->data['copyright'] != '') {
@@ -104,7 +128,9 @@ class HydraHooks {
 			$copyright = $copyright."  ".nl2br($config->get('HydraSkinDisclaimer'));
 			$template->set('copyright', $copyright);
 		}
-		
+
+		$template->set('showads', $showAds);
+
 		return true;
 	}
 

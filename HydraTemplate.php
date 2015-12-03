@@ -107,6 +107,13 @@ class HydraTemplate extends VectorTemplate {
 			<?php
 			}
 			?>
+			<!-- ATF Leaderboard -->
+			<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atflb')) { ?>
+			<div class="atflb">
+				<?php echo HydraHooks::getAdBySlot('atflb'); ?>
+			</div>
+			<?php } ?>
+			<!-- /ATF Leaderboard -->
 			<?php
 			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
 				echo $this->getIndicators();
@@ -121,6 +128,13 @@ class HydraTemplate extends VectorTemplate {
 			} ?>
 			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
+				<!-- 300x250 Ad block -->
+				<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atfmrec')) { ?>
+				<div class="atfmrec">
+					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
+				</div>
+				<?php } ?>
+				<!-- End 300x250 Ad block -->
 				<?php
 				if ( $this->data['isarticle'] ) {
 					?>
@@ -174,6 +188,13 @@ class HydraTemplate extends VectorTemplate {
 				<div class="visualClear"></div>
 				<?php $this->html( 'debughtml' ); ?>
 			</div>
+			<!-- BTF Leaderboard -->
+			<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('btflb')) { ?>
+			<div class="atflb">
+				<?php echo HydraHooks::getAdBySlot('btflb'); ?>
+			</div>
+			<?php } ?>
+			<!-- /BTF Leaderboard -->
 		</div>
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
