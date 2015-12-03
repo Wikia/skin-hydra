@@ -74,6 +74,8 @@ class HydraHooks {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		$showAds = self::showAds($template->getSkin());
 
+		$template->getSkin()->getOutput()->addModules(['skins.hydra.styles']);
+
 		if (isset($template->data['headelement'])) {
 			//Custom Title Replacement
 			$template->set(
@@ -82,7 +84,7 @@ class HydraHooks {
 			);
 
 			//Main Advertisement Javascript
-			if (self::getAdBySlot('jstop') && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
+			if (!empty(self::getAdBySlot('jstop')) && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
 				$template->set('headelement', $template->data['headelement'].self::getAdBySlot('jstop'));
 			}
 
@@ -109,13 +111,13 @@ class HydraHooks {
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
-			if ($showAds && self::getAdBySlot('jsbot')) {
+			if ($showAds && !empty(self::getAdBySlot('jsbot'))) {
 				$_bottomExtra .= self::getAdBySlot('jsbot');
 			}
 
 			//Anchor Advertisement
-			if ($showAds && $config->get('HydraSkinShowAnchorAd') && self::getAdBySlot('anchorad') > 0) {
-				$_bottomExtra .= self::getAdBySlot('anchorad');
+			if ($showAds && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
+				$_bottomExtra .= self::getAdBySlot('anchor');
 			}
 
 			//Wiki Category Helper
