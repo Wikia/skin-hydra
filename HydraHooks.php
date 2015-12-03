@@ -80,6 +80,13 @@ class HydraHooks {
 						'headelement',
 						str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
 			);
+
+			//Main Advertisement Javascript
+			if (self::getAdBySlot('jstop') && $skin->getRequest()->getVal('action') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
+				$template->set('headelement', $template->data['headelement'].self::getAdBySlot('jstop'));
+			}
+
+			//Netbar
 			if (!self::isMobileSkin($template->getSkin())) {
 				$netbar = self::getPartial('netbar', ['skin' => $template]);
 				$template->set('headelement', $template->data['headelement'].$netbar);
