@@ -522,6 +522,11 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 	color: #555555;
 }
 
+#netbar #pt-notifications-alert .mw-echo-notifications-badge.mw-echo-unseen-notifications {
+	background-color: #d11813;
+	border-radius: 0;
+}
+
 #netbar .oo-ui-buttonElement-framed.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
 	position: static;
 }
