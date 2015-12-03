@@ -99,7 +99,6 @@ class HydraHooks {
 					]
 				);
 				$_bottomExtra .= $footer;
-				$template->set('bottomscripts', $template->data['bottomscripts'].$footer);
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
