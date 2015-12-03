@@ -82,7 +82,7 @@ class HydraHooks {
 			);
 
 			//Main Advertisement Javascript
-			if (self::getAdBySlot('jstop') && $skin->getRequest()->getVal('action') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
+			if (self::getAdBySlot('jstop') && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
 				$template->set('headelement', $template->data['headelement'].self::getAdBySlot('jstop'));
 			}
 
