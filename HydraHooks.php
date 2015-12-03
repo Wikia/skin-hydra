@@ -27,6 +27,7 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinVectorStyleModules($skin, &$styles) {
+		$styles[] = 'skins.hydra.styles';
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 
@@ -73,8 +74,6 @@ class HydraHooks {
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		$showAds = self::showAds($template->getSkin());
-
-		$template->getSkin()->getOutput()->addModules(['skins.hydra.styles']);
 
 		if (isset($template->data['headelement'])) {
 			//Custom Title Replacement
