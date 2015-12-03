@@ -27,7 +27,7 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinVectorStyleModules($skin, &$styles) {
-		$styles[] = 'skins.hydra.styles';
+		//$styles[] = 'skins.hydra.styles';
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 
