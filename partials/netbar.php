@@ -30,11 +30,11 @@ if (array_key_exists('userpage', $personalTools)) {
 		<?php } ?>
 	</ul>
 	<ul class="netbar-right">
-		<?php if (!$wgUser->isAnon()) {
+		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
 			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);
 			unset($personalTools['notifications-alert']);
 		} ?>
-		<?php if (!$wgUser->isAnon()) {
+		<?php if (!$wgUser->isAnon() && $personalTools['notifications-message']) {
 			echo $skin->makeListItem('notifications-message', $personalTools['notifications-message']);
 			unset($personalTools['notifications-message']);
 		} ?>
