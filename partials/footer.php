@@ -1,6 +1,7 @@
 <?php
-global $wgUser, $wgDisplayFooterMREC, $wgScriptPath;
-$showAds = HydraHooks::showAds($skin) && $wgDisplayFooterMREC && HydraHooks::getAdBySlot('footermrec') !== false;
+global $wgUser, $wgScriptPath;
+$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+$showAds = HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
 ?>
 <footer id="footer" role="complimentary" <?= $showAds ? '' : 'class="no-ads"' ?>>
 	<div class="footer-links">
@@ -54,7 +55,6 @@ $showAds = HydraHooks::showAds($skin) && $wgDisplayFooterMREC && HydraHooks::get
 </footer>
 
 <?php
-$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 echo $config->get('HydraSkinExtraAnalytics');
 ?>
 

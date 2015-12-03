@@ -12,7 +12,8 @@
 		"HydraSkinBodyName": "",
 		"HydraSkinDisclaimer": "",
 		"HydraSkinExtraAnalytics": "",
-		"HydraSkinShowAnchorAd": true
+		"HydraSkinShowAnchorAd": true,
+		"HydraSkinShowFooterAd": true
 	},
 	"MessagesDirs": {
 		"Hydra": [
