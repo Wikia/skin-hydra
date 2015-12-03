@@ -72,7 +72,7 @@ class HydraHooks {
 		}
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		$showAds = self::showAds();
+		$showAds = self::showAds($template->getSkin());
 
 		if (isset($template->data['headelement'])) {
 			//Custom Title Replacement
