@@ -8,7 +8,7 @@
 		"hydraskin": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"HydraSkinUseDark": false,
+		"HydraSkinUseDark": true,
 		"HydraSkinBodyName": "",
 		"HydraSkinDisclaimer": "",
 		"HydraSkinExtraAnalytics": "",
@@ -21,10 +21,18 @@
 		]
 	},
 	"ResourceModules": {
-		"skins.hydra.styles": {
+		"skins.z.hydra.light": {
 			"position": "top",
 			"styles": {
 				"css/hydra.css": {
+					"media": "screen"
+				}
+			}
+		},
+		"skins.z.hydra.dark": {
+			"position": "top",
+			"styles": {
+				"css/hydradark.css": {
 					"media": "screen"
 				}
 			}

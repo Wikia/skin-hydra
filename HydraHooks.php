@@ -27,7 +27,8 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinVectorStyleModules($skin, &$styles) {
-		$styles[] = 'skins.hydra.styles';
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		$styles[] = 'skins.z.hydra.'.($config->get('HydraSkinUseDark') ? 'dark' : 'light');
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 
