@@ -235,7 +235,7 @@ h4.mw-specialpagesgroup {
 }
 
 fieldset#mw-searchoptions {
-	background-color: #282828;
+	background-color: #282828 !important;
 	border-color: #383838 !important;
 }
 
