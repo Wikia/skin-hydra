@@ -19,7 +19,14 @@ if (!defined('MEDIAWIKI')) {
 
 class HydraHooks {
 	/**
-	 * Add Netbar CSS to page.
+	 * Currently in mobile view.
+	 *
+	 * @var boolean
+	 */
+	private static $isMobile = null;
+
+	/**
+	 * Add Hydra CSS modules to page.
 	 *
 	 * @access	public
 	 * @param	object	SkinTemplate Object
@@ -31,6 +38,21 @@ class HydraHooks {
 		$styles[] = 'skins.z.hydra.'.($config->get('HydraSkinUseDark') ? 'dark' : 'light');
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
+
+		return true;
+	}
+
+	/**
+	 * Add Hydra CSS modules to mobile page.
+	 *
+	 * @access	public
+	 * @param	object	SkinTemplate Object
+	 * @param	array	Array of modules to Modify
+	 * @return	boolean True
+	 */
+	static public function onSkinMinervaDefaultModules($skin, &$modules) {
+		//$modules[] = 'skins.hydra.netbar';
+		$modules[] = 'skins.hydra.footer';
 
 		return true;
 	}
@@ -95,8 +117,8 @@ class HydraHooks {
 				$template->set('headelement', $template->data['headelement'].self::getAdBySlot('jstop'));
 			}
 
-			//Netbar
-			if (!self::isMobileSkin($template->getSkin())) {
+			//Netbar on desktop only.
+			if (!self::isMobileSkin()) {
 				$netbar = self::getPartial('netbar', ['skin' => $template]);
 				$template->set('headelement', $template->data['headelement'].$netbar);
 			}
@@ -105,15 +127,30 @@ class HydraHooks {
 		if (isset($template->data['bottomscripts'])) {
 			global $wgWikiCategory;
 
-			//Add Footer
-			if (!self::isMobileSkin($template->getSkin())) {
-				$footer = self::getPartial(
-					'footer',
-					[
-						'skin'			=> $template->getSkin(),
-						'personalUrls'	=> $template->data['personal_urls']
-					]
-				);
+			$footerLinks = $template->data['footerlinks'];
+			//Add Footer to desktop and mobile.
+			$footer = self::getPartial(
+				'footer',
+				[
+					'skin'			=> $template->getSkin(),
+					'personalUrls'	=> $template->data['personal_urls']
+				]
+			);
+			if (self::isMobileSkin()) {
+				$template->set('privacy', null);
+
+				if (isset($footerLinks['places'])) {
+					foreach ($footerLinks['places'] as $key => $value) {
+						if ($value == 'privacy') {
+							unset($footerLinks['places'][$key]);
+							break;
+						}
+					}
+				}
+				$template->set('hydrafooter', $footer);
+				$footerLinks['hydra'][] = 'hydrafooter';
+				$template->set('footerlinks', $footerLinks);
+			} else {
 				$_bottomExtra .= $footer;
 			}
 
@@ -133,16 +170,20 @@ class HydraHooks {
 				window.genreCategory = '{$wgWikiCategory}';
 			</script>";
 
+			//Advertisements closer.
+			$_bottomExtra .= "<div id='cdm-zone-end'></div>";
+
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
 
-		if ($template->data['copyright'] != '') {
-			$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-
-			$copyright = $template->data['copyright'];
-			$copyright = $copyright."  ".nl2br($config->get('HydraSkinDisclaimer'));
-			$template->set('copyright', $copyright);
+		if (self::isMobileSkin()) {
+			$cpHolder = 'mobile-license';
+		} else {
+			$cpHolder = 'copyright';
 		}
+		$copyright = $template->data[$cpHolder];
+		$copyright = $copyright."<br/>".nl2br($config->get('HydraSkinDisclaimer'));
+		$template->set($cpHolder, $copyright);
 
 		$template->set('showads', $showAds);
 
@@ -185,13 +226,18 @@ class HydraHooks {
 
 	/**
 	 * The real check if we are using a mobile skin
-	 * @param Skin
-	 * @return boolean
+	 *
+	 * @access	public
+	 * @return	boolean
 	 */
-	static public function isMobileSkin(Skin $skin) {
+	static public function isMobileSkin() {
+		if (self::$isMobile !== null) {
+			return self::$isMobile;
+		}
 		if (class_exists('MobileContext')) {
 			$mobileContext = MobileContext::singleton();
-			return $mobileContext->shouldDisplayMobileView();
+			self::$isMobile = $mobileContext->shouldDisplayMobileView();
+			return self::$isMobile;
 		}
 		return false;
 	}

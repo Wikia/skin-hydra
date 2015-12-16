@@ -39,6 +39,25 @@ footer#footer {
 	position: relative;
 }
 
+
+.skin-minerva div#footer {
+	padding: 2em 0 0;
+}
+
+.skin-minerva footer#footer {
+	margin-top: 0;
+	padding: 0;
+}
+
+.skin-minerva #footer-hydra-hydrafooter {
+	padding: 0;
+}
+
+.skin-minerva footer#footer div.footer-links {
+	height: auto;
+	width: 100%;
+}
+
 footer#footer * {
 	box-sizing: border-box;
 }
@@ -222,7 +241,11 @@ footer#footer div.footer-links > ul {
 }
 
 footer#footer div.footer-links > ul li {
+	border: 0 none;
+	content: none;
+	font-size: inherit;
 	line-height: 30px;
+	padding: 0;
 }
 
 footer#footer div.footer-links > ul li a {

@@ -38,19 +38,23 @@
 			}
 		},
 		"skins.hydra.footer": {
-			"styles": {
-				"css/footer.css": {
-					"media": "screen"
-				}
-			},
+			"styles": [
+				"css/footer.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"position": "top"
 		},
 		"skins.hydra.netbar": {
-			"styles": {
-				"css/netbar.css": {
-					"media": "screen"
-				}
-			},
+			"styles": [
+				"css/netbar.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"position": "top"
 		}
 	},
@@ -74,6 +78,9 @@
 		],
 		"SkinVectorStyleModules": [
 			"HydraHooks::onSkinVectorStyleModules"
+		],
+		"SkinMinervaDefaultModules": [
+			"HydraHooks::onSkinMinervaDefaultModules"
 		]
 	},
 	"manifest_version": 1
