@@ -182,7 +182,11 @@ class HydraHooks {
 	 * @return boolean
 	 */
 	static public function isMobileSkin(Skin $skin) {
-		return $skin->getSkinName() == 'minerva';
+		if (class_exists('MobileContext')) {
+			$mobileContext = MobileContext::singleton();
+			return $mobileContext->shouldDisplayMobileView();
+		}
+		return false;
 	}
 
 	/**
