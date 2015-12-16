@@ -139,6 +139,11 @@ class HydraHooks {
 			if (self::isMobileSkin()) {
 				$template->set('privacy', null);
 
+				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
+					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
+					$footerLinks = array_merge(['ad' => ['footermrec']], $footerLinks);
+				}
+
 				if (isset($footerLinks['places'])) {
 					foreach ($footerLinks['places'] as $key => $value) {
 						if ($value == 'privacy') {

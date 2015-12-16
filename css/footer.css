@@ -199,6 +199,11 @@ footer#footer div.ad-placement {
 	border: 1px solid #585858;
 }
 
+.footer-ad #footermrec {
+	height: 250px !important;
+	width: 300px !important;
+}
+
 footer#footer a,footer#footer a:visited,footer#footer a:active,footer#footer a:hover {
 	text-decoration: none;
 	color: #c9c9c9;

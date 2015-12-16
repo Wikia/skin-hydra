@@ -1,7 +1,7 @@
 <?php
 global $wgUser, $wgScriptPath;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-$showAds = HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
+$showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
 ?>
 <footer id="footer" role="complimentary" <?= $showAds ? '' : 'class="no-ads"' ?>>
 	<div class="footer-links">
