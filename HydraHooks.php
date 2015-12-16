@@ -44,6 +44,13 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinPreloadExistence(array &$titles, Skin $skin) {
+		if (class_exists('MobileContext')) {
+			$mobileContext = MobileContext::singleton();
+			if ($mobileContext->shouldDisplayMobileView()) {
+				return true;
+			}
+		}
+
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		if ($config->get('HydraSkinUseDark')) {
 			$skin->skinname = 'hydradark';
