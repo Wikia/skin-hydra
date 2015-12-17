@@ -69,16 +69,16 @@ footer#footer ul {
 	padding: 0;
 }
 
-footer#footer.no-ads {
+footer#footer.hide-ads {
 	height: 155px;
 }
 
-footer#footer.no-ads div.footer-links {
+footer#footer.hide-ads div.footer-links {
 	padding: 20px 0;
 	text-align: center;
 }
 
-footer#footer.no-ads div.footer-links div.top a.curse {
+footer#footer.hide-ads div.footer-links div.top a.curse {
 	width: 214px;
 	height: 52px;
 	background: url(../images/footer/premium-logo-light.jpg);
@@ -88,28 +88,28 @@ footer#footer.no-ads div.footer-links div.top a.curse {
 	margin-right: 20px;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social {
+footer#footer.hide-ads div.footer-links div.top ul.social {
 	display: inline-block;
 	overflow: hidden;
 	position: relative;
 	top: -16px;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social::before {
+footer#footer.hide-ads div.footer-links div.top ul.social::before {
 	display: none;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li {
+footer#footer.hide-ads div.footer-links div.top ul.social li {
 	float: left;
 	padding: 0 15px;
 	border-right: 2px solid #3a3a3a;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li:last-child {
+footer#footer.hide-ads div.footer-links div.top ul.social li:last-child {
 	border-right: none;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a {
+footer#footer.hide-ads div.footer-links div.top ul.social li a {
 	display: block;
 	text-indent: -500px;
 	white-space: nowrap;
@@ -120,7 +120,7 @@ footer#footer.no-ads div.footer-links div.top ul.social li a {
 	line-height: 1;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a::after {
+footer#footer.hide-ads div.footer-links div.top ul.social li a::after {
 	position: absolute;
 	display: block;
 	top: 0;
@@ -133,23 +133,23 @@ footer#footer.no-ads div.footer-links div.top ul.social li a::after {
 	text-indent: 0;
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a.fb::after {
+footer#footer.hide-ads div.footer-links div.top ul.social li a.fb::after {
 	content: '\e603';
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a.tw::after {
+footer#footer.hide-ads div.footer-links div.top ul.social li a.tw::after {
 	content: '\ea91';
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a.yt::after {
+footer#footer.hide-ads div.footer-links div.top ul.social li a.yt::after {
 	content: '\ea97';
 }
 
-footer#footer.no-ads div.footer-links div.top ul.social li a.nl::after {
+footer#footer.hide-ads div.footer-links div.top ul.social li a.nl::after {
 	content: '\e601';
 }
 
-footer#footer.no-ads div.footer-links ul.links {
+footer#footer.hide-ads div.footer-links ul.links {
 	margin-right: 0;
 	-webkit-transform: translateY(0);
 	-moz-transform: translateY(0);
@@ -161,24 +161,24 @@ footer#footer.no-ads div.footer-links ul.links {
 	float: none;
 }
 
-footer#footer.no-ads div.footer-links ul.links li {
+footer#footer.hide-ads div.footer-links ul.links li {
 	float: left;
 	margin-right: 20px;
 }
 
-footer#footer.no-ads div.footer-links ul.links li:last-child {
+footer#footer.hide-ads div.footer-links ul.links li:last-child {
 	margin-right: 0;
 }
 
-footer#footer.no-ads div.footer-links ul.links li a {
+footer#footer.hide-ads div.footer-links ul.links li a {
 	padding-left: 0;
 }
 
-footer#footer.no-ads div.footer-links ul.links li a::before {
+footer#footer.hide-ads div.footer-links ul.links li a::before {
 	display: none;
 }
 
-footer#footer.no-ads div.footer-links span.copyright {
+footer#footer.hide-ads div.footer-links span.copyright {
 	margin-left: 0;
 	bottom: 20px;
 }
@@ -339,28 +339,28 @@ footer#footer div.footer-links span.copyright {
 }
 
 @media screen and (max-width: 1020px) {
-body.hide-ads footer#footer {
+footer#footer.hide-ads {
 	width: 100%;
 	height: auto;
 }
 
-body.hide-ads footer#footer div.footer-links {
+footer#footer.hide-ads div.footer-links {
 	width: 100%;
 	overflow: hidden;
 }
 
-body.hide-ads footer#footer div.footer-links div.top a.curse {
+footer#footer.hide-ads div.footer-links div.top a.curse {
 	display: block;
 	margin-right: 0;
 	margin: 0 auto;
 }
 
-body.hide-ads footer#footer div.footer-links div.top ul.social {
+footer#footer.hide-ads div.footer-links div.top ul.social {
 	top: 0;
 	margin: 20px 0 10px;
 }
 
-body.hide-ads footer#footer div.footer-links ul.links {
+footer#footer.hide-ads div.footer-links ul.links {
 	top: 0;
 	-webkit-transform: translateX(-50%);
 	-moz-transform: translateX(-50%);
@@ -374,12 +374,12 @@ body.hide-ads footer#footer div.footer-links ul.links {
 	margin-bottom: 10px;
 }
 
-body.hide-ads footer#footer div.footer-links ul.links li {
+footer#footer.hide-ads div.footer-links ul.links li {
 	display: inline-block;
 	float: none;
 }
 
-body.hide-ads footer#footer div.footer-links span.copyright {
+footer#footer.hide-ads div.footer-links span.copyright {
 	width: 100%;
 	position: inherit;
 	float: left;
