@@ -391,14 +391,14 @@ body.hide-ads footer#footer div.footer-links span.copyright {
 	transform: translateX(0);
 }
 
-body.show-ads footer#footer {
+footer#footer.show-ads {
 	width: 100%;
 	padding-top: 18.25rem;
 	padding-bottom: 1.25rem;
 	height: auto;
 }
 
-body.show-ads footer#footer div.ad-placement {
+footer#footer.show-ads div.ad-placement {
 	top: 20px;
 	-webkit-transform: translateX(-50%);
 	-moz-transform: translateX(-50%);
@@ -409,13 +409,13 @@ body.show-ads footer#footer div.ad-placement {
 	margin-left: 0;
 }
 
-body.show-ads footer#footer div.footer-links {
+footer#footer.show-ads div.footer-links {
 	padding: 0;
 	width: 100%;
 	overflow: hidden;
 }
 
-body.show-ads footer#footer div.footer-links a.curse {
+footer#footer.show-ads div.footer-links a.curse {
 	-webkit-transform: translate(-50%,0);
 	-moz-transform: translate(-50%,0);
 	-ms-transform: translate(-50%,0);
@@ -426,7 +426,7 @@ body.show-ads footer#footer div.footer-links a.curse {
 	margin-right: 0;
 }
 
-body.show-ads footer#footer div.footer-links ul {
+footer#footer.show-ads div.footer-links ul {
 	overflow: hidden;
 	margin-right: 0;
 	-webkit-transform: translate(-50%,0);
@@ -442,29 +442,29 @@ body.show-ads footer#footer div.footer-links ul {
 	text-align: center;
 }
 
-body.show-ads footer#footer div.footer-links ul:last-of-type {
+footer#footer.show-ads div.footer-links ul:last-of-type {
 	margin-right: 0;
 }
 
-body.show-ads footer#footer div.footer-links ul li {
+footer#footer.show-ads div.footer-links ul li {
 	float: none;
 	margin-right: 1.5625rem;
 	display: inline;
 }
 
-body.show-ads footer#footer div.footer-links ul li:last-child {
+footer#footer.show-ads div.footer-links ul li:last-child {
 	margin-right: 0;
 }
 
-body.show-ads footer#footer div.footer-links ul li a {
+footer#footer.show-ads div.footer-links ul li a {
 	padding-left: 0;
 }
 
-body.show-ads footer#footer div.footer-links ul li a::before {
+footer#footer.show-ads div.footer-links ul li a::before {
 	display: none;
 }
 
-body.show-ads footer#footer div.footer-links span.copyright {
+footer#footer.show-ads div.footer-links span.copyright {
 	width: 100%;
 	position: inherit;
 	float: left;
