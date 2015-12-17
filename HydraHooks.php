@@ -113,9 +113,17 @@ class HydraHooks {
 			);
 
 			//Main Advertisement Javascript
-			if (!empty(self::getAdBySlot('jstop')) && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
-				$template->set('headelement', $template->data['headelement'].self::getAdBySlot('jstop'));
+			$jstop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+			if (!empty(self::getAdBySlot($jstop)) && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
+				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jstop));
 			}
+
+			-    mw.loader.using('mobile.toggle').then(function() {
+			-        if (window.mobileatfmrec && window.mobileatfmrec.length) {
+			-            $('div#footer').append($('<div>').addClass('mobilebtfmrec').append($("<div>").attr("id", "cdm-zone-03")));
+			-            $('body').append($("<div>").attr("id", "cdm-zone-end"));
+			-        }
+			-    });
 
 			//Netbar on desktop only.
 			if (!self::isMobileSkin()) {
