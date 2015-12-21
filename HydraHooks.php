@@ -118,13 +118,6 @@ class HydraHooks {
 				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jstop));
 			}
 
-			-    mw.loader.using('mobile.toggle').then(function() {
-			-        if (window.mobileatfmrec && window.mobileatfmrec.length) {
-			-            $('div#footer').append($('<div>').addClass('mobilebtfmrec').append($("<div>").attr("id", "cdm-zone-03")));
-			-            $('body').append($("<div>").attr("id", "cdm-zone-end"));
-			-        }
-			-    });
-
 			//Netbar on desktop only.
 			if (!self::isMobileSkin()) {
 				$netbar = self::getPartial('netbar', ['skin' => $template]);
