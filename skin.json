@@ -56,6 +56,16 @@
 				"mobile"
 			],
 			"position": "top"
+		},
+		"skins.hydra.advertisements": {
+			"styles": [
+				"css/advertisements.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"position": "top"
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -81,6 +91,9 @@
 		],
 		"SkinMinervaDefaultModules": [
 			"HydraHooks::onSkinMinervaDefaultModules"
+		],
+		"MinervaPreRender": [
+			"HydraHooks::onMinervaPreRender"
 		]
 	},
 	"manifest_version": 1

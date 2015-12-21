@@ -38,6 +38,7 @@ class HydraHooks {
 		$styles[] = 'skins.z.hydra.'.($config->get('HydraSkinUseDark') ? 'dark' : 'light');
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
+		$styles[] = 'skins.hydra.advertisements';
 
 		return true;
 	}
@@ -52,6 +53,7 @@ class HydraHooks {
 	 */
 	static public function onSkinMinervaDefaultModules($skin, &$modules) {
 		//$modules[] = 'skins.hydra.netbar';
+		$modules[] = 'skins.hydra.advertisements';
 		$modules[] = 'skins.hydra.footer';
 
 		return true;
@@ -194,6 +196,19 @@ class HydraHooks {
 		$template->set('showads', $showAds);
 
 		return true;
+	}
+
+	/**
+	 * Add in the mobile ATF MREC.
+	 *
+	 * @access	public
+	 * @param	object	SkinTemplate Object
+	 * @return	void
+	 */
+	static public function onMinervaPreRender($template) {
+		if (self::isMobileSkin() && self::getAdBySlot('mobileatfmrec')) {
+			$template->set('bodytext', "<div id='mobileatfmrec' class='atfmrec'>".self::getAdBySlot('mobileatfmrec')."</div>".$template->data['bodytext']);
+		}
 	}
 
 	/**

@@ -1,0 +1,42 @@
+/***********************/
+/* Advertisement Slots */
+/***********************/
+.atfmrec, .btfmrec, .footer-ad #footermrec {
+	height: 250px !important;
+	width: 300px !important;
+}
+
+.atfmrec {
+	border: none !important;
+	float: right;
+	margin: 15px 0 2em 1em;
+}
+
+.atflb, .btflb {
+	display: block;
+	height: 90px !important;
+	margin: 0 auto;
+	padding: 5px 0;
+	width: 728px !important;
+}
+
+.atflb > iframe, .btflb > iframe {
+	display: block;
+	height: 90px !important;
+	margin: 0 auto;
+	padding: 0;
+	width: 728px !important;
+}
+
+.btflb {
+	clear: both;
+}
+
+.atflb > div {
+	margin: 0 auto;
+}
+
+#mobileatfmrec, #footermrec {
+	float: none;
+	margin: 0 auto;
+}
