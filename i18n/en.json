@@ -3,7 +3,7 @@
 		"authors": []
 	},
 	"skinname-hydra": "Hydra",
-	"hydra-skin-desc": "Modern version of MonoBook with fresh look and many usability improvements",
+	"hydra-skin-desc": "Hydra Platform wiki skin, provides overrides and hooks into the standard Vector skin.",
 	"hydra.css": "/* CSS placed here will affect users of the Hydra skin */",
 	"hydra.js": "/* Any JavaScript here will be loaded for users using the Hydra skin */"
 }
