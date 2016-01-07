@@ -129,7 +129,7 @@ class HydraTemplate extends VectorTemplate {
 			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
 				<!-- 300x250 Ad block -->
-				<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atfmrec')) { ?>
+				<?php if ($this->data['showads'] && HydraHooks::showAtfMrecAd($this->getSkin()) && HydraHooks::getAdBySlot('atfmrec')) { ?>
 				<div class="atfmrec">
 					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
 				</div>

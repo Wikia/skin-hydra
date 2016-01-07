@@ -13,7 +13,9 @@
 		"HydraSkinDisclaimer": "",
 		"HydraSkinExtraAnalytics": "",
 		"HydraSkinShowAnchorAd": true,
-		"HydraSkinShowFooterAd": true
+		"HydraSkinShowFooterAd": true,
+		"HydraSkinDisplayAtfMrec": true,
+		"HydraSkinSkipAtfMrecPages": true
 	},
 	"MessagesDirs": {
 		"Hydra": [

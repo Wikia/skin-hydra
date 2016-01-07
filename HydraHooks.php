@@ -306,7 +306,9 @@ class HydraHooks {
 	 * @return	boolean	Show ATF MREC Advertisement
 	 */
 	static public function showAtfMrecAd($skin) {
-		global $wgDisplayMREC, $wgPagesWithNoAtfMrec;
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+
+		$wgHydraSkinSkipAtfMrecPages = $config->get('HydraSkinSkipAtfMrecPages');
 
 		$disallowedNamespaces = [
 			NS_USER,
@@ -319,11 +321,11 @@ class HydraHooks {
 
 		$title = $skin->getTitle();
 		if (
-			$wgDisplayMREC
+			$config->get('HydraSkinDisplayAtfMrec')
 			&& self::showAds()
 			&& !in_array($title->getNamespace(), $disallowedNamespaces)
 			&& $title->getText() != str_replace("_", " ", wfMessage('mainpage')->inContentLanguage()->text())
-			&& (!is_array($wgPagesWithNoAtfMrec) || !in_array($title->getFullText(), $wgPagesWithNoAtfMrec))
+			&& (!is_array($wgHydraSkinSkipAtfMrecPages) || !in_array($title->getFullText(), $wgHydraSkinSkipAtfMrecPages))
 			&& (!is_array($skin->getOutput()->getModules()) || !in_array('ext.curseprofile.profilepage', $skin->getOutput()->getModules()))
 		) {
 			$show = true;
