@@ -39,19 +39,6 @@
 				"skins.vector.js"
 			]
 		},
-		"skins.z.hydra.dark": {
-			"position": "top",
-			"styles": {
-				"css/hydradark.css": {
-					"media": "screen"
-				}
-			},
-			"dependencies": [
-				"skins.vector.styles",
-				"skins.vector.styles.responsive",
-				"skins.vector.js"
-			]
-		},
 		"skins.hydra.footer": {
 			"styles": [
 				"css/footer.css"
@@ -85,29 +72,29 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"hydra": {
-			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
+			"jquery.tipsy": "../Vector/skinStyles/jquery.tipsy.less",
 			"jquery.ui.core": [
-				"skinStyles/jquery.ui/jquery.ui.core.css",
-				"skinStyles/jquery.ui/jquery.ui.theme.css"
+				"../Vector/skinStyles/jquery.ui/jquery.ui.core.css",
+				"../Vector/skinStyles/jquery.ui/jquery.ui.theme.css"
 			],
-			"jquery.ui.accordion": "skinStyles/jquery.ui/jquery.ui.accordion.css",
-			"jquery.ui.autocomplete": "skinStyles/jquery.ui/jquery.ui.autocomplete.css",
-			"jquery.ui.button": "skinStyles/jquery.ui/jquery.ui.button.css",
-			"jquery.ui.datepicker": "skinStyles/jquery.ui/jquery.ui.datepicker.css",
-			"jquery.ui.dialog": "skinStyles/jquery.ui/jquery.ui.dialog.css",
-			"jquery.ui.menu": "skinStyles/jquery.ui/jquery.ui.menu.css",
-			"jquery.ui.progressbar": "skinStyles/jquery.ui/jquery.ui.progressbar.css",
-			"jquery.ui.resizable": "skinStyles/jquery.ui/jquery.ui.resizable.css",
-			"jquery.ui.selectable": "skinStyles/jquery.ui/jquery.ui.selectable.css",
-			"jquery.ui.slider": "skinStyles/jquery.ui/jquery.ui.slider.css",
-			"jquery.ui.spinner": "skinStyles/jquery.ui/jquery.ui.spinner.css",
-			"jquery.ui.tabs": "skinStyles/jquery.ui/jquery.ui.tabs.css",
-			"jquery.ui.tooltips": "skinStyles/jquery.ui/jquery.ui.tooltips.css",
-			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
-			"+mediawiki.sectionAnchor": "skinStyles/mediawiki.sectionAnchor.less",
-			"ooui": "skinStyles/ooui.less",
-			"mediawiki.special": "skinStyles/mediawiki.special.less",
-			"mediawiki.special.preferences": "skinStyles/mediawiki.special.preferences.less"
+			"jquery.ui.accordion": "../Vector/skinStyles/jquery.ui/jquery.ui.accordion.css",
+			"jquery.ui.autocomplete": "../Vector/skinStyles/jquery.ui/jquery.ui.autocomplete.css",
+			"jquery.ui.button": "../Vector/skinStyles/jquery.ui/jquery.ui.button.css",
+			"jquery.ui.datepicker": "../Vector/skinStyles/jquery.ui/jquery.ui.datepicker.css",
+			"jquery.ui.dialog": "../Vector/skinStyles/jquery.ui/jquery.ui.dialog.css",
+			"jquery.ui.menu": "../Vector/skinStyles/jquery.ui/jquery.ui.menu.css",
+			"jquery.ui.progressbar": "../Vector/skinStyles/jquery.ui/jquery.ui.progressbar.css",
+			"jquery.ui.resizable": "../Vector/skinStyles/jquery.ui/jquery.ui.resizable.css",
+			"jquery.ui.selectable": "../Vector/skinStyles/jquery.ui/jquery.ui.selectable.css",
+			"jquery.ui.slider": "../Vector/skinStyles/jquery.ui/jquery.ui.slider.css",
+			"jquery.ui.spinner": "../Vector/skinStyles/jquery.ui/jquery.ui.spinner.css",
+			"jquery.ui.tabs": "../Vector/skinStyles/jquery.ui/jquery.ui.tabs.css",
+			"jquery.ui.tooltips": "../Vector/skinStyles/jquery.ui/jquery.ui.tooltips.css",
+			"+mediawiki.notification": "../Vector/skinStyles/mediawiki.notification.less",
+			"+mediawiki.sectionAnchor": "../Vector/skinStyles/mediawiki.sectionAnchor.less",
+			"ooui": "../Vector/skinStyles/ooui.less",
+			"mediawiki.special": "../Vector/skinStyles/mediawiki.special.less",
+			"mediawiki.special.preferences": "../Vector/skinStyles/mediawiki.special.preferences.less"
 		}
 	},
 	"ResourceFileModulePaths": {

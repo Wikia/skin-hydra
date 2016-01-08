@@ -22,7 +22,7 @@
  */
 
 /**
- * QuickTemplate class for Vector skin
+ * QuickTemplate class for Hydra skin
  * @ingroup Skins
  */
 class HydraTemplate extends VectorTemplate {
