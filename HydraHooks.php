@@ -75,6 +75,16 @@ class HydraHooks {
 			}
 		}
 
+		if ($skin instanceof SkinHydraDark) {
+			$skin->skinname = 'hydradark';
+			$skin->stylename = 'HydraDark';
+			$skin->template = 'HydraDarkTemplate';
+		} else {
+			$skin->skinname = 'hydra';
+			$skin->stylename = 'Hydra';
+			$skin->template = 'HydraTemplate';
+		}
+
 		return true;
 	}
 
