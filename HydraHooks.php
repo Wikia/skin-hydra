@@ -322,7 +322,7 @@ class HydraHooks {
 		$title = $skin->getTitle();
 		if (
 			$config->get('HydraSkinDisplayAtfMrec')
-			&& self::showAds()
+			&& self::showAds($skin)
 			&& !in_array($title->getNamespace(), $disallowedNamespaces)
 			&& $title->getText() != str_replace("_", " ", wfMessage('mainpage')->inContentLanguage()->text())
 			&& (!is_array($wgHydraSkinSkipAtfMrecPages) || !in_array($title->getFullText(), $wgHydraSkinSkipAtfMrecPages))
