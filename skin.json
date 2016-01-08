@@ -17,6 +17,9 @@
 		"HydraSkinDisplayAtfMrec": true,
 		"HydraSkinSkipAtfMrecPages": true
 	},
+	"ValidSkinNames": {
+		"hydra": "Hydra"
+	},
 	"MessagesDirs": {
 		"Hydra": [
 			"i18n"
@@ -29,7 +32,12 @@
 				"css/hydra.css": {
 					"media": "screen"
 				}
-			}
+			},
+			"dependencies": [
+				"skins.vector.styles",
+				"skins.vector.styles.responsive",
+				"skins.vector.js"
+			]
 		},
 		"skins.z.hydra.dark": {
 			"position": "top",
@@ -37,7 +45,12 @@
 				"css/hydradark.css": {
 					"media": "screen"
 				}
-			}
+			},
+			"dependencies": [
+				"skins.vector.styles",
+				"skins.vector.styles.responsive",
+				"skins.vector.js"
+			]
 		},
 		"skins.hydra.footer": {
 			"styles": [
@@ -103,7 +116,8 @@
 	},
 	"AutoloadClasses": {
 		"HydraTemplate": "HydraTemplate.php",
-		"HydraHooks": "HydraHooks.php"
+		"HydraHooks": "HydraHooks.php",
+		"SkinHydra": "SkinHydra.php"
 	},
 	"Hooks": {
 		"SkinPreloadExistence": [
