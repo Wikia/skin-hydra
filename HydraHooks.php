@@ -280,8 +280,10 @@ class HydraHooks {
 	static public function showAds($skin) {
 		global $wgUser;
 
+		$curseUser = CurseAuthUser::getInstance($wgUser);
+
 		$showAds = false;
-		if (!$wgUser->curse_premium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
+		if (!$curseUser->isPremium() && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
 			$showAds = true;
 		}
 		return $showAds;
