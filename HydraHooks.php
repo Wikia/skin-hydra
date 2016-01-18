@@ -94,7 +94,7 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
-		global $wgUser;
+		global $wgUser, $wgRequest;
 
 		if (self::$beforeExecDone || !isset($template->data)) {
 			return true;
@@ -123,8 +123,11 @@ class HydraHooks {
 			}
 
 			//Show smart banner for iOS.
-			if (self::isMobileSkin()) {
-				//<meta name="apple-itunes-app" content="app-id=1063366145, affiliate-data=myAffiliateData, app-argument=myURL">
+			if (self::isMobileSkin() && !empty(self::getAdBySlot('iosappid'))) {
+				$template->set(
+							'headelement',
+							str_replace('</title>', '</title><meta name="apple-itunes-app" content="app-id='.self::getAdBySlot('iosappid').', app-argument='.htmlentities($wgRequest->getRequestURL).'">', $template->data['headelement'])
+				);
 			}
 		}
 
