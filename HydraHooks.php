@@ -26,6 +26,13 @@ class HydraHooks {
 	private static $isMobile = null;
 
 	/**
+	 * Already processed modifications.
+	 *
+	 * @var boolean
+	 */
+	private static $beforeExecDone = false;
+
+	/**
 	 * Add Hydra CSS modules to page.
 	 *
 	 * @access	public
@@ -89,7 +96,7 @@ class HydraHooks {
 	static public function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
 		global $wgUser;
 
-		if (!isset($template->data)) {
+		if (self::$beforeExecDone || !isset($template->data)) {
 			return true;
 		}
 
@@ -104,9 +111,9 @@ class HydraHooks {
 			);
 
 			//Main Advertisement Javascript
-			$jstop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
-			if (!empty(self::getAdBySlot($jstop)) && $template->getSkin()->getRequest()->getVal('action') != 'edit' && $template->getSkin()->getTitle()->getNamespace() != NS_SPECIAL) {
-				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jstop));
+			$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+			if (!empty(self::getAdBySlot($jsTop))) {
+				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
 			}
 
 			//Netbar on desktop only.
@@ -152,8 +159,9 @@ class HydraHooks {
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
-			if ($showAds && !empty(self::getAdBySlot('jsbot'))) {
-				$_bottomExtra .= self::getAdBySlot('jsbot');
+			$jsBottom = (self::isMobileSkin() ? 'mobile' : '').'jsbot';
+			if ($showAds && !empty(self::getAdBySlot($jsBottom))) {
+				$_bottomExtra .= self::getAdBySlot($jsBottom);
 			}
 
 			//Anchor Advertisement
@@ -183,6 +191,8 @@ class HydraHooks {
 		$template->set($cpHolder, $copyright);
 
 		$template->set('showads', $showAds);
+
+		self::$beforeExecDone = true;
 
 		return true;
 	}
