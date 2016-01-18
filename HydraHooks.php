@@ -225,9 +225,8 @@ class HydraHooks {
 		$bodyName = $config->get('HydraSkinBodyName');
 
 		if (empty($bodyName)) {
-			$groupMasterDomain = wfParseUrl($skin->getContext()->getConfig()->get('GroupMasterDomain'));
-			if (!empty($groupMasterDomain)) {
-				$info = wfParseUrl($groupMasterDomain);
+			if ($skin->getContext()->getConfig()->has('GroupMasterDomain') && !empty($skin->getContext()->getConfig()->get('GroupMasterDomain'))) {
+				$info = wfParseUrl($skin->getContext()->getConfig()->get('GroupMasterDomain'));
 			} else {
 				$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
 			}
