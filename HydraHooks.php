@@ -126,7 +126,7 @@ class HydraHooks {
 			if (self::isMobileSkin() && !empty(self::getAdBySlot('iosappid'))) {
 				$template->set(
 							'headelement',
-							str_replace('</title>', '</title><meta name="apple-itunes-app" content="app-id='.self::getAdBySlot('iosappid').', app-argument='.htmlentities($wgRequest->getRequestURL).'">', $template->data['headelement'])
+							str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=".self::getAdBySlot('iosappid').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
 		}
