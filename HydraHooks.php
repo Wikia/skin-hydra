@@ -121,6 +121,11 @@ class HydraHooks {
 				$netbar = self::getPartial('netbar', ['skin' => $template]);
 				$template->set('headelement', $template->data['headelement'].$netbar);
 			}
+
+			//Show smart banner for iOS.
+			if (self::isMobileSkin()) {
+				//<meta name="apple-itunes-app" content="app-id=1063366145, affiliate-data=myAffiliateData, app-argument=myURL">
+			}
 		}
 
 		if (isset($template->data['bottomscripts'])) {
