@@ -225,7 +225,12 @@ class HydraHooks {
 		$bodyName = $config->get('HydraSkinBodyName');
 
 		if (empty($bodyName)) {
-			$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
+			$groupMasterDomain = wfParseUrl($skin->getContext()->getConfig()->get('GroupMasterDomain'));
+			if (!empty($groupMasterDomain)) {
+				$info = wfParseUrl($groupMasterDomain);
+			} else {
+				$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
+			}
 			$parts = explode('.', $info['host']);
 			array_pop($parts); //Remove the TLD.
 			$bodyName = implode('-', $parts);
