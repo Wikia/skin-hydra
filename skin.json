@@ -67,6 +67,18 @@
 				"mobile"
 			],
 			"position": "top"
+		},
+		"skins.hydra.smartbanner": {
+			"styles": [
+				"css/smartbanner.css"
+			],
+			"scripts": [
+				"js/jquery.smartbanner.js"
+			],
+			"targets": [
+				"mobile"
+			],
+			"position": "top"
 		}
 	},
 	"ResourceModuleSkinStyles": {

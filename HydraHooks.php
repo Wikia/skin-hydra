@@ -61,6 +61,7 @@ class HydraHooks {
 		//$modules[] = 'skins.hydra.netbar';
 		$modules[] = 'skins.hydra.advertisements';
 		$modules[] = 'skins.hydra.footer';
+		$modules[] = 'skins.hydra.smartbanner';
 
 		return true;
 	}
@@ -127,6 +128,13 @@ class HydraHooks {
 				$template->set(
 							'headelement',
 							str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=".self::getAdBySlot('iosappid').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
+				);
+			}
+			//Show smart banner for Android.
+			if (self::isMobileSkin() && !empty(self::getAdBySlot('androidpackage'))) {
+				$template->set(
+							'headelement',
+							str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
 		}
