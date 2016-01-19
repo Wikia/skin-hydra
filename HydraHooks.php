@@ -140,37 +140,9 @@ class HydraHooks {
 							str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
-			if ($addSmartBanner) {
+			if ($addSmartBanner && !empty(self::getAdBySlot('mobilebannerjs'))) {
 				$outputPage = RequestContext::getMain()->getOutput();
-
-				$smartBannerJS = "
-				$.smartbanner({
-					title: null, // What the title of the app should be in the banner (defaults to <title>)
-					author: 'Curse Inc.,
-					price: 'FREE',
-					appStoreLanguage: 'us',
-					inAppStore: 'On the App Store',
-					inGooglePlay: 'In Google Play',
-					inAmazonAppStore: 'In the Amazon Appstore',
-					inWindowsStore: 'In the Windows Store',
-					GooglePlayParams: ".htmlentities($wgRequest->getRequestURL()).",
-					icon: null, // The URL of the icon (defaults to <meta name="apple-touch-icon">)
-					iconGloss: null, // Force gloss effect for iOS even for precomposed
-					url: null, // The URL for the button. Keep null if you want the button to link to the app store.
-					button: 'VIEW', // Text for the install button
-					force: null, // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
-					hideOnInstall: true, // Hide the banner after "VIEW" is clicked.
-					layer: false, // Display as overlay layer or slide down the page
-					iOSUniversalApp: true, // If the iOS App is a universal app for both iPad and iPhone, display Smart Banner to iPad users, too.      
-					appendToSelector: 'body', //Append the banner to a specific selector
-					onInstall: function() {
-						// alert('Click install');
-					},
-					onClose: function() {
-						// alert('Click close');
-					}
-				});";
-				$wrappedJS = ResourceLoader::makeInlineScript($smartBannerJS);
+				$wrappedJS = ResourceLoader::makeInlineScript(self::getAdBySlot('mobilebannerjs'));
 				$outputPage->addScript($wrappedScript);
 			}
 		}
