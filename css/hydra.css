@@ -54,6 +54,7 @@ div.postedit-container {
 	display: none;
 }
 
+/* Some custom CSS on Wiki's applies the drop down arrow here. Normally this has no background, so positioning shouldn't effect standard views. */
 div.vectorMenu {
 	background-repeat: no-repeat;
 	background-position: 100% 70%;
