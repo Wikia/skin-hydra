@@ -143,7 +143,7 @@ class HydraHooks {
 			if ($addSmartBanner && !empty(self::getAdBySlot('mobilebannerjs'))) {
 				$outputPage = RequestContext::getMain()->getOutput();
 				$wrappedJS = ResourceLoader::makeInlineScript(self::getAdBySlot('mobilebannerjs'));
-				$outputPage->addScript($wrappedScript);
+				$template->set('bottomscripts', $template->data['bottomscripts'].$wrappedJS);
 			}
 		}
 
