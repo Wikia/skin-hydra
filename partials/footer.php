@@ -12,8 +12,8 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 		<ul class="social">
 			<li><a href="https://www.facebook.com/CurseGamepedia" class="fb"><?= wfMessage('footer-Facebook')->text() ?></a></li>
 			<li><a href="https://twitter.com/CurseGamepedia" class="tw"><?= wfMessage('footer-Twitter')->text() ?></a></li>
-			<li><a href="https://www.youtube.com/CurseGP" class="yt"><?= wfMessage('footer-Youtube')->text() ?></a></li>
-			<li><a href="http://www.curse.com/newsletter" class="nl"><?= wfMessage('footer-Newsletter')->text() ?></a></li>
+			<li><a href="http://youtube.com/CurseEntertainment" class="yt"><?= wfMessage('footer-Youtube')->text() ?></a></li>
+			<li><a href="http://help.gamepedia.com/How_To_Contact_Gamepedia" class="nl"><?= wfMessage('footer-Newsletter')->text() ?></a></li>
 		</ul>
 		<?php if (!$showAds) { ?>
 			</div>
