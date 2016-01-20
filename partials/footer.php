@@ -79,11 +79,12 @@ if (!empty(HydraHooks::getAdBySlot('googleanalyticsid'))) {
 	m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 <?php
-	foreach ($tags as $tag) {
-		echo "ga('create', '{$tag}', 'auto');\n";
+	foreach ($tags as $index => $tag) {
+		$creates .= "ga('create', '{$tag}', 'auto', 'tracker{$index}');\n";
+		$sends .= "ga('tracker{$index}.send', 'pageview');\n";
 	}
+	echo $creates.$sends;
 ?>
-ga('send', 'pageview');
 </script>
 
 <?php
