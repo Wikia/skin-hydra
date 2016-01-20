@@ -55,7 +55,40 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 </footer>
 
 <?php
-echo $config->get('HydraSkinExtraAnalytics');
+if (!empty(HydraHooks::getAdBySlot('googleanalyticsid'))) {
+	$tags = explode("\n", HydraHooks::getAdBySlot('googleanalyticsid'));
+	$tags = array_map('trim', $tags);
+	foreach ($tags as $index => $tag) {
+		if (empty($tag)) {
+			unset($tags[$index]);
+		}
+	}
+	if (!empty($tags)) { ?>
+<script type="text/javascript">
+(function(i, s, o, g, r, a, m) {
+	i['GoogleAnalyticsObject'] = r;
+	i[r] = i[r] || function() {
+		(i[r].q = i[r].q || []).push(arguments)
+	}
+
+	, i[r].l = 1 * new Date();
+	a = s.createElement(o),
+		m = s.getElementsByTagName(o)[0];
+	a.async = 1;
+	a.src = g;
+	m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+<?php
+	foreach ($tags as $tag) {
+		echo "ga('create', '{$tag}', 'auto');\n";
+	}
+?>
+ga('send', 'pageview');
+</script>
+
+<?php
+	}
+}
 ?>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>
