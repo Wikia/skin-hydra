@@ -15,6 +15,11 @@ div.postedit-container {
 	top: 30px;
 }
 
+pre, .mw-code {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
 /*************/
 /* ReCaptcha */
 /*************/
