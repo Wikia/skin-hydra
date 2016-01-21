@@ -41,7 +41,10 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinVectorStyleModules($skin, &$styles) {
-		$styles[] = 'skins.z.hydra.'.($skin instanceof SkinHydraDark ? 'dark' : 'light');
+		if ($skin instanceof SkinHydraDark) {
+			$styles[] = 'skins.z.hydra.dark';
+		}
+		$styles[] = 'skins.z.hydra.light';
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 		$styles[] = 'skins.hydra.advertisements';
