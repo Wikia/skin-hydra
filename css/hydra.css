@@ -65,3 +65,7 @@ div.vectorMenu {
 	background-repeat: no-repeat;
 	background-position: 100% 70%;
 }
+
+.mw-body .mw-body-content h1 {
+	margin-top: 0;
+}
