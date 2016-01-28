@@ -65,8 +65,3 @@ div.vectorMenu {
 	background-repeat: no-repeat;
 	background-position: 100% 70%;
 }
-
-/* Vector is now applying a global 1em margin top to H1 tags. Lets remove that */
-.mw-body .mw-body-content h1 {
-	margin-top: 0;
-}
