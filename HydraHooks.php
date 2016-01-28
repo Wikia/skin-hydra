@@ -191,11 +191,6 @@ class HydraHooks {
 				$_bottomExtra .= self::getAdBySlot($jsBottom);
 			}
 
-			//Anchor Advertisement
-			if ($showAds && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
-				$_bottomExtra .= self::getAdBySlot('anchor');
-			}
-
 			//Wiki Category Helper
 			$_bottomExtra .= "
 			<script type=\"text/javascript\">
@@ -266,8 +261,14 @@ class HydraHooks {
 		//Add body class for advertisement targetting.
 		$bodyAttrs['class'] .= ' site-'.$bodyName;
 
+		$showAds = self::showAds($skin);
+		//Anchor Advertisement
+		if ($showAds && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
+			$bodyAttrs['data-site-identifier'] = self::getAdBySlot('anchor');
+		}
+
 		//Add body class for advertisement toggling.
-		if (self::showAds($skin) && self::getAdBySlot('footermrec')) {
+		if ($showAds && self::getAdBySlot('footermrec')) {
 			$bodyAttrs['class'] .= ' show-ads';
 		} else {
 			$bodyAttrs['class'] .= ' hide-ads';

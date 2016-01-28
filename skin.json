@@ -62,6 +62,9 @@
 			"styles": [
 				"css/advertisements.css"
 			],
+			"scripts": [
+				"js/anchorad.js"
+			],
 			"targets": [
 				"desktop",
 				"mobile"
