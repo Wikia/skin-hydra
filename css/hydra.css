@@ -7,7 +7,7 @@ body[aria-hidden] {
 }
 
 /* No no vector. Serif fonts are ugly. */
-.skin-hydra .mw-body h1, .skin-hydra .mw-body h2 {
+.mw-body h1, .mw-body h2 {
 	font-family: sans-serif;
 }
 
