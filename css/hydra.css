@@ -6,6 +6,11 @@ body[aria-hidden] {
 	position: static;
 }
 
+/* No no vector. Serif fonts are ugly. */
+.skin-hydra .mw-body h1, .skin-hydra .mw-body h2 {
+	font-family: sans-serif;
+}
+
 div.suggestions,html > body div.suggestions {
 	margin-top: -28px;
 }
@@ -66,7 +71,4 @@ div.vectorMenu {
 	background-position: 100% 70%;
 }
 
-/* No no vector. Serif fonts are ugly. */
-.skin-hydra .mw-body h1, .skin-hydra .mw-body h2 {
-	font-family: sans-serif;
-}
+
