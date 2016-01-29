@@ -67,6 +67,6 @@ div.vectorMenu {
 }
 
 /* No no vector. Serif fonts are ugly. */
-.mw-body h1, .mw-body h2 {
+.skin-hydra .mw-body h1, .skin-hydra .mw-body h2 {
 	font-family: sans-serif;
 }
