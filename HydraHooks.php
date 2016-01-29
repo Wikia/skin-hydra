@@ -48,6 +48,7 @@ class HydraHooks {
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 		$styles[] = 'skins.hydra.advertisements';
+		$skin->getOutput()->addModuleScripts('skins.hydra.advertisements');
 
 		return true;
 	}
