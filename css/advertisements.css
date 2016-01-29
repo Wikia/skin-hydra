@@ -40,3 +40,32 @@ div#mobileatfmrec, div#footermrec {
 	float: none;
 	margin: 0 auto;
 }
+
+.mobileatfmrec {
+	border-bottom: solid 1px #E2E3E4;
+	padding: 8px;
+	text-align: center;
+}
+
+.mobileatfmrec.noborder {
+	border: 0 none;
+}
+
+.mobileatflb {
+	position:fixed;
+	bottom:0;
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+	z-index:999999 !important;
+}
+
+.mobileInject {
+	margin: 0 auto !important;
+	text-align:center !important;
+	padding-bottom: 10px !important;
+}
+
+.mobilebtfmrec {
+	text-align: center;
+}
