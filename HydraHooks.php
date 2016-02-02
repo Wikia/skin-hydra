@@ -154,6 +154,8 @@ class HydraHooks {
 		if (isset($template->data['bottomscripts'])) {
 			global $wgWikiCategory;
 
+			$_bottomExtra = '';
+
 			$footerLinks = $template->data['footerlinks'];
 			//Add Footer to desktop and mobile.
 			$footer = self::getPartial(
