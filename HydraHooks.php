@@ -169,8 +169,10 @@ class HydraHooks {
 					'personalUrls'	=> $template->data['personal_urls']
 				]
 			);
+
+			$template->set('privacy', null);
+
 			if (self::isMobileSkin()) {
-				$template->set('privacy', null);
 
 				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
 					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
