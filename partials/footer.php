@@ -2,6 +2,7 @@
 global $wgUser, $wgScriptPath;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
+$curseUser = CurseAuthUser::getInstance($wgUser);
 ?>
 <footer id="footer" role="complimentary" <?= $showAds ? 'class="show-ads"' : 'class="hide-ads"' ?>>
 	<div class="footer-links">
@@ -28,7 +29,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 				<?php } ?>
 			<?php } else { ?>
 				<li><a href="<?= wfExpandUrl($wgScriptPath."/Special:Preferences"); ?>" class="account"><?= wfMessage('footer-My_Account')->text() ?></a></li>
-				<?php if ($wgUser->curse_premium) { ?>
+				<?php if ($curseUser->isPremium()) { ?>
 					<li><a href="http://www.curse.com/premium" class="premium"><?= wfMessage('footer-Premium')->text() ?></a></li>
 				<?php } else { ?>
 					<li><a href="http://www.curse.com/premium" class="premium"><?= wfMessage('footer-Get_Premium')->text() ?></a></li>
