@@ -101,6 +101,10 @@ class HydraHooks {
 	static public function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
 		global $wgUser, $wgRequest;
 
+		if (defined('MW_API') && MW_API === true) {
+			return true;
+		}
+
 		if (self::$beforeExecDone || !isset($template->data)) {
 			return true;
 		}
