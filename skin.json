@@ -58,10 +58,17 @@
 			],
 			"position": "top"
 		},
-		"skins.hydra.advertisements": {
+		"skins.hydra.advertisements.styles": {
 			"styles": [
 				"css/advertisements.css"
 			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"position": "top"
+		},
+		"skins.hydra.advertisements.js": {
 			"scripts": [
 				"js/anchorad.js"
 			],

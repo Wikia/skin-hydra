@@ -26,6 +26,13 @@ class HydraHooks {
 	private static $isMobile = null;
 
 	/**
+	 * Should Show Advertisements
+	 *
+	 * @var boolean
+	 */
+	private static $showAds = null;
+
+	/**
 	 * Already processed modifications.
 	 *
 	 * @var boolean
@@ -47,8 +54,10 @@ class HydraHooks {
 		$styles[] = 'skins.z.hydra.light';
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
-		$styles[] = 'skins.hydra.advertisements';
-		$skin->getOutput()->addModuleScripts('skins.hydra.advertisements');
+		$styles[] = 'skins.hydra.advertisements.styles';
+		if (self::showAds($skin)) {
+			$skin->getOutput()->addModuleScripts('skins.hydra.advertisements.js');
+		}
 
 		return true;
 	}
@@ -63,7 +72,7 @@ class HydraHooks {
 	 */
 	static public function onSkinMinervaDefaultModules($skin, &$modules) {
 		//$modules[] = 'skins.hydra.netbar';
-		$modules[] = 'skins.hydra.advertisements';
+		$modules[] = 'skins.hydra.advertisements.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
 
@@ -115,8 +124,8 @@ class HydraHooks {
 		if (isset($template->data['headelement'])) {
 			//Custom Title Replacement
 			$template->set(
-						'headelement',
-						str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
+				'headelement',
+				str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
 			);
 
 			//Main Advertisement Javascript
@@ -136,16 +145,16 @@ class HydraHooks {
 			if (self::isMobileSkin() && !empty(self::getAdBySlot('iosappid'))) {
 				$addSmartBanner = true;
 				$template->set(
-							'headelement',
-							str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=".self::getAdBySlot('iosappid').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
+					'headelement',
+					str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=".self::getAdBySlot('iosappid').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
 			//Show smart banner for Android.
 			if (self::isMobileSkin() && !empty(self::getAdBySlot('androidpackage'))) {
 				$addSmartBanner = true;
 				$template->set(
-							'headelement',
-							str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
+					'headelement',
+					str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
 			if ($addSmartBanner && !empty(self::getAdBySlot('mobilebannerjs'))) {
@@ -332,13 +341,19 @@ class HydraHooks {
 	static public function showAds($skin) {
 		global $wgUser;
 
+		if (self::$showAds !== null) {
+			return self::$showAds;
+		}
+
 		$curseUser = CurseAuthUser::getInstance($wgUser);
 
 		$showAds = false;
 		if (!$curseUser->isPremium() && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
 			$showAds = true;
 		}
-		return $showAds;
+		self::$showAds = $showAds;
+
+		return self::$showAds;
 	}
 
 	/**
