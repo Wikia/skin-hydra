@@ -38,6 +38,13 @@
 
 div#mobileatfmrec, div#footermrec {
 	float: none;
+}
+
+div#mobileatfmrec {
+	margin: 15px auto;
+}
+
+div#footermrec {
 	margin: 0 auto;
 }
 
