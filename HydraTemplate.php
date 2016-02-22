@@ -189,7 +189,7 @@ class HydraTemplate extends VectorTemplate {
 				<?php $this->html( 'debughtml' ); ?>
 			</div>
 			<!-- ZergNet -->
-			<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
+			<?php if (!$this->getUser()->isLoggedIn() && $this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
 			<div class="zergnet_container">
 				<?php echo HydraHooks::getAdBySlot('zergnet'); ?>
 			</div>
