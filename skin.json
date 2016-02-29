@@ -48,6 +48,17 @@
 			],
 			"position": "top"
 		},
+		"skins.hydra.footer.js": {
+			"scripts": [
+				"js/ResizeSensor.js",
+				"js/footer.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"position": "top"
+		},
 		"skins.hydra.netbar": {
 			"styles": [
 				"css/netbar.css"
