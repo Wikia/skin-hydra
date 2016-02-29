@@ -3,7 +3,6 @@
  *  Make sure its always below the nav panel.
  */
 (function(){
-
     $footer = $('footer');
     $nav = $('#mw-panel');
 

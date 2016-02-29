@@ -58,10 +58,7 @@ class HydraHooks {
 		if (self::showAds($skin)) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.advertisements.js');
 		}
-		if (!self::isMobileSkin()) {
-			// Load footer fix on non-mobile
-			$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
-		}
+		$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
 
 		return true;
 	}
