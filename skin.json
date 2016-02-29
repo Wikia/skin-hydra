@@ -54,8 +54,7 @@
 				"js/footer.js"
 			],
 			"targets": [
-				"desktop",
-				"mobile"
+				"desktop"
 			],
 			"position": "top"
 		},
