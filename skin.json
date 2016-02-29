@@ -78,7 +78,7 @@
 			],
 			"position": "top"
 		},
-		"skins.hydra.advertisements.js": {
+		"skins.hydra.anchorad.js": {
 			"scripts": [
 				"js/anchorad.js"
 			],

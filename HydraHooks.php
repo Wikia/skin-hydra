@@ -55,8 +55,10 @@ class HydraHooks {
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 		$styles[] = 'skins.hydra.advertisements.styles';
-		if (self::showAds($skin)) {
-			$skin->getOutput()->addModuleScripts('skins.hydra.advertisements.js');
+
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		if (self::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
+			$skin->getOutput()->addModuleScripts('skins.hydra.anchorad.js');
 		}
 		$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
 
@@ -402,7 +404,7 @@ class HydraHooks {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		$siteAdvertisements = $config->get('SiteAdvertisements');
 
-		if (is_array($siteAdvertisements) && array_key_exists($slot, $siteAdvertisements) && !empty($siteAdvertisements[$slot])) {
+		if (is_array($siteAdvertisements) && array_key_exists($slot, $siteAdvertisements) && !empty(trim($siteAdvertisements[$slot]))) {
 			return $siteAdvertisements[$slot];
 		}
 		return false;
