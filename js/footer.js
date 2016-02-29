@@ -3,11 +3,22 @@
  *  Make sure its always below the nav panel.
  */
 (function(){
+
+    $(".portal .body ul").each(function(){
+       for (var i = 1; i < 35; i++) {
+         $(this).append('<li id="t-garbage'+i+'"><a href="#">Garbage Link '+i+'</a></li>');
+       }
+    });
+
     $footer = $('footer');
     $nav = $('#mw-panel');
 
     // Rezise Listener - Using ResizeSensor.js
-    new ResizeSensor($nav[0],function(){
+    new ResizeSensor($nav[0],function(){ handleResizeEvents(); });
+
+    $( window ).resize(function(){ handleResizeEvents(); });
+
+    handleResizeEvents = function(){
 
         var navHeight = $nav.height() + $nav.position()['top'];
         var footerTop = $footer.position()['top'];
@@ -21,5 +32,5 @@
         } else {
             $footer.css('margin-top','0px');
         }
-    });
+    };
 }());
