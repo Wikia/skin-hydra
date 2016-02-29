@@ -4,12 +4,6 @@
  */
 (function(){
 
-    $(".portal .body ul").each(function(){
-       for (var i = 1; i < 35; i++) {
-         $(this).append('<li id="t-garbage'+i+'"><a href="#">Garbage Link '+i+'</a></li>');
-       }
-    });
-
     $footer = $('footer');
     $nav = $('#mw-panel');
 
