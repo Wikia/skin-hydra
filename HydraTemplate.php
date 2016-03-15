@@ -73,6 +73,7 @@ class HydraTemplate extends VectorTemplate {
 			}
 		}
 		$this->data['namespace_urls'] = $nav['namespaces'];
+		$this->data['sharing_urls'] = $nav['sharing'];
 		$this->data['view_urls'] = $nav['views'];
 		$this->data['action_urls'] = $nav['actions'];
 		$this->data['variant_urls'] = $nav['variants'];
@@ -209,7 +210,7 @@ class HydraTemplate extends VectorTemplate {
 			<div id="mw-head">
 				<?php //$this->renderNavigation( 'PERSONAL' ); Remove for Hydra Skin as it is handled in the netbar. ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
+					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS', 'SHARING' ) ); ?>
 				</div>
 				<div id="right-navigation">
 					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS', 'SEARCH' ) ); ?>
@@ -271,5 +272,239 @@ class HydraTemplate extends VectorTemplate {
 	</body>
 </html>
 <?php
+	}
+
+	/**
+	 * Render one or more navigations elements by name, automatically reveresed
+	 * when UI is in RTL mode
+	 *
+	 * @param array $elements
+	 */
+	protected function renderNavigation( $elements ) {
+		// If only one element was given, wrap it in an array, allowing more
+		// flexible arguments
+		if ( !is_array( $elements ) ) {
+			$elements = array( $elements );
+			// If there's a series of elements, reverse them when in RTL mode
+		} elseif ( $this->data['rtl'] ) {
+			$elements = array_reverse( $elements );
+		}
+		// Render elements
+		foreach ( $elements as $name => $element ) {
+			switch ( $element ) {
+				case 'NAMESPACES':
+					?>
+					<div id="p-namespaces" role="navigation" class="vectorTabs<?php
+					if ( count( $this->data['namespace_urls'] ) == 0 ) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label"><?php $this->msg( 'namespaces' ) ?></h3>
+						<ul<?php $this->html( 'userlangattributes' ) ?>>
+							<?php
+							foreach ( $this->data['namespace_urls'] as $link ) {
+								?>
+								<li <?php echo $link['attributes'] ?>><span><a href="<?php
+										echo htmlspecialchars( $link['href'] )
+										?>" <?php
+										echo $link['key'];
+										if ( isset ( $link['rel'] ) ) {
+											echo ' rel="' . htmlspecialchars( $link['rel'] ) . '"';
+										}
+										?>><?php
+											echo htmlspecialchars( $link['text'] )
+											?></a></span></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+					<?php
+					break;
+				case 'SHARING':
+					?>
+					<div id="p-sharing" role="navigation" class="vectorMenu<?php
+					if (empty($this->data['sharing_urls']['share'])) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-sharing-label">
+						<h3 id="p-sharing-label"><span><?php
+							echo $this->data['sharing_urls']['share']['text']
+						?></span><a href="#"></a></h3>
+						<div class="menu">
+							<?php echo $this->data['sharing_urls']['share']['html'] ?>
+						</div>
+					</div>
+					<?php
+					break;
+				case 'VARIANTS':
+					?>
+					<div id="p-variants" role="navigation" class="vectorMenu<?php
+					if ( count( $this->data['variant_urls'] ) == 0 ) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-variants-label">
+						<?php
+						// Replace the label with the name of currently chosen variant, if any
+						$variantLabel = $this->getMsg( 'variants' )->text();
+						foreach ( $this->data['variant_urls'] as $link ) {
+							if ( stripos( $link['attributes'], 'selected' ) !== false ) {
+								$variantLabel = $link['text'];
+								break;
+							}
+						}
+						?>
+						<h3 id="p-variants-label">
+							<span><?php echo htmlspecialchars( $variantLabel ) ?></span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+								<?php
+								foreach ( $this->data['variant_urls'] as $link ) {
+									?>
+									<li<?php echo $link['attributes'] ?>><a href="<?php
+										echo htmlspecialchars( $link['href'] )
+										?>" lang="<?php
+										echo htmlspecialchars( $link['lang'] )
+										?>" hreflang="<?php
+										echo htmlspecialchars( $link['hreflang'] )
+										?>" <?php
+										echo $link['key']
+										?>><?php
+											echo htmlspecialchars( $link['text'] )
+											?></a></li>
+								<?php
+								}
+								?>
+							</ul>
+						</div>
+					</div>
+					<?php
+					break;
+				case 'VIEWS':
+					?>
+					<div id="p-views" role="navigation" class="vectorTabs<?php
+					if ( count( $this->data['view_urls'] ) == 0 ) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-views-label">
+						<h3 id="p-views-label"><?php $this->msg( 'views' ) ?></h3>
+						<ul<?php $this->html( 'userlangattributes' ) ?>>
+							<?php
+							foreach ( $this->data['view_urls'] as $link ) {
+								?>
+								<li<?php echo $link['attributes'] ?>><span><a href="<?php
+										echo htmlspecialchars( $link['href'] )
+										?>" <?php
+										echo $link['key'];
+										if ( isset ( $link['rel'] ) ) {
+											echo ' rel="' . htmlspecialchars( $link['rel'] ) . '"';
+										}
+										?>><?php
+											// $link['text'] can be undefined - bug 27764
+											if ( array_key_exists( 'text', $link ) ) {
+												echo array_key_exists( 'img', $link )
+													? '<img src="' . $link['img'] . '" alt="' . $link['text'] . '" />'
+													: htmlspecialchars( $link['text'] );
+											}
+											?></a></span></li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+					<?php
+					break;
+				case 'ACTIONS':
+					?>
+					<div id="p-cactions" role="navigation" class="vectorMenu<?php
+					if ( count( $this->data['action_urls'] ) == 0 ) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span><?php
+							$this->msg( 'vector-more-actions' )
+						?></span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul<?php $this->html( 'userlangattributes' ) ?>>
+								<?php
+								foreach ( $this->data['action_urls'] as $link ) {
+									?>
+									<li<?php echo $link['attributes'] ?>>
+										<a href="<?php
+										echo htmlspecialchars( $link['href'] )
+										?>" <?php
+										echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] )
+											?></a>
+									</li>
+								<?php
+								}
+								?>
+							</ul>
+						</div>
+					</div>
+					<?php
+					break;
+				case 'PERSONAL':
+					?>
+					<div id="p-personal" role="navigation" class="<?php
+					if ( count( $this->data['personal_urls'] ) == 0 ) {
+						echo ' emptyPortlet';
+					}
+					?>" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
+						<ul<?php $this->html( 'userlangattributes' ) ?>>
+							<?php
+							$personalTools = $this->getPersonalTools();
+							foreach ( $personalTools as $key => $item ) {
+								echo $this->makeListItem( $key, $item );
+							}
+							?>
+						</ul>
+					</div>
+					<?php
+					break;
+				case 'SEARCH':
+					?>
+					<div id="p-search" role="search">
+						<h3<?php $this->html( 'userlangattributes' ) ?>>
+							<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
+						</h3>
+
+						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+							<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
+							<?php
+							echo $this->makeSearchInput( array( 'id' => 'searchInput' ) );
+							echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
+							// We construct two buttons (for 'go' and 'fulltext' search modes),
+							// but only one will be visible and actionable at a time (they are
+							// overlaid on top of each other in CSS).
+							// * Browsers will use the 'fulltext' one by default (as it's the
+							//   first in tree-order), which is desirable when they are unable
+							//   to show search suggestions (either due to being broken or
+							//   having JavaScript turned off).
+							// * The mediawiki.searchSuggest module, after doing tests for the
+							//   broken browsers, removes the 'fulltext' button and handles
+							//   'fulltext' search itself; this will reveal the 'go' button and
+							//   cause it to be used.
+							echo $this->makeSearchButton(
+								'fulltext',
+								array( 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' )
+							);
+							echo $this->makeSearchButton(
+								'go',
+								array( 'id' => 'searchButton', 'class' => 'searchButton' )
+							);
+							?>
+							</div>
+						</form>
+					</div>
+					<?php
+
+					break;
+			}
+		}
 	}
 }
