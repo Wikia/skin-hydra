@@ -73,7 +73,7 @@ class HydraTemplate extends VectorTemplate {
 			}
 		}
 		$this->data['namespace_urls'] = $nav['namespaces'];
-		$this->data['sharing_urls'] = $nav['sharing'];
+		$this->data['sharing_urls'] = (isset($nav['sharing']) ? $nav['sharing'] : []);
 		$this->data['view_urls'] = $nav['views'];
 		$this->data['action_urls'] = $nav['actions'];
 		$this->data['variant_urls'] = $nav['variants'];
