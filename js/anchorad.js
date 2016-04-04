@@ -36,7 +36,7 @@
 				H = D + H;
 				D = H;
 				if (o.debug.parse) {
-					console.log("PARSE parseMore", H)
+					//console.log("PARSE parseMore", H)
 				}
 				while (H) {
 					w = true;
@@ -54,7 +54,7 @@
 							C = H.indexOf("-->");
 							if (C >= 0) {
 								if (o.debug.parse) {
-									console.log("PARSE comment", E)
+									//console.log("PARSE comment", E)
 								}
 								if (u.comment) {
 									u.comment(H.substring(4, C))
@@ -67,7 +67,7 @@
 								E = H.match(n);
 								if (E) {
 									if (o.debug.parse) {
-										console.log("PARSE end tag", E)
+										//console.log("PARSE end tag", E)
 									}
 									H = H.substring(E[0].length);
 									E[0].replace(n, F);
@@ -78,7 +78,7 @@
 									E = H.match(s);
 									if (E) {
 										if (o.debug.parse) {
-											console.log("PARSE start tag", E)
+											//console.log("PARSE start tag", E)
 										}
 										H = H.substring(E[0].length);
 										E[0].replace(s, t);
@@ -91,7 +91,7 @@
 							var J = C < 0 ? H : H.substring(0, C);
 							H = C < 0 ? "" : H.substring(C);
 							if (o.debug.parse) {
-								console.log("PARSE chars", J)
+								//console.log("PARSE chars", J)
 							}
 							if (u.chars) {
 								u.chars(J)
@@ -105,7 +105,7 @@
 					}
 				}
 				if (o.debug.parse) {
-					console.log("PARSE end parse")
+					//console.log("PARSE end parse")
 				}
 				return y
 			}
@@ -142,7 +142,7 @@
 
 			function F(G, I) {
 				if (o.debug.parse) {
-					console.log("PARSE parseEndTag", G, I)
+					//console.log("PARSE parseEndTag", G, I)
 				}
 				var H;
 				if (!I) {
@@ -160,7 +160,7 @@
 						}
 					}
 					if (o.debug.parse) {
-						console.log("PARSE parseEndTag pop", A.slice(H))
+						//console.log("PARSE parseEndTag pop", A.slice(H))
 					}
 					A.length = H
 				}
@@ -214,7 +214,7 @@
 						return
 					}
 					if (o.debug.write) {
-						console.log("WRITE start", G, H, F)
+						//console.log("WRITE start", G, H, F)
 					}
 					var D = y.createElement(G);
 					for (var C = 0; C < H.length; C++) {
@@ -224,17 +224,17 @@
 					if (z && z.appendChild) {
 						z.appendChild(D);
 						if (o.debug.write) {
-							console.log("WRITE start append", D, "to", z)
+							//console.log("WRITE start append", D, "to", z)
 						}
 					}
 					if (!F) {
 						if (o.debug.write) {
-							console.log("WRITE push", D, A.slice(0))
+							//console.log("WRITE push", D, A.slice(0))
 						}
 						A.push(D)
 					}
 					if (o.debug.write) {
-						console.log("WRITE start done - parent:", z)
+						//console.log("WRITE start done - parent:", z)
 					}
 				},
 				end: function(C) {
@@ -243,7 +243,7 @@
 					}
 					A.pop();
 					if (o.debug.write) {
-						console.log("WRITE end", C, "new parent:", z, "elems", A)
+						//console.log("WRITE end", C, "new parent:", z, "elems", A)
 					}
 				},
 				chars: function(C) {
@@ -251,7 +251,7 @@
 						return
 					}
 					if (o.debug.write) {
-						console.log("WRITE chars", C, "el:", w)
+						//console.log("WRITE chars", C, "el:", w)
 					}
 					z.appendChild(y.createTextNode(C))
 				},
@@ -265,7 +265,7 @@
 						return
 					}
 					if (o.debug.write) {
-						console.log("WRITE close el:", w)
+						//console.log("WRITE close el:", w)
 					}
 				},
 				_handle: function(C) {
@@ -325,16 +325,6 @@
 		}
 	});
 	(function(f) {
-		var t = window.console || {
-			log: function() {}
-		};
-		t.blahblah = t.log;
-		var h = t.log;
-		t.log = function() {
-			if (l.debug) {
-				h.apply(this, arguments)
-			}
-		};
 		var j = (function() {
 			var u = document.createElement("script");
 			var v = "script" + (new Date()).getTime();
@@ -362,7 +352,7 @@
 						return false
 					}
 					if (D.toLowerCase() === "script") {
-						t.log("WC element:", u, "start script. attrs:", G, this.id);
+						////t.log("WC element:", u, "start script. attrs:", G, this.id);
 						v = "";
 						A = G || {};
 						return false
@@ -402,7 +392,7 @@
 						return false
 					}
 					if (A) {
-						t.log("WC element:", u, "chars:", D, this.id);
+						//t.log("WC element:", u, "chars:", D, this.id);
 						v += D;
 						return false
 					}
@@ -440,7 +430,7 @@
 		function n(u, A, z, w) {
 			var y = l(z, x),
 				v;
-			t.log("WC captureScript attrs:", A, "body:", u, "in parent:", z);
+			//t.log("WC captureScript attrs:", A, "body:", u, "in parent:", z);
 			w.handle("pause");
 			setTimeout(function() {
 				v = q(k(z), y);
@@ -515,11 +505,11 @@
 				w, u = p++;
 			return {
 				pause: function() {
-					t.log("WC PAUSE", u);
+					//t.log("WC PAUSE", u);
 					w = true
 				},
 				resume: function() {
-					t.log("WC RESUME", u, v.slice(0));
+					//t.log("WC RESUME", u, v.slice(0));
 					w = false;
 					while (!w && v.length) {
 						var y = v.shift();
@@ -527,7 +517,7 @@
 					}
 				},
 				start: function(y, A, B, z) {
-					t.log("WC start", w, "args", y, A, B, z, u);
+					//t.log("WC start", w, "args", y, A, B, z, u);
 					if (w) {
 						v.push(["start", [y, A, B]]);
 						return false
@@ -536,7 +526,7 @@
 					}
 				},
 				chars: function(y, z) {
-					t.log("WC chars", w, "args", y, z, u);
+					//t.log("WC chars", w, "args", y, z, u);
 					if (w) {
 						v.push(["chars", [y]]);
 						return false
@@ -545,7 +535,7 @@
 					}
 				},
 				end: function(z, y) {
-					t.log("WC end", w, "args", z, y, u);
+					//t.log("WC end", w, "args", z, y, u);
 					if (w) {
 						v.push(["end", [z]]);
 						return false
@@ -562,7 +552,7 @@
 					}
 				},
 				write: function(y) {
-					t.log("WC queue.write", w, u);
+					//t.log("WC queue.write", w, u);
 					if (w) {
 						v.push(["write", [y]]);
 						return false
@@ -572,7 +562,7 @@
 					}
 				},
 				close: function() {
-					t.log("WC close", w, u);
+					//t.log("WC close", w, u);
 					if (w) {
 						v.push(["close", []]);
 						return false
