@@ -20,7 +20,7 @@ if (array_key_exists('userpage', $personalTools)) {
 				<ul>
 					<li><a href="http://www.gamepedia.com/giveaways/"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
 					<li><a href="http://www.curse.com/premium/"><?= wfMessage('netbar-premium')->text() ?></a></li>
-					<li><a href="http://support.curse.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
+					<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 				</ul>
 			</li>
 		<?php } ?>
