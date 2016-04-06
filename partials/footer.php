@@ -36,7 +36,7 @@ $curseUser = CurseAuthUser::getInstance($wgUser);
 				<?php } ?>
 			<?php } ?>
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
-			<li><a href="http://support.curse.com" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
+			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
 		<?php if ($showAds) { ?>
 			</ul>
 			<ul class="more">

@@ -13,14 +13,14 @@ if (array_key_exists('userpage', $personalTools)) {
 	<ul class="netbar-left">
 		<li><a class="curse" href="http://www.gamepedia.com">Gamepedia</a></li>
 		<?php if ($wgUser->isAnon()) { ?>
-			<li><a href="http://support.curse.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
+			<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 		<?php } else { ?>
 			<li class="settings">
 				<i class="cog"></i>
 				<ul>
 					<li><a href="http://www.gamepedia.com/giveaways/"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
 					<li><a href="http://www.curse.com/premium/"><?= wfMessage('netbar-premium')->text() ?></a></li>
-					<li><a href="http://support.curse.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
+					<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 				</ul>
 			</li>
 		<?php } ?>
