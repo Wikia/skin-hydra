@@ -536,6 +536,11 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 	position: static;
 }
 
+/* Fix because of netbar. */
+#ui-datepicker-div {
+	margin-top: -28px;
+}
+
 @media screen and (max-width: 940px) {
 div#netbar ul.netbar-right > li.mobile-sign-out {
 	display: block;
