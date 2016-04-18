@@ -29,6 +29,10 @@ if (array_key_exists('userpage', $personalTools)) {
 			<li><span class="label-hostname"><?= htmlspecialchars(gethostname()) ?></span></li>
 		<?php } ?>
 	</ul>
+
+	<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
+		<span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.png" /></span>
+	<?php } ?>
 	<ul class="netbar-right">
 		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
 			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);

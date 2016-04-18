@@ -18,6 +18,10 @@ html body {
 	position: relative;
 }
 
+#OfficialWiki img{
+	margin: 7px 0px 0px 7px;
+}
+
 div#netbar {
 	height: 29px;
 	background: #121212;

@@ -14,7 +14,8 @@
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinDisplayAtfMrec": true,
 		"HydraSkinSkipAtfMrecPages": true,
-		"SiteAdvertisements": []
+		"SiteAdvertisements": [],
+		"IsOfficialWiki": false
 	},
 	"ValidSkinNames": {
 		"hydra": "Hydra"
