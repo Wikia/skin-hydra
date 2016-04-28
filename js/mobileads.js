@@ -6,5 +6,6 @@
 				$(headings[2]).before($('<div>').addClass('mobileatfmrec').append(window.mobileatfmrec));
 			}
 		}
+		$('body').append($("<div>").attr("id", "cdm-zone-end"));
 	});
 }(mediaWiki, jQuery));

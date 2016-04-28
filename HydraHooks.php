@@ -212,6 +212,9 @@ class HydraHooks {
 				}
 			} else {
 				$_bottomExtra .= $footer;
+
+				//Advertisements closer for desktop.  For mobile, please see mobileads.js.
+				$_bottomExtra .= "<div id='cdm-zone-end'></div>";
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
@@ -225,9 +228,6 @@ class HydraHooks {
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
 			</script>";
-
-			//Advertisements closer.
-			$_bottomExtra .= "<div id='cdm-zone-end'></div>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
