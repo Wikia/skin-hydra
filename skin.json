@@ -162,9 +162,6 @@
 		],
 		"SkinMinervaDefaultModules": [
 			"HydraHooks::onSkinMinervaDefaultModules"
-		],
-		"MinervaPreRender": [
-			"HydraHooks::onMinervaPreRender"
 		]
 	},
 	"manifest_version": 1

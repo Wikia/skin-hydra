@@ -249,19 +249,6 @@ class HydraHooks {
 	}
 
 	/**
-	 * Add in the mobile ATF MREC.
-	 *
-	 * @access	public
-	 * @param	object	SkinTemplate Object
-	 * @return	void
-	 */
-	static public function onMinervaPreRender($template) {
-		if (self::isMobileSkin() && self::getAdBySlot('mobileatfmrec') && strpos($template->data['bodytext'], 'mobileatfmrec') === false) {
-			$template->set('bodytext', "<div id='mobileatfmrec' class='atfmrec'>".self::getAdBySlot('mobileatfmrec')."</div>".$template->data['bodytext']);
-		}
-	}
-
-	/**
 	 * Body Class Change
 	 *
 	 * @access	public
