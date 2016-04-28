@@ -203,6 +203,13 @@ class HydraHooks {
 				$template->set('hydrafooter', $footer);
 				$footerLinks['hydra'][] = 'hydrafooter';
 				$template->set('footerlinks', $footerLinks);
+
+				if ($showAds && !empty(self::getAdBySlot('mobileatfmrec'))) {
+					$_bottomExtra .= "
+					<script type=\"text/javascript\">
+						window.mobileatfmrec = '".self::getAdBySlot('mobileatfmrec')."';
+					</script>";
+				}
 			} else {
 				$_bottomExtra .= $footer;
 			}
