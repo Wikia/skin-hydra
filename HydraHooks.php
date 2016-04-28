@@ -207,7 +207,7 @@ class HydraHooks {
 				if ($showAds && !empty(self::getAdBySlot('mobileatfmrec'))) {
 					$_bottomExtra .= "
 					<script type=\"text/javascript\">
-						window.mobileatfmrec = '".self::getAdBySlot('mobileatfmrec')."';
+						window.mobileatfmrec = '".htmlspecialchars(self::getAdBySlot('mobileatfmrec'), ENT_QUOTES)."';
 					</script>";
 				}
 			} else {
