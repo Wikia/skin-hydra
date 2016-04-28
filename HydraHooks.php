@@ -58,7 +58,7 @@ class HydraHooks {
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		if (self::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
-			$skin->getOutput()->addModuleScripts('skins.hydra.anchorad.js');
+			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
 		$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
 
@@ -78,7 +78,7 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.advertisements.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
-		$modules[] = 'skins.hydra.mobileads.js';
+		$modules[] = 'skins.hydra.mobile.apu.js';
 
 		return true;
 	}
