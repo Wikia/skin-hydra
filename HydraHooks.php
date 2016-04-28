@@ -78,6 +78,7 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.advertisements.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
+		$modules[] = 'skins.hydra.mobileads.js';
 
 		return true;
 	}

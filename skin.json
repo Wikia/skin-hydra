@@ -79,6 +79,15 @@
 			],
 			"position": "top"
 		},
+		"skins.hydra.mobileads.js": {
+			"scripts": [
+				"js/mobileads.js"
+			],
+			"targets": [
+				"mobile"
+			],
+			"position": "top"
+		},
 		"skins.hydra.anchorad.js": {
 			"scripts": [
 				"js/anchorad.js"
