@@ -94,7 +94,7 @@ class HydraTemplate extends VectorTemplate {
 		// Output HTML Page
 		$this->html( 'headelement' );
 		?>
-<div id="global-wrapper<?php ($this->data['showads'] && $this->config->get('HydraSkinShowSideRail') ? ' with-siderail' : '') ?>">
+<div id="global-wrapper"<?php echo ($this->data['showads'] && $this->config->get('HydraSkinShowSideRail') ? ' class="with-siderail"' : '') ?>>
 	<div id="mw-page-base" class="noprint"></div>
 	<div id="mw-head-base" class="noprint"></div>
 	<div id="pageWrapper">
@@ -169,6 +169,14 @@ class HydraTemplate extends VectorTemplate {
 				</div>
 				<?php
 				$this->html( 'bodycontent' );
+
+				if ($this->data['showads'] && $this->config->get('HydraSkinShowSideRail')) {
+				?>
+					<div id="siderail">
+						
+					</div>
+				<?php
+				}
 
 				if ( $this->data['printfooter'] ) {
 					?>

@@ -78,3 +78,17 @@ div#footermrec {
 .zergnet_container {
 	margin: 10px 0;
 }
+
+#global-wrapper.with-siderail #content #bodyContent #mw-content-text {
+	box-sizing: border-box;
+	float: left;
+	width: calc(100% - 320px);
+}
+
+#siderail {
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	float: left;
+	min-height: 210px;
+	width: 310px;
+}
