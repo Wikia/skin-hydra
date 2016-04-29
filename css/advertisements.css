@@ -83,6 +83,7 @@ div#footermrec {
 #siderail {
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
+	box-sizing: border-box;
 	float: right;
 	min-height: 210px;
 	text-align: center;

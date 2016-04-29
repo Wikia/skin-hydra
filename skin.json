@@ -79,6 +79,15 @@
 			],
 			"position": "top"
 		},
+		"skins.hydra.advertisements.js": {
+			"scripts": [
+				"js/siderail.js"
+			],
+			"targets": [
+				"desktop"
+			],
+			"position": "top"
+		},
 		"skins.hydra.mobile.apu.js": {
 			"scripts": [
 				"js/mobileads.js"
