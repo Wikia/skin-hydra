@@ -49,13 +49,11 @@ div#footermrec {
 }
 
 .mobileatfmrec {
-	border-bottom: solid 1px #E2E3E4;
+	border-bottom: 1px solid #e2e3e4;
+	border-top: 1px solid #e2e3e4;
+	margin: 0.5em 0;
 	padding: 8px;
 	text-align: center;
-}
-
-.mobileatfmrec.noborder {
-	border: 0 none;
 }
 
 .mobileatflb {

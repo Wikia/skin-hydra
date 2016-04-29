@@ -80,7 +80,16 @@
 			],
 			"position": "top"
 		},
-		"skins.hydra.anchorad.js": {
+		"skins.hydra.mobile.apu.js": {
+			"scripts": [
+				"js/mobileads.js"
+			],
+			"targets": [
+				"mobile"
+			],
+			"position": "top"
+		},
+		"skins.hydra.anchor.apu.js": {
 			"scripts": [
 				"js/anchorad.js"
 			],
@@ -154,9 +163,6 @@
 		],
 		"SkinMinervaDefaultModules": [
 			"HydraHooks::onSkinMinervaDefaultModules"
-		],
-		"MinervaPreRender": [
-			"HydraHooks::onMinervaPreRender"
 		]
 	},
 	"manifest_version": 1

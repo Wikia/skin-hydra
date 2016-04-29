@@ -58,7 +58,7 @@ class HydraHooks {
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		if (self::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
-			$skin->getOutput()->addModuleScripts('skins.hydra.anchorad.js');
+			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
 		$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
 
@@ -78,6 +78,7 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.advertisements.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
+		$modules[] = 'skins.hydra.mobile.apu.js';
 
 		return true;
 	}
@@ -202,8 +203,18 @@ class HydraHooks {
 				$template->set('hydrafooter', $footer);
 				$footerLinks['hydra'][] = 'hydrafooter';
 				$template->set('footerlinks', $footerLinks);
+
+				if ($showAds && !empty(self::getAdBySlot('mobileatfmrec'))) {
+					$_bottomExtra .= "
+					<script type=\"text/javascript\">
+						window.mobileatfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec'))."';
+					</script>";
+				}
 			} else {
 				$_bottomExtra .= $footer;
+
+				//Advertisements closer for desktop.  For mobile, please see mobileads.js.
+				$_bottomExtra .= "<div id='cdm-zone-end'></div>";
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
@@ -217,9 +228,6 @@ class HydraHooks {
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
 			</script>";
-
-			//Advertisements closer.
-			$_bottomExtra .= "<div id='cdm-zone-end'></div>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
@@ -238,19 +246,6 @@ class HydraHooks {
 		self::$beforeExecDone = true;
 
 		return true;
-	}
-
-	/**
-	 * Add in the mobile ATF MREC.
-	 *
-	 * @access	public
-	 * @param	object	SkinTemplate Object
-	 * @return	void
-	 */
-	static public function onMinervaPreRender($template) {
-		if (self::isMobileSkin() && self::getAdBySlot('mobileatfmrec') && strpos($template->data['bodytext'], 'mobileatfmrec') === false) {
-			$template->set('bodytext', "<div id='mobileatfmrec' class='atfmrec'>".self::getAdBySlot('mobileatfmrec')."</div>".$template->data['bodytext']);
-		}
 	}
 
 	/**
