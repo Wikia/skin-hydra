@@ -94,7 +94,7 @@ class HydraTemplate extends VectorTemplate {
 		// Output HTML Page
 		$this->html( 'headelement' );
 		?>
-<div id="global-wrapper"<?php echo ($this->data['showads'] && $this->config->get('HydraSkinShowSideRail') ? ' class="with-siderail"' : '') ?>>
+<div id="global-wrapper"<?php echo ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin()) && $this->config->get('HydraSkinShowSideRail') ? ' class="with-siderail"' : '') ?>>
 	<div id="mw-page-base" class="noprint"></div>
 	<div id="mw-head-base" class="noprint"></div>
 	<div id="pageWrapper">
@@ -129,13 +129,6 @@ class HydraTemplate extends VectorTemplate {
 			} ?>
 			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
-				<!-- 300x250 Ad block -->
-				<?php if ($this->data['showads'] && HydraHooks::showAtfMrecAd($this->getSkin()) && HydraHooks::getAdBySlot('atfmrec')) { ?>
-				<div class="atfmrec">
-					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
-				</div>
-				<?php } ?>
-				<!-- End 300x250 Ad block -->
 				<?php
 				if ( $this->data['isarticle'] ) {
 					?>
@@ -170,10 +163,24 @@ class HydraTemplate extends VectorTemplate {
 				<?php
 				$this->html( 'bodycontent' );
 
-				if ($this->data['showads'] && $this->config->get('HydraSkinShowSideRail')) {
+				if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin())) {
 				?>
 					<div id="siderail">
-						
+						<!-- 300x250 Ad block -->
+						<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
+						<div class="atfmrec">
+							<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
+						</div>
+						<?php } ?>
+						<!-- End 300x250 Ad block -->
+
+						<!-- 300x250 Ad block -->
+						<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
+						<div class="atfmrec">
+							<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
+						</div>
+						<?php } ?>
+						<!-- End 300x250 Ad block -->
 					</div>
 				<?php
 				}
@@ -198,7 +205,7 @@ class HydraTemplate extends VectorTemplate {
 				<?php $this->html( 'debughtml' ); ?>
 			</div>
 			<!-- ZergNet -->
-			<?php if (!$this->getSkin()->getContext()->getUser()->isLoggedIn() && HydraHooks::showAtfMrecAd($this->getSkin()) && $this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
+			<?php if (!$this->getSkin()->getContext()->getUser()->isLoggedIn() && HydraHooks::showSideRailAPUs($this->getSkin()) && $this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
 			<div class="zergnet_container">
 				<?php echo HydraHooks::getAdBySlot('zergnet'); ?>
 			</div>
