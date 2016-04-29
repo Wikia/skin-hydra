@@ -14,6 +14,7 @@
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinDisplayAtfMrec": true,
 		"HydraSkinSkipAtfMrecPages": true,
+		"HydraSkinShowSideRail": true,
 		"SiteAdvertisements": [],
 		"IsOfficialWiki": false
 	},
