@@ -83,10 +83,15 @@ div#footermrec {
 #siderail {
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
-	float: left;
+	float: right;
 	min-height: 210px;
 	text-align: center;
 	width: 310px;
+}
+
+#siderail > * {
+	max-width: 300px;
+	margin: 5px auto;
 }
 
 #siderail .atfmrec, #siderail .btfmrec {
