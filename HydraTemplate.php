@@ -175,9 +175,9 @@ class HydraTemplate extends VectorTemplate {
 						<!-- End 300x250 Ad block -->
 
 						<!-- 300x250 Ad block -->
-						<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
-						<div class="atfmrec">
-							<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
+						<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
+						<div class="btfmrec">
+							<?php echo HydraHooks::getAdBySlot('btfmrec'); ?>
 						</div>
 						<?php } ?>
 						<!-- End 300x250 Ad block -->
