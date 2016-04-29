@@ -1,15 +1,9 @@
 /***********************/
 /* Advertisement Slots */
 /***********************/
-.atfmrec, .btfmrec, .footer-ad #footermrec {
+.footer-ad #footermrec {
 	height: 250px !important;
 	width: 300px !important;
-}
-
-.atfmrec {
-	border: none !important;
-	float: right;
-	margin: 15px 0 2em 1em;
 }
 
 .atflb, .btflb {
@@ -85,10 +79,18 @@ div#footermrec {
 	width: calc(100% - 320px);
 }
 
+/* Side Rail */
 #siderail {
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
 	float: left;
 	min-height: 210px;
+	text-align: center;
 	width: 310px;
+}
+
+#siderail .atfmrec, #siderail .btfmrec {
+	border: none !important;
+	height: 250px !important;
+	width: 300px !important;
 }
