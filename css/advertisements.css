@@ -73,7 +73,7 @@ div#footermrec {
 	margin: 10px 0;
 }
 
-#global-wrapper.with-siderail #content #bodyContent {
+#global-wrapper.with-siderail #content #bodyContent, #global-wrapper.with-siderail .zergnet_container {
 	box-sizing: border-box;
 	float: left;
 	width: calc(100% - 320px);
