@@ -174,6 +174,9 @@ class HydraTemplate extends VectorTemplate {
 						<?php } ?>
 						<!-- End 300x250 Ad block -->
 
+						<div id="gp-pro-upsell">
+							<img src="/skins/Hydra/images/gppro/gpproupsell.png">
+						</div>
 						<!-- 300x250 Ad block -->
 						<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
 						<div class="btfmrec">
