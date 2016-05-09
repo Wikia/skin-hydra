@@ -163,34 +163,6 @@ class HydraTemplate extends VectorTemplate {
 				<?php
 				$this->html( 'bodycontent' );
 
-				if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin())) {
-				?>
-					<div id="siderail">
-						<!-- 300x250 Ad block -->
-						<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
-						<div class="atfmrec">
-							<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
-						</div>
-						<?php } ?>
-						<!-- End 300x250 Ad block -->
-
-						<div id="gp-pro-upsell">
-							<img src="<?php
-							global $wgScriptPath;
-							echo wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsell.png");
-							?>">
-						</div>
-						<!-- 300x250 Ad block -->
-						<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
-						<div class="btfmrec">
-							<?php echo HydraHooks::getAdBySlot('btfmrec'); ?>
-						</div>
-						<?php } ?>
-						<!-- End 300x250 Ad block -->
-					</div>
-				<?php
-				}
-
 				if ( $this->data['printfooter'] ) {
 					?>
 					<div class="printfooter">
@@ -210,6 +182,35 @@ class HydraTemplate extends VectorTemplate {
 				<div class="visualClear"></div>
 				<?php $this->html( 'debughtml' ); ?>
 			</div>
+			<?php
+			if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin())) {
+			?>
+			<div id="siderail">
+				<!-- 300x250 Ad block -->
+				<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
+				<div class="atfmrec">
+					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
+				</div>
+				<?php } ?>
+				<!-- End 300x250 Ad block -->
+
+				<div id="gp-pro-upsell">
+					<img src="<?php
+					global $wgScriptPath;
+					echo wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsell.png");
+					?>">
+				</div>
+				<!-- 300x250 Ad block -->
+				<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
+				<div class="btfmrec">
+					<?php echo HydraHooks::getAdBySlot('btfmrec'); ?>
+				</div>
+				<?php } ?>
+				<!-- End 300x250 Ad block -->
+			</div>
+			<?php
+			}
+			?>
 			<!-- ZergNet -->
 			<?php if (!$this->getSkin()->getContext()->getUser()->isLoggedIn() && HydraHooks::showSideRailAPUs($this->getSkin()) && $this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
 			<div class="zergnet_container">
