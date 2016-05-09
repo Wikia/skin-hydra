@@ -3,7 +3,7 @@
 	if ($(sideRail).length > 0) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailMarginTop = $(sideRail).css('margin-top');
-		var maxsideRailMarginTop = $('#bodyContent').innerHeight() - $(sideRail).outerHeight();
+		var maxsideRailMarginTop = $('#content').innerHeight() - $(sideRail).outerHeight();
 		$(window).scroll(function() {
 			var offset = 10;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
