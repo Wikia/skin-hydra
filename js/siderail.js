@@ -1,6 +1,6 @@
 (function(mw, $) {
 	var sideRail = $('#siderail');
-	if ($(sideRail).length > 0 && $(sideRail).outerHeight() > $('#bodyContent').innerHeight()) {
+	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').innerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailMarginTop = $(sideRail).css('margin-top');
 		var maxsideRailMarginTop = $('#bodyContent').innerHeight() - $(sideRail).outerHeight();
