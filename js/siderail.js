@@ -3,10 +3,11 @@
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').innerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailMarginTop = $(sideRail).css('margin-top');
-		var maxsideRailMarginTop = $('#bodyContent').innerHeight() - $(sideRail).outerHeight();
+		window.maxsideRailMarginTop = $('#bodyContent').innerHeight() - $(sideRail).outerHeight();
 		$(window).scroll(function() {
 			var offset = 10;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
+				var clamp = false;
 				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
 				$(sideRail).css('margin-top', (calcMarginTop < maxsideRailMarginTop ? calcMarginTop : maxsideRailMarginTop) + 'px');
 			} else if (window.sideRailStartTop >= $(document).scrollTop()) {
