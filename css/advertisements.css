@@ -100,3 +100,13 @@ div#footermrec {
 	height: 250px !important;
 	width: 300px !important;
 }
+
+#gp-pro-upsell > img {
+	animation: gpProUpsellAnimation 10s linear infinite;
+	background-image: url("../images/gppro/gpproupsellback.png");
+}
+
+@keyframes gpProUpsellAnimation {
+	from { background-position: 0 0; }
+	to { background-position: -307px 0; }
+}
