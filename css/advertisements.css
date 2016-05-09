@@ -86,7 +86,7 @@ div#footermrec {
 	background-color: rgba(128, 128, 128, 0.1);
 	box-sizing: border-box;
 	float: right;
-	min-height: 210px;
+	min-height: 750px;
 	text-align: center;
 	width: 310px;
 }
@@ -100,6 +100,11 @@ div#footermrec {
 	border: none !important;
 	height: 250px !important;
 	width: 300px !important;
+}
+
+#gp-pro-upsell {
+	height: 250px;
+	width: 300px;
 }
 
 #gp-pro-upsell > img {
