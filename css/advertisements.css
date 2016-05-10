@@ -113,7 +113,7 @@ div#footermrec {
 		width: 300px;
 	}
 
-	#gp-pro-upsell > img {
+	#gp-pro-upsell > a img {
 		animation: gpProUpsellAnimation 10s linear infinite;
 		background-image: url("../images/gppro/gpproupsellback.png");
 	}
