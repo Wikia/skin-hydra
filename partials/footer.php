@@ -29,11 +29,7 @@ $curseUser = CurseAuthUser::getInstance($wgUser);
 				<?php } ?>
 			<?php } else { ?>
 				<li><a href="<?= wfExpandUrl($wgScriptPath."/Special:Preferences"); ?>" class="account"><?= wfMessage('footer-My_Account')->text() ?></a></li>
-				<?php if ($curseUser->isPremium()) { ?>
-					<li><a href="http://www.curse.com/premium" class="premium"><?= wfMessage('footer-Premium')->text() ?></a></li>
-				<?php } else { ?>
-					<li><a href="http://www.curse.com/premium" class="premium"><?= wfMessage('footer-Get_Premium')->text() ?></a></li>
-				<?php } ?>
+				<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('footer-Pro')->text() ?></a></li>
 			<?php } ?>
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
