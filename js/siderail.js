@@ -12,7 +12,7 @@
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
 				var clamp = false;
 				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
-				$(sideRail).css('margin-top', (calcMarginTop < maxsideRailMarginTop ? calcMarginTop : maxsideRailMarginTop) + 'px');
+				$(sideRail).css('margin-top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
 			} else if (window.sideRailStartTop >= $(document).scrollTop()) {
 				$(sideRail).css('margin-top', window.sideRailMarginTop);
 			}
