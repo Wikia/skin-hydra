@@ -19,7 +19,7 @@ if (array_key_exists('userpage', $personalTools)) {
 				<i class="cog"></i>
 				<ul>
 					<li><a href="http://www.gamepedia.com/giveaways/"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
-					<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('footer-Pro')->text() ?></a></li>
+					<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('netbar-pro')->text() ?></a></li>
 					<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 				</ul>
 			</li>
