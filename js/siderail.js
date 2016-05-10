@@ -3,9 +3,12 @@
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailMarginTop = $(sideRail).css('margin-top');
-		window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight();
+		updateMaxSideRailMarginTop(sideRail);
 		$('#bodyContent').on('DOMSubtreeModified', function() {
-			window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight();
+			updateMaxSideRailMarginTop(sideRail);
+		});
+		$(window).resize(function() {
+			updateMaxSideRailMarginTop(sideRail);
 		});
 		$(window).scroll(function() {
 			var offset = 10;
@@ -17,5 +20,9 @@
 				$(sideRail).css('margin-top', window.sideRailMarginTop);
 			}
 		});
+	}
+
+	function updateMaxSideRailMarginTop(sideRail) {
+		window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight();
 	}
 }(mediaWiki, jQuery));
