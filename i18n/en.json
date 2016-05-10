@@ -7,7 +7,7 @@
 	"hydra.css": "/* CSS placed here will affect users of the Hydra skin */",
 	"hydra.js": "/* Any JavaScript here will be loaded for users using the Hydra skin */",
 	"netbar-giveaways": "Giveaways",
-	"netbar-pro": "Gamepedia PRO",
+	"netbar-pro": "Gamepedia&nbsp;PRO",
 	"netbar-help": "Help",
 	"netbar-signin": "Sign In",
 	"netbar-register": "Register",
