@@ -57,7 +57,7 @@ class HydraHooks {
 		$styles[] = 'skins.hydra.advertisements.styles';
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		if (self::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
+		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('footermrec'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
 		$skin->getOutput()->addModuleScripts('skins.hydra.advertisements.js');
