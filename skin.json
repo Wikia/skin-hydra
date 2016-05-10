@@ -10,7 +10,7 @@
 	"config": {
 		"HydraSkinBodyName": "",
 		"HydraSkinDisclaimer": "",
-		"HydraSkinShowAnchorAd": true,
+		"HydraSkinShowAnchorAd": false,
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinShowSideRail": true,
 		"HydraSkinHideSideRailPages": [],
