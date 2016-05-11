@@ -1,4 +1,5 @@
 (function(mw, $) {
+	console.log('SIDE RAIL ACTIVATED!');
 	var sideRail = $('#siderail');
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
@@ -24,4 +25,10 @@
 	function updateMaxSideRailMarginTop(sideRail) {
 		window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight();
 	}
+
+	/* Hide siderail when we are editing with VE */
+	$("#ca-ve-edit span a").click(function(){
+		sideRail.hide();
+	});
+
 }(mediaWiki, jQuery));
