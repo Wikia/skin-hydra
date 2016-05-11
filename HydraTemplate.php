@@ -208,6 +208,7 @@ class HydraTemplate extends VectorTemplate {
 				<?php } ?>
 				<!-- End 300x250 Ad block -->
 			</div>
+			<div class="visualClear"></div>
 			<?php
 			}
 			?>
