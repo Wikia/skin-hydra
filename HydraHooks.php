@@ -344,10 +344,16 @@ class HydraHooks {
 			return self::$showAds;
 		}
 
-		$curseUser = CurseAuthUser::getInstance($wgUser);
+		$isPremium = false;
+		if (!empty($wgUser) && $wgUser->getId()) {
+			$subscription = \Hydra\Subscription::newFromUser($wgUser);
+			if ($subscription !== false) {
+				$isPremium = $subscription->hasSubscription();
+			}
+		}
 
 		$showAds = false;
-		if (!$curseUser->isPremium() && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
+		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
 			$showAds = true;
 		}
 		self::$showAds = $showAds;
