@@ -16,7 +16,7 @@
 		$(window).scroll(function() {
 			var offset = 10;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
-				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
+				var calcMarginTop = $(document).scrollTop() + window.sideRailStartTop + offset;
 				$(sideRail).css('top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
 			} else if (window.sideRailStartTop >= $(document).scrollTop()) {
 				$(sideRail).css('top', window.sideRailStartTop);
