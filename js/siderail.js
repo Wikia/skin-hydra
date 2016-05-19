@@ -2,8 +2,7 @@
 	var sideRail = $('#siderail');
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
-		window.sideRailMarginTop = parseInt($(sideRail).css('top'));
-		console.log(window.sideRailMarginTop);
+		window.sideRailMarginTop = $(sideRail).css('margin-top');
 		updateMaxSideRailMarginTop(sideRail);
 		$('#bodyContent').on('DOMSubtreeModified', function() {
 			updateMaxSideRailMarginTop(sideRail);
@@ -17,11 +16,10 @@
 		$(window).scroll(function() {
 			var offset = 10;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
-				var calcMarginTop = ($(document).scrollTop() - window.sideRailStartTop) + offset;
-				console.log(calcMarginTop);
-				$(sideRail).css('top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
+				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
+				$(sideRail).css('margin-top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
 			} else if (window.sideRailStartTop >= $(document).scrollTop()) {
-				$(sideRail).css('top', window.sideRailMarginTop);
+				$(sideRail).css('margin-top', window.sideRailMarginTop);
 			}
 		});
 	}
