@@ -134,9 +134,11 @@ class HydraHooks {
 			);
 
 			//Main Advertisement Javascript
-			$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
-			if (!empty(self::getAdBySlot($jsTop))) {
-				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
+			if ($showAds) {
+				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+				if (!empty(self::getAdBySlot($jsTop))) {
+					$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
+				}
 			}
 
 			//Netbar on desktop only.
@@ -187,7 +189,6 @@ class HydraHooks {
 			$template->set('privacy', null);
 
 			if (self::isMobileSkin()) {
-
 				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
 					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
 					$footerLinks = array_merge(['ad' => ['footermrec']], $footerLinks);
@@ -219,9 +220,11 @@ class HydraHooks {
 			}
 
 			//"Javascript" Bottom Advertisement Stuff
-			$jsBottom = (self::isMobileSkin() ? 'mobile' : '').'jsbot';
-			if ($showAds && !empty(self::getAdBySlot($jsBottom))) {
-				$_bottomExtra .= self::getAdBySlot($jsBottom);
+			if ($showAds) {
+				$jsBottom = (self::isMobileSkin() ? 'mobile' : '').'jsbot';
+				if ($showAds && !empty(self::getAdBySlot($jsBottom))) {
+					$_bottomExtra .= self::getAdBySlot($jsBottom);
+				}
 			}
 
 			//Wiki Category Helper
