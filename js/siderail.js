@@ -2,8 +2,7 @@
 	var sideRail = $('#siderail');
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
-		window.sideRailLeft = $(sideRail).offset().left;
-		window.sideRailMarginTop = $(sideRail).css('top');
+		window.sideRailMarginTop = $(sideRail).css('margin-top');
 		updateMaxSideRailMarginTop(sideRail);
 		$('#bodyContent').on('DOMSubtreeModified', function() {
 			updateMaxSideRailMarginTop(sideRail);
@@ -14,31 +13,19 @@
 		$(window).resize(function() {
 			updateMaxSideRailMarginTop(sideRail);
 		});
-		$(siderail).css('left', window.sideRailLeft);
 		$(window).scroll(function() {
-			if (Math.ceil(window.sideRailStartTop) < Math.ceil($(document).scrollTop())) {
-				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop;
-				//console.log($(document).scrollTop());
-				//console.log(window.sideRailStartTop);
-				if ($(document).scrollTop() < window.maxsideRailMarginTop) {
-					$(siderail).css('top', '10px');
-					$(sideRail).addClass('fixed');
-				} else {
-					$(siderail).css('top', window.maxsideRailMarginTop + 'px');
-				}
-				//$(sideRail).css('margin-top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
+			var offset = 10;
+			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
+				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
+				$(sideRail).css('margin-top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
 			} else if (window.sideRailStartTop >= $(document).scrollTop()) {
-				$(siderail).css('top', 'auto');
-				$(sideRail).removeClass('fixed');
+				$(sideRail).css('margin-top', window.sideRailMarginTop);
 			}
 		});
 	}
 
 	function updateMaxSideRailMarginTop(sideRail) {
-		console.log($('#bodyContent').outerHeight());
-		console.log($(sideRail).outerHeight());
-		window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight() + window.sideRailStartTop;
-		console.log(window.maxsideRailMarginTop);
+		window.maxsideRailMarginTop = $('#bodyContent').outerHeight() - $(sideRail).outerHeight();
 	}
 
 	/* Hide siderail when we are editing with VE */
