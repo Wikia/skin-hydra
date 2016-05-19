@@ -93,8 +93,10 @@ div#footermrec {
 		display: block;
 		float: right;
 		min-height: 750px;
+		position: sticky;
 		text-align: center;
 		width: 310px;
+		top: 10px;
 	}
 
 	#siderail > * {
