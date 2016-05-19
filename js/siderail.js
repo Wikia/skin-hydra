@@ -7,6 +7,9 @@
 		$('#bodyContent').on('DOMSubtreeModified', function() {
 			updateMaxSideRailMarginTop(sideRail);
 		});
+		$(sideRail).on('DOMSubtreeModified', function() {
+			updateMaxSideRailMarginTop(sideRail);
+		});
 		$(window).resize(function() {
 			updateMaxSideRailMarginTop(sideRail);
 		});
