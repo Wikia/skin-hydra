@@ -194,10 +194,21 @@ class HydraTemplate extends VectorTemplate {
 				<?php } ?>
 				<!-- End 300x250 Ad block -->
 
+				<div id="zergnet-widget-41302"></div>
+				<script language="javascript" type="text/javascript">
+					(function() {
+						var zergnet = document.createElement('script');
+						zergnet.type = 'text/javascript'; zergnet.async = true;
+						zergnet.src = 'https://www.zergnet.com/zerg.js?id=41302';
+						var znscr = document.getElementsByTagName('script')[0];
+						znscr.parentNode.insertBefore(zergnet, znscr);
+					})();
+				</script>
+
 				<div id="gp-pro-upsell">
 					<a href="https://www.gamepedia.com/pro"><img src="<?php
 					global $wgScriptPath;
-					echo wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsell.png");
+					echo wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsellshort.png");
 					?>"></a>
 				</div>
 				<!-- 300x250 Ad block -->
