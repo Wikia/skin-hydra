@@ -93,10 +93,10 @@ div#footermrec {
 		display: block;
 		float: right;
 		min-height: 750px;
-		position: sticky;
+		/* position: sticky; Works in Firefox; uncomment when Chrome supports it.  */
 		text-align: center;
 		width: 310px;
-		top: 10px;
+		/* top: 10px; Related to position: sticky; above. */
 	}
 
 	#siderail > * {
