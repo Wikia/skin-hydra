@@ -124,7 +124,7 @@ div#footermrec {
 	}
 }
 
-@media screen and (min-height: 1050px) {
+@media screen and (max-height: 1049px) {
 	#siderail .btfmrec {
 		height: 0px !important;
 		width: 0px !important;
