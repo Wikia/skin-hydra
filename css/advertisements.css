@@ -123,10 +123,3 @@ div#footermrec {
 		to { background-position: -307px 0; }
 	}
 }
-
-@media screen and (max-height: 800px) {
-	#siderail .btfmrec {
-		height: 0px !important;
-		width: 0px !important;
-	}
-}
