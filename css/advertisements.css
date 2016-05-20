@@ -92,11 +92,9 @@ div#footermrec {
 		box-sizing: border-box;
 		display: block;
 		float: right;
-		min-height: 750px;
-		/* position: sticky; Works in Firefox; uncomment when Chrome supports it.  */
+		min-height: 500px;
 		text-align: center;
 		width: 310px;
-		/* top: 10px; Related to position: sticky; above. */
 	}
 
 	#siderail > * {
@@ -123,5 +121,12 @@ div#footermrec {
 	@keyframes gpProUpsellAnimation {
 		from { background-position: 0 0; }
 		to { background-position: -307px 0; }
+	}
+}
+
+@media screen and (min-height: 1050px) {
+	#siderail .btfmrec {
+		height: 0px !important;
+		width: 0px !important;
 	}
 }
