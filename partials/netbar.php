@@ -1,5 +1,6 @@
 <?php
-global $wgUser;
+global $wgUser, $nrHydraVersion;
+
 $personalTools = $skin->getPersonalTools();
 //Push the userpage stuff to the beginning, always.
 if (array_key_exists('userpage', $personalTools)) {
@@ -8,6 +9,7 @@ if (array_key_exists('userpage', $personalTools)) {
 	unset($personalTools['userpage']);
 	$personalTools = array_merge($_pt, $personalTools);
 }
+$showHost = false;
 ?>
 <div id="netbar">
 	<ul class="netbar-left">
@@ -24,8 +26,17 @@ if (array_key_exists('userpage', $personalTools)) {
 				</ul>
 			</li>
 		<?php } ?>
-		<?php if ($_SERVER['PHP_ENV'] == 'development') { ?>
+		<?php if (!empty($nrHydraVersion) && $nrHydraVersion != 'stable') {
+			$showHost = true;
+		?>
+			<li><span class="label-development"><?php echo strtoupper($nrHydraVersion) ?></span></li>
+		<?php } ?>
+		<?php if ($_SERVER['PHP_ENV'] == 'development') {
+			$showHost = true;
+		?>
 			<li><span class="label-development">DEVELOPMENT</span></li>
+		<?php } ?>
+		<?php if ($showHost) { ?>
 			<li><span class="label-hostname"><?= htmlspecialchars(gethostname()) ?></span></li>
 		<?php } ?>
 	</ul>
