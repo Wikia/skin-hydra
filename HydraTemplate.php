@@ -110,7 +110,7 @@ class HydraTemplate extends VectorTemplate {
 			?>
 			<!-- ATF Leaderboard -->
 			<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atflb')) { ?>
-			<div class="atflb">
+			<div id="atflb">
 				<?php echo HydraHooks::getAdBySlot('atflb'); ?>
 			</div>
 			<?php } ?>
@@ -188,7 +188,7 @@ class HydraTemplate extends VectorTemplate {
 			<div id="siderail">
 				<!-- 300x250 Ad block -->
 				<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
-				<div class="atfmrec">
+				<div id="atfmrec">
 					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
 				</div>
 				<?php } ?>
@@ -196,7 +196,7 @@ class HydraTemplate extends VectorTemplate {
 
 				<!-- ZergNet Side Rail -->
 				<?php if (HydraHooks::getAdBySlot('zergnetsiderail')) { ?>
-				<div class="zergnetsiderail">
+				<div id="zergnetsiderail">
 					<?php echo HydraHooks::getAdBySlot('zergnetsiderail'); ?>
 				</div>
 				<?php } ?>
@@ -209,7 +209,7 @@ class HydraTemplate extends VectorTemplate {
 				</div>
 				<!-- 300x250 Ad block -->
 				<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
-				<div class="btfmrec">
+				<div id="btfmrec">
 					<?php echo HydraHooks::getAdBySlot('btfmrec'); ?>
 				</div>
 				<?php } ?>
@@ -221,14 +221,14 @@ class HydraTemplate extends VectorTemplate {
 			?>
 			<!-- ZergNet -->
 			<?php if (!$this->getSkin()->getContext()->getUser()->isLoggedIn() && HydraHooks::showSideRailAPUs($this->getSkin()) && $this->data['showads'] && HydraHooks::getAdBySlot('zergnet')) { ?>
-			<div class="zergnet_container">
+			<div id="zergnet_container">
 				<?php echo HydraHooks::getAdBySlot('zergnet'); ?>
 			</div>
 			<?php } ?>
 			<!-- /ZergNet -->
 			<!-- BTF Leaderboard -->
 			<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('btflb')) { ?>
-			<div class="btflb">
+			<div id="btflb">
 				<?php echo HydraHooks::getAdBySlot('btflb'); ?>
 			</div>
 			<?php } ?>
