@@ -14,7 +14,7 @@
 			updateMaxSideRailMarginTop(sideRail);
 		});
 		$(window).scroll(function() {
-			var offset = 10;
+			var offset = 5;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
 				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
 				$(sideRail).css('margin-top', (calcMarginTop < window.maxsideRailMarginTop ? calcMarginTop : window.maxsideRailMarginTop) + 'px');
