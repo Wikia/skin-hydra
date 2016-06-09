@@ -114,7 +114,7 @@ div#zergnet_container {
 
 	#gp-pro-upsell > a img {
 		animation: gpProUpsellAnimation 10s linear infinite;
-		background-image: url("../images/gppro/gpproupsellbackshort.png");
+		background-image: url("../images/gppro/gpproupsellshortback.png");
 	}
 
 	@keyframes gpProUpsellAnimation {
