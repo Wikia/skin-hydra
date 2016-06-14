@@ -93,8 +93,10 @@ div#zergnet_container {
 		display: block;
 		float: right;
 		min-height: 500px;
+		position: relative;
 		text-align: center;
 		width: 310px;
+		z-index: 1000000;
 	}
 
 	#siderail > * {
