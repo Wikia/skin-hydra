@@ -83,9 +83,3 @@ div.vectorMenu {
 	vertical-align: middle;
 	width: 2em;
 }
-
-/* Fix fixed width tables. */
-div#content table {
-	max-width: 100%;
-	table-layout: fixed;
-}
