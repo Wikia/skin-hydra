@@ -31,18 +31,18 @@ div#atflb > div {
 }
 
 div.mobileatfmrec {
-	text-align: center;
 }
 
-div.mobileatfmrec, div#footermrec {
+div.mobileatfmrec, div.footermrec {
 	float: none;
 }
 
-div#mobileatfmrec {
+div.mobileatfmrec {
 	margin: 15px auto;
+	text-align: center;
 }
 
-div#footermrec {
+div.footermrec {
 	margin: 0 auto;
 }
 
