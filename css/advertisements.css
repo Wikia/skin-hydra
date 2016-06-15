@@ -30,6 +30,10 @@ div#atflb > div {
 	margin: 0 auto;
 }
 
+div#mobileatfmrec {
+	text-align: center;
+}
+
 div#mobileatfmrec, div#footermrec {
 	float: none;
 }
