@@ -33,7 +33,7 @@ div#atflb > div {
 div.mobileatfmrec {
 }
 
-div.mobileatfmrec, div.footermrec {
+div.mobileatfmrec, div#footermrec {
 	float: none;
 }
 
@@ -42,7 +42,7 @@ div.mobileatfmrec {
 	text-align: center;
 }
 
-div.footermrec {
+div#footermrec {
 	margin: 0 auto;
 }
 
