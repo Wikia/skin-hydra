@@ -46,6 +46,10 @@ div#mobileatfmrec, div#mobilebtfmrec {
 	text-align: center;
 }
 
+div#mobileatfmrec > div, div#mobilebtfmrec > div {
+	max-width: 300px;
+}
+
 div#mobileatflb {
 	position:fixed;
 	bottom:0;
