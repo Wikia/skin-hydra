@@ -1,5 +1,10 @@
 (function(mw, $) {
 	mw.loader.using('skins.minerva.toggling').then(function() {
+		if (window.mobileatflb && window.mobileatflb.length) {
+			var atfLbUnit = $('<div id="mobileatflb">').append(window.mobileatflb);
+			$("#content").prepend(atfLbUnit);
+		}
+
 		var headings = $("#bodyContent").find("> h1, > h2, > h3, > h4, > h5, > h6");
 		if (window.mobileatfmrec && window.mobileatfmrec.length) {
 			var adUnit = $('<div>').addClass('mobileatfmrec').append(window.mobileatfmrec);
