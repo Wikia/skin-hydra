@@ -30,11 +30,11 @@ div#atflb > div {
 	margin: 0 auto;
 }
 
-div.mobileatfmrec, div#footermrec {
+div#mobileatfmrec, div#footermrec {
 	float: none;
 }
 
-div.mobileatfmrec {
+div#mobileatfmrec, div#mobileatfmrec {
 	margin: 15px auto;
 	text-align: center;
 }
