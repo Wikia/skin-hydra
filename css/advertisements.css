@@ -30,23 +30,18 @@ div#atflb > div {
 	margin: 0 auto;
 }
 
-div#mobileatfmrec, div#footermrec {
+div#mobileatfmrec, div#mobilebtfmrec, div#footermrec {
 	float: none;
-}
-
-div#mobileatfmrec, div#mobileatfmrec {
-	margin: 15px auto;
-	text-align: center;
 }
 
 div#footermrec {
 	margin: 0 auto;
 }
 
-div#mobileatfmrec {
+div#mobileatfmrec, div#mobilebtfmrec {
 	border-bottom: 1px solid #e2e3e4;
 	border-top: 1px solid #e2e3e4;
-	margin: 0.5em 0;
+	margin: 0.5em auto;
 	padding: 8px;
 	text-align: center;
 }
@@ -58,16 +53,6 @@ div#mobileatflb {
 	width:100%;
 	text-align:center;
 	z-index:999999 !important;
-}
-
-.mobileInject {
-	margin: 0 auto !important;
-	text-align:center !important;
-	padding-bottom: 10px !important;
-}
-
-div#mobilebtfmrec {
-	text-align: center;
 }
 
 div#zergnet_container {
