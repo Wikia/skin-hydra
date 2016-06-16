@@ -212,6 +212,12 @@ class HydraHooks {
 						window.mobileatfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec'))."';
 					</script>";
 				}
+				if ($showAds && !empty(self::getAdBySlot('mobilebtfmrec'))) {
+					$_bottomExtra .= "
+					<script type=\"text/javascript\">
+						window.mobilebtfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobilebtfmrec'))."';
+					</script>";
+				}
 			} else {
 				$_bottomExtra .= $footer;
 
