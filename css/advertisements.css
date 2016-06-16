@@ -97,7 +97,7 @@ div#zergnet_container {
 		position: relative;
 		text-align: center;
 		width: 310px;
-		z-index: 1000000;
+		z-index: 9000;
 	}
 
 	#siderail > * {
