@@ -47,6 +47,7 @@ div#mobileatfmrec, div#mobilebtfmrec {
 }
 
 div#mobileatfmrec > div, div#mobilebtfmrec > div {
+	margin: 0 auto;
 	max-width: 300px;
 }
 
