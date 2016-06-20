@@ -81,7 +81,8 @@
 		},
 		"skins.hydra.advertisements.js": {
 			"scripts": [
-				"js/siderail.js"
+				"js/siderail.js",
+				"js/cpmstar.js"
 			],
 			"targets": [
 				"desktop"
