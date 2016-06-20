@@ -15,7 +15,7 @@ if (filter_var($url, FILTER_VALIDATE_URL)) {
 
 	$contents = Http::get($url);
 	if ($contents !== false) {
-		$extension = substr($url, strrpos('.', $url) + 1);
+		$extension = substr($url, strrpos($url, '.') + 1);
 		header('Content-Type: image/'.$extension);
 		echo $contents;
 		exit;
