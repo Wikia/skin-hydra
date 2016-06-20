@@ -14,6 +14,11 @@ if (filter_var($url, FILTER_VALIDATE_URL)) {
 	require($IP.'/includes/WebStart.php');
 
 	$contents = Http::get($url);
-	var_dump($contents);
+	if ($contents !== false) {
+		$extension = substr($url, strrpos('.', $url) + 1);
+		header('Content-Type: image/'.$extension);
+		echo $contents;
+		exit;
+	}
 }
 http_response_code(404);
