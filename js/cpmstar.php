@@ -9,8 +9,9 @@ $url = str_replace(['/cdn2', '/cdn3'], ['http://cdn2.cmpstar.com', 'cdn3.cpmstar
 if (filter_var($url, FILTER_VALIDATE_URL)) {
 	define("CA_COOKIE_SETUP", true);
 
-	putenv("MW_INSTALL_PATH=".dirname(dirname(__DIR__)));
-	require(dirname(dirname(__DIR__)).'/includes/WebStart.php');
+	$IP = dirname(dirname(dirname(__DIR__)));
+	putenv("MW_INSTALL_PATH=".$IP);
+	require($IP.'/includes/WebStart.php');
 
 	$contents = Http::get($url);
 	var_dump($contents);
