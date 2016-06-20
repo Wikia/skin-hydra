@@ -5,7 +5,7 @@ if (empty($urlParts[1])) {
 	http_response_code(404);
 	exit;
 }
-$url = str_replace(['/cdn2', '/cdn3'], ['http://cdn2.cmpstar.com', 'http://cdn3.cpmstar.com'], $urlParts[1]);
+$url = str_replace(['/cdn2', '/cdn3'], ['http://cdn2.cpmstar.com', 'http://cdn3.cpmstar.com'], $urlParts[1]);
 if (filter_var($url, FILTER_VALIDATE_URL)) {
 	define("CA_COOKIE_SETUP", true);
 
