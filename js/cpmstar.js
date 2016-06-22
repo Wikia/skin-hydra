@@ -1,40 +1,4 @@
-function showCpmStarSlots(cpmStar) {
-	console.log(window.cpmStarDivId);
-	var adContainer = document.getElementById(window.cpmStarDivId);
-	if (adContainer) {
-		var i = 0;
-		var flexes = '';
-		while (cpmStar.adsLeft()) {
-			i++;
-			var imageUrl = cpmStar.getImageUrl(140, 80);
-			imageUrl = imageUrl.replace('http://cdn2.cpmstar.com', '/skins/Hydra/js/cpmstar.php?/cdn2');
-			imageUrl = imageUrl.replace('http://cdn3.cpmstar.com', '/skins/Hydra/js/cpmstar.php?/cdn3');
-			flexes = flexes + "<div id='slot"+i+"' class='slot flex-item'>"+
-				"<a href='" + cpmStar.getLink() + "' title='" + cpmStar.getTitle() + "' target='_blank'>"+
-					"<div class='image_holder middle'><img src='" + imageUrl + "'></div>"+
-					"<span class='tagline'>" + cpmStar.getTitle() + "</span>"+
-				"</a>"+
-			"</div>";
-			cpmStar.nextAd();
-		}
-		var ad = document.createElement('div');
-		ad.setAttribute("class", "flex-container");
-		ad.innerHTML = flexes;
-		//window.cpmStarDivInner = ad;
-		adContainer.appendChild(ad);
-	}
-}
-
-window.cpmstar_dynamic_editorials = {
-	editorial_1: {
-		cpmstar_pid: 72135,	// Curse Gaming Dynamic Editorial Pool ID
-		cpmstar_multi: 4, // Number of ads to show
-		cpmstar_callback: showCpmStarSlots
-	}
-};
-
-setTimeout(function() { }, 10);
-window.cpmstar_editorials = function(j) {
+var cpmstar_editorials = function(j) {
 	var k = [],
 		l = function() {
 			this.cpmStarMultiAdInfo = [];
@@ -155,7 +119,7 @@ window.cpmstar_editorials = function(j) {
 			f.async = !0;
 			f.src = "undefined" != typeof a.cpmstar_subpoolid ? "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&subpoolid=" + a.cpmstar_subpoolid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." +
 				a.key + ".callback&rnd=" + c : "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." + a.key + ".callback&rnd=" + c;
-			c = document.getElementById(window.cpmStarDivId);
+			c = document.getElementsByTagName("script")[0];
 			c.parentNode.insertBefore(f, c)
 		},
 		p;
@@ -170,4 +134,4 @@ window.cpmstar_editorials = function(j) {
 			return k.length
 		}
 	}
-}(window.cpmstar_dynamic_editorials);
+}(this.cpmstar_dynamic_editorials);
