@@ -1,4 +1,4 @@
-function showAds(cpmStar) {
+function showCpmStarSlots(cpmStar) {
 	var adContainer = document.getElementById('dynamic_editorial_container');
 	if (adContainer) {
 		var i = 0;
@@ -23,15 +23,15 @@ function showAds(cpmStar) {
 	}
 }
 
-var cpmstar_dynamic_editorials = {
+window.cpmstar_dynamic_editorials = {
 	editorial_1: {
 		cpmstar_pid: 72135,	// Curse Gaming Dynamic Editorial Pool ID
 		cpmstar_multi: 4, // Number of ads to show
-		cpmstar_callback: showAds
+		cpmstar_callback: showCpmStarSlots
 	}
 };
 
-var cpmstar_editorials = function(j) {
+window.cpmstar_editorials = function(j) {
 	var k = [],
 		l = function() {
 			this.cpmStarMultiAdInfo = [];
@@ -167,4 +167,4 @@ var cpmstar_editorials = function(j) {
 			return k.length
 		}
 	}
-}(this.cpmstar_dynamic_editorials);
+};
