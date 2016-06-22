@@ -167,4 +167,4 @@ window.cpmstar_editorials = function(j) {
 			return k.length
 		}
 	}
-};
+}(window.cpmstar_dynamic_editorials);
