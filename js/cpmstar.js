@@ -152,7 +152,7 @@ window.cpmstar_editorials = function(j) {
 			f.async = !0;
 			f.src = "undefined" != typeof a.cpmstar_subpoolid ? "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&subpoolid=" + a.cpmstar_subpoolid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." +
 				a.key + ".callback&rnd=" + c : "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." + a.key + ".callback&rnd=" + c;
-			c = document.getElementsByTagName("script")[0];
+			c = document.getElementById(window.cpmStarDivId);
 			c.parentNode.insertBefore(f, c)
 		},
 		p;
