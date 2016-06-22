@@ -33,6 +33,7 @@ window.cpmstar_dynamic_editorials = {
 	}
 };
 
+setTimeout(function() { }, 10);
 window.cpmstar_editorials = function(j) {
 	var k = [],
 		l = function() {
