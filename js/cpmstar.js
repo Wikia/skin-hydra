@@ -19,7 +19,8 @@ function showCpmStarSlots(cpmStar) {
 		var ad = document.createElement('div');
 		ad.setAttribute("class", "flex-container");
 		ad.innerHTML = flexes;
-		adContainer.appendChild(ad);
+		window.cpmStarDivInner = ad;
+		//adContainer.appendChild(ad);
 	}
 }
 
