@@ -1,4 +1,5 @@
 function showCpmStarSlots(cpmStar) {
+	console.log(window.cpmStarDivId);
 	var adContainer = document.getElementById(window.cpmStarDivId);
 	if (adContainer) {
 		var i = 0;
@@ -19,8 +20,8 @@ function showCpmStarSlots(cpmStar) {
 		var ad = document.createElement('div');
 		ad.setAttribute("class", "flex-container");
 		ad.innerHTML = flexes;
-		window.cpmStarDivInner = ad;
-		//adContainer.appendChild(ad);
+		//window.cpmStarDivInner = ad;
+		adContainer.appendChild(ad);
 	}
 }
 
