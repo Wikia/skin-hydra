@@ -117,8 +117,8 @@ var cpmstar_editorials = function(j) {
 				f = document.createElement("script");
 			f.type = "text/javascript";
 			f.async = !0;
-			f.src = "undefined" != typeof a.cpmstar_subpoolid ? "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&subpoolid=" + a.cpmstar_subpoolid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." +
-				a.key + ".callback&rnd=" + c : "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=this.cpmstar_dynamic_editorials." + a.key + ".callback&rnd=" + c;
+			f.src = "undefined" != typeof a.cpmstar_subpoolid ? "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&subpoolid=" + a.cpmstar_subpoolid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=window.cpmstar_dynamic_editorials." +
+				a.key + ".callback&rnd=" + c : "//rigby.gamepedia.com/view.aspx?poolid=" + a.cpmstar_pid + "&multi=" + a.cpmstar_multi + "&json=nc_editorial&callback=window.cpmstar_dynamic_editorials." + a.key + ".callback&rnd=" + c;
 			c = document.getElementsByTagName("script")[0];
 			c.parentNode.insertBefore(f, c)
 		},
@@ -134,4 +134,4 @@ var cpmstar_editorials = function(j) {
 			return k.length
 		}
 	}
-}(this.cpmstar_dynamic_editorials);
+}(window.cpmstar_dynamic_editorials);
