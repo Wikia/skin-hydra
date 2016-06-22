@@ -1,5 +1,5 @@
 function showCpmStarSlots(cpmStar) {
-	var adContainer = document.getElementById('dynamic_editorial_container');
+	var adContainer = document.getElementById(window.cpmStarDivId);
 	if (adContainer) {
 		var i = 0;
 		var flexes = '';
