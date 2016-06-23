@@ -5,7 +5,7 @@ if (empty($urlParts[1])) {
 	http_response_code(404);
 	exit;
 }
-$url = str_replace(['server', '/cdn2', '/cdn3'], ['http://server.cpmstar.com', 'http://cdn2.cpmstar.com', 'http://cdn3.cpmstar.com'], $urlParts[1]);
+$url = str_replace(['/server', '/cdn2', '/cdn3'], ['http://server.cpmstar.com', 'http://cdn2.cpmstar.com', 'http://cdn3.cpmstar.com'], $urlParts[1]);
 if (filter_var($url, FILTER_VALIDATE_URL)) {
 	if (strpos('http://server.cpmstar.com', $url) !== false) {
 		header('Location: '.$url);
