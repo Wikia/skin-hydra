@@ -5,15 +5,27 @@
 		window.sideRailMarginTop = $(sideRail).css('margin-top');
 		updateMaxSideRailMarginTop(sideRail);
 		$('#bodyContent').on('DOMSubtreeModified', function() {
+			if ($(sideRail).is(':hidden')) {
+				return;
+			}
 			updateMaxSideRailMarginTop(sideRail);
 		});
 		$(sideRail).on('DOMSubtreeModified', function() {
+			if ($(sideRail).is(':hidden')) {
+				return;
+			}
 			updateMaxSideRailMarginTop(sideRail);
 		});
 		$(window).resize(function() {
+			if ($(sideRail).is(':hidden')) {
+				return;
+			}
 			updateMaxSideRailMarginTop(sideRail);
 		});
 		$(window).scroll(function() {
+			if ($(sideRail).is(':hidden')) {
+				return;
+			}
 			var offset = 5;
 			if (Math.ceil(window.sideRailStartTop - offset) < Math.ceil($(document).scrollTop())) {
 				var calcMarginTop = $(document).scrollTop() - window.sideRailStartTop + offset;
