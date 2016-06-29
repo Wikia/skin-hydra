@@ -181,7 +181,7 @@ div#zergnet_container {
 	font-weight: normal;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1350px) {
 	#global-wrapper.with-siderail #content #bodyContent {
 		box-sizing: border-box;
 		float: left;
@@ -197,6 +197,7 @@ div#zergnet_container {
 		min-height: 500px;
 		position: relative;
 		text-align: center;
+		top: 5px;
 		width: 310px;
 		z-index: 9000;
 	}
@@ -217,12 +218,12 @@ div#zergnet_container {
 	}
 
 	#gp-pro-upsell > a img {
-		animation: gpProUpsellAnimation 10s linear infinite;
+		animation: gpProUpsellAnimation 20s linear infinite;
 		background-image: url("../images/gppro/gpproupsellshortback.png");
 	}
 
 	@keyframes gpProUpsellAnimation {
 		from { background-position: 0 0; }
-		to { background-position: -307px 0; }
+		to { background-position: -650px 0; }
 	}
 }
