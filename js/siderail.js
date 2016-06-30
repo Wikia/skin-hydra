@@ -3,9 +3,9 @@
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailCssTop = $(sideRail).css('top');
-		window.sideRailMarginTop = $(sideRail).css('margin-top');
 		window.sideRailAtTop = true;
 		window.sideRailAtBottom = false;
+		window.sideRailVisible = $(sideRail).is(':visible');
 
 		/*$('#bodyContent').on('DOMSubtreeModified', function() {
 			updateMaxSideRailTop(sideRail);
@@ -14,7 +14,7 @@
 			updateMaxSideRailTop(sideRail);
 		});*/
 		$(window).resize(function() {
-			updateMaxSideRailLeft(sideRail);
+			updateSideRailPosition(sideRail);
 		});
 
 		$(window).scroll(function() {
@@ -47,18 +47,17 @@
 			}
 		});
 
-		function updateMaxSideRailLeft(sideRail) {
+		function updateSideRailPosition(sideRail) {
+			if (!window.sideRailVisible && $(sideRail).is(':visible')) {
+				window.sideRailVisible = true;
+				window.sideRailStartTop = $(sideRail).offset().top;
+				window.sideRailCssTop = $(sideRail).css('top');
+			}
 			if (!window.sideRailAtTop && !window.sideRailAtBottom && $(sideRail).css('position') == 'fixed') {
 				$(sideRail).css('position', 'relative');
 				$(sideRail).css('left', 'auto');
 				$(sideRail).css('left', $(sideRail).offset().left+'px');
 				$(sideRail).css('position', 'fixed');
-			}
-		}
-
-		function updateMaxSideRailTop(sideRail) {
-			if (window.sideRailAtBottom) {
-				$(sideRail).css('top', ($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) + 'px');
 			}
 		}
 	}
