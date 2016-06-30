@@ -7,21 +7,12 @@
 		window.sideRailAtTop = true;
 		window.sideRailAtBottom = false;
 
-		$('#bodyContent').on('DOMSubtreeModified', function() {
-			updateMaxSideRailLeft(sideRail);
-        });
-		$(sideRail).on('DOMSubtreeModified', function() {
-			updateMaxSideRailLeft(sideRail);
-		});
-		$(window).resize(function() {
-			updateMaxSideRailLeft(sideRail);
-		});
-
 		$(window).scroll(function() {
 			if ($(sideRail).is(':hidden')) {
 				return;
 			}
 			if (window.sideRailStartTop >= $(document).scrollTop()) {
+				console.log('Top');
 				$(sideRail).css('top', window.sideRailCssTop);
 				$(sideRail).css('position', 'relative');
 				$(sideRail).css('left', 'auto');
@@ -32,6 +23,7 @@
 
 			if (Math.ceil($(document).scrollTop()) >= $('#bodyContent').outerHeight() + $('#bodyContent').offset().top - $(sideRail).outerHeight()) {
 				// && Math.ceil($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) > Math.ceil($(document).scrollTop())
+				console.log('Bottom');
 				$(sideRail).css('top', ($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) + 'px');
 				$(sideRail).css('position', 'relative');
 				$(sideRail).css('left', 'auto');
@@ -41,20 +33,12 @@
 			}
 
 			if (!window.sideRailAtTop && !window.sideRailAtBottom) {
+				console.log('Sliding');
 				$(sideRail).css('top', window.sideRailCssTop);
 				$(sideRail).css('left', $(sideRail).offset().left+'px');
 				$(sideRail).css('position', 'fixed');
 			}
 		});
-
-		function updateMaxSideRailLeft(sideRail) {
-			if (!window.sideRailAtTop && !window.sideRailAtBottom && $(sideRail).css('position') == 'fixed') {
-				$(sideRail).css('position', 'relative');
-				$(sideRail).css('left', 'auto');
-				$(sideRail).css('left', $(sideRail).offset().left+'px');
-				$(sideRail).css('position', 'fixed');
-			}
-		}
 	}
 
 	/* Hide siderail when we are editing with VE */
