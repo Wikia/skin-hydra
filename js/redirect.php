@@ -12,7 +12,8 @@ if (filter_var($url, FILTER_VALIDATE_URL)) {
 		http_response_code(302);
 		exit;
 	} else {
-		define("CA_COOKIE_SETUP", true);
+		define("CPM_STAR_REDIRECT", true);
+		define("MW_API", true);
 
 		$IP = dirname(dirname(dirname(__DIR__)));
 		putenv("MW_INSTALL_PATH=".$IP);
