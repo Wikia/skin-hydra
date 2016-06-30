@@ -7,12 +7,12 @@
 		window.sideRailAtTop = true;
 		window.sideRailAtBottom = false;
 
-		$('#bodyContent').on('DOMSubtreeModified', function() {
-			updateMaxSideRailLeft(sideRail);
+		/*$('#bodyContent').on('DOMSubtreeModified', function() {
+			updateMaxSideRailTop(sideRail);
         });
 		$(sideRail).on('DOMSubtreeModified', function() {
-			updateMaxSideRailLeft(sideRail);
-		});
+			updateMaxSideRailTop(sideRail);
+		});*/
 		$(window).resize(function() {
 			updateMaxSideRailLeft(sideRail);
 		});
@@ -53,6 +53,12 @@
 				$(sideRail).css('left', 'auto');
 				$(sideRail).css('left', $(sideRail).offset().left+'px');
 				$(sideRail).css('position', 'fixed');
+			}
+		}
+
+		function updateMaxSideRailTop(sideRail) {
+			if (window.sideRailAtBottom) {
+				$(sideRail).css('top', ($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) + 'px');
 			}
 		}
 	}
