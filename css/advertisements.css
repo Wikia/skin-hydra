@@ -6,8 +6,8 @@
 	width: 300px !important;
 }
 
-div#atflb, div#btflb {
-	display: block;
+#content div#atflb, #content div#btflb {
+	display: block !important;
 	height: 90px !important;
 	margin: 0 auto;
 	padding: 5px 0;
@@ -66,8 +66,8 @@ div#zergnet_container {
 	width: 100%;
 }
 
-#siderail {
-	display: none;
+#content #siderail {
+	display: none !important;
 }
 
 .recovery {
@@ -189,10 +189,10 @@ div#zergnet_container {
 	}
 
 	/* Side Rail */
-	#siderail {
+	#content #siderail {
 		background-color: rgba(0, 0, 0, 0.1);
 		box-sizing: border-box;
-		display: block;
+		display: block !important;
 		float: right;
 		min-height: 500px;
 		position: relative;
@@ -207,8 +207,9 @@ div#zergnet_container {
 		margin: 5px auto;
 	}
 
-	#siderail div#atfmrec, #siderail div#btfmrec {
+	#content #siderail div#atfmrec, #content #siderail div#btfmrec {
 		border: none !important;
+		display: block !important;
 		width: 300px !important;
 	}
 
