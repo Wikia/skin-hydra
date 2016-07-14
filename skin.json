@@ -15,7 +15,8 @@
 		"HydraSkinShowSideRail": true,
 		"HydraSkinHideSideRailPages": [],
 		"SiteAdvertisements": [],
-		"IsOfficialWiki": false
+		"IsOfficialWiki": false,
+		"SideRailCollapseWidth": 1350
 	},
 	"ValidSkinNames": {
 		"hydra": "Hydra"
@@ -71,7 +72,7 @@
 		},
 		"skins.hydra.advertisements.styles": {
 			"styles": [
-				"css/advertisements.css"
+				"css/advertisements.less"
 			],
 			"targets": [
 				"desktop",
@@ -171,6 +172,9 @@
 		],
 		"SkinMinervaDefaultModules": [
 			"HydraHooks::onSkinMinervaDefaultModules"
+		],
+		"ResourceLoaderGetLessVars": [
+			"HydraHooks::onResourceLoaderGetLessVars"
 		]
 	},
 	"manifest_version": 1
