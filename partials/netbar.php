@@ -42,7 +42,7 @@ $showHost = false;
 	</ul>
 
 	<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
-		<span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.png" /></span>
+		<span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></span>
 	<?php } ?>
 	<ul class="netbar-right">
 		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
