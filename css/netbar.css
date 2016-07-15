@@ -20,6 +20,8 @@ html body {
 
 #OfficialWiki img{
 	margin: 7px 0px 0px 7px;
+	height: 15px;
+	width: 75px;
 }
 
 div#netbar {
