@@ -60,9 +60,6 @@ class HydraHooks {
 		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('footermrec'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
-		$skin->getOutput()->addModuleScripts('skins.hydra.advertisements.js');
-		$skin->getOutput()->addModuleScripts('skins.hydra.footer.js');
-
 		return true;
 	}
 
