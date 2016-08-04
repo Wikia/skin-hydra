@@ -34,6 +34,10 @@
 					"media": "screen"
 				}
 			},
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"dependencies": [
 				"skins.vector.styles",
 				"skins.vector.styles.responsive",
@@ -142,10 +146,9 @@
 			"jquery.ui.tabs": "../Vector/skinStyles/jquery.ui/jquery.ui.tabs.css",
 			"jquery.ui.tooltips": "../Vector/skinStyles/jquery.ui/jquery.ui.tooltips.css",
 			"+mediawiki.notification": "../Vector/skinStyles/mediawiki.notification.less",
-			"+mediawiki.sectionAnchor": "../Vector/skinStyles/mediawiki.sectionAnchor.less",
-			"ooui": "../Vector/skinStyles/ooui.less",
+			"+oojs-ui-core.styles": "../Vector/skinStyles/ooui.less",
 			"mediawiki.special": "../Vector/skinStyles/mediawiki.special.less",
-			"mediawiki.special.preferences": "../Vector/skinStyles/mediawiki.special.preferences.less"
+			"+mediawiki.special.preferences.styles": "../Vector/skinStyles/mediawiki.special.preferences.styles.less"
 		}
 	},
 	"ResourceFileModulePaths": {
