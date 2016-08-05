@@ -3,7 +3,9 @@
  * directory of this distribution and at
  * https://github.com/marcj/css-element-queries/blob/master/LICENSE.
  */
-;
+
+var ResizeSensor = null;
+
 (function() {
 
     var requestAnimationFrame = window.requestAnimationFrame ||
@@ -21,7 +23,7 @@
      *
      * @constructor
      */
-    var ResizeSensor = function(element, callback) {
+    ResizeSensor = function(element, callback) {
         /**
          *
          * @constructor
