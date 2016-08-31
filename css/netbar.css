@@ -521,6 +521,7 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 	background-color: transparent;
 	background-position: 0.12em 0.6em;
 	height: auto;
+	line-height: 24px;
 	margin-left: 0;
 }
 
@@ -529,7 +530,7 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 }
 
 #netbar .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
-	color: #555555;
+	color: #eee;
 }
 
 #netbar #pt-notifications-alert .mw-echo-notifications-badge.mw-echo-unseen-notifications,
@@ -568,4 +569,13 @@ body.responsive-enabled div#curse-stripe {
 body.responsive-enabled div#netbar {
 	top: 1px;
 }
+}
+
+.mw-echo-ui-notificationBadgeButtonPopupWidget > .oo-ui-popupWidget > .oo-ui-popupWidget-popup > .oo-ui-popupWidget-head > .oo-ui-labelElement-label {
+	padding: 0.2em !important;
+}
+
+div#netbar #pt-notifications-alert > .oo-ui-widget, div#netbar #pt-notifications-message > .oo-ui-widget {
+	box-sizing: initial;
+	line-height: 1.125em;
 }
