@@ -517,14 +517,6 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 }
 
 /* Notifications */
-#netbar #pt-notifications-alert .mw-echo-notifications-badge, #netbar #pt-notifications-message .mw-echo-notifications-badge {
-	background-color: transparent;
-	background-position: 0.12em 0.6em;
-	height: auto;
-	line-height: 24px;
-	margin-left: 0;
-}
-
 #netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a, #netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a.new {
 	color: #666666;
 }
@@ -578,4 +570,20 @@ body.responsive-enabled div#netbar {
 div#netbar #pt-notifications-alert > .oo-ui-widget, div#netbar #pt-notifications-message > .oo-ui-widget {
 	box-sizing: initial;
 	line-height: 1.125em;
+}
+
+div#netbar #pt-notifications-alert > .oo-ui-widget.mw-echo-notifications-badge, div#netbar #pt-notifications-message > .oo-ui-widget.mw-echo-notifications-badge {
+	background-color: transparent;
+	background-position: 0.12em 0.6em;
+	height: auto;
+	line-height: 24px;
+	margin-left: 0;
+}
+
+div#netbar #pt-notifications-alert > .oo-ui-widget a, div#netbar #pt-notifications-message > .oo-ui-widget a {
+	color: #0645ad;
+}
+
+div#netbar #pt-notifications-alert > .oo-ui-widget .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button, div#netbar #pt-notifications-message > .oo-ui-widget .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
+	color: #555555;
 }
