@@ -572,7 +572,8 @@ div#netbar #pt-notifications-alert > .oo-ui-widget, div#netbar #pt-notifications
 	line-height: 1.125em;
 }
 
-div#netbar #pt-notifications-alert > .oo-ui-widget.mw-echo-notifications-badge, div#netbar #pt-notifications-message > .oo-ui-widget.mw-echo-notifications-badge {
+div#netbar #pt-notifications-alert > .oo-ui-widget.mw-echo-notifications-badge, div#netbar #pt-notifications-message > .oo-ui-widget.mw-echo-notifications-badge,
+div#netbar #pt-notifications-alert > .mw-echo-notifications-badge, div#netbar #pt-notifications-message > .mw-echo-notifications-badge {
 	background-color: transparent;
 	background-position: 0.12em 0.6em;
 	height: auto;
