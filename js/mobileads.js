@@ -5,7 +5,7 @@
 			$("#content").prepend(atfLbUnit);
 		}
 
-		var headings = $("#bodyContent").find("> h1, > h2, > h3, > h4, > h5, > h6");
+		var headings = $("#bodyContent #mw-content-text").find("> h1, > h2, > h3, > h4, > h5, > h6");
 		if (window.mobileatfmrec && window.mobileatfmrec.length) {
 			var adUnit = $('<div id="mobileatfmrec">').append(window.mobileatfmrec);
 			if ($(headings).length > 1) {
