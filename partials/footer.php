@@ -14,7 +14,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="https://twitter.com/CurseGamepedia" class="tw"><?= wfMessage('footer-Twitter')->text() ?></a></li>
 			<li><a href="http://youtube.com/CurseEntertainment" class="yt"><?= wfMessage('footer-Youtube')->text() ?></a></li>
 			<li><a href="http://help.gamepedia.com/How_To_Contact_Gamepedia" class="nl"><?= wfMessage('footer-Newsletter')->text() ?></a></li>
-			<li><a href="http://civ6.gamepedia.com/" class="about">Civ 6 Wiki</a></li>
+			<li><a href="http://civ6.gamepedia.com/Leaders" class="advertise">Civ 6 Leaders</a></li>
 		</ul>
 		<?php if (!$showAds) { ?>
 	</div>
@@ -33,7 +33,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<?php } ?>
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
-			<li><a href="http://civ6.gamepedia.com/Leaders" class="advertise">Civ 6 Leaders</a></li>
+			<li><a href="http://civ6.gamepedia.com/" class="about">Civ 6 Wiki</a></li>
 		<?php if ($showAds) { ?>
 		</ul>
 		<ul class="more">
@@ -42,7 +42,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="http://www.curseinc.com/audience" class="advertise"><?= wfMessage('footer-Advertise')->text() ?></a></li>
 			<li><a href="http://www.curse.com/terms" class="tos"><?= wfMessage('footer-Terms_of_Service')->text() ?></a></li>
 			<li><a href="http://www.curse.com/privacy" class="privacy-policy"><?= wfMessage('footer-Privacy_Policy')->text() ?></a></li>
-			<li><a href="http://civ6.gamepedia.com/How_To_Play_Civ_6" class="tos">Civ 6 Guide</a></li>
+			<li><a href="http://civ6.gamepedia.com/District" class="tos">Civ 6 Districts</a></li>
 		</ul>
 		<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
 	</div>
