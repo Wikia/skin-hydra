@@ -21,5 +21,6 @@
 			}
 		}
 		$('body').append($("<div>").attr("id", "cdm-zone-end"));
+		window.factorem.parseZones();
 	});
 }(mediaWiki, jQuery));
