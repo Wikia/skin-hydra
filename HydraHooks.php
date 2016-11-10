@@ -102,7 +102,6 @@ class HydraHooks {
 
 	/**
 	 * Modifications to title, and copyright for Curse Disclaimer
-	 * Wiki Managers must change Pagetitle-view-mainpage templates to utilize the extension.
 	 *
 	 * @access	public
 	 * @param	object	SkinTemplate Object
@@ -365,7 +364,7 @@ class HydraHooks {
 		}
 
 		$showAds = false;
-		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL && $_SERVER['HTTP_X_MOBILE'] != 'yes') {
+		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
 			$showAds = true;
 		}
 		self::$showAds = $showAds;
