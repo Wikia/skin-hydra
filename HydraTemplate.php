@@ -186,34 +186,28 @@ class HydraTemplate extends VectorTemplate {
 			if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin())) {
 			?>
 			<div id="siderail">
-				<!-- 300x250 Ad block -->
-				<?php if (HydraHooks::getAdBySlot('atfmrec')) { ?>
-				<div id="atfmrec">
-					<?php echo HydraHooks::getAdBySlot('atfmrec'); ?>
-				</div>
-				<?php } ?>
-				<!-- End 300x250 Ad block -->
+				<?php
+				/* $$placements['new-item'] = $rawHtml;
+				 * Item key should be suitable as an element ID.
+				 * NOTE: Do not sort the placements array!  Some extensions will insert their content in a specific order.
+				 *
+				 * Example:
+				 * <div id="new-item">
+				 *		<img src='htmlexample.png'/>
+				 * </div>
+				*/
+				$placements = [];
+				Hooks::run('SideRailPlacements', [&$placements]);
 
-				<!-- ZergNet Side Rail -->
-				<?php if (HydraHooks::getAdBySlot('zergnetsiderail')) { ?>
-				<div id="zergnetsiderail">
-					<?php echo HydraHooks::getAdBySlot('zergnetsiderail'); ?>
-				</div>
-				<?php } ?>
+				//Give extensions a chance to sort the placements correctly.
+				Hooks::run('SideRailPlacementsBeforeOutput', [&$placements]);
 
-				<div id="gp-pro-upsell">
-					<a href="https://www.gamepedia.com/pro"><img src="<?php
-					global $wgScriptPath;
-					echo wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsellshort.png");
-					?>"></a>
-				</div>
-				<!-- 300x250 Ad block -->
-				<?php if (HydraHooks::getAdBySlot('btfmrec')) { ?>
-				<div id="btfmrec">
-					<?php echo HydraHooks::getAdBySlot('btfmrec'); ?>
-				</div>
-				<?php } ?>
-				<!-- End 300x250 Ad block -->
+				if (is_array($placements) && count($placements)) {
+					foreach ($placements as $id => $placement) {
+						echo "<div id=".htmlentities($id).">".$placement."</div>";
+					}
+				}
+				?>
 			</div>
 			<div class="visualClear"></div>
 			<?php
