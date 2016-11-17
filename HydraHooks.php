@@ -437,4 +437,29 @@ class HydraHooks {
 		$lessVars['sideRailCollapseWidth'] = (!$sideRailCollapseWidth ? 1350 : $sideRailCollapseWidth).'px';
 		return true;
 	}
+
+	/**
+	 * Insert placements into the siderail.
+	 *
+	 * @access	public
+	 * @param	array	Placements array to modify.
+	 * @return	boolean	True
+	 */
+	static public function onSideRailPlacements(&$placements) {
+		global $wgScriptPath;
+
+		if (($placement = self::getAdBySlot('atfmrec')) !== false) {
+			$placements['atfmrec'] = $placement;
+		}
+
+		if (($placement = self::getAdBySlot('zergnetsiderail')) !== false) {
+			$placements['zergnetsiderail'] = $placement;
+		}
+
+		$placements['gp-pro-upsell'] = "<a href='https://www.gamepedia.com/pro'><img src=".wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsellshort.png")."></a>";
+
+		if (($placement = self::getAdBySlot('btfmrec')) !== false) {
+			$placements['btfmrec'] = $placement;
+		}
+	}
 }

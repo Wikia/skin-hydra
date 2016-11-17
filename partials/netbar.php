@@ -39,12 +39,40 @@ $showHost = false;
 		<?php if ($showHost) { ?>
 			<li><span class="label-hostname"><?= htmlspecialchars(gethostname()) ?></span></li>
 		<?php } ?>
-	</ul>
 
-	<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
-		<span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></span>
-	<?php } ?>
+		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true || true) { ?>
+			<li><span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></span></li>
+		<?php } ?>
+		<?php
+		/* $items['new-item'] = $rawHtml;
+		 * Item key should be suitable as a CSS class name.
+		 * HTML should be wrapped in a <span> or <a> for single elements.
+		 * Otherwise <span> or <a> should be the first element in the HTML for drop down lists.
+		*/
+		$items = [];
+		Hooks::run('NetbarLeftEnd', [&$items]);
+		if (is_array($items) && count($items)) {
+			foreach ($items as $key => $item) {
+				echo "<li class=".htmlentities($key).">".$item."</li>";
+			}
+		}
+		?>
+	</ul>
 	<ul class="netbar-right">
+		<?php
+		/* $items['new-item'] = $rawHtml;
+		 * Item key should be suitable as a CSS class name.
+		 * HTML should be wrapped in a <span> or <a> for single elements.
+		 * Otherwise <span> or <a> should be the first element in the HTML for drop down lists.
+		*/
+		$items = [];
+		Hooks::run('NetbarRightBegin', [&$items]);
+		if (is_array($items) && count($items)) {
+			foreach ($items as $key => $item) {
+				echo "<li class=".htmlentities($key).">".$item."</li>";
+			}
+		}
+		?>
 		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
 			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);
 			unset($personalTools['notifications-alert']);

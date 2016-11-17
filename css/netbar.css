@@ -19,7 +19,7 @@ html body {
 }
 
 #OfficialWiki img{
-	margin: 7px 0px 0px 7px;
+	margin: 0 7px;
 	height: 15px;
 	width: 75px;
 }
@@ -28,6 +28,7 @@ div#netbar {
 	height: 29px;
 	background: #121212;
 	border-bottom: 1px solid #000;
+	color: #aeaeae;
 	font-family: 'Open Sans',sans-serif;
 	font-size: 12px;
 	position: absolute;
