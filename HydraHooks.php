@@ -382,6 +382,11 @@ class HydraHooks {
 	static public function showSideRailAPUs($skin) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
+		if ($config->get('ForceSiderailToShow') == true) {
+			// used for testing is broken dev enviroments...
+			return true;
+		}
+
 		$wgHydraSkinHideSideRailPages = $config->get('HydraSkinHideSideRailPages');
 
 		$disallowedNamespaces = [
