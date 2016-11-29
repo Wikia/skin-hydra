@@ -239,7 +239,7 @@ class HydraHooks {
 			$_bottomExtra .= "
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
-				window.wikiTags = '{$wgWikiTags}';
+				window.wikiTags = ".json_encode($wgWikiTags).";
 			</script>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
