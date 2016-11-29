@@ -168,7 +168,7 @@ class HydraHooks {
 		}
 
 		if (isset($template->data['bottomscripts'])) {
-			global $wgWikiCategory;
+			global $wgWikiCategory, $wgWikiTags;
 
 			$_bottomExtra = '';
 
@@ -239,6 +239,7 @@ class HydraHooks {
 			$_bottomExtra .= "
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
+				window.wikiTags = '{$wgWikiTags}';
 			</script>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
