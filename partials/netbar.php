@@ -50,7 +50,7 @@ $showHost = false;
 		 * Otherwise <span> or <a> should be the first element in the HTML for drop down lists.
 		*/
 		$items = [];
-		Hooks::run('NetbarLeftEnd', [&$items]);
+		Hooks::run('NetbarLeftEnd', [&$items, $skin->getSkin()->getOutput()]);
 		if (is_array($items) && count($items)) {
 			foreach ($items as $key => $item) {
 				echo "<li class=".htmlentities($key).">".$item."</li>";
@@ -66,7 +66,7 @@ $showHost = false;
 		 * Otherwise <span> or <a> should be the first element in the HTML for drop down lists.
 		*/
 		$items = [];
-		Hooks::run('NetbarRightBegin', [&$items]);
+		Hooks::run('NetbarRightBegin', [&$items, $skin->getSkin()->getOutput()]);
 		if (is_array($items) && count($items)) {
 			foreach ($items as $key => $item) {
 				echo "<li class=".htmlentities($key).">".$item."</li>";

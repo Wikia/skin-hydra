@@ -197,10 +197,10 @@ class HydraTemplate extends VectorTemplate {
 				 * </div>
 				*/
 				$placements = [];
-				Hooks::run('SideRailPlacements', [&$placements]);
+				Hooks::run('SideRailPlacements', [&$placements, $this->getSkin()->getOutput()]);
 
 				//Give extensions a chance to sort the placements correctly.
-				Hooks::run('SideRailPlacementsBeforeOutput', [&$placements]);
+				Hooks::run('SideRailPlacementsBeforeOutput', [&$placements, $this->getSkin()->getOutput()]);
 
 				if (is_array($placements) && count($placements)) {
 					foreach ($placements as $id => $placement) {

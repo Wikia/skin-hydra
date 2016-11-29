@@ -443,9 +443,10 @@ class HydraHooks {
 	 *
 	 * @access	public
 	 * @param	array	Placements array to modify.
+	 * @param	object	OutputPage - Use this to add resource loader modules.
 	 * @return	boolean	True
 	 */
-	static public function onSideRailPlacements(&$placements) {
+	static public function onSideRailPlacements(&$placements, OutputPage $output) {
 		global $wgScriptPath;
 
 		if (($placement = self::getAdBySlot('atfmrec')) !== false) {
