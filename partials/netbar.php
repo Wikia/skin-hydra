@@ -40,7 +40,7 @@ $showHost = false;
 			<li><span class="label-hostname"><?= htmlspecialchars(gethostname()) ?></span></li>
 		<?php } ?>
 
-		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true || true) { ?>
+		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
 			<li><span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></span></li>
 		<?php } ?>
 		<?php
