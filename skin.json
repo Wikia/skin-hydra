@@ -164,6 +164,7 @@
 		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
 		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
+		"BottomPlacements": "HydraHooks::onBottomPlacements",
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
 		"SkinTemplateOutputPageBeforeExec": "HydraHooks::onSkinTemplateOutputPageBeforeExec",
 		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules",

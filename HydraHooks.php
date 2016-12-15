@@ -463,4 +463,19 @@ class HydraHooks {
 			$placements['btfmrec'] = $placement;
 		}
 	}
+
+	static public function onBottomPlacements(&$placements, &$template) {
+
+		if (!$template->getSkin()->getContext()->getUser()->isLoggedIn()
+			&& self::showSideRailAPUs($template->getSkin())
+			&& $template->data['showads']
+			&& self::getAdBySlot('zergnet')) {
+				$placements['zergnet_container'] = self::getAdBySlot('zergnet');
+		}
+
+		if ($template->data['showads'] && self::getAdBySlot('btflb')) {
+			$placements['btflb'] = self::getAdBySlot('btflb');
+		}
+
+	}
 }
