@@ -462,6 +462,7 @@ class HydraHooks {
 		if (($placement = self::getAdBySlot('btfmrec')) !== false) {
 			$placements['btfmrec'] = $placement;
 		}
+		return true;
 	}
 
 	/**
@@ -479,9 +480,10 @@ class HydraHooks {
 			&& self::getAdBySlot('zergnet')) {
 				$placements['zergnet_container'] = self::getAdBySlot('zergnet');
 		}
-		
+
 		if ($template->data['showads'] && self::getAdBySlot('btflb')) {
 			$placements['btflb'] = self::getAdBySlot('btflb');
 		}
+		return true;
 	}
 }
