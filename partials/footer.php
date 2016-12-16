@@ -36,7 +36,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
 		<?php if ($showAds) { ?>
-			<li><a href="https://finalfantasyxv.gamepedia.com/Map" class="about">FFXV Map</a></li>
+			<li><a href="http://www.hearthpwn.com/guides/1480-how-to-get-cheaper-hearthstone-packs-buy-amazon" class="about">Cheap Hearthstone Packs</a></li>
 		</ul>
 		<ul class="more">
 		<?php } ?>
