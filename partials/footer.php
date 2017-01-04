@@ -15,7 +15,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 				<li><a href="http://youtube.com/CurseEntertainment" class="yt"><?= wfMessage('footer-Youtube')->text() ?></a></li>
 				<li><a href="http://help.gamepedia.com/How_To_Contact_Gamepedia" class="nl"><?= wfMessage('footer-Contact_Us')->text() ?></a></li>
 			<?php if ($showAds) { ?>
-				<li><a href="https://finalfantasyxv.gamepedia.com" class="advertise">FFXV Wiki</a></li>
+				<li><a href="https://ghostreconwildlands.gamepedia.com" class="advertise">Ghost Recon</a></li>
 			<?php } ?>
 			</ul>
 		<?php if (!$showAds) { ?>
@@ -36,7 +36,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
 		<?php if ($showAds) { ?>
-			<li><a href="http://www.hearthpwn.com/guides/1480-how-to-get-cheaper-hearthstone-packs-buy-amazon" class="about">Cheap Hearthstone Packs</a></li>
+			<li><a href="http://www.hearthpwn.com/guides/1480-how-to-get-cheaper-hearthstone-packs-buy-amazon" class="about">HS Packs</a></li>
 		</ul>
 		<ul class="more">
 		<?php } ?>
@@ -45,7 +45,7 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="http://www.curse.com/terms" class="tos"><?= wfMessage('footer-Terms_of_Service')->text() ?></a></li>
 			<li><a href="http://www.curse.com/privacy" class="privacy-policy"><?= wfMessage('footer-Privacy_Policy')->text() ?></a></li>
 		<?php if ($showAds) { ?>
-			<li><a href="http://www.gamepedia.com/geek-shopping-guide" class="tos">Gamer Gift Guide</a></li>
+			<li><a href="https://forhonor.gamepedia.com" class="tos">For Honor</a></li>
 		<?php } ?>
 		</ul>
 		<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
