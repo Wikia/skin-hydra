@@ -49,7 +49,7 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onMobileMenu($type, &$menu, &$skin) {
-		if ($type === 'discovery') {
+		if ($type === 'discovery' && $skin !== null) {
 			$sidebar = $skin->buildSidebar();
 			if (is_array($sidebar) && count($sidebar)) {
 				foreach ($sidebar as $menus) {
