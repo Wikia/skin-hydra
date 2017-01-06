@@ -40,6 +40,34 @@ class HydraHooks {
 	private static $beforeExecDone = false;
 
 	/**
+	 * Handle Minvera side bar.
+	 *
+	 * @access	public
+	 * @param	string	Menu Type
+	 * @param	object	MenuBuilder Object
+	 * @param	object	SkinTemplate Object
+	 * @return	boolean True
+	 */
+	static public function onMobileMenu($type, &$menu, &$skin) {
+		if ($type === 'discovery') {
+			$sidebar = $skin->buildSidebar();
+			if (is_array($sidebar) && count($sidebar)) {
+				foreach ($sidebar as $menus) {
+					if (is_array($menus) && count($menus)) {
+						foreach ($menus as $details) {
+							$menu->insert($details['id'])->addComponent(
+								$details['text'],
+								$details['href']
+							);
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Add Hydra CSS modules to page.
 	 *
 	 * @access	public

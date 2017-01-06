@@ -162,6 +162,7 @@
 	},
 	"Hooks": {
 		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
+		"MobileMenu": "HydraHooks::onMobileMenu",
 		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
 		"BottomPlacements": "HydraHooks::onBottomPlacements",
