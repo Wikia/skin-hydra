@@ -55,10 +55,15 @@ class HydraHooks {
 				foreach ($sidebar as $menus) {
 					if (is_array($menus) && count($menus)) {
 						foreach ($menus as $details) {
-							$menu->insert($details['id'])->addComponent(
-								$details['text'],
-								$details['href']
-							);
+							try {
+								$menu->insert($details['id'])->addComponent(
+									$details['text'],
+									$details['href']
+								);
+							} catch (DomainException $e) {
+								//Already exists in the menu.
+								continue;
+							}
 						}
 					}
 				}
