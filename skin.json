@@ -161,15 +161,17 @@
 		"SkinHydra": "SkinHydra.php"
 	},
 	"Hooks": {
-		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
-		"MobileMenu": "HydraHooks::onMobileMenu",
-		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
-		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
 		"BottomPlacements": "HydraHooks::onBottomPlacements",
+		"MobileMenu": "HydraHooks::onMobileMenu",
+		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
+		"ResourceLoaderGetLessVars": "HydraHooks::onResourceLoaderGetLessVars",
+		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
+		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
+		"SkinTemplateNavigation": "HydraHooks::onSkinTemplateNavigation",
 		"SkinTemplateOutputPageBeforeExec": "HydraHooks::onSkinTemplateOutputPageBeforeExec",
-		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules",
-		"ResourceLoaderGetLessVars": "HydraHooks::onResourceLoaderGetLessVars"
+		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules"
+
 	},
 	"manifest_version": 1
 }

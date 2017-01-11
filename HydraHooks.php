@@ -519,4 +519,28 @@ class HydraHooks {
 		}
 		return true;
 	}
+
+	/**
+	 * Hook right during Skin::initPage().
+	 *
+	 * @access	public
+	 * @param	object	SkinTemplate
+	 * @param	array	Links
+	 * @return	boolean True
+	 */
+	static public function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
+		if (isset($links['actions'])) {
+			$title = $skinTemplate->getRelevantTitle();
+			if ( $title->quickUserCan( 'purge', $user ) ) {
+				$links['actions']['purge'] = [
+					'class' => ( $onPage && $action == 'purge' ) ? 'selected' : false,
+					'text' => wfMessageFallback( "{$skinTemplate->skinname}-action-purge", 'purge' )
+						->setContext( $skinTemplate->getContext() )->text(),
+					'href' => $title->getLocalURL( 'action=purge' )
+				];
+			}
+		}
+
+		return true;
+	}
 }
