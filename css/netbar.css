@@ -583,7 +583,7 @@ div#netbar #pt-notifications-alert > .mw-echo-notifications-badge, div#netbar #p
 }
 
 .mw-echo-ui-overlay {
-	z-index: 10000;
+	z-index: 10000 !important;
 }
 
 div#netbar #pt-notifications-alert > .oo-ui-widget a, div#netbar #pt-notifications-message > .oo-ui-widget a {
