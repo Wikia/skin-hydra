@@ -30,7 +30,7 @@
 				window.sideRailAtTop = false;
 			}
 
-			if (Math.ceil($(document).scrollTop()) >= $('#bodyContent').outerHeight() + $('#bodyContent').offset().top - $(sideRail).outerHeight()) {
+			if ($('#bodyContent').outerHeight() > $(sideRail).outerHeight() && Math.ceil($(document).scrollTop()) >= $('#bodyContent').outerHeight() + $('#bodyContent').offset().top - $(sideRail).outerHeight()) {
 				// && Math.ceil($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) > Math.ceil($(document).scrollTop())
 				$(sideRail).css('top', ($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) + 'px');
 				$(sideRail).css('position', 'relative');
@@ -40,7 +40,7 @@
 				window.sideRailAtBottom = false;
 			}
 
-			if (!window.sideRailAtTop && !window.sideRailAtBottom) {
+			if ($('#bodyContent').outerHeight() > $(sideRail).outerHeight() && !window.sideRailAtTop && !window.sideRailAtBottom) {
 				$(sideRail).css('top', window.sideRailCssTop);
 				$(sideRail).css('left', $(sideRail).offset().left+'px');
 				$(sideRail).css('position', 'fixed');
