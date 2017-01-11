@@ -582,6 +582,10 @@ div#netbar #pt-notifications-alert > .mw-echo-notifications-badge, div#netbar #p
 	margin-left: 0;
 }
 
+.mw-echo-ui-overlay {
+	z-index: 10000;
+}
+
 div#netbar #pt-notifications-alert > .oo-ui-widget a, div#netbar #pt-notifications-message > .oo-ui-widget a {
 	color: #0645ad;
 }
