@@ -29,6 +29,7 @@
 			} else {
 				window.sideRailAtTop = false;
 			}
+
 			if ($('#bodyContent').outerHeight() > $(sideRail).outerHeight() && Math.ceil($(document).scrollTop()) >= $('#bodyContent').outerHeight() + $('#bodyContent').offset().top - $(sideRail).outerHeight()) {
 				// && Math.ceil($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) > Math.ceil($(document).scrollTop())
 				$(sideRail).css('top', ($('#bodyContent').outerHeight() - $(sideRail).outerHeight()) + 'px');
