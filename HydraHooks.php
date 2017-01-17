@@ -162,6 +162,41 @@ class HydraHooks {
 				str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
 			);
 
+			if (!empty(self::getAdBySlot('googleanalyticsid'))) {
+				$tags = explode("\n", self::getAdBySlot('googleanalyticsid'));
+				$tags = array_map('trim', $tags);
+				foreach ($tags as $index => $tag) {
+					if (empty($tag)) {
+						unset($tags[$index]);
+					}
+				}
+				if (!empty($tags)) {
+					$creates = '';
+					$sends = '';
+					foreach ($tags as $index => $tag) {
+						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}');\n";
+						$sends .= "		ga('tracker{$index}.send', 'pageview');\n";
+					}
+
+					$gaTag = "	<script type=\"text/javascript\">
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}
+
+			, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');\n".$creates.$sends."\n	</script>\n";
+
+					$template->set('headelement', $template->data['headelement'].$gaTag);
+				}
+			}
+
 			//Main Advertisement Javascript
 			if ($showAds) {
 				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
@@ -193,6 +228,7 @@ class HydraHooks {
 					str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
 				);
 			}
+
 			if ($addSmartBanner && !empty(self::getAdBySlot('mobilebannerjs'))) {
 				$outputPage = RequestContext::getMain()->getOutput();
 				$wrappedJS = ResourceLoader::makeInlineScript(self::getAdBySlot('mobilebannerjs'));
