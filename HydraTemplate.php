@@ -98,7 +98,7 @@ class HydraTemplate extends VectorTemplate {
 	<div id="mw-page-base" class="noprint"></div>
 	<div id="mw-head-base" class="noprint"></div>
 	<div id="pageWrapper">
-		<div id="content" class="mw-body" role="main">
+		<div id="content" class="mw-body" role="main" itemprop="articleBody">
 			<a id="top"></a>
 
 			<?php
@@ -122,7 +122,7 @@ class HydraTemplate extends VectorTemplate {
 			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
 			if ( $this->data['title'] != '' ) {
 			?>
-			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
+			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>" itemprop="name"><?php
 				 $this->html( 'title' )
 			?></h1>
 			<?php
