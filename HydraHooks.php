@@ -84,7 +84,9 @@ class HydraHooks {
 		if ($skin instanceof SkinHydraDark) {
 			$styles[] = 'skins.z.hydra.dark';
 		}
-		$styles[] = 'skins.z.hydra.light';
+		if ($skin instanceof SkinHydra) {
+			$styles[] = 'skins.z.hydra.light';
+		}
 		$styles[] = 'skins.hydra.netbar';
 		$styles[] = 'skins.hydra.footer';
 		$styles[] = 'skins.hydra.advertisements.styles';
