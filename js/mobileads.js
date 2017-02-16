@@ -10,6 +10,8 @@
 			var adUnit = $('<div id="mobileatfmrec">').append(window.mobileatfmrec);
 			if ($(headings).length > 1) {
 				$(headings[1]).before(adUnit);
+				$(headings[1]).addClass('open-block');
+				$('#content-collapsible-block-1').addClass('open-block');
 			} else if ($(headings).length > 0) {
 				$("#bodyContent").prepend(adUnit);
 			}
@@ -18,6 +20,8 @@
 			if ($(headings).length > 5) {
 				var btfMrecUnit = $('<div id="mobilebtfmrec">').append(window.mobilebtfmrec);
 				$(headings[4]).before(btfMrecUnit);
+				$(headings[3]).addClass('open-block');
+				$('#content-collapsible-block-3').addClass('open-block');
 			}
 		}
 		$('body').append($("<div>").attr("id", "cdm-zone-end"));
