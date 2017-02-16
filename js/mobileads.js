@@ -20,8 +20,8 @@
 			if ($(headings).length > 5) {
 				var btfMrecUnit = $('<div id="mobilebtfmrec">').append(window.mobilebtfmrec);
 				$(headings[4]).before(btfMrecUnit);
-				$(headings[3]).addClass('open-block');
-				$('#content-collapsible-block-3').addClass('open-block');
+				$(headings[4]).addClass('open-block');
+				$('#content-collapsible-block-4').addClass('open-block');
 			}
 		}
 		$('body').append($("<div>").attr("id", "cdm-zone-end"));
