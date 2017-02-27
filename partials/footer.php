@@ -5,7 +5,6 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 ?>
 <footer id="footer" role="complimentary" <?= $showAds ? 'class="show-ads"' : 'class="hide-ads"' ?>>
 	<div class="footer-links">
-		<div style="width: 100%; text-align: center; background-color: #121212; color: #aeaeae;">As you may have heard, on February 23, 2017, Cloudflare reported a security incident. <a style="text-decoration: underline;" href="https://gamepedia.zendesk.com/hc/en-us/articles/115003581628-Cloudflare-Security-Incident-">Click here for more information.</a></div>
 		<?php if (!$showAds) { ?>
 		<div class="top">
 		<?php } ?>
@@ -56,6 +55,8 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<?= HydraHooks::getAdBySlot('footermrec') ?>
 		</div>
 	<?php } ?>
+	<div style="width: 100%; text-align: center; background-color: #121212; color: #aeaeae;">As you may have heard, on February 23, 2017, Cloudflare reported a security incident. <a style="text-decoration: underline;" href="https://gamepedia.zendesk.com/hc/en-us/articles/115003581628-Cloudflare-Security-Incident-">Click here for more information.</a></div>
+	
 </footer>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>
