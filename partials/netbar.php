@@ -20,7 +20,7 @@ $showHost = false;
 			<li class="settings">
 				<i class="cog"></i>
 				<ul>
-					<li><a href="http://www.gamepedia.com/giveaways/"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
+					<li><a href="https://www.gamepedia.com/giveaways"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
 					<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('netbar-pro')->text() ?></a></li>
 					<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 				</ul>
