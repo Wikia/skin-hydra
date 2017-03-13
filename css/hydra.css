@@ -87,3 +87,7 @@ div.vectorMenu {
 	vertical-align: middle;
 	width: 2em;
 }
+
+.tipsy {
+	margin-top: -28px;
+}
