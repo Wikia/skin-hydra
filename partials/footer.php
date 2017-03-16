@@ -2,6 +2,19 @@
 global $wgUser, $wgScriptPath;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
+
+if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
+	$footerLinks = str_replace(['[', ']'], '', trim(HydraHooks::getAdBySlot('footerlinks')));
+	$footerLinks = explode("\n", $footerLinks);
+	foreach ($footerLinks as $key => $value) {
+		list($url, $text) = explode(' ', $value, 2);
+		if (!filter_var($url, FILTER_VALIDATE_URL) || empty($text)) {
+			unset($footerLinks[$key]);
+			continue;
+		}
+		$footerLinks[$key] = ['url' => $url, 'text' => $text];
+	}
+}
 ?>
 <footer id="footer" role="complimentary" <?= $showAds ? 'class="show-ads"' : 'class="hide-ads"' ?>>
 	<div class="footer-links">
@@ -14,8 +27,8 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 				<li><a href="https://twitter.com/CurseGamepedia" class="tw"><?= wfMessage('footer-Twitter')->text() ?></a></li>
 				<li><a href="http://youtube.com/CurseEntertainment" class="yt"><?= wfMessage('footer-Youtube')->text() ?></a></li>
 				<li><a href="http://help.gamepedia.com/How_To_Contact_Gamepedia" class="nl"><?= wfMessage('footer-Contact_Us')->text() ?></a></li>
-			<?php if ($showAds) { ?>
-				<li><a href="https://masseffectandromeda.gamepedia.com/Mass_Effect:_Andromeda_Wiki" class="advertise">ME:Andromeda</a></li>
+			<?php if ($showAds && isset($footerLinks[0])) { ?>
+				<li><a href="<?= $footerLinks[0]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[0]['text']) ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php if (!$showAds) { ?>
@@ -35,8 +48,8 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<?php } ?>
 			<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 			<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
-		<?php if ($showAds) { ?>
-			<li><a href="https://masseffectandromeda.gamepedia.com/Skill" class="about">ME:A Skills</a></li>
+		<?php if ($showAds && isset($footerLinks[1])) { ?>
+			<li><a href="<?= $footerLinks[1]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[1]['text']) ?></a></li>
 		</ul>
 		<ul class="more">
 		<?php } ?>
@@ -44,8 +57,8 @@ $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config-
 			<li><a href="http://www.curseinc.com/audience" class="advertise"><?= wfMessage('footer-Advertise')->text() ?></a></li>
 			<li><a href="http://www.curse.com/terms" class="tos"><?= wfMessage('footer-Terms_of_Service')->text() ?></a></li>
 			<li><a href="http://www.curse.com/privacy" class="privacy-policy"><?= wfMessage('footer-Privacy_Policy')->text() ?></a></li>
-		<?php if ($showAds) { ?>
-			<li><a href="https://zelda.gamepedia.com/Main_Page" class="tos">Zelda Wiki</a></li>
+		<?php if ($showAds && isset($footerLinks[2])) { ?>
+			<li><a href="<?= $footerLinks[2]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[2]['text']) ?></a></li>
 		<?php } ?>
 		</ul>
 		<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
