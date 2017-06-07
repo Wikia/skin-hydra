@@ -418,10 +418,9 @@ class HydraHooks {
 	 *
 	 * @access	public
 	 * @param	object	Skin
-	 * @param	boolean	[Optional] Skip Namespace Check
 	 * @return	boolean	Advertisements Visible
 	 */
-	static public function showAds($skin, $skipNamespaceCheck = false) {
+	static public function showAds($skin) {
 		global $wgUser;
 
 		if (self::$showAds !== null) {
@@ -437,7 +436,7 @@ class HydraHooks {
 		}
 
 		$showAds = false;
-		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && ($skin->getTitle()->getNamespace() != NS_SPECIAL || $skipNamespaceCheck)) {
+		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
 			$showAds = true;
 		}
 		self::$showAds = $showAds;
