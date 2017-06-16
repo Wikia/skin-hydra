@@ -164,6 +164,14 @@ class HydraHooks {
 				str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
 			);
 
+			//Main Advertisement Javascript
+			if ($showAds) {
+				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+				if (!empty(self::getAdBySlot($jsTop))) {
+					$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
+				}
+			}
+
 			if (!empty(self::getAdBySlot('googleanalyticsid'))) {
 				$tags = explode("\n", self::getAdBySlot('googleanalyticsid'));
 				$tags = array_map('trim', $tags);
@@ -196,14 +204,6 @@ class HydraHooks {
 		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');\n".$creates.$sends."\n	</script>\n";
 
 					$template->set('headelement', $template->data['headelement'].$gaTag);
-				}
-			}
-
-			//Main Advertisement Javascript
-			if ($showAds) {
-				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
-				if (!empty(self::getAdBySlot($jsTop))) {
-					$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
 				}
 			}
 
