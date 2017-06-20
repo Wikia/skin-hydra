@@ -185,7 +185,22 @@ class HydraHooks {
 					$sends = '';
 					foreach ($tags as $index => $tag) {
 						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}');\n";
-						$sends .= "		ga('tracker{$index}.send', 'pageview');\n";
+						if ($index == 0) {
+							$sends .= "
+		if (window.cdnprovider) {
+			ga(
+				'tracker{$index}.send',
+				'pageview',
+				{
+					'dimension1':  window.cdnprovider
+				}
+			);
+		} else {
+			ga('tracker{$index}.send', 'pageview');
+		}\n";
+						} else {
+							$sends .= "		ga('tracker{$index}.send', 'pageview');\n";
+						}
 					}
 
 					$gaTag = "	<script type=\"text/javascript\">
