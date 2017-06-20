@@ -185,7 +185,7 @@ class HydraHooks {
 					$sends = '';
 					foreach ($tags as $index => $tag) {
 						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}');\n";
-						if ($index == 0) {
+						if ($tag == 'UA-35871056-4') {
 							$sends .= "
 		if (window.cdnprovider) {
 			ga(
