@@ -116,7 +116,7 @@ class HydraTemplate extends VectorTemplate {
 			<?php } ?>
 			<!-- /ATF Leaderboard -->
 			<?php
-			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
+			if ( is_callable( [ $this, 'getIndicators' ] ) ) {
 				echo $this->getIndicators();
 			}
 			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
@@ -232,10 +232,10 @@ class HydraTemplate extends VectorTemplate {
 			<div id="mw-head">
 				<?php //$this->renderNavigation( 'PERSONAL' ); Remove for Hydra Skin as it is handled in the netbar. ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS', 'SHARING' ) ); ?>
+					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS', 'SHARING' ] ); ?>
 				</div>
 				<div id="right-navigation">
-					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS', 'SEARCH' ) ); ?>
+					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
 				</div>
 			</div>
 			<div id="mw-panel">
