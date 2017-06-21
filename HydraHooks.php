@@ -336,7 +336,7 @@ class HydraHooks {
 		} else {
 			$cpHolder = 'copyright';
 		}
-		$copyright = $template->data[$cpHolder];
+		$copyright = (isset($template->data[$cpHolder]) ? $template->data[$cpHolder] : '');
 		$copyright = $copyright."<br/>".nl2br($config->get('HydraSkinDisclaimer'));
 		$template->set($cpHolder, $copyright);
 
