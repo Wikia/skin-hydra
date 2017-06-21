@@ -584,9 +584,9 @@ class HydraHooks {
 	static public function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
 		if (isset($links['actions'])) {
 			$title = $skinTemplate->getRelevantTitle();
-			if ( $title->exists() && $title->quickUserCan( 'purge', $user ) ) {
+			if ( $title->exists() && $title->quickUserCan( 'purge', $skinTemplate->getSkin()->getContext()->getUser() ) ) {
 				$links['actions']['purge'] = [
-					'class' => ( $onPage && $action == 'purge' ) ? 'selected' : false,
+					'class' => false,
 					'text' => wfMessageFallback( "{$skinTemplate->skinname}-action-purge", 'purge' )
 						->setContext( $skinTemplate->getContext() )->text(),
 					'href' => $title->getLocalURL( 'action=purge' )
