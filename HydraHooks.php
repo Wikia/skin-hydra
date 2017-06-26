@@ -203,6 +203,15 @@ class HydraHooks {
 						}
 					}
 
+					$userIdTracking = '';
+					if ($wgUser->getId()) {
+						$lookup = CentralIdLookup::factory();
+						$globalId = $lookup->centralIdFromLocalUser($wgUser);
+						if ($globalId) {
+							$userIdTracking = "ga('set', 'userId', {$globalId});";
+						}
+					}
+
 					$gaTag = "	<script type=\"text/javascript\">
 		(function(i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
@@ -216,7 +225,10 @@ class HydraHooks {
 			a.async = 1;
 			a.src = g;
 			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');\n".$creates.$sends."\n	</script>\n";
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		{$userIdTracking}
+{$creates}{$sends}
+	</script>\n";
 
 					$template->set('headelement', $template->data['headelement'].$gaTag);
 				}
