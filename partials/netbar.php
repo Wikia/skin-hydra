@@ -41,7 +41,7 @@ $showHost = false;
 		<?php } ?>
 
 		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
-			<li><span id="OfficialWiki"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></span></li>
+			<li><span id="OfficialWiki"><a href="<?php echo Skin::makeSpecialUrl('AllSites','filter=official'); ?>"><img src="/skins/Hydra/images/netbar/official-wiki.svg" /></a></span></li>
 		<?php } ?>
 		<?php
 		/* $items['new-item'] = $rawHtml;
