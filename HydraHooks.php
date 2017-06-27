@@ -181,10 +181,19 @@ class HydraHooks {
 					}
 				}
 				if (!empty($tags)) {
+					$extraTracks = '';
+					if ($wgUser->getId()) {
+						$lookup = CentralIdLookup::factory();
+						$globalId = $lookup->centralIdFromLocalUser($wgUser);
+						if ($globalId) {
+							$extraTracks['userId'] = $globalId;
+						}
+					}
+
 					$creates = '';
 					$sends = '';
 					foreach ($tags as $index => $tag) {
-						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}');\n";
+						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}', ".json_encode($extraTracks).");\n";
 						if ($tag != 'UA-35871056-4') {
 							$sends .= "
 		if (window.cdnprovider) {
@@ -203,15 +212,6 @@ class HydraHooks {
 						}
 					}
 
-					$userIdTracking = '';
-					if ($wgUser->getId()) {
-						$lookup = CentralIdLookup::factory();
-						$globalId = $lookup->centralIdFromLocalUser($wgUser);
-						if ($globalId) {
-							$userIdTracking = "ga('set', 'userId', {$globalId});";
-						}
-					}
-
 					$gaTag = "	<script type=\"text/javascript\">
 		(function(i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
@@ -226,7 +226,6 @@ class HydraHooks {
 			a.src = g;
 			m.parentNode.insertBefore(a, m)
 		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-		{$userIdTracking}
 {$creates}{$sends}
 	</script>\n";
 
