@@ -478,6 +478,8 @@ class HydraHooks {
 	 * @return	boolean	Show ATF MREC Advertisement
 	 */
 	static public function showSideRailAPUs($skin) {
+		global $wgUser;
+
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
 		$wgHydraSkinHideSideRailPages = $config->get('HydraSkinHideSideRailPages');
@@ -493,6 +495,7 @@ class HydraHooks {
 
 		$title = $skin->getTitle();
 		if (
+			(empty($wgUser) || !$wgUser->getId()) &&
 			$config->get('HydraSkinShowSideRail')
 			&& self::showAds($skin)
 			&& !in_array($title->getNamespace(), $disallowedNamespaces)
