@@ -92,7 +92,7 @@ class HydraHooks {
 		$styles[] = 'skins.hydra.advertisements.styles';
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('footermrec'))) {
+		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
 		return true;
@@ -478,6 +478,8 @@ class HydraHooks {
 	 * @return	boolean	Show ATF MREC Advertisement
 	 */
 	static public function showSideRailAPUs($skin) {
+		global $wgUser;
+
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
 		$wgHydraSkinHideSideRailPages = $config->get('HydraSkinHideSideRailPages');
@@ -493,6 +495,7 @@ class HydraHooks {
 
 		$title = $skin->getTitle();
 		if (
+			(empty($wgUser) || !$wgUser->getId()) &&
 			$config->get('HydraSkinShowSideRail')
 			&& self::showAds($skin)
 			&& !in_array($title->getNamespace(), $disallowedNamespaces)
@@ -567,7 +570,7 @@ class HydraHooks {
 	 *
 	 * @access	public
 	 * @param	array	Placements array to modify.
-	 * @param	VectorTemplate	the template.
+	 * @param	object	VectorTemplate - The template.
 	 * @return	boolean	True
 	 */
 	static public function onBottomPlacements(&$placements, &$template) {

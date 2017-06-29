@@ -1,7 +1,7 @@
 <?php
 global $wgUser, $wgScriptPath;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-$showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
+$showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec')) && !$wgUser->getId();
 
 if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 	$footerLinks = str_replace(['[', ']'], '', trim(HydraHooks::getAdBySlot('footerlinks')));
