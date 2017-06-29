@@ -92,7 +92,7 @@ class HydraHooks {
 		$styles[] = 'skins.hydra.advertisements.styles';
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('footermrec'))) {
+		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
 		return true;
@@ -282,7 +282,7 @@ class HydraHooks {
 			$template->set('privacy', null);
 
 			if (self::isMobileSkin()) {
-				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
+				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec')) && !$wgUser->getId()) {
 					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
 					$footerLinks = array_merge(['ad' => ['footermrec']], $footerLinks);
 				}
@@ -570,7 +570,7 @@ class HydraHooks {
 	 *
 	 * @access	public
 	 * @param	array	Placements array to modify.
-	 * @param	VectorTemplate	the template.
+	 * @param	object	VectorTemplate - The template.
 	 * @return	boolean	True
 	 */
 	static public function onBottomPlacements(&$placements, &$template) {
