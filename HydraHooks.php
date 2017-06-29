@@ -282,7 +282,7 @@ class HydraHooks {
 			$template->set('privacy', null);
 
 			if (self::isMobileSkin()) {
-				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec')) && !$wgUser->getId()) {
+				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
 					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
 					$footerLinks = array_merge(['ad' => ['footermrec']], $footerLinks);
 				}
