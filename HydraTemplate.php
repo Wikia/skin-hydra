@@ -243,7 +243,7 @@ class HydraTemplate extends VectorTemplate {
 					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
 					?>" <?php
 					global $wgSitename;
-					echo wfMessage('tooltip-p-logo')->escaped().' - '.$wgSitename;
+					echo 'title="'.wfMessage('tooltip-p-logo')->escaped().' - '.$wgSitename.'"';
 					?>></a></div>
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			</div>
