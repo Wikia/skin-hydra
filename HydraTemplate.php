@@ -242,7 +242,8 @@ class HydraTemplate extends VectorTemplate {
 				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="<?php
 					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
 					?>" <?php
-					echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
+					global $wgSitename;
+					echo 'title="'.wfMessage('tooltip-p-logo')->escaped().' - '.$wgSitename.'"';
 					?>></a></div>
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			</div>
