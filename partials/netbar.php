@@ -77,9 +77,9 @@ $showHost = false;
 			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);
 			unset($personalTools['notifications-alert']);
 		} ?>
-		<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-message'])) {
-			echo $skin->makeListItem('notifications-message', $personalTools['notifications-message']);
-			unset($personalTools['notifications-message']);
+		<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-notice'])) {
+			echo $skin->makeListItem('notifications-notice', $personalTools['notifications-notice']);
+			unset($personalTools['notifications-notice']);
 		} ?>
 		<?php if ($wgUser->isAnon()) { ?>
 			<li><a href="<?= $personalTools['login']['links'][0]['href'] ?>" id="login-link"><?= wfMessage('netbar-signin')->text() ?></a></li>
