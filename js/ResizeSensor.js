@@ -149,8 +149,8 @@ var ResizeSensor = null;
         var isCollectionTyped = ('[object Array]' === elementType
             || ('[object NodeList]' === elementType)
             || ('[object HTMLCollection]' === elementType)
-            || ('undefined' !== typeof jQuery && element instanceof jQuery) //jquery
-            || ('undefined' !== typeof Elements && element instanceof Elements) //mootools
+            || ('function' == typeof jQuery && element instanceof jQuery) //jquery
+            || ('function' == typeof Elements && element instanceof Elements) //mootools
         );
 
         if (isCollectionTyped) {
