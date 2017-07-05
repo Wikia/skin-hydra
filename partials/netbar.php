@@ -73,11 +73,11 @@ $showHost = false;
 			}
 		}
 		?>
-		<?php if (!$wgUser->isAnon() && $personalTools['notifications-alert']) {
+		<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-alert'])) {
 			echo $skin->makeListItem('notifications-alert', $personalTools['notifications-alert']);
 			unset($personalTools['notifications-alert']);
 		} ?>
-		<?php if (!$wgUser->isAnon() && $personalTools['notifications-message']) {
+		<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-message'])) {
 			echo $skin->makeListItem('notifications-message', $personalTools['notifications-message']);
 			unset($personalTools['notifications-message']);
 		} ?>
