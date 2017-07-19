@@ -454,7 +454,7 @@ class HydraHooks {
 		}
 
 		$isPremium = false;
-		if (!empty($wgUser) && $wgUser->getId()) {
+		if (class_exists('\Hydra\Subscription') && !empty($wgUser) && $wgUser->getId()) {
 			$subscription = \Hydra\Subscription::newFromUser($wgUser);
 			if ($subscription !== false) {
 				$isPremium = $subscription->hasSubscription();
