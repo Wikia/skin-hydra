@@ -352,13 +352,13 @@ class HydraTemplate extends VectorTemplate {
 					}
 					?>" aria-labelledby="p-sharing-label">
 						<h3 id="p-sharing-label"><span><?php
-							if (isset($this->data['sharing_urls']['share']['text']) {
+							if (isset($this->data['sharing_urls']['share']['text'])) {
 								echo $this->data['sharing_urls']['share']['text'];
 							}
 						?></span><a href="#"></a></h3>
 						<div class="menu">
 							<?php
-								if (isset($this->data['sharing_urls']['share']['html']) {
+								if (isset($this->data['sharing_urls']['share']['html'])) {
 									echo $this->data['sharing_urls']['share']['html'];
 								}
 							?>
