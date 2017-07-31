@@ -346,6 +346,7 @@ div#netbar ul.netbar-right > li.private-messages a:hover::after {
 .mw-echo-notifications-badge::before {
 	background-size: 20px;
 	background-position-y: 10px;
+	filter: invert(100%);
 }
 
 div#netbar ul.netbar-right > li.notifications.notifications-open {
@@ -498,22 +499,23 @@ div#netbar ul.netbar-right > li.user > ul > li button.sign-out:hover {
 }
 
 @media screen and (max-width: 940px) {
-div#netbar ul.netbar-right > li.user > a {
-	padding: 0 16px;
-	width: 50px;
-	text-indent: -500px;
-	white-space: nowrap;
-	overflow: hidden;
+	div#netbar ul.netbar-right > li.user > a {
+		padding: 0 16px;
+		width: 50px;
+		text-indent: -500px;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	div#netbar ul.netbar-right > li.user > a::after {
+		display: none;
+	}
+
+	div#netbar ul.netbar-right > li.user > ul {
+		display: none;
+	}
 }
 
-div#netbar ul.netbar-right > li.user > a::after {
-	display: none;
-}
-
-div#netbar ul.netbar-right > li.user > ul {
-	display: none;
-}
-}
 
 div#netbar ul.netbar-right > li.mobile-sign-out {
 	display: none;
@@ -552,26 +554,26 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 }
 
 @media screen and (max-width: 940px) {
-div#netbar ul.netbar-right > li.mobile-sign-out {
-	display: block;
-}
+	div#netbar ul.netbar-right > li.mobile-sign-out {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 1000px) {
-body.responsive-enabled div#curse-stripe,body.responsive-enabled div#netbar {
-	position: fixed;
-	left: 0;
-	right: 0;
-}
+	body.responsive-enabled div#curse-stripe,body.responsive-enabled div#netbar {
+		position: fixed;
+		left: 0;
+		right: 0;
+	}
 
-body.responsive-enabled div#curse-stripe {
-	top: 0;
-	z-index: 5;
-}
+	body.responsive-enabled div#curse-stripe {
+		top: 0;
+		z-index: 5;
+	}
 
-body.responsive-enabled div#netbar {
-	top: 1px;
-}
+	body.responsive-enabled div#netbar {
+		top: 1px;
+	}
 }
 
 .mw-echo-ui-notificationBadgeButtonPopupWidget > .oo-ui-popupWidget > .oo-ui-popupWidget-popup > .oo-ui-popupWidget-head > .oo-ui-labelElement-label {
