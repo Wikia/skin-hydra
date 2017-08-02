@@ -298,7 +298,6 @@ class HydraHooks {
 				$template->set('hydrafooter', $footer);
 				$footerLinks['hydra'][] = 'hydrafooter';
 				$template->set('footerlinks', $footerLinks);
-				//var_dump($footer);
 
 				if ($showAds && !empty(self::getAdBySlot('mobileatflb'))) {
 					$_bottomExtra .= "
