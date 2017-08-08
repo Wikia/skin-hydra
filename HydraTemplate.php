@@ -104,7 +104,7 @@ class HydraTemplate extends VectorTemplate {
 			<?php
 			if ( $this->data['sitenotice'] ) {
 				?>
-				<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
+				<div id="siteNotice" class="mw-body-content"><?php $this->html( 'sitenotice' ) ?></div>
 			<?php
 			}
 			?>
@@ -116,7 +116,7 @@ class HydraTemplate extends VectorTemplate {
 			<?php } ?>
 			<!-- /ATF Leaderboard -->
 			<?php
-			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
+			if ( is_callable( [ $this, 'getIndicators' ] ) ) {
 				echo $this->getIndicators();
 			}
 			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
@@ -232,10 +232,10 @@ class HydraTemplate extends VectorTemplate {
 			<div id="mw-head">
 				<?php //$this->renderNavigation( 'PERSONAL' ); Remove for Hydra Skin as it is handled in the netbar. ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS', 'SHARING' ) ); ?>
+					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS', 'SHARING' ] ); ?>
 				</div>
 				<div id="right-navigation">
-					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS', 'SEARCH' ) ); ?>
+					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
 				</div>
 			</div>
 			<div id="mw-panel">
@@ -352,10 +352,16 @@ class HydraTemplate extends VectorTemplate {
 					}
 					?>" aria-labelledby="p-sharing-label">
 						<h3 id="p-sharing-label"><span><?php
-							echo $this->data['sharing_urls']['share']['text']
+							if (isset($this->data['sharing_urls']['share']['text'])) {
+								echo $this->data['sharing_urls']['share']['text'];
+							}
 						?></span><a href="#"></a></h3>
 						<div class="menu">
-							<?php echo $this->data['sharing_urls']['share']['html'] ?>
+							<?php
+								if (isset($this->data['sharing_urls']['share']['html'])) {
+									echo $this->data['sharing_urls']['share']['html'];
+								}
+							?>
 						</div>
 					</div>
 					<?php
