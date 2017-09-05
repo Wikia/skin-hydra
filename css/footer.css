@@ -214,19 +214,12 @@ footer#footer div.footer-links {
 	position: relative;
 }
 
-footer#footer div.footer-links > a,footer#footer div.footer-links > ul {
-	position: relative;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	top: 50%;
-	float: left;
+footer#footer div.footer-links > a, footer#footer div.footer-links > ul {
+	display: inline-block;
 }
 
 footer#footer div.footer-links a.curse {
-	display: block;
+	display: inline-block;
 	width: 216px;
 	height: 148px;
 	background: url(../images/footer/logo-light.jpg);
