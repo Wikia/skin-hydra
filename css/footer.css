@@ -186,12 +186,13 @@ footer#footer.hide-ads div.footer-links span.copyright {
 
 footer#footer div.ad-placement {
 	border: 1px solid #585858;
+	box-sizing: content-box;
 	display: inline-block;
-	height: 252px;
+	height: 250px;
 	position: absolute;
 	right: 0;
 	top: 20px;
-	width: 302px;
+	width: 300px;
 }
 
 footer#footer a,footer#footer a:visited,footer#footer a:active,footer#footer a:hover {
