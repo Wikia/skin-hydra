@@ -31,12 +31,11 @@ html body.hide-ads #global-wrapper #footer-push {
 }
 
 footer#footer {
-	clear: both;
-	height: 292px;
 	background-color: #1b1b1c;
+	clear: both;
 	font-family: 'Open Sans',sans-serif;
 	font-weight: 300;
-	position: relative;
+	height: 292px;
 }
 
 
