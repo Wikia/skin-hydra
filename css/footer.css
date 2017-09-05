@@ -185,19 +185,13 @@ footer#footer.hide-ads div.footer-links span.copyright {
 }
 
 footer#footer div.ad-placement {
-	width: 302px;
+	border: 1px solid #585858;
+	display: inline-block;
 	height: 252px;
 	position: absolute;
-	top: 20px;
 	right: 0;
-	margin-left: 349px;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-	left: 50%;
-	border: 1px solid #585858;
+	top: 20px;
+	width: 302px;
 }
 
 footer#footer a,footer#footer a:visited,footer#footer a:active,footer#footer a:hover {
@@ -374,16 +368,6 @@ footer#footer div.footer-links span.copyright {
 		padding-top: 18.25rem;
 		padding-bottom: 1.25rem;
 		height: auto;
-	}
-
-	footer#footer.show-ads div.ad-placement {
-		border: 1px solid #585858;
-		display: inline-block;
-		height: 252px;
-		position: absolute;
-		right: 0;
-		top: 20px;
-		width: 302px;
 	}
 
 	footer#footer.show-ads div.footer-links {
