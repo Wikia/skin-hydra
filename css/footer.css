@@ -328,19 +328,11 @@ footer#footer div.footer-links > ul li a.premium::before {
 }
 
 footer#footer div.footer-links span.copyright {
-	font-size: 12px;
-	display: block;
-	text-align: center;
-	position: absolute;
-	bottom: 20px;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-	left: 50%;
-	margin-left: -78px;
 	color: #898989;
+	display: block;
+	font-size: 12px;
+	margin: 10px auto 0;
+	text-align: center;
 }
 
 @media screen and (max-width: 1020px) {
@@ -382,18 +374,6 @@ footer#footer div.footer-links span.copyright {
 	footer#footer.hide-ads div.footer-links ul.links li {
 		display: inline-block;
 		float: none;
-	}
-
-	footer#footer.hide-ads div.footer-links span.copyright {
-		width: 100%;
-		position: inherit;
-		float: left;
-		clear: both;
-		-webkit-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-ms-transform: translateX(0);
-		-o-transform: translateX(0);
-		transform: translateX(0);
 	}
 
 	footer#footer.show-ads {
