@@ -61,13 +61,13 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 			<li><a href="<?= $footerLinks[2]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[2]['text']) ?></a></li>
 		<?php } ?>
 		</ul>
-		<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
-	</div>
-	<?php if ($showAds) { ?>
+		<?php if ($showAds) { ?>
 		<div class="ad-placement ad-main-med-rect-footer">
 			<?= HydraHooks::getAdBySlot('footermrec') ?>
 		</div>
-	<?php } ?>
+		<?php } ?>
+		<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
+	</div>
 </footer>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>

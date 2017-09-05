@@ -377,14 +377,13 @@ footer#footer div.footer-links span.copyright {
 	}
 
 	footer#footer.show-ads div.ad-placement {
+		border: 1px solid #585858;
+		display: inline-block;
+		height: 252px;
+		position: absolute;
+		right: 0;
 		top: 20px;
-		-webkit-transform: translateX(-50%);
-		-moz-transform: translateX(-50%);
-		-ms-transform: translateX(-50%);
-		-o-transform: translateX(-50%);
-		transform: translateX(-50%);
-		left: 50%;
-		margin-left: 0;
+		width: 302px;
 	}
 
 	footer#footer.show-ads div.footer-links {
