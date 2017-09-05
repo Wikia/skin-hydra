@@ -213,20 +213,19 @@ footer#footer div.footer-links > a, footer#footer div.footer-links > ul {
 }
 
 footer#footer div.footer-links a.curse {
-	display: inline-block;
-	width: 216px;
-	height: 148px;
-	background: url(../images/footer/logo-light.jpg);
 	background-image: linear-gradient(transparent,transparent),url(../images/footer/logo-light.svg);
+	background: url(../images/footer/logo-light.jpg);
+	display: inline-block;
+	height: 148px;
+	margin-right: 38px;
+	overflow: hidden;
 	text-indent: -500px;
 	white-space: nowrap;
-	overflow: hidden;
-	margin-right: 38px;
-	margin-left: -10px;
+	width: 216px;
 }
 
 footer#footer div.footer-links > ul {
-	margin-right: 50px;
+	margin-right: 40px;
 }
 
 footer#footer div.footer-links > ul li {
