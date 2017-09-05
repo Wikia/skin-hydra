@@ -211,6 +211,7 @@ footer#footer div.footer-links {
 	height: 100%;
 	margin: 0 auto;
 	padding: 20px 0;
+	position: relative;
 }
 
 footer#footer div.footer-links > a,footer#footer div.footer-links > ul {
