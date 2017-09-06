@@ -233,6 +233,14 @@ footer#footer.hide-ads .footer-box ul.social li, footer#footer.hide-ads .footer-
 	display: inline;
 }
 
+.hlist-separated footer#footer div.footer-box ul li a {
+	padding-left: 0;
+}
+
+.hlist-separated footer#footer li::after {
+	content: unset;
+}
+
 footer#footer div.ad-placement {
 	border: 1px solid #585858;
 	box-sizing: content-box;
