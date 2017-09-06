@@ -35,6 +35,210 @@ footer#footer {
 	clear: both;
 	font-family: 'Open Sans',sans-serif;
 	font-weight: 300;
+	min-height: 292px;
+	overflow: auto;
+}
+
+footer#footer * {
+	box-sizing: border-box;
+}
+
+footer#footer.hide-ads {
+	min-height: 155px;
+}
+
+footer#footer .footer-flex {
+	align-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: auto;
+	max-width: 1000px;
+}
+
+footer#footer.hide-ads .footer-flex {
+	margin-top: 0;
+}
+
+footer#footer .footer-box {
+	flex: 0 0 auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+footer#footer div.footer-flex a.curse {
+	background-image: linear-gradient(transparent,transparent), url(../images/footer/logo-light.svg);
+	background: url(../images/footer/logo-light.jpg);
+	display: inline-block;
+	height: 148px;
+	overflow: hidden;
+	text-indent: -500px;
+	white-space: nowrap;
+	width: 216px;
+}
+
+footer#footer.hide-ads div.footer-flex a.curse {
+	width: 214px;
+	height: 52px;
+	background: url(../images/footer/premium-logo-light.jpg);
+	background-image: linear-gradient(transparent,transparent), url(../images/footer/premium-logo-light.svg);
+	background-repeat: no-repeat;
+}
+
+footer#footer a, footer#footer a:visited, footer#footer a:active, footer#footer a:hover {
+	color: #c9c9c9;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+footer#footer ul {
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+footer#footer div.footer-box ul li {
+	border: 0 none;
+	content: none;
+	font-size: inherit;
+	line-height: 30px;
+	padding: 0;
+}
+
+footer#footer div.footer-box ul li a {
+	padding-left: 25px;
+	position: relative;
+}
+
+footer#footer div.footer-box ul li a::before {
+	color: #c9c9c9;
+	font-family: 'footer-icons';
+	font-size: 16px;
+	height: 16px;
+	left: 0;
+	line-height: 20px;
+	position: absolute;
+	top: 0;
+	width: 16px;
+}
+
+footer#footer div.footer-box ul li a.fb::before {
+	content: '\e603';
+}
+
+footer#footer div.footer-box ul li a.tw::before {
+	content: '\ea91';
+}
+
+footer#footer div.footer-box ul li a.yt::before {
+	content: '\ea97';
+}
+
+footer#footer div.footer-box ul li a.nl::before {
+	content: '\e601';
+}
+
+footer#footer.show-ads div.footer-box ul li a.sign-in::before,
+footer#footer.show-ads div.footer-box ul li a.account::before {
+	content: '\e604';
+}
+
+footer#footer.show-ads div.footer-box ul li a.register::before {
+	content: '\e605';
+}
+
+footer#footer.show-ads div.footer-box ul li a.careers::before {
+	content: '\e602';
+}
+
+footer#footer.show-ads div.footer-box ul li a.help::before {
+	content: '\e609';
+}
+
+footer#footer.show-ads div.footer-box ul li a.about::before {
+	content: '\e607';
+}
+
+footer#footer.show-ads div.footer-box ul li a.advertise::before {
+	content: '\e608';
+}
+
+footer#footer.show-ads div.footer-box ul li a.tos::before {
+	content: '\e926';
+}
+
+footer#footer.show-ads div.footer-box ul li a.privacy-policy::before {
+	content: '\e600';
+}
+
+footer#footer.show-ads div.footer-box ul li a.premium::before {
+	content: '\e606';
+}
+
+footer#footer.hide-ads .footer-box ul.social, footer#footer.hide-ads .footer-box ul.you, footer#footer.hide-ads .footer-box ul.more,
+footer#footer.hide-ads .footer-box ul.social li, footer#footer.hide-ads .footer-box ul.you li, footer#footer.hide-ads .footer-box ul.more li {
+	display: inline;
+}
+
+footer#footer div.ad-placement {
+	border: 1px solid #585858;
+	box-sizing: content-box;
+	display: inline-block;
+	height: 250px;
+	width: 300px;
+}
+
+footer#footer span.copyright {
+	color: #898989;
+	display: block;
+	font-size: 12px;
+	margin: 8px auto;
+	text-align: center;
+	width: 100%;
+}
+/*
+@import  "//fonts.googleapis.com/css?family=Open+Sans+Condensed:100,300,700|Open+Sans:400italic,400,700,600";
+
+@font-face {
+	font-family: "footer-icons";
+	src: url(//hydra-media.cursecdn.com/hydra/fonts/footer-icons.ttf);
+	src: url(//hydra-media.cursecdn.com/hydra/fonts/footer-icons.eot#iefix) format("embedded-opentype"),url(//hydra-media.cursecdn.com/hydra/fonts/footer-icons.woff) format("woff"),url(//hydra-media.cursecdn.com/hydra/fonts/footer-icons.ttf) format("truetype"),url(//hydra-media.cursecdn.com/hydra/fonts/footer-icons.svg) format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+html body #global-wrapper {
+	clear: both;
+	min-height: 100%;
+	height: auto !important;
+	margin-bottom: -156px;
+}
+
+html body #global-wrapper #footer-push {
+	height: 156px;
+}
+
+html body.hide-ads #global-wrapper {
+	clear: both;
+	min-height: 100%;
+	height: auto !important;
+	margin-bottom: -155px;
+}
+
+html body.hide-ads #global-wrapper #footer-push {
+	height: 155px;
+}
+
+footer#footer {
+	background-color: #1b1b1c;
+	clear: both;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: 300;
 	height: 292px;
 }
 
@@ -439,3 +643,4 @@ footer#footer div.footer-links span.copyright {
 		margin-top: 15px;
 	}
 }
+*/
