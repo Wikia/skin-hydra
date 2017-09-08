@@ -13,12 +13,202 @@ html {
 }
 
 html body {
-	height: calc(100% - 29px) !important;
-	margin-top: 29px !important;
+	height: calc(100% - 30px) !important;
+	margin-top: 30px !important;
 	position: relative;
 }
 
-#OfficialWiki img{
+div#netbar {
+	background: #121212;
+	border-bottom: 1px solid #000;
+	color: #aeaeae;
+	font-family: 'Open Sans',sans-serif;
+	font-size: 12px;
+	height: 30px;
+	left: 0;
+	position: absolute;
+	top: -30px;
+	width: 100%;
+	z-index: 1001;
+}
+
+#netbar .netbar-flex {
+	align-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#netbar .netbar-box {
+	flex: 0 0 auto;
+	height: 30px;
+	line-height: 2.5em;
+	padding: 0 .5em;
+}
+
+#netbar .netbar-box.left {
+	border-right: 1px solid #353535;
+}
+#netbar .netbar-box.right {
+	border-left: 1px solid #353535;
+}
+
+#netbar .netbar-box:hover {
+	background: #222;
+}
+
+#netbar .netbar-spacer {
+	flex: 1 1 auto;
+}
+
+#netbar a {
+	color: #aeaeae;
+	text-decoration: none;
+}
+
+#netbar a.gold-link {
+	color: #fc3;
+	font-weight: 700;
+}
+
+#netbar a.gold-link:hover {
+	color: #fff;
+}
+
+#netbar .netbar-box.logo {
+	transition: width 500ms;
+	width: 104px;
+}
+
+#netbar .netbar-box.logo a {
+	background-image: linear-gradient(transparent,transparent),url(../images/netbar/logo.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background: url(../images/netbar/logo-fallback.png);
+	display: block;
+	overflow: hidden;
+	text-indent: -500px;
+	transition: width 500ms;
+	white-space: nowrap;
+	width: 104px;
+}
+
+@media screen and (max-width: 700px) {
+	#netbar .netbar-box.logo, #netbar .netbar-box.logo a {
+		width: 24px;
+	}
+}
+
+#netbar span.label-development {
+	color: red;
+	font-weight: 700;
+}
+
+#netbar span.label-hostname {
+	color: #ff0;
+	font-weight: 700;
+}
+
+#netbar .netbar-box.officialwiki a, #netbar .netbar-box.officialwiki img {
+	display: block;
+	margin-top: .6em;
+	height: 15px;
+	width: 75px;
+}
+
+#netbar .netbar-box.has-drop {
+	cursor: pointer;
+	position: relative;
+}
+
+#netbar .netbar-box.links span.cog::after {
+	color: #b9b9b9;
+	content: '\e602';
+	display: block;
+	font-family: 'netbar-icons';
+	font-size: 14px;
+	font-style: normal;
+}
+
+#netbar .netbar-box.has-drop ul, #netbar .netbar-box.has-drop ul li {
+	list-style: none;
+}
+
+#netbar .netbar-box ul.dropdown {
+	background: #121212;
+	border-top: none;
+	border: 1px solid #000;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 30px;
+	z-index: 1002;
+}
+
+#netbar .netbar-box.left ul.dropdown {
+	left: 0;
+}
+
+#netbar .netbar-box.right ul.dropdown {
+	right: 0;
+}
+
+#netbar .netbar-box:hover ul.dropdown {
+	display: block;
+}
+
+#netbar .netbar-box ul.dropdown li {
+	box-sizing: border-box;
+	line-height: initial;
+	padding: 8px 5px;
+	width: 100%;
+}
+
+#netbar .netbar-box ul.dropdown li:hover {
+	background: #222;
+}
+
+#netbar .netbar-box ul.dropdown li a {
+	display: block;
+	width: intrinsic;
+	width: max-content;
+	width: -moz-max-content;
+	width: -webkit-max-content;
+}
+
+#netbar .netbar-box.user > a {
+	display: block;
+	transition: width 500ms;
+	white-space: nowrap;
+}
+
+@media screen and (max-width: 700px) {
+	#netbar .netbar-box.user > a {
+		height: 30px;
+		overflow: hidden;
+		width: 20px;
+	}
+}
+
+#netbar .netbar-box.user .avatar {
+	height: 20px;
+	margin-right: 5px;
+	width: 20px;
+}
+
+.skin-hydradark .mw-echo-notifications-badge::before {
+	filter: invert(100%);
+}
+
+/*#OfficialWiki img {
 	margin: 0 7px;
 	height: 15px;
 	width: 75px;
@@ -39,6 +229,10 @@ div#netbar {
 
 div#netbar * {
 	box-sizing: border-box;
+}
+
+div#netbar #pt-notifications-alert div *, div#netbar #pt-notifications-notice div * {
+	box-sizing: content-box;
 }
 
 div#netbar span.label-development {
@@ -247,195 +441,20 @@ div#netbar ul.netbar-right > li {
 	margin-left: 1px;
 }
 
-div#netbar ul.netbar-right > li::after {
-	content: '';
-	position: absolute;
-	left: -2px;
-	top: 0;
-	bottom: 0;
-	width: 1px;
-	background: #000;
-}
-
-div#netbar ul.netbar-right > li.reports a::after,div#netbar ul.netbar-right > li.notifications a::after {
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	top: 50%;
-}
-
-div#netbar ul.netbar-right > li.user-count a,div#netbar ul.netbar-right > li.reports a,div#netbar ul.netbar-right > li.private-messages a,div#netbar ul.netbar-right > li.notifications a,div#netbar ul.netbar-right > li.user > a {
-	position: relative;
-}
-
-div#netbar ul.netbar-right > li.user-count a::after,div#netbar ul.netbar-right > li.reports a::after,div#netbar ul.netbar-right > li.private-messages a::after,div#netbar ul.netbar-right > li.notifications a::after,div#netbar ul.netbar-right > li.user > a::after {
-	position: absolute;
-	font-family: 'netbar-icons';
-	font-style: normal;
-	font-size: 14px;
-	color: #b9b9b9;
-	display: block;
-	line-height: 14px;
-}
-
-div#netbar ul.netbar-right > li.user-count a {
-	padding: 0 16px 0 42px;
-}
-
-div#netbar ul.netbar-right > li.user-count a::after {
-	content: '\e603';
-	width: 22px;
-	height: 14px;
-	left: 16px;
-	top: 7px;
-}
-
-div#netbar ul.netbar-right > li.user-count a:hover::after {
-	color: #bababa;
-}
-
-@media screen and (max-width: 780px) {
-div#netbar ul.netbar-right > li.user-count {
-	display: none;
-}
-}
-
-div#netbar ul.netbar-right > li.reports a {
-	width: 46px;
-	position: relative;
-}
-
-div#netbar ul.netbar-right > li.reports a::after {
-	content: '\e601';
-	width: 14px;
-	height: 14px;
-}
-
-div#netbar ul.netbar-right > li.reports a:hover::after {
-	color: #bababa;
-}
-
-@media screen and (max-width: 400px) {
-div#netbar ul.netbar-right > li.reports {
-	display: none;
-}
-}
-
-div#netbar ul.netbar-right > li.private-messages a {
-	width: 47px;
-}
-
-div#netbar ul.netbar-right > li.private-messages a::after {
-	content: '\e604';
-	width: 15px;
-	height: 14px;
-	top: 8px;
-}
-
-div#netbar ul.netbar-right > li.private-messages a:hover::after {
-	color: #bababa;
-}
-
 #pt-notifications-alert .mw-echo-notifications-badge::after, #pt-notifications-notice .mw-echo-notifications-badge::after {
 	border: none;
 	background-color: unset;
+	top: 1007px;
+}
+
+#pt-notifications-alert .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read::after, #pt-notifications-notice .mw-echo-notifications-badge.mw-echo-notifications-badge-all-read::after {
+	visibility: visible;
 }
 
 .mw-echo-notifications-badge::before {
 	background-size: 20px;
 	background-position-y: 10px;
 	filter: invert(100%);
-}
-
-div#netbar ul.netbar-right > li.notifications.notifications-open {
-	background: #222;
-}
-
-div#netbar ul.netbar-right > li.notifications.notifications-open a::after {
-	color: #bababa;
-}
-
-div#netbar ul.netbar-right > li.notifications a {
-	width: 47px;
-}
-
-div#netbar ul.netbar-right > li.notifications a::after {
-	content: '\e605';
-	width: 14px;
-	height: 14px;
-}
-
-div#netbar ul.netbar-right > li.notifications a:hover::after {
-	color: #bababa;
-}
-
-@media screen and (max-width: 700px) {
-div#netbar ul.netbar-right > li.control-panel {
-	display: none;
-}
-}
-
-div#netbar ul.netbar-right > li.achievements ul li {
-	float: left;
-	position: relative;
-	margin-right: 10px;
-	padding-left: 17px;
-}
-
-div#netbar ul.netbar-right > li.achievements ul li:last-child {
-	margin-right: 0;
-}
-
-div#netbar ul.netbar-right > li.achievements ul li::before {
-	content: '';
-	background: url(../images/achievements/post_trophies.png) left top no-repeat;
-	height: 12px;
-	width: 13px;
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 50%;
-	margin-top: -6px;
-}
-
-div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-1::before {
-	background-position: 0 top;
-}
-
-div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-2::before {
-	background-position: -13px top;
-}
-
-div#netbar ul.netbar-right > li.achievements ul .p-achievement-user-count-tier-3::before {
-	background-position: -26px top;
-}
-
-@media screen and (max-width: 470px) {
-div#netbar ul.netbar-right > li.achievements {
-	display: none;
-}
-}
-
-div#netbar ul.netbar-right > li form {
-	margin-bottom: 0;
-}
-
-div#netbar ul.netbar-right > li form button.sign-out {
-	display: block;
-	width: 100%;
-	text-align: left;
-	line-height: 28px;
-	background: none;
-	border: none;
-	color: #aeaeae;
-	font-family: 'Open Sans',sans-serif;
-	outline: none;
-}
-
-div#netbar ul.netbar-right > li form button.sign-out:hover {
-	color: #fff;
 }
 
 div#netbar ul.netbar-right > li.user:hover > a {
@@ -448,14 +467,6 @@ div#netbar ul.netbar-right > li.user:hover > a::after {
 
 div#netbar ul.netbar-right > li.user > a {
 	padding: 0 25px 0 16px;
-}
-
-div#netbar ul.netbar-right > li.user > a::after {
-	content: '\e600';
-	width: 5px;
-	height: 3px;
-	top: 7px;
-	right: 16px;
 }
 
 div#netbar ul.netbar-right > li.user > a img.avatar {
@@ -507,30 +518,13 @@ div#netbar ul.netbar-right > li.user > ul > li button.sign-out:hover {
 		overflow: hidden;
 	}
 
-	div#netbar ul.netbar-right > li.user > a::after {
-		display: none;
-	}
-
 	div#netbar ul.netbar-right > li.user > ul {
 		display: none;
 	}
 }
 
-
-div#netbar ul.netbar-right > li.mobile-sign-out {
-	display: none;
-}
-
-div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out {
-	padding: 0 16px;
-}
-
-div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
-	background: #222;
-}
-
 /* Notifications */
-#netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a, #netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a.new {
+/*#netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a, #netbar .mw-echo-ui-notificationOptionWidget:not(:hover) a.new {
 	color: #666666;
 }
 
@@ -544,16 +538,12 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 	border-radius: 0;
 }
 
-#netbar .oo-ui-buttonElement-framed.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-	position: static;
-}
-
 /* Fix because of netbar. */
 #ui-datepicker-div {
 	margin-top: -28px;
 }
 
-@media screen and (max-width: 940px) {
+/*@media screen and (max-width: 940px) {
 	div#netbar ul.netbar-right > li.mobile-sign-out {
 		display: block;
 	}
@@ -581,7 +571,6 @@ div#netbar ul.netbar-right > li.mobile-sign-out button.sign-out:hover {
 }
 
 div#netbar #pt-notifications-alert > .oo-ui-widget, div#netbar #pt-notifications-message > .oo-ui-widget {
-	box-sizing: initial;
 	line-height: 1.125em;
 }
 
@@ -590,7 +579,7 @@ div#netbar #pt-notifications-alert > .mw-echo-notifications-badge, div#netbar #p
 	background-color: transparent;
 	background-position: 0.12em 0.6em;
 	height: auto;
-	line-height: 24px;
+	line-height: 28px;
 	margin-left: 0;
 }
 
@@ -604,4 +593,4 @@ div#netbar #pt-notifications-alert > .oo-ui-widget a, div#netbar #pt-notificatio
 
 div#netbar #pt-notifications-alert > .oo-ui-widget .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button, div#netbar #pt-notifications-message > .oo-ui-widget .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button {
 	color: #555555;
-}
+}*/
