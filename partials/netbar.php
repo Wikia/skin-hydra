@@ -53,7 +53,7 @@ $showHost = false;
 		Hooks::run('NetbarLeftEnd', [&$items]);
 		if (is_array($items) && count($items)) {
 			foreach ($items as $key => $item) {
-				echo "<div class='netbar-box left ".htmlentities($key)."'>".$item."</li>";
+				echo "<div class='netbar-box left ".htmlentities($key)."'>".$item."</div>";
 			}
 		}
 		?>
@@ -68,7 +68,7 @@ $showHost = false;
 		Hooks::run('NetbarRightBegin', [&$items]);
 		if (is_array($items) && count($items)) {
 			foreach ($items as $key => $item) {
-				echo "<div class='netbar-box left ".htmlentities($key)."'>".$item."</li>";
+				echo "<div class='netbar-box left ".htmlentities($key)."'>".$item."</div>";
 			}
 		}
 		?>
