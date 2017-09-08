@@ -215,7 +215,7 @@ div#netbar {
 	position: relative;
 }
 
-.skin-hydradark .mw-echo-notifications-badge:before {
+#netbar .mw-echo-notifications-badge:before {
 	filter: invert(100%);
 }
 
