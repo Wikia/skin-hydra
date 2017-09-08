@@ -62,6 +62,9 @@ div#netbar {
 #netbar .netbar-box:hover {
 	background: #222;
 }
+#netbar .netbar-box.live-on-twitch:hover {
+	background-color: #6441A4;
+}
 
 #netbar .netbar-spacer {
 	flex: 1 1 auto;
