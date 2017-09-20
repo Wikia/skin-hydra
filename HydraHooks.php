@@ -513,7 +513,7 @@ class HydraHooks {
 	 */
 	static public function getAdBySlot($slot) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		$siteAdvertisements = $config->get('SiteAdSlots');
+		$siteAdvertisements = array_merge($config->get('SiteAdSlots'), $config->get('SiteMiscSlots'));
 
 		if (is_array($siteAdvertisements) && array_key_exists($slot, $siteAdvertisements) && !empty(trim($siteAdvertisements[$slot]))) {
 			return $siteAdvertisements[$slot];

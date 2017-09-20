@@ -66,7 +66,7 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 		<?php if ($showAds) { ?>
 		<div class="footer-box">
 			<div class="ad-placement ad-main-med-rect-footer">
-				<div id="cdm-zone-03"></div>
+				<?= HydraHooks::getAdBySlot('footermrec'); ?>
 			</div>
 		</div>
 		<?php } ?>
