@@ -195,7 +195,7 @@ div#zergnet_container {
 	#global-wrapper.with-siderail #content #bodyContent {
 		box-sizing: border-box;
 		float: left;
-		width: ~"calc(100% - 320px)";
+		width: ~"calc(100% - @{sideRailBodyWidth})";
 	}
 
 	/* Side Rail */
@@ -208,7 +208,7 @@ div#zergnet_container {
 		position: relative;
 		text-align: center;
 		top: 5px;
-		width: 310px;
+		width: @sideRailWidth;
 		z-index: 1000;
 	}
 

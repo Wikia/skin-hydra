@@ -530,9 +530,16 @@ class HydraHooks {
 	 */
 	static public function onResourceLoaderGetLessVars(&$lessVars) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		$sideRailCollapseWidth = intval($config->get('SideRailCollapseWidth'));
 
+		$sideRailWidth = intval($config->get('SideRailWidth'));
+		$lessVars['sideRailWidth'] = ($sideRailWidth < 1 ? 310 : $sideRailWidth);
+		$lessVars['sideRailBodyWidth'] = $lessVars['sideRailWidth'] + 10;
+		$lessVars['sideRailWidth'] .= 'px';
+		$lessVars['sideRailBodyWidth'] .= 'px';
+
+		$sideRailCollapseWidth = intval($config->get('SideRailCollapseWidth'));
 		$lessVars['sideRailCollapseWidth'] = (!$sideRailCollapseWidth ? 1350 : $sideRailCollapseWidth).'px';
+
 		return true;
 	}
 
