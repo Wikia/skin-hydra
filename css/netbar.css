@@ -22,8 +22,8 @@ div#netbar {
 	background: #121212;
 	border-bottom: 1px solid #000;
 	color: #aeaeae;
-	font-family: 'Open Sans',sans-serif;
-	font-size: 12px;
+	font-family: 'Open Sans', sans-serif !important;
+	font-size: 12px !important;
 	height: 30px;
 	left: 0;
 	position: absolute;
