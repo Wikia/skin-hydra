@@ -171,7 +171,6 @@ div#netbar {
 #netbar .netbar-box ul.dropdown li {
 	box-sizing: border-box;
 	line-height: initial;
-	padding: 8px 5px;
 	width: 100%;
 }
 
@@ -181,6 +180,7 @@ div#netbar {
 
 #netbar .netbar-box ul.dropdown li a {
 	display: block;
+	padding: 8px 5px;
 	width: intrinsic;
 	width: max-content;
 	width: -moz-max-content;
