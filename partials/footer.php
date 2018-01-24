@@ -43,7 +43,7 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 				<li><a href="<?= wfExpandUrl($wgScriptPath."/Special:Preferences"); ?>" class="account"><?= wfMessage('footer-My_Account')->text() ?></a></li>
 				<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('footer-Pro')->text() ?></a></li>
 			<?php } ?>
-				<li><a href="http://www.curseinc.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
+				<li><a href="https://www.curse.com/careers" class="careers"><?= wfMessage('footer-Careers')->text() ?></a></li>
 				<li><a href="http://support.gamepedia.com/" class="help"><?= wfMessage('footer-Help')->text() ?></a></li>
 			<?php if ($showAds && isset($footerLinks[1])) { ?>
 				<li><a href="<?= $footerLinks[1]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[1]['text']) ?></a></li>
@@ -54,10 +54,10 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 		<div class="footer-box">
 		<?php } ?>
 			<ul class="more">
-				<li><a href="http://www.curseinc.com/" class="about">About Curse</a></li>
-				<li><a href="http://www.curseinc.com/audience" class="advertise">Advertise</a></li>
-				<li><a href="http://www.curse.com/terms" class="tos">Terms of Service</a></li>
-				<li><a href="http://www.curse.com/privacy" class="privacy-policy">Privacy Policy</a></li>
+				<li><a href="https://www.curse.com/" class="about">About Curse</a></li>
+				<li><a href="https://www.curse.com/advertising" class="advertise">Advertise</a></li>
+				<li><a href="https://www.twitch.tv/p/legal/terms-of-service/" class="tos">Terms of Service</a></li>
+				<li><a href="https://www.twitch.tv/p/legal/privacy-policy/" class="privacy-policy">Privacy Policy</a></li>
 			<?php if ($showAds && isset($footerLinks[2])) { ?>
 				<li><a href="<?= $footerLinks[2]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[2]['text']) ?></a></li>
 			<?php } ?>
@@ -71,7 +71,7 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 		</div>
 		<?php } ?>
 	</div>
-	<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse Inc.</span>
+	<span class="copyright">Copyright 2005-<?= date('Y') ?>, Curse</span>
 </footer>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>
