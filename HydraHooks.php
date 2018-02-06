@@ -299,23 +299,25 @@ class HydraHooks {
 				$footerLinks['hydra'][] = 'hydrafooter';
 				$template->set('footerlinks', $footerLinks);
 
-				if ($showAds && !empty(self::getAdBySlot('mobileatflb'))) {
-					$_bottomExtra .= "
-					<script type=\"text/javascript\">
-						window.mobileatflb = '".str_replace("'", "\\'", self::getAdBySlot('mobileatflb'))."';
-					</script>";
-				}
-				if ($showAds && !empty(self::getAdBySlot('mobileatfmrec'))) {
-					$_bottomExtra .= "
-					<script type=\"text/javascript\">
-						window.mobileatfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec'))."';
-					</script>";
-				}
-				if ($showAds && !empty(self::getAdBySlot('mobilebtfmrec'))) {
-					$_bottomExtra .= "
-					<script type=\"text/javascript\">
-						window.mobilebtfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobilebtfmrec'))."';
-					</script>";
+				if ($showAds) {
+					if (!empty(self::getAdBySlot('mobileatflb'))) {
+						$_bottomExtra .= "
+						<script type=\"text/javascript\">
+							window.mobileatflb = '".str_replace("'", "\\'", self::getAdBySlot('mobileatflb'))."';
+						</script>";
+					}
+					if (!empty(self::getAdBySlot('mobileatfmrec'))) {
+						$_bottomExtra .= "
+						<script type=\"text/javascript\">
+							window.mobileatfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec'))."';
+						</script>";
+					}
+					if (!empty(self::getAdBySlot('mobilebtfmrec'))) {
+						$_bottomExtra .= "
+						<script type=\"text/javascript\">
+							window.mobilebtfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobilebtfmrec'))."';
+						</script>";
+					}
 				}
 			} else {
 				$_bottomExtra .= $footer;
@@ -327,8 +329,11 @@ class HydraHooks {
 			//"Javascript" Bottom Advertisement Stuff
 			if ($showAds) {
 				$jsBottom = (self::isMobileSkin() ? 'mobile' : '').'jsbot';
-				if ($showAds && !empty(self::getAdBySlot($jsBottom))) {
+				if (!empty(self::getAdBySlot($jsBottom))) {
 					$_bottomExtra .= self::getAdBySlot($jsBottom);
+				}
+				if (!empty($wgRequest->getHeader('x-instart-via'))) {
+					$_bottomExtra .= self::getAdBySlot('instart');
 				}
 			}
 
@@ -600,12 +605,11 @@ class HydraHooks {
 	static public function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
 		if (isset($links['actions'])) {
 			$title = $skinTemplate->getRelevantTitle();
-			if ( $title->exists() && $title->quickUserCan( 'purge', $skinTemplate->getSkin()->getContext()->getUser() ) ) {
+			if ($title->exists() && $title->quickUserCan('purge', $skinTemplate->getSkin()->getContext()->getUser())) {
 				$links['actions']['purge'] = [
 					'class' => false,
-					'text' => wfMessageFallback( "{$skinTemplate->skinname}-action-purge", 'purge' )
-						->setContext( $skinTemplate->getContext() )->text(),
-					'href' => $title->getLocalURL( 'action=purge' )
+					'text' => wfMessageFallback("{$skinTemplate->skinname}-action-purge", 'purge')->setContext($skinTemplate->getContext())->text(),
+					'href' => $title->getLocalURL('action=purge')
 				];
 			}
 		}
