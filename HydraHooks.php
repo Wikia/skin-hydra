@@ -560,11 +560,9 @@ class HydraHooks {
 			$placements['atfmrec'] = $placement;
 		}
 
-		if (($placement = self::getAdBySlot('zergnetsiderail')) !== false) {
-			$placements['zergnetsiderail_container'] = "<div id=\"zzergnetsiderail\">".$placement."</div>";
+		if (($placement = self::getAdBySlot('middlemrec')) !== false) {
+			$placements['middlemrec'] = $placement;
 		}
-
-		$placements['gp-pro-upsell'] = "<a href='https://www.gamepedia.com/pro'><img src=".wfExpandUrl($wgScriptPath."/skins/Hydra/images/gppro/gpproupsellshort.png")."></a>";
 
 		if (($placement = self::getAdBySlot('btfmrec')) !== false) {
 			$placements['btfmrec'] = $placement;
