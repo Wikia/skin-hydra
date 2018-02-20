@@ -582,8 +582,8 @@ class HydraHooks {
 		if (!$template->getSkin()->getContext()->getUser()->isLoggedIn()
 			&& self::showSideRailAPUs($template->getSkin())
 			&& $template->data['showads']
-			&& self::getAdBySlot('zergnet')) {
-				$placements['zergnetContainer'] = "<div id=\"zergnet_container\">".self::getAdBySlot('zergnet')."</div>";
+			&& self::getAdBySlot('btfhero')) {
+				$placements['btfheroContainer'] = "<div id=\"btfhero_container\">".self::getAdBySlot('btfhero')."</div>";
 		}
 
 		if ($template->data['showads'] && self::getAdBySlot('btflb')) {
