@@ -332,7 +332,7 @@ class HydraHooks {
 				if (!empty(self::getAdBySlot($jsBottom))) {
 					$_bottomExtra .= self::getAdBySlot($jsBottom);
 				}
-				if (!empty($wgRequest->getHeader('x-instart-via'))) {
+				if (empty($wgRequest->getHeader('x-instart-via'))) {
 					$_bottomExtra .= self::getAdBySlot('instart');
 				}
 			}
