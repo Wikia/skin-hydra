@@ -7,6 +7,10 @@
 		window.sideRailAtBottom = false;
 		window.sideRailVisible = $(sideRail).is(':visible');
 
+		if (!window.sideRailVisible) {
+			$(sideRail).children().remove();
+		}
+
 		/*$('#bodyContent').on('DOMSubtreeModified', function() {
 			updateMaxSideRailTop(sideRail);
         });
