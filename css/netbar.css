@@ -2,8 +2,8 @@
 
 @font-face {
 	font-family: "netbar-icons";
-	src: url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.eot);
-	src: url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.eot#iefix) format("embedded-opentype"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.woff) format("woff"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.ttf) format("truetype"),url(//hydra-media.cursecdn.com/hydra/fonts/netbar-icons.svg) format("svg");
+	src: url(/media/hydra/fonts/netbar-icons.eot);
+	src: url(/media/hydra/fonts/netbar-icons.eot#iefix) format("embedded-opentype"),url(/media/hydra/fonts/netbar-icons.woff) format("woff"),url(/media/hydra/fonts/netbar-icons.ttf) format("truetype"),url(/media/hydra/fonts/netbar-icons.svg) format("svg");
 	font-weight: 400;
 	font-style: normal;
 }
