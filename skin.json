@@ -95,15 +95,6 @@
 			],
 			"position": "top"
 		},
-		"skins.hydra.instart.js": {
-			"scripts": [
-				"js/instart.js"
-			],
-			"targets": [
-				"desktop"
-			],
-			"position": "top"
-		},
 		"skins.hydra.mobile.apu.js": {
 			"scripts": [
 				"js/mobileads.js"

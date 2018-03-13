@@ -16,9 +16,5 @@ class SkinHydra extends SkinVector {
 		parent::initPage( $out );
 
 		$out->addModules( [ 'skins.hydra.advertisements.js', 'skins.hydra.footer.js' ] );
-
-		if ($out->getRequest()->getHeader('Host') === 'cdm.gamepedia.com' && empty($out->getRequest()->getHeader('x-instart-via'))) {
-			$out->addModules( [ 'skins.hydra.instart.js' ] );
-		}
 	}
 }
