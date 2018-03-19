@@ -214,10 +214,10 @@ class HydraTemplate extends VectorTemplate {
 			}
 
 			$placements = [];
-			Hooks::run('BottomPlacements', [&$placements, &$this]);
+			Hooks::run('BottomPlacements', [&$placements, $this]);
 
 			//Give extensions a chance to sort the placements correctly.
-			Hooks::run('BottomPlacementsBeforeOutput', [&$placements, &$this]);
+			Hooks::run('BottomPlacementsBeforeOutput', [&$placements, $this]);
 
 			if (is_array($placements) && count($placements)) {
 				foreach ($placements as $id => $placement) {

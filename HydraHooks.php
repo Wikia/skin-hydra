@@ -181,7 +181,7 @@ class HydraHooks {
 					}
 				}
 				if (!empty($tags)) {
-					$extraTracks = '';
+					$extraTracks = [];
 					if ($wgUser->getId()) {
 						$lookup = CentralIdLookup::factory();
 						$globalId = $lookup->centralIdFromLocalUser($wgUser);
@@ -575,7 +575,7 @@ class HydraHooks {
 	 * @param	object	VectorTemplate - The template.
 	 * @return	boolean	True
 	 */
-	static public function onBottomPlacements(&$placements, &$template) {
+	static public function onBottomPlacements(&$placements, $template) {
 		if (!$template->getSkin()->getContext()->getUser()->isLoggedIn()
 			&& self::showSideRailAPUs($template->getSkin())
 			&& $template->data['showads']
