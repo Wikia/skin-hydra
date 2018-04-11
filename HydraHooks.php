@@ -524,26 +524,6 @@ class HydraHooks {
 	}
 
 	/**
-	 * Inject and modify certain LESS variables.
-	 *
-	 * @access	public
-	 * @param	array	LESS Variables
-	 * @return	boolean	True
-	 */
-	static public function onResourceLoaderGetLessVars(&$lessVars) {
-		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-
-		$sideRailWidth = intval($config->get('SideRailWidth'));
-		$lessVars['sideRailWidth'] = ($sideRailWidth < 1 ? 300 : $sideRailWidth);
-		$lessVars['sideRailWidth'] .= 'px';
-
-		$sideRailCollapseWidth = intval($config->get('SideRailCollapseWidth'));
-		$lessVars['sideRailCollapseWidth'] = (!$sideRailCollapseWidth ? 1350 : $sideRailCollapseWidth).'px';
-
-		return true;
-	}
-
-	/**
 	 * Insert placements into the siderail.
 	 *
 	 * @access	public

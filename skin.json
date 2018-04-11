@@ -77,6 +77,7 @@
 			"position": "top"
 		},
 		"skins.hydra.advertisements.styles": {
+			"class": "ResourceLoaderLessVariableModule",
 			"styles": [
 				"css/advertisements.less"
 			],
@@ -158,6 +159,7 @@
 		"remoteSkinPath": "Hydra"
 	},
 	"AutoloadClasses": {
+		"ResourceLoaderLessVariableModule": "modules/ResourceLoaderLessVariableModule.php",
 		"HydraTemplate": "HydraTemplate.php",
 		"HydraHooks": "HydraHooks.php",
 		"SkinHydra": "SkinHydra.php"
@@ -166,7 +168,6 @@
 		"BottomPlacements": "HydraHooks::onBottomPlacements",
 		"MobileMenu": "HydraHooks::onMobileMenu",
 		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
-		"ResourceLoaderGetLessVars": "HydraHooks::onResourceLoaderGetLessVars",
 		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
 		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
