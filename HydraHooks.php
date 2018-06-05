@@ -166,8 +166,9 @@ class HydraHooks {
 			//Main Advertisement Javascript
 			if ($showAds) {
 				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+				$instart = "\n<script type=\"text/javascript\"><esi:include src=\"/skins/Hydra/js/instart.js\"/></script>\n";
 				if (!empty(self::getAdBySlot($jsTop))) {
-					$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
+					$template->set('headelement', $template->data['headelement'].$instart.self::getAdBySlot($jsTop));
 				}
 			}
 
