@@ -465,8 +465,9 @@ class HydraHooks {
 			}
 		}
 
+		$action = $skin->getRequest()->getVal('action');
 		$showAds = false;
-		if (!$isPremium && $skin->getRequest()->getVal('action') != 'edit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
+		if (!$isPremium && $action != 'edit' && $action != 'submit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
 			$showAds = true;
 		}
 		self::$showAds = $showAds;
