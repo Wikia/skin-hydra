@@ -56,15 +56,6 @@
 			],
 			"position": "top"
 		},
-		"skins.hydra.banner.js": {
-			"scripts": [
-				"js/banner.js"
-			],
-			"targets": [
-				"desktop"
-			],
-			"position": "top"
-		},
 		"skins.hydra.footer.js": {
 			"scripts": [
 				"js/ResizeSensor.js",

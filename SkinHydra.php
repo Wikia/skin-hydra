@@ -15,6 +15,6 @@ class SkinHydra extends SkinVector {
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
 
-		$out->addModules( [ 'skins.hydra.advertisements.js', 'skins.hydra.footer.js', 'skins.hydra.banner.js' ] );
+		$out->addModules( [ 'skins.hydra.advertisements.js', 'skins.hydra.footer.js' ] );
 	}
 }
