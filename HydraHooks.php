@@ -514,11 +514,11 @@ class HydraHooks {
 	 * Return an advertisement by slot name.
 	 *
 	 * @access	public
-	 * @return	void
+	 * @return	mixed	Slot text or false to disable the slot.
 	 */
 	static public function getAdBySlot($slot) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-		$siteAdvertisements = array_merge($config->get('SiteAdSlots'), $config->get('SiteMiscSlots'));
+		$siteAdvertisements = array_merge($config->get('SiteIdSlots'), $config->get('SiteJsSlots'), $config->get('SiteAdSlots'), $config->get('SiteMiscSlots'));
 
 		if (is_array($siteAdvertisements) && array_key_exists($slot, $siteAdvertisements) && !empty(trim($siteAdvertisements[$slot]))) {
 			return $siteAdvertisements[$slot];

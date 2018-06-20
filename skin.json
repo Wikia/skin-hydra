@@ -14,6 +14,8 @@
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinShowSideRail": true,
 		"HydraSkinHideSideRailPages": [],
+		"SiteIdSlots": [],
+		"SiteJsSlots": [],
 		"SiteAdSlots": [],
 		"SiteMiscSlots": [],
 		"IsOfficialWiki": false,
