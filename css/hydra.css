@@ -91,3 +91,12 @@ div.vectorMenu {
 .tipsy {
 	margin-top: -28px;
 }
+
+/**********/
+/* Popups */
+/**********/
+
+.mwe-popups.flipped_y, 
+.mwe-popups.flipped_x_y { 
+	margin-top: -30px; 
+}
