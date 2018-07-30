@@ -511,7 +511,7 @@ class HydraHooks {
 	}
 
 	/**
-	 * Should we enable "Ad Light Experience" for logged in users.
+	 * Should we enable "Ad Light Experience" for logged in users?
 	 *
 	 * @access	public
 	 * @return	boolean	Enable "Ad Light Experience" for logged in users.
