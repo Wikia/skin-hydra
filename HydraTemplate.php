@@ -94,7 +94,7 @@ class HydraTemplate extends VectorTemplate {
 		// Output HTML Page
 		$this->html( 'headelement' );
 		?>
-<div id="global-wrapper"<?php echo ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin()) && $this->config->get('HydraSkinShowSideRail') ? ' class="with-siderail"' : '') ?>>
+<div id="global-wrapper"<?php echo ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin()) && !HydraHooks::isAdLightExperience() && $this->config->get('HydraSkinShowSideRail') ? ' class="with-siderail"' : '') ?>>
 	<div id="mw-page-base" class="noprint"></div>
 	<div id="mw-head-base" class="noprint"></div>
 	<div id="pageWrapper">
@@ -183,7 +183,7 @@ class HydraTemplate extends VectorTemplate {
 				<?php $this->html( 'debughtml' ); ?>
 			</div>
 			<?php
-			if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin())) {
+			if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin()) && !HydraHooks::isAdLightExperience()) {
 			?>
 			<div id="siderail">
 				<?php

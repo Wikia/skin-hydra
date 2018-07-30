@@ -511,6 +511,19 @@ class HydraHooks {
 	}
 
 	/**
+	 * Should we enable "Ad Light Experience" for logged in users.
+	 *
+	 * @access	public
+	 * @return	boolean	Enable "Ad Light Experience" for logged in users.
+	 */
+	static public function isAdLightExperience() {
+		global $wgUser;
+
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		return $config->get('AdLightExperience') && $wgUser->isLoggedIn();
+	}
+
+	/**
 	 * Return an advertisement by slot name.
 	 *
 	 * @access	public

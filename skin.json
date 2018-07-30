@@ -18,6 +18,7 @@
 		"SiteJsSlots": [],
 		"SiteAdSlots": [],
 		"SiteMiscSlots": [],
+		"AdLightExperience": false,
 		"IsOfficialWiki": false,
 		"SideRailWidth": 310,
 		"SideRailCollapseWidth": 1350
