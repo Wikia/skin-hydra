@@ -226,3 +226,19 @@ div#netbar {
 #netbar .netbar-box.echo li div {
 	line-height: initial;
 }
+
+/* Netbar in Development and Staging */
+.env-development > #netbar {
+	/* Subtle in development */
+	border-bottom: 2px solid red; 
+}
+
+.env-staging > #netbar {
+	/* Obnoxious in Staging */
+	background: red;
+	border-bottom: 1px solid #fc3;
+}
+
+.env-staging > #netbar span.label-development {
+	color: #fc3;
+}

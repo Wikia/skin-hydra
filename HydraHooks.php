@@ -404,6 +404,15 @@ class HydraHooks {
 			$bodyAttrs['class'] .= ' hide-ads';
 		}
 
+		switch ($_SERVER['PHP_ENV']) {
+			case 'staging':
+				$bodyAttrs['class'] .= ' env-staging';
+				break;
+			case 'development':
+				$bodyAttrs['class'] .= ' env-development';
+				break;
+		}
+
 		return true;
 	}
 
