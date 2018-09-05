@@ -228,17 +228,21 @@ div#netbar {
 }
 
 /* Netbar in Development and Staging */
-.env-development > #netbar {
+.env-development > #netbar::after,
+.env-staging > #netbar::after {
 	/* Subtle in development */
-	border-bottom: 2px solid red; 
+	background: rgba(255,0,0,0.8);
+	color: #fff;
+	display: block;
+	text-align: center;
+	padding: 3px 0px 4px 0px;
+	font-size: 14px;
 }
 
-.env-staging > #netbar {
-	/* Obnoxious in Staging */
-	background: red;
-	border-bottom: 1px solid #fc3;
+.env-development > #netbar::after {
+	content: "You are currently using the Development Enviroment";
 }
 
-.env-staging > #netbar span.label-development {
-	color: #fc3;
+.env-staging > #netbar::after {
+	content: "You are currently using the Staging Enviroment";
 }
