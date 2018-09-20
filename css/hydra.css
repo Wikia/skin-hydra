@@ -100,3 +100,8 @@ div.vectorMenu {
 .mwe-popups.flipped_x_y { 
 	margin-top: -30px; 
 }
+
+.wikisites.errorbox {
+	margin: 5px 0;
+	display: block;
+}
