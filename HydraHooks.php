@@ -81,15 +81,6 @@ class HydraHooks {
 	 * @return	boolean True
 	 */
 	static public function onSkinVectorStyleModules($skin, &$styles) {
-		if ($skin instanceof SkinHydraDark) {
-			$styles[] = 'skins.z.hydra.dark';
-		} elseif ($skin instanceof SkinHydra) {
-			$styles[] = 'skins.z.hydra.light';
-		}
-		$styles[] = 'skins.hydra.netbar';
-		$styles[] = 'skins.hydra.footer';
-		$styles[] = 'skins.hydra.advertisements.styles';
-
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');

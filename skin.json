@@ -32,7 +32,7 @@
 		]
 	},
 	"ResourceModules": {
-		"skins.z.hydra.light": {
+		"skins.z.hydra.light.styles": {
 			"position": "top",
 			"styles": {
 				"css/hydra.css": {
@@ -45,7 +45,21 @@
 			],
 			"dependencies": [
 				"skins.vector.styles",
-				"skins.vector.styles.responsive",
+				"skins.vector.styles.responsive"
+			]
+		},
+		"skins.z.hydra.light.scripts": {
+			"position": "top",
+			"styles": {
+				"css/hydra.css": {
+					"media": "screen"
+				}
+			},
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"dependencies": [
 				"skins.vector.js"
 			]
 		},

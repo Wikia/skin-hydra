@@ -17,4 +17,34 @@ class SkinHydra extends SkinVector {
 
 		$out->addModules( [ 'skins.hydra.advertisements.js', 'skins.hydra.footer.js' ] );
 	}
+
+	/**
+	 * Loads skin and user CSS files.
+	 *
+	 * @param OutputPage $out
+	 */
+	public function setupSkinUserCss( OutputPage $out ) {
+		parent::setupSkinUserCss( $out );
+
+		if ($this instanceof SkinHydraDark) {
+			$out->addModuleStyles(
+				[
+					'skins.z.hydra.dark.styles'
+				]
+			);
+		} elseif ($this instanceof SkinHydra) {
+			$out->addModuleStyles(
+				[
+					'skins.z.hydra.light.styles'
+				]
+			);
+		}
+		$out->addModuleStyles(
+			[
+				'skins.hydra.netbar',
+				'skins.hydra.footer',
+				'skins.hydra.advertisements.styles'
+			]
+		);
+	}
 }
