@@ -33,7 +33,6 @@
 	},
 	"ResourceModules": {
 		"skins.z.hydra.light.styles": {
-			"position": "top",
 			"styles": {
 				"css/hydra.css": {
 					"media": "screen"
@@ -42,25 +41,6 @@
 			"targets": [
 				"desktop",
 				"mobile"
-			],
-			"dependencies": [
-				"skins.vector.styles",
-				"skins.vector.styles.responsive"
-			]
-		},
-		"skins.z.hydra.light.scripts": {
-			"position": "top",
-			"styles": {
-				"css/hydra.css": {
-					"media": "screen"
-				}
-			},
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"dependencies": [
-				"skins.vector.js"
 			]
 		},
 		"skins.hydra.footer": {
@@ -165,6 +145,7 @@
 			"jquery.ui.spinner": "../Vector/skinStyles/jquery.ui/jquery.ui.spinner.css",
 			"jquery.ui.tabs": "../Vector/skinStyles/jquery.ui/jquery.ui.tabs.css",
 			"jquery.ui.tooltips": "../Vector/skinStyles/jquery.ui/jquery.ui.tooltips.css",
+			"+mediawiki.action.view.redirectPage": "../Vector/skinStyles/mediawiki.action.view.redirectPage.less",
 			"+mediawiki.notification": "../Vector/skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "../Vector/skinStyles/ooui.less",
 			"mediawiki.special": "../Vector/skinStyles/mediawiki.special.less",

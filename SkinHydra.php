@@ -16,6 +16,11 @@ class SkinHydra extends SkinVector {
 		parent::initPage( $out );
 
 		$out->addModules( [ 'skins.hydra.advertisements.js', 'skins.hydra.footer.js' ] );
+
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		if (HydraHooks::showAds($this) && $config->get('HydraSkinShowAnchorAd') && !empty(HydraHooks::getAdBySlot('anchor'))) {
+			$out->addModuleScripts('skins.hydra.anchor.apu.js');
+		}
 	}
 
 	/**
@@ -26,21 +31,9 @@ class SkinHydra extends SkinVector {
 	public function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
 
-		if ($this instanceof SkinHydraDark) {
-			$out->addModuleStyles(
-				[
-					'skins.z.hydra.dark.styles'
-				]
-			);
-		} elseif ($this instanceof SkinHydra) {
-			$out->addModuleStyles(
-				[
-					'skins.z.hydra.light.styles'
-				]
-			);
-		}
 		$out->addModuleStyles(
 			[
+				'skins.z.hydra.light.styles',
 				'skins.hydra.netbar',
 				'skins.hydra.footer',
 				'skins.hydra.advertisements.styles'
