@@ -61,14 +61,20 @@ class HydraTemplate extends VectorTemplate {
 		<div id="pageWrapper">
 			<div id="content" class="mw-body" role="main" itemprop="articleBody">
 				<a id="top"></a>
-
 				<?php
 				if ( $this->data['sitenotice'] ) {
-					?>
-					<div id="siteNotice" class="mw-body-content"><?php $this->html( 'sitenotice' ) ?></div>
-				<?php
+					echo Html::rawElement( 'div',
+						[
+							'id' => 'siteNotice',
+							'class' => 'mw-body-content',
+						],
+						// Raw HTML
+						$this->get( 'sitenotice' )
+					);
 				}
-				?>
+				if ( is_callable( [ $this, 'getIndicators' ] ) ) {
+					echo $this->getIndicators();
+				} ?>
 				<!-- ATF Leaderboard -->
 				<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atflb')) { ?>
 				<div id="atflb">
@@ -77,24 +83,31 @@ class HydraTemplate extends VectorTemplate {
 				<?php } ?>
 				<!-- /ATF Leaderboard -->
 				<?php
-				if ( is_callable( [ $this, 'getIndicators' ] ) ) {
-					echo $this->getIndicators();
-				}
 				// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
 				if ( $this->data['title'] != '' ) {
-				?>
-				<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>" itemprop="name"><?php
-					 $this->html( 'title' )
-				?></h1>
-				<?php
-				} ?>
-				<?php $this->html( 'prebodyhtml' ) ?>
+					echo Html::rawElement( 'h1',
+						[
+							'id' => 'firstHeading',
+							'class' => 'firstHeading',
+							'lang' => $this->get( 'pageLanguage' ),
+							'itemprop' => 'name'
+						],
+						// Raw HTML
+						$this->get( 'title' )
+					);
+				}
+
+				$this->html( 'prebodyhtml' ) ?>
 				<div id="bodyContent" class="mw-body-content">
 					<?php
 					if ( $this->data['isarticle'] ) {
-						?>
-						<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-					<?php
+						echo Html::element( 'div',
+							[
+								'id' => 'siteSub',
+								'class' => 'noprint',
+							],
+							$this->getMsg( 'tagline' )->text()
+						);
 					}
 					?>
 					<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
@@ -102,16 +115,18 @@ class HydraTemplate extends VectorTemplate {
 					?></div>
 					<?php
 					if ( $this->data['undelete'] ) {
-						?>
-						<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-					<?php
+						echo Html::rawElement( 'div',
+							[ 'id' => 'contentSub2' ],
+							// Raw HTML
+							$this->get( 'undelete' )
+						);
 					}
-					?>
-					<?php
 					if ( $this->data['newtalk'] ) {
-						?>
-						<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-					<?php
+						echo Html::rawElement( 'div',
+							[ 'class' => 'usermessage' ],
+							// Raw HTML
+							$this->get( 'newtalk' )
+						);
 					}
 					?>
 					<div id="jump-to-nav" class="mw-jump">
@@ -189,7 +204,6 @@ class HydraTemplate extends VectorTemplate {
 			</div>
 			<div id="mw-navigation">
 				<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-
 				<div id="mw-head">
 					<?php //$this->renderNavigation( 'PERSONAL' ); Remove for Hydra Skin as it is handled in the netbar. ?>
 					<div id="left-navigation">
@@ -209,19 +223,20 @@ class HydraTemplate extends VectorTemplate {
 					<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 				</div>
 			</div>
+			<?php Hooks::run( 'VectorBeforeFooter' ); ?>
 			<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
 				<?php
 				foreach ( $this->getFooterLinks() as $category => $links ) {
+				?>
+				<ul id="footer-<?php echo $category ?>">
+					<?php
+					foreach ( $links as $link ) {
 					?>
-					<ul id="footer-<?php echo $category ?>">
-						<?php
-						foreach ( $links as $link ) {
-							?>
-							<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
-						<?php
-						}
-						?>
-					</ul>
+					<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
+					<?php
+					}
+					?>
+				</ul>
 				<?php
 				}
 				?>
@@ -231,14 +246,14 @@ class HydraTemplate extends VectorTemplate {
 					<ul id="footer-icons" class="noprint">
 						<?php
 						foreach ( $footericons as $blockName => $footerIcons ) {
+						?>
+						<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
+							<?php
+							foreach ( $footerIcons as $icon ) {
+								echo $this->getSkin()->makeFooterIcon( $icon );
+							}
 							?>
-							<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-								<?php
-								foreach ( $footerIcons as $icon ) {
-									echo $this->getSkin()->makeFooterIcon( $icon );
-								}
-								?>
-							</li>
+						</li>
 						<?php
 						}
 						?>
@@ -246,12 +261,12 @@ class HydraTemplate extends VectorTemplate {
 				<?php
 				}
 				?>
-				<div style="clear:both"></div>
+				<div style="clear: both;"></div>
 			</div>
 		</div>
 		<div id="footer-push"></div>
 	</div>
-		<?php $this->printTrail(); ?>
+	<?php $this->printTrail(); ?>
 
 	</body>
 </html>
