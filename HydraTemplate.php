@@ -279,7 +279,7 @@ class HydraTemplate extends VectorTemplate {
 	 *
 	 * @param array $elements
 	 */
-	protected function renderNavigation( $elements ) {
+	protected function renderNavigation( array $elements ) {
 		// Render elements
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
