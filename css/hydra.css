@@ -29,6 +29,11 @@ pre, .mw-code {
 	word-wrap: break-word;
 }
 
+div.vectorTabs li a {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
 /*************/
 /* ReCaptcha */
 /*************/
