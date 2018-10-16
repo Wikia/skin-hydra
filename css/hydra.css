@@ -29,6 +29,23 @@ pre, .mw-code {
 	word-wrap: break-word;
 }
 
+div#mw-panel {
+	font-size: inherit;
+	position: absolute;
+	top: 160px;
+	padding-top: 1em;
+	width: 10em;
+	left: 0;
+}
+
+#p-logo {
+	position: absolute;
+	top: -160px;
+	left: 0;
+	width: 10em;
+	height: 160px;
+}
+
 /*************/
 /* ReCaptcha */
 /*************/
