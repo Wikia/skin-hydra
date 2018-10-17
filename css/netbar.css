@@ -240,9 +240,9 @@ div#netbar {
 }
 
 .env-development > #netbar::after {
-	content: "You are currently using the Development Enviroment";
+	content: "You are currently using the Development Environment";
 }
 
 .env-staging > #netbar::after {
-	content: "You are currently using the Staging Enviroment";
+	content: "You are currently using the Staging Environment";
 }
