@@ -208,6 +208,7 @@ div#netbar {
 }
 
 #netbar .netbar-box.echo li {
+	height: 30px;
 	line-height: 2.5em;
 	list-style: none;
 	margin: 0;
@@ -217,6 +218,17 @@ div#netbar {
 
 #netbar .mw-echo-notifications-badge:before {
 	filter: invert(100%);
+}
+
+#netbar #pt-notifications-alert .mw-echo-notifications-badge::before, #netbar #pt-notifications-notice .mw-echo-notifications-badge::before {
+	background-position-y: 10px;
+	background-size: 70%;
+	height: 200%;
+}
+
+#netbar #pt-notifications-alert .mw-echo-notifications-badge::after, #netbar #pt-notifications-notice .mw-echo-notifications-badge::after {
+	left: 9px;
+	top: 1020px;
 }
 
 #netbar #pt-notifications-alert .mw-echo-notifications-badge, #netbar #pt-notifications-notice .mw-echo-notifications-badge {
