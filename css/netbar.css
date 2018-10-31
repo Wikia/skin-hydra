@@ -212,7 +212,7 @@ div#netbar {
 	line-height: 2.5em;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 0 5px 0 0;
 	position: relative;
 }
 
@@ -220,20 +220,33 @@ div#netbar {
 	filter: invert(100%);
 }
 
+#netbar #pt-notifications-alert .mw-echo-notifications-badge, #netbar #pt-notifications-notice .mw-echo-notifications-badge {
+	display: block;
+}
+
 #netbar #pt-notifications-alert .mw-echo-notifications-badge::before, #netbar #pt-notifications-notice .mw-echo-notifications-badge::before {
-	background-position-x: 5px;
 	background-position-y: 10px;
-	background-size: 70%;
-	height: 200%;
+	background-size: 80%;
+	display: block;
+	height: 30px;
+	position: relative;
+	top: 1000px;
+	width: 24px;
 }
 
 #netbar #pt-notifications-alert .mw-echo-notifications-badge::after, #netbar #pt-notifications-notice .mw-echo-notifications-badge::after {
-	left: 9px;
-	top: 1020px;
-}
-
-#netbar #pt-notifications-alert .mw-echo-notifications-badge, #netbar #pt-notifications-notice .mw-echo-notifications-badge {
-	padding-left: 24px;
+	background: transparent;
+	border: none;
+	display: block;
+	font-size: 1em;
+	left: auto;
+	min-width: 24px;
+	position: relative;
+	right: 0;
+	text-align: right;
+	text-shadow: rgb(18, 18, 18) 2px 0px 0px, rgb(18, 18, 18) 1.75px 0.966667px 0px, rgb(18, 18, 18) 1.08333px 1.68333px 0px, rgb(18, 18, 18) 0.133333px 2px 0px, rgb(18, 18, 18) -0.833333px 1.81667px 0px, rgb(18, 18, 18) -1.6px 1.2px 0px, rgb(18, 18, 18) -1.98333px 0.283333px 0px, rgb(18, 18, 18) -1.86667px -0.7px 0px, rgb(18, 18, 18) -1.3px -1.51667px 0px, rgb(18, 18, 18) -0.416667px -1.95px 0px, rgb(18, 18, 18) 0.566667px -1.91667px 0px, rgb(18, 18, 18) 1.41667px -1.41667px 0px, rgb(18, 18, 18) 1.91667px -0.566667px 0px;
+	top: 958px;
+	visibility: visible;
 }
 
 #netbar .netbar-box.echo li div {
