@@ -221,6 +221,7 @@ div#netbar {
 }
 
 #netbar #pt-notifications-alert .mw-echo-notifications-badge::before, #netbar #pt-notifications-notice .mw-echo-notifications-badge::before {
+	background-position-x: 5px;
 	background-position-y: 10px;
 	background-size: 70%;
 	height: 200%;
