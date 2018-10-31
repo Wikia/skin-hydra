@@ -21,7 +21,6 @@ $showHost = false;
 		<div class="netbar-box left links has-drop">
 			<span class="cog"></span>
 			<ul class="dropdown">
-				<li><a href="https://www.gamepedia.com/giveaways"><?= wfMessage('netbar-giveaways')->text() ?></a></li>
 				<li><a href="https://www.gamepedia.com/pro" class="premium"><?= wfMessage('netbar-pro')->text() ?></a></li>
 				<li><a href="http://support.gamepedia.com/"><?= wfMessage('netbar-help')->text() ?></a></li>
 			</ul>
@@ -103,17 +102,17 @@ $showHost = false;
 			<a title="<?= $attribs['title'] ?>" accesskey="<?= $attribs['accesskey'] ?>" href="<?= htmlspecialchars($wgUser->getUserPage()->getLinkURL()) ?>"><img src="//www.gravatar.com/avatar/<?= md5(strtolower(trim($wgUser->getEmail()))) ?>?d=mm&amp;s=20" class="avatar" alt="<?= htmlspecialchars($wgUser->getName(), ENT_QUOTES) ?>" /><?= htmlspecialchars($wgUser->getName()) ?></a>
 			<ul class="dropdown">
 				<?php foreach($personalTools as $key => $item) {
-                    if (in_array($key, ['logout', 'notifications'])) {
-                        continue;
-                    } elseif ($item['id'] == 'pt-userpage') {
-                        echo "<li class='user'>
-                                <a href='{$item['links'][0]['href']}'>
-                                    ".wfMessage('netbar-user-page')->text()."
-                                </a>
-                            </li>";
-                    } else {
+					if (in_array($key, ['logout', 'notifications'])) {
+						continue;
+					} elseif ($item['id'] == 'pt-userpage') {
+						echo "<li class='user'>
+								<a href='{$item['links'][0]['href']}'>
+									".wfMessage('netbar-user-page')->text()."
+								</a>
+							</li>";
+					} else {
 
-                        echo $skin->makeListItem($key, $item);
+						echo $skin->makeListItem($key, $item);
 					}
 				} ?>
 				<?= $skin->makeListItem('logout', $personalTools['logout']) ?>
