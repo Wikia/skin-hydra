@@ -39,11 +39,11 @@ div#mw-panel {
 }
 
 #p-logo {
+	height: 160px;
+	left: 0.5em;
 	position: absolute;
 	top: -160px;
-	left: 0;
 	width: 10em;
-	height: 160px;
 }
 
 div.vectorTabs li a {
