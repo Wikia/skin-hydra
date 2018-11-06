@@ -38,6 +38,10 @@ div#mw-panel {
 	left: 0;
 }
 
+#mw-panel #p-logo + div.portal {
+	margin-top: 0;
+}
+
 #mw-panel .portal h3 {
 	margin-left: 0;
 }
