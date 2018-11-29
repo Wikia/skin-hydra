@@ -99,7 +99,7 @@ $showHost = false;
 			} ?>
 		<div class="netbar-box right user has-drop">
 			<?php $attribs = Linker::tooltipAndAccesskeyAttribs($personalTools['userpage']['links'][0]['single-id']); ?>
-			<a title="<?= $attribs['title'] ?>" accesskey="<?= $attribs['accesskey'] ?>" href="<?= htmlspecialchars($wgUser->getUserPage()->getLinkURL()) ?>"><img src="//www.gravatar.com/avatar/<?= md5(strtolower(trim($wgUser->getEmail()))) ?>?d=mm&amp;s=20" class="avatar" alt="<?= htmlspecialchars($wgUser->getName(), ENT_QUOTES) ?>" /><?= htmlspecialchars($wgUser->getName()) ?></a>
+			<a title="<?= $attribs['title'] ?>" accesskey="<?= $attribs['accesskey'] ?>" href="<?= htmlspecialchars($wgUser->getUserPage()->getLinkURL()) ?>"><img src="//www.gravatar.com/avatar/<?= md5(strtolower(trim($wgUser->getEmail()))) ?>?d=mm&amp;s=20" class="avatar" alt="<?= htmlspecialchars($wgUser->getName(), ENT_QUOTES) ?>" /><span><?= htmlspecialchars($wgUser->getName()) ?></span></a>
 			<ul class="dropdown">
 				<?php foreach($personalTools as $key => $item) {
 					if (in_array($key, ['logout', 'notifications'])) {

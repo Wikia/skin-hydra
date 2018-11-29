@@ -1,9 +1,9 @@
-@import  "//fonts.googleapis.com/css?family=Open+Sans+Condensed:100,300,700|Open+Sans:400italic,400,700,600";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:100,300,700|Open+Sans:400italic,400,700,600");
 
 @font-face {
 	font-family: "netbar-icons";
 	src: url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.eot);
-	src: url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.eot#iefix) format("embedded-opentype"),url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.woff) format("woff"),url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.ttf) format("truetype"),url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.svg) format("svg");
+	src: url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.eot#iefix) format("embedded-opentype"), url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.woff) format("woff"), url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.ttf) format("truetype"), url(https://d1u5p3l4wpay3k.cloudfront.net/hydra/fonts/netbar-icons.svg) format("svg");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -189,13 +189,13 @@ div#netbar {
 
 #netbar .netbar-box.user > a {
 	display: block;
+	height: 30px;
 	transition: width 500ms;
 	white-space: nowrap;
 }
 
 @media screen and (max-width: 700px) {
 	#netbar .netbar-box.user > a {
-		height: 30px;
 		overflow: hidden;
 		width: 20px;
 	}
