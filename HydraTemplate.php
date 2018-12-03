@@ -310,8 +310,6 @@ class HydraTemplate extends VectorTemplate {
 						echo ' emptyPortlet';
 					}
 					?>" aria-labelledby="p-sharing-label">
-
-
 						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-sharing-label" />
 						<h3 id="p-cactions-label"><span><?php
 							if (isset($this->data['sharing_urls']['share']['text'])) {
