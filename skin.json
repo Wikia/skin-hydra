@@ -73,6 +73,16 @@
 			],
 			"position": "top"
 		},
+		"skins.hydra.googlefont.styles": {
+			"styles": [
+				"css/googlefont.css"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"position": "top"
+		},
 		"skins.hydra.advertisements.styles": {
 			"class": "ResourceLoaderLessVariableModule",
 			"styles": [

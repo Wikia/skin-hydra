@@ -34,6 +34,7 @@ class SkinHydra extends SkinVector {
 		$out->addModuleStyles(
 			[
 				'skins.z.hydra.light.styles',
+				'skins.hydra.googlefont.styles',
 				'skins.hydra.netbar',
 				'skins.hydra.footer',
 				'skins.hydra.advertisements.styles'
