@@ -31,6 +31,8 @@ class ResourceLoaderLessVariableModule extends ResourceLoaderFileModule {
 		$sideRailCollapseWidth = intval($config->get('SideRailCollapseWidth'));
 		$lessVars['sideRailCollapseWidth'] = (!$sideRailCollapseWidth ? 1350 : $sideRailCollapseWidth).'px';
 
+		$lessVars['adIdAppend'] = self::getAdIdAppend();
+
 		//Future stuff.
 		/*$vars['font-color-bold'] = '#ffffff';
 		$vars['font-color-subdued'] = '#E0E0E0';
@@ -39,5 +41,20 @@ class ResourceLoaderLessVariableModule extends ResourceLoaderFileModule {
 		$vars['background-tertiary'] = '#282828';*/
 
 		return $lessVars;
+	}
+
+	/**
+	 * Get the string to append to advertisement IDs.
+	 *
+	 * @access	public
+	 * @return	string	Append Text
+	 */
+	static public function getAdIdAppend() {
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
+		$adIdAppend = $config->get('AdIdAppend');
+		if ($adIdAppend === null) {
+			$adIdAppend = wfWikiID();
+		}
+		return '_'.$adIdAppend;
 	}
 }

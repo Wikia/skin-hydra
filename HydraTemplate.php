@@ -161,7 +161,7 @@ class HydraTemplate extends VectorTemplate {
 				<?php
 				if ($this->data['showads'] && HydraHooks::showSideRailAPUs($this->getSkin()) && !HydraHooks::isAdLightExperience()) {
 				?>
-				<div id="siderail">
+				<div id="siderail<?php echo htmlentities(ResourceLoaderLessVariableModule::getAdIdAppend()); ?>">
 					<?php
 					/* $$placements['new-item'] = $rawHtml;
 					 * Item key should be suitable as an element ID.
@@ -180,7 +180,7 @@ class HydraTemplate extends VectorTemplate {
 
 					if (is_array($placements) && count($placements)) {
 						foreach ($placements as $id => $placement) {
-							echo "<div id=".htmlentities($id).">".$placement."</div>";
+							echo "<div id='".htmlentities($id.ResourceLoaderLessVariableModule::getAdIdAppend())."'>".$placement."</div>";
 						}
 					}
 					?>

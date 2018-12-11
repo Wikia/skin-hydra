@@ -95,7 +95,7 @@ div#btfhero_container {
 	padding-bottom: 75px;
 }
 
-#content #siderail {
+#content #siderail@{adIdAppend} {
 	display: none !important;
 }
 
@@ -218,7 +218,7 @@ div#btfhero_container {
 	}
 
 	/* Side Rail */
-	#content #siderail {
+	#content #siderail@{adIdAppend} {
 		background-color: rgba(0, 0, 0, 0.1);
 		box-sizing: border-box;
 		display: block !important;
@@ -231,16 +231,16 @@ div#btfhero_container {
 		z-index: 1000;
 	}
 
-	#siderail > * {
+	#siderail@{adIdAppend} > * {
 		max-width: @sideRailWidth;
 		margin: 5px auto;
 	}
 
-	#siderail > * > div {
+	#siderail@{adIdAppend} > * > div {
 		margin: 0 auto;
 	}
 
-	#content #siderail div#atfmrec, #content #siderail div#btfmrec {
+	#content #siderail@{adIdAppend} div#atfmrec@{adIdAppend}, #content #siderail@{adIdAppend} div#atfmrec@{adIdAppend} {
 		border: none !important;
 		display: block !important;
 		width: @sideRailWidth !important;

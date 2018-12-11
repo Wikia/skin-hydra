@@ -452,6 +452,7 @@ class HydraHooks {
 	 * @return	boolean	Advertisements Visible
 	 */
 	static public function showAds($skin) {
+		return true;
 		global $wgUser;
 
 		if (self::$showAds !== null) {
@@ -484,6 +485,7 @@ class HydraHooks {
 	 * @return	boolean	Show ATF MREC Advertisement
 	 */
 	static public function showSideRailAPUs($skin) {
+		return true;
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
 		$wgHydraSkinHideSideRailPages = $config->get('HydraSkinHideSideRailPages');
@@ -518,6 +520,7 @@ class HydraHooks {
 	 * @return	boolean	Enable "Ad Light Experience" for logged in users.
 	 */
 	static public function isAdLightExperience() {
+		return false;
 		global $wgUser;
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');

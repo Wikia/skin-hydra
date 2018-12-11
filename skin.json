@@ -8,20 +8,21 @@
 		"hydraskin": "GlobalVarConfig::newInstance"
 	},
 	"config": {
+		"AdIdAppend": null,
+		"AdLightExperience": false,
 		"HydraSkinBodyName": "",
 		"HydraSkinDisclaimer": "",
+		"HydraSkinHideSideRailPages": [],
 		"HydraSkinShowAnchorAd": false,
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinShowSideRail": true,
-		"HydraSkinHideSideRailPages": [],
+		"IsOfficialWiki": false,
+		"SideRailCollapseWidth": 1350,
+		"SideRailWidth": 310,
+		"SiteAdSlots": [],
 		"SiteIdSlots": [],
 		"SiteJsSlots": [],
-		"SiteAdSlots": [],
-		"SiteMiscSlots": [],
-		"AdLightExperience": false,
-		"IsOfficialWiki": false,
-		"SideRailWidth": 310,
-		"SideRailCollapseWidth": 1350
+		"SiteMiscSlots": []
 	},
 	"ValidSkinNames": {
 		"hydra": "Hydra"
