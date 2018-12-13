@@ -1,5 +1,5 @@
 (function(mw, $) {
-	var sideRail = $('#siderail');
+	var sideRail = $('[id*="siderail_"]');
 	if ($(sideRail).length > 0 && $(sideRail).outerHeight() < $('#bodyContent').outerHeight()) {
 		window.sideRailStartTop = $(sideRail).offset().top;
 		window.sideRailCssTop = $(sideRail).css('top');
