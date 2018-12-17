@@ -99,7 +99,6 @@ class HydraHooks {
 	static public function onSkinMinervaDefaultModules($skin, &$modules) {
 		//$modules[] = 'skins.hydra.netbar';
 		$modules[] = 'skins.hydra.advertisements.styles';
-		$modules[] = 'skins.hydra.googlefont.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
 		$modules[] = 'skins.hydra.mobile.apu.js';
@@ -333,7 +332,8 @@ class HydraHooks {
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
 				window.wikiTags = ".json_encode($wgWikiTags).";
-			</script>";
+			</script>
+			<script src=\"https://cdm.cursecdn.com/js/cursepriv/cursepriv.js\"></script>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
