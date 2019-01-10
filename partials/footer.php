@@ -56,8 +56,8 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 			<ul class="more">
 				<li><a href="https://www.curse.com/" class="about">About Curse</a></li>
 				<li><a href="https://www.curse.com/advertising" class="advertise">Advertise</a></li>
-				<li><a href="https://www.twitch.tv/p/legal/terms-of-service/" class="tos">Terms of Service</a></li>
-				<li><a href="https://www.twitch.tv/p/legal/privacy-policy/" class="privacy-policy">Privacy Policy</a></li>
+				<li><a href="https://www.curse.com/terms-of-service" class="tos">Terms of Service</a></li>
+				<li><a href="https://www.curse.com/privacy-policy" class="privacy-policy">Privacy Policy</a></li>
 			<?php if ($showAds && isset($footerLinks[2])) { ?>
 				<li><a href="<?= $footerLinks[2]['url'] ?>" class="advertise"><?= htmlentities($footerLinks[2]['text']) ?></a></li>
 			<?php } ?>
