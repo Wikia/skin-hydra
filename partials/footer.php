@@ -71,7 +71,7 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 		</div>
 		<?php } ?>
 	</div>
-	<span class="copyright">Copyright <?= date('Y') ?>, Wikia Inc.</span>
+	<span class="copyright">Copyright <?= date('Y') ?> Wikia, Inc.</span>
 </footer>
 
 <?= HydraHooks::getAdBySlot('analytics') ?>
