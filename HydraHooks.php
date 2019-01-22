@@ -333,8 +333,7 @@ class HydraHooks {
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
 				window.wikiTags = ".json_encode($wgWikiTags).";
-			</script>
-			<script src=\"https://cdm.cursecdn.com/js/cursepriv/cursepriv.js\"></script>";
+			</script>";
 
 			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
 		}
