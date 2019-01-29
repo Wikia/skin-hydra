@@ -16,7 +16,7 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 	}
 }
 ?>
-<footer id="footer" role="complimentary" <?= $showAds ? 'class="show-ads"' : 'class="hide-ads"' ?>>
+<footer id="curse-footer" role="complimentary" <?= $showAds ? 'class="show-ads"' : 'class="hide-ads"' ?>>
 	<div class="footer-flex">
 		<div class="footer-box">
 			<a href="http://www.gamepedia.com" class="curse">Gamepedia powered by Curse</a>
