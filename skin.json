@@ -4,6 +4,12 @@
 	"namemsg": "skinname-hydra",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.31.0",
+		"extensions": {
+			"HydraCore": ">= 3.0.0"
+		}
+	},
 	"ConfigRegistry": {
 		"hydraskin": "GlobalVarConfig::newInstance"
 	},

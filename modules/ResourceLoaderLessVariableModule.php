@@ -6,9 +6,9 @@
  *
  * @author		Alexia E. Smith
  * @copyright	(c) 2018 Curse Inc.
- * @license		All Rights Reserved
+ * @license		GNU General Public License v2.0 or later
  * @package		Hydra Skin
- * @link		http://www.curse.com/
+ * @link		https://gitlab.com/hydrawiki/
  *
 **/
 
