@@ -72,7 +72,6 @@ html body.hide-ads #global-wrapper #footer-push {
 
 #curse-footer div.footer-flex a.curse {
 	background-image: linear-gradient(transparent,transparent), url(../images/footer/logo-light.svg);
-	background: url(../images/footer/logo-light.jpg);
 	display: inline-block;
 	height: 148px;
 	overflow: hidden;
@@ -84,7 +83,6 @@ html body.hide-ads #global-wrapper #footer-push {
 #curse-footer.hide-ads div.footer-flex a.curse {
 	width: 214px;
 	height: 52px;
-	background: url(../images/footer/premium-logo-light.jpg);
 	background-image: linear-gradient(transparent,transparent), url(../images/footer/premium-logo-light.svg);
 	background-repeat: no-repeat;
 }
