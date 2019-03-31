@@ -5,7 +5,7 @@
 		]
 	},
 	"skinname-hydra": "Hydra",
-	"hydra-skin-desc": "Skórka dla wiki platformy Hydra, wprowadzajaca zmiany i hooki do standardowej skórki Wektor",
+	"hydra-skin-desc": "Skórka dla wiki platformy Hydra, wprowadzająca zmiany i hooki do standardowej skórki Wektor",
 	"hydra.css": "/* Umieszczony tutaj kod CSS wpłynie na wygląd skórki Hydra */",
 	"hydra.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Hydra */",
 	"netbar-pro": "Gamepedia&nbsp;PRO",
