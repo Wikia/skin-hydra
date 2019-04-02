@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+		    "Rail"
+		]
+	},
+	"skinname-hydra": "Hydra",
+	"hydra-skin-desc": "Skórka dla wiki platformy Hydra, wprowadzająca zmiany i hooki do standardowej skórki Wektor",
+	"hydra.css": "/* Umieszczony tutaj kod CSS wpłynie na wygląd skórki Hydra */",
+	"hydra.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Hydra */",
+	"netbar-pro": "Gamepedia&nbsp;PRO",
+	"netbar-help": "Pomoc",
+	"netbar-signin": "Zaloguj się",
+	"netbar-register": "Rejestracja",
+	"netbar-user-page": "Strona użytkownika",
+	"footer-My_Account": "Moje konto",
+	"footer-Pro": "Gamepedia PRO",
+	"footer-Facebook": "Facebook",
+	"footer-Twitter": "Twitter",
+	"footer-Youtube": "Youtube",
+	"footer-Contact_Us": "Kontakt",
+	"footer-Newsletter": "Newsletter",
+	"footer-Sign_In": "Zaloguj się",
+	"footer-Register": "Rejestracja",
+	"footer-Careers": "Kariera",
+	"footer-Help": "Pomoc",
+	"footer-About_Curse": "O Curse",
+	"footer-Advertise": "Reklama",
+	"footer-Terms_of_Service": "Zasady użytkowania",
+	"footer-Privacy_Policy": "Polityka prywatności",
+	"purge": "Wyczyść"
+}
