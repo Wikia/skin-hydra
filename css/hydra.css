@@ -54,6 +54,12 @@ div#mw-panel {
 	width: 10em;
 }
 
+@media screen and (max-width:982px) {
+	#p-logo {
+		left: 0;
+	}
+}
+
 div.vectorTabs li a {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
