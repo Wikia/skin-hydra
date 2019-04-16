@@ -99,7 +99,7 @@ div.vectorTabs li a {
 /*****************/
 /* Visual Editor */
 /*****************/
-.oo-ui-dialog .oo-ui-window-frame {
+.oo-ui-dialog .oo-ui-window-frame, .oo-ui-menuSelectWidget {
 	z-index: 10;
 }
 
