@@ -40,7 +40,7 @@ $showHost = false;
 		<div class="netbar-box left"><span class="label-hostname"><?= htmlspecialchars(gethostname()) ?></span></div>
 		<?php } ?>
 		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
-		<div class="netbar-box left officialwiki"><a href="/index.php?title=Special:AllSites&amp;filter=official"><img src="/skins/Hydra/images/netbar/official-wiki.svg" width="75"></a></div>
+		<div class="netbar-box left officialwiki"><a href="/index.php?title=Special:AllSites&amp;filter=official"><img src="/skins/Hydra/images/netbar/official-wiki.svg" width="90"></a></div>
 		<?php } ?>
 		<?php
 		/* $items['new-item'] = $rawHtml;
