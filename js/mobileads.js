@@ -1,5 +1,5 @@
-(function(mw, $) {
-	mw.loader.using('skins.minerva.toggling').then(function() {
+(function (mw, $) {
+	mw.loader.using('skins.minerva.toggling').then(function () {
 		if (window.mobileatflb && window.mobileatflb.length) {
 			var atfLbUnit = $('<div id="mobileatflb">').append(window.mobileatflb);
 			$("#content").prepend(atfLbUnit);
@@ -25,5 +25,12 @@
 			}
 		}
 		$('body').append($("<div>").attr("id", "cdm-zone-end"));
+
+		if (typeof factorem !== 'undefined') {
+			setTimeout(function () {
+				factorem.gpt.setupDeferredSlots();
+				factorem.refreshAds([2, 6], true);
+			}, 1000);
+		}
 	});
 }(mediaWiki, jQuery));
