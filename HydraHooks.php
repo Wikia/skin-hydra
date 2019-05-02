@@ -535,7 +535,25 @@ class HydraHooks {
 		$siteAdvertisements = array_merge($config->get('SiteIdSlots'), $config->get('SiteJsSlots'), $config->get('SiteAdSlots'), $config->get('SiteMiscSlots'));
 
 		if (is_array($siteAdvertisements) && array_key_exists($slot, $siteAdvertisements) && !empty(trim($siteAdvertisements[$slot]))) {
-			return $siteAdvertisements[$slot];
+			$slotText = $siteAdvertisements[$slot];
+
+			// Handle "esi includes" for any javascript which requires it.
+			// Filter the filename to only allow javascript in skins/Hydra/js.
+			$slotText = preg_replace_callback(
+				'#<esi:include +src="/skins/Hydra/js/([^"]+?\.js)" */>#i',
+				function ($matches) {
+					$filename = $matches[1];
+					$filepath = __DIR__ . '/js/' . $filename;
+					// If the filename is invalid, don't replace.
+					if (preg_match('#\.\.#', $filename) || !is_readable($filepath)) {
+						return $matches[0];
+					}
+					return file_get_contents($filepath);
+				},
+				$slotText
+			);
+
+			return $slotText;
 		}
 		return false;
 	}
