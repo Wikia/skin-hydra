@@ -27,10 +27,33 @@
 		$('body').append($("<div>").attr("id", "cdm-zone-end"));
 
 		if (typeof factorem !== 'undefined') {
-			setTimeout(function () {
-				factorem.gpt.setupDeferredSlots();
-				factorem.refreshAds([2, 6], true);
-			}, 1000);
+			var count = 0;
+			var interval = setInterval(function () {
+
+				count++;
+				if (count > 25) {
+					clearInterval(interval);
+				}
+
+				if (window.pbjs.initAdserverSet === true) {
+					clearInterval(interval);
+					var zone01Flag = false;
+					for (var i = 0; i < factorem.adZones.length; i++) {
+						if (factorem.adZones[i].zone == '01') {
+							zone01Flag = true;
+							break;
+						}
+					}
+					
+					factorem.gpt.setupDeferredSlots();
+					if (zone01Flag === false) {
+						factorem.refreshAds([1, 2, 6], true);
+					}
+					else {
+						factorem.refreshAds([2, 6], true);
+					}
+				}
+			}, 200);
 		}
 	});
 }(mediaWiki, jQuery));
