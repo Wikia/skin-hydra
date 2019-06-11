@@ -4,12 +4,11 @@
  * Hydra Skin
  * HydraHooks
  *
- * @author		Telshin
- * @copyright	(c) 2012 Curse Inc.
- * @license		GNU General Public License v2.0 or later
- * @package		Hydra Skin
- * @link		https://gitlab.com/hydrawiki/
- *
+ * @author    Telshin
+ * @copyright (c) 2012 Curse Inc.
+ * @license   GNU General Public License v2.0 or later
+ * @package   Hydra Skin
+ * @link      https://gitlab.com/hydrawiki/
 **/
 
 if (!defined('MEDIAWIKI')) {
@@ -42,13 +41,13 @@ class HydraHooks {
 	/**
 	 * Handle Minvera side bar.
 	 *
-	 * @access	public
-	 * @param	string	Menu Type
-	 * @param	object	MenuBuilder Object
-	 * @param	object	SkinTemplate Object
-	 * @return	boolean True
+	 * @access public
+	 * @param  string	Menu Type
+	 * @param  object	MenuBuilder Object
+	 * @param  object	SkinTemplate Object
+	 * @return boolean True
 	 */
-	static public function onMobileMenu($type, &$menu, $skin = null) {
+	public static function onMobileMenu($type, &$menu, $skin = null) {
 		if ($type === 'discovery' && $skin !== null) {
 			$sidebar = $skin->buildSidebar();
 			if (is_array($sidebar) && count($sidebar)) {
@@ -61,7 +60,7 @@ class HydraHooks {
 									$details['href']
 								);
 							} catch (DomainException $e) {
-								//Already exists in the menu.
+								// Already exists in the menu.
 								continue;
 							}
 						}
@@ -75,12 +74,12 @@ class HydraHooks {
 	/**
 	 * Add Hydra CSS modules to page.
 	 *
-	 * @access	public
-	 * @param	object	SkinTemplate Object
-	 * @param	array	Array of Styles to Modify
-	 * @return	boolean True
+	 * @access public
+	 * @param  object	SkinTemplate Object
+	 * @param  array	Array of Styles to Modify
+	 * @return boolean True
 	 */
-	static public function onSkinVectorStyleModules($skin, &$styles) {
+	public static function onSkinVectorStyleModules($skin, &$styles) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		if (self::showAds($skin) && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
 			$skin->getOutput()->addModuleScripts('skins.hydra.anchor.apu.js');
@@ -91,18 +90,18 @@ class HydraHooks {
 	/**
 	 * Add Hydra CSS modules to mobile page.
 	 *
-	 * @access	public
-	 * @param	object	SkinTemplate Object
-	 * @param	array	Array of modules to Modify
-	 * @return	boolean True
+	 * @access public
+	 * @param  object	SkinTemplate Object
+	 * @param  array	Array of modules to Modify
+	 * @return boolean True
 	 */
-	static public function onSkinMinervaDefaultModules($skin, &$modules) {
-		//$modules[] = 'skins.hydra.netbar';
+	public static function onSkinMinervaDefaultModules($skin, &$modules) {
+		// $modules[] = 'skins.hydra.netbar';
 		$modules[] = 'skins.hydra.advertisements.styles';
 		$modules[] = 'skins.hydra.googlefont.styles';
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
-		//$modules[] = 'skins.hydra.mobile.apu.js';
+		// $modules[] = 'skins.hydra.mobile.apu.js';
 
 		return true;
 	}
@@ -110,12 +109,12 @@ class HydraHooks {
 	/**
 	 * Hook right during Skin::initPage().
 	 *
-	 * @access	public
-	 * @param	array	Title Objects
-	 * @param	object	Skin
-	 * @return	boolean True
+	 * @access public
+	 * @param  array	Title Objects
+	 * @param  object	Skin
+	 * @return boolean True
 	 */
-	static public function onSkinPreloadExistence(array &$titles, Skin $skin) {
+	public static function onSkinPreloadExistence(array &$titles, Skin $skin) {
 		if (class_exists('MobileContext')) {
 			$mobileContext = MobileContext::singleton();
 			if ($mobileContext->shouldDisplayMobileView()) {
@@ -129,12 +128,12 @@ class HydraHooks {
 	/**
 	 * Modifications to title, and copyright for Curse Disclaimer
 	 *
-	 * @access	public
-	 * @param	object	SkinTemplate Object
-	 * @param	object	Initialized SkinTemplate Object
-	 * @return	boolean True
+	 * @access public
+	 * @param  object	SkinTemplate Object
+	 * @param  object	Initialized SkinTemplate Object
+	 * @return boolean True
 	 */
-	static public function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
+	public static function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
 		global $wgUser, $wgRequest;
 
 		if (defined('MW_API') && MW_API === true) {
@@ -149,22 +148,22 @@ class HydraHooks {
 		$showAds = self::showAds($template->getSkin());
 
 		if (isset($template->data['headelement'])) {
-			//Custom Title Replacement
+			// Custom Title Replacement
 			$template->set(
 				'headelement',
-				str_replace('<title>'.htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()).'</title>', '<title>'.htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()).'</title>', $template->data['headelement'])
+				str_replace('<title>' . htmlspecialchars(wfMessage('pagetitle', wfMessage('mainpage')->escaped())->escaped()) . '</title>', '<title>' . htmlspecialchars(wfMessage('Pagetitle-view-mainpage')->escaped()) . '</title>', $template->data['headelement'])
 			);
 
-			//Main Advertisement Javascript
+			// Main Advertisement Javascript
 			if ($showAds) {
 				if (!empty(self::getAdBySlot('instart'))) {
-					$template->set('headelement', $template->data['headelement'].self::getAdBySlot('instart'));
+					$template->set('headelement', $template->data['headelement'] . self::getAdBySlot('instart'));
 				}
 			}
 
-			$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+			$jsTop = (self::isMobileSkin() ? 'mobile' : '') . 'jstop';
 			if (!empty(self::getAdBySlot($jsTop))) {
-				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
+				$template->set('headelement', $template->data['headelement'] . self::getAdBySlot($jsTop));
 			}
 
 			if (!empty(self::getAdBySlot('googleanalyticsid'))) {
@@ -188,7 +187,7 @@ class HydraHooks {
 					$creates = '';
 					$sends = '';
 					foreach ($tags as $index => $tag) {
-						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}', ".json_encode($extraTracks).");\n";
+						$creates .= "		ga('create', '{$tag}', 'auto', 'tracker{$index}', " . json_encode($extraTracks) . ");\n";
 						if ($tag != 'UA-35871056-4') {
 							$sends .= "
 		if (window.cdnprovider) {
@@ -224,38 +223,38 @@ class HydraHooks {
 {$creates}{$sends}
 	</script>\n";
 
-					$template->set('headelement', $template->data['headelement'].$gaTag);
+					$template->set('headelement', $template->data['headelement'] . $gaTag);
 				}
 			}
 
-			//Netbar on desktop only.
+			// Netbar on desktop only.
 			if (!self::isMobileSkin()) {
 				$netbar = self::getPartial('netbar', ['skin' => $template]);
-				$template->set('headelement', $template->data['headelement'].$netbar);
+				$template->set('headelement', $template->data['headelement'] . $netbar);
 			}
 
 			$addSmartBanner = false;
-			//Show smart banner for iOS.
+			// Show smart banner for iOS.
 			if (self::isMobileSkin() && !empty(self::getAdBySlot('iosappid'))) {
 				$addSmartBanner = true;
 				$template->set(
 					'headelement',
-					str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=".self::getAdBySlot('iosappid').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
+					str_replace('</title>', "</title>\n<meta name=\"apple-itunes-app\" content=\"app-id=" . self::getAdBySlot('iosappid') . ", app-argument=" . htmlentities($wgRequest->getRequestURL()) . "\">", $template->data['headelement'])
 				);
 			}
-			//Show smart banner for Android.
+			// Show smart banner for Android.
 			if (self::isMobileSkin() && !empty(self::getAdBySlot('androidpackage'))) {
 				$addSmartBanner = true;
 				$template->set(
 					'headelement',
-					str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=".self::getAdBySlot('androidpackage').", app-argument=".htmlentities($wgRequest->getRequestURL())."\">", $template->data['headelement'])
+					str_replace('</title>', "</title>\n<meta name=\"google-play-app\" content=\"app-id=" . self::getAdBySlot('androidpackage') . ", app-argument=" . htmlentities($wgRequest->getRequestURL()) . "\">", $template->data['headelement'])
 				);
 			}
 
 			if ($addSmartBanner && !empty(self::getAdBySlot('mobilebannerjs'))) {
 				$outputPage = RequestContext::getMain()->getOutput();
 				$wrappedJS = ResourceLoader::makeInlineScript(self::getAdBySlot('mobilebannerjs'));
-				$template->set('bottomscripts', $template->data['bottomscripts'].$wrappedJS);
+				$template->set('bottomscripts', $template->data['bottomscripts'] . $wrappedJS);
 			}
 		}
 
@@ -265,7 +264,7 @@ class HydraHooks {
 			$_bottomExtra = '';
 
 			$footerLinks = $template->data['footerlinks'];
-			//Add Footer to desktop and mobile.
+			// Add Footer to desktop and mobile.
 			$footer = self::getPartial(
 				'footer',
 				[
@@ -278,7 +277,7 @@ class HydraHooks {
 
 			if (self::isMobileSkin()) {
 				if ($showAds && $config->get('HydraSkinShowFooterAd') && !empty(self::getAdBySlot('footermrec'))) {
-					$template->set('footermrec', "<div id='footermrec'>".self::getAdBySlot('footermrec')."</div>");
+					$template->set('footermrec', "<div id='footermrec'>" . self::getAdBySlot('footermrec') . "</div>");
 					$footerLinks = array_merge(['ad' => ['footermrec']], $footerLinks);
 				}
 
@@ -298,45 +297,45 @@ class HydraHooks {
 					if (!empty(self::getAdBySlot('mobileatflb'))) {
 						$_bottomExtra .= "
 						<script type=\"text/javascript\">
-							window.mobileatflb = '".str_replace("'", "\\'", self::getAdBySlot('mobileatflb'))."';
+							window.mobileatflb = '" . str_replace("'", "\\'", self::getAdBySlot('mobileatflb')) . "';
 						</script>";
 					}
 					if (!empty(self::getAdBySlot('mobileatfmrec'))) {
 						$_bottomExtra .= "
 						<script type=\"text/javascript\">
-							window.mobileatfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec'))."';
+							window.mobileatfmrec = '" . str_replace("'", "\\'", self::getAdBySlot('mobileatfmrec')) . "';
 						</script>";
 					}
 					if (!empty(self::getAdBySlot('mobilebtfmrec'))) {
 						$_bottomExtra .= "
 						<script type=\"text/javascript\">
-							window.mobilebtfmrec = '".str_replace("'", "\\'", self::getAdBySlot('mobilebtfmrec'))."';
+							window.mobilebtfmrec = '" . str_replace("'", "\\'", self::getAdBySlot('mobilebtfmrec')) . "';
 						</script>";
 					}
 				}
 			} else {
 				$_bottomExtra .= $footer;
 
-				//Advertisements closer for desktop.  For mobile, please see mobileads.js.
+				// Advertisements closer for desktop.  For mobile, please see mobileads.js.
 				$_bottomExtra .= "<div id='cdm-zone-end'></div>";
 			}
 
-			//"Javascript" Bottom Advertisement Stuff
+			// "Javascript" Bottom Advertisement Stuff
 			if ($showAds) {
-				$jsBottom = (self::isMobileSkin() ? 'mobile' : '').'jsbot';
+				$jsBottom = (self::isMobileSkin() ? 'mobile' : '') . 'jsbot';
 				if (!empty(self::getAdBySlot($jsBottom))) {
 					$_bottomExtra .= self::getAdBySlot($jsBottom);
 				}
 			}
 
-			//Wiki Category Helper
+			// Wiki Category Helper
 			$_bottomExtra .= "
 			<script type=\"text/javascript\">
 				window.genreCategory = '{$wgWikiCategory}';
-				window.wikiTags = ".json_encode($wgWikiTags).";
+				window.wikiTags = " . json_encode($wgWikiTags) . ";
 			</script>";
 
-			$template->set('bottomscripts', $template->data['bottomscripts'].$_bottomExtra);
+			$template->set('bottomscripts', $template->data['bottomscripts'] . $_bottomExtra);
 		}
 
 		if (self::isMobileSkin()) {
@@ -345,7 +344,7 @@ class HydraHooks {
 			$cpHolder = 'copyright';
 		}
 		$copyright = (isset($template->data[$cpHolder]) ? $template->data[$cpHolder] : '');
-		$copyright = $copyright."<br/>".nl2br($config->get('HydraSkinDisclaimer'));
+		$copyright = $copyright . "<br/>" . nl2br($config->get('HydraSkinDisclaimer'));
 		$template->set($cpHolder, $copyright);
 
 		$template->set('showads', $showAds);
@@ -358,39 +357,39 @@ class HydraHooks {
 	/**
 	 * Body Class Change
 	 *
-	 * @access	public
-	 * @param	object	OutputPage Object
-	 * @param	object	Skin Object
-	 * @param	array	Array of body attributes.  Example: array('class' => 'lovely');  Attributes should be concatenated to prevent overwriting.
-	 * @return	boolean True
+	 * @access public
+	 * @param  object	OutputPage Object
+	 * @param  object	Skin Object
+	 * @param  array	Array of body attributes.  Example: array('class' => 'lovely');  Attributes should be concatenated to prevent overwriting.
+	 * @return boolean True
 	 */
-	static public function onOutputPageBodyAttributes($out, $skin, &$bodyAttrs){
+	public static function onOutputPageBodyAttributes($out, $skin, &$bodyAttrs) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
 		$bodyName = $config->get('HydraSkinBodyName');
 
 		if (empty($bodyName)) {
 			if ($skin->getContext()->getConfig()->has('GroupMasterDomain') && !empty($skin->getContext()->getConfig()->get('GroupMasterDomain'))) {
-				//Make a URL out of the domain.
-				$info = wfParseUrl('//'.$skin->getContext()->getConfig()->get('GroupMasterDomain'));
+				// Make a URL out of the domain.
+				$info = wfParseUrl('//' . $skin->getContext()->getConfig()->get('GroupMasterDomain'));
 			} else {
 				$info = wfParseUrl($skin->getContext()->getConfig()->get('Server'));
 			}
 			$parts = explode('.', $info['host']);
-			array_pop($parts); //Remove the TLD.
+			array_pop($parts); // Remove the TLD.
 			$bodyName = implode('-', $parts);
 		}
 
-		//Add body class for advertisement targetting.
-		$bodyAttrs['class'] .= ' site-'.$bodyName;
+		// Add body class for advertisement targetting.
+		$bodyAttrs['class'] .= ' site-' . $bodyName;
 
 		$showAds = self::showAds($skin);
-		//Anchor Advertisement
+		// Anchor Advertisement
 		if ($showAds && $config->get('HydraSkinShowAnchorAd') && !empty(self::getAdBySlot('anchor'))) {
 			$bodyAttrs['data-site-identifier'] = self::getAdBySlot('anchor');
 		}
 
-		//Add body class for advertisement toggling.
+		// Add body class for advertisement toggling.
 		if ($showAds && self::getAdBySlot('footermrec')) {
 			$bodyAttrs['class'] .= ' show-ads';
 		} else {
@@ -412,10 +411,10 @@ class HydraHooks {
 	/**
 	 * The real check if we are using a mobile skin
 	 *
-	 * @access	public
-	 * @return	boolean
+	 * @access public
+	 * @return boolean
 	 */
-	static public function isMobileSkin() {
+	public static function isMobileSkin() {
 		if (self::$isMobile !== null) {
 			return self::$isMobile;
 		}
@@ -430,29 +429,29 @@ class HydraHooks {
 	/**
 	 * Gets the contents of a partial file
 	 *
-	 * @param	string	the name (without extension) of a file in the partials folder
-	 * @param	array	var_name -> value map of variables that should be available in the scope of the partial
-	 * @return	string	the output of the specified partial
+	 * @param  string	the name (without extension) of a file in the partials folder
+	 * @param  array	var_name -> value map of variables that should be available in the scope of the partial
+	 * @return string	the output of the specified partial
 	 */
 	public static function getPartial($__p, $__v) {
-		$file = __DIR__."/partials/$__p.php";
+		$file = __DIR__ . "/partials/$__p.php";
 		if (!file_exists($file)) {
 			throw new MWException("Partial not found");
 		}
 		extract($__v, EXTR_SKIP);
 		ob_start();
-		require_once($file);
+		require_once $file;
 		return ob_get_clean();
 	}
 
 	/**
 	 * Should this page show advertisements?
 	 *
-	 * @access	public
-	 * @param	object	Skin
-	 * @return	boolean	Advertisements Visible
+	 * @access public
+	 * @param  object	Skin
+	 * @return boolean	Advertisements Visible
 	 */
-	static public function showAds($skin) {
+	public static function showAds($skin) {
 		global $wgUser;
 
 		if (self::$showAds !== null) {
@@ -480,11 +479,11 @@ class HydraHooks {
 	/**
 	 * Should this page show the ATF MREC Advertisement?
 	 *
-	 * @access	public
-	 * @param	object	Skin
-	 * @return	boolean	Show ATF MREC Advertisement
+	 * @access public
+	 * @param  object	Skin
+	 * @return boolean	Show ATF MREC Advertisement
 	 */
-	static public function showSideRailAPUs($skin) {
+	public static function showSideRailAPUs($skin) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 
 		$wgHydraSkinHideSideRailPages = $config->get('HydraSkinHideSideRailPages');
@@ -499,8 +498,7 @@ class HydraHooks {
 		$show = false;
 
 		$title = $skin->getTitle();
-		if (
-			$config->get('HydraSkinShowSideRail')
+		if ($config->get('HydraSkinShowSideRail')
 			&& self::showAds($skin)
 			&& !in_array($title->getNamespace(), $disallowedNamespaces)
 			&& $title->getText() != str_replace("_", " ", wfMessage('mainpage')->inContentLanguage()->text())
@@ -515,10 +513,10 @@ class HydraHooks {
 	/**
 	 * Should we enable "Ad Light Experience" for logged in users?
 	 *
-	 * @access	public
-	 * @return	boolean	Enable "Ad Light Experience" for logged in users.
+	 * @access public
+	 * @return boolean	Enable "Ad Light Experience" for logged in users.
 	 */
-	static public function isAdLightExperience() {
+	public static function isAdLightExperience() {
 		global $wgUser;
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
@@ -528,10 +526,10 @@ class HydraHooks {
 	/**
 	 * Return an advertisement by slot name.
 	 *
-	 * @access	public
-	 * @return	mixed	Slot text or false to disable the slot.
+	 * @access public
+	 * @return mixed	Slot text or false to disable the slot.
 	 */
-	static public function getAdBySlot($slot) {
+	public static function getAdBySlot($slot) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 		$siteAdvertisements = array_merge($config->get('SiteIdSlots'), $config->get('SiteJsSlots'), $config->get('SiteAdSlots'), $config->get('SiteMiscSlots'));
 
@@ -562,11 +560,11 @@ class HydraHooks {
 	/**
 	 * Insert placements into the siderail.
 	 *
-	 * @access	public
-	 * @param	array	Placements array to modify.
-	 * @return	boolean	True
+	 * @access public
+	 * @param  array	Placements array to modify.
+	 * @return boolean	True
 	 */
-	static public function onSideRailPlacements(&$placements) {
+	public static function onSideRailPlacements(&$placements) {
 		global $wgScriptPath;
 
 		if (($placement = self::getAdBySlot('atfmrec')) !== false) {
@@ -586,17 +584,17 @@ class HydraHooks {
 	/**
 	 * Insert placements into the bottom
 	 *
-	 * @access	public
-	 * @param	array	Placements array to modify.
-	 * @param	object	VectorTemplate - The template.
-	 * @return	boolean	True
+	 * @access public
+	 * @param  array	Placements array to modify.
+	 * @param  object	VectorTemplate - The template.
+	 * @return boolean	True
 	 */
-	static public function onBottomPlacements(&$placements, $template) {
+	public static function onBottomPlacements(&$placements, $template) {
 		if (!$template->getSkin()->getContext()->getUser()->isLoggedIn()
 			&& self::showSideRailAPUs($template->getSkin())
 			&& $template->data['showads']
 			&& self::getAdBySlot('btfhero')) {
-				$placements['btfheroContainer'] = "<div id=\"btfhero_container\">".self::getAdBySlot('btfhero')."</div>";
+				$placements['btfheroContainer'] = "<div id=\"btfhero_container\">" . self::getAdBySlot('btfhero') . "</div>";
 		}
 
 		if ($template->data['showads'] && self::getAdBySlot('btflb')) {
@@ -608,12 +606,12 @@ class HydraHooks {
 	/**
 	 * Hook right during Skin::initPage().
 	 *
-	 * @access	public
-	 * @param	object	SkinTemplate
-	 * @param	array	Links
-	 * @return	boolean True
+	 * @access public
+	 * @param  object	SkinTemplate
+	 * @param  array	Links
+	 * @return boolean True
 	 */
-	static public function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
+	public static function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
 		if (isset($links['actions'])) {
 			$title = $skinTemplate->getRelevantTitle();
 			if ($title->exists() && $title->quickUserCan('purge', $skinTemplate->getSkin()->getContext()->getUser())) {
