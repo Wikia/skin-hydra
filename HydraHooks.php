@@ -157,13 +157,14 @@ class HydraHooks {
 
 			//Main Advertisement Javascript
 			if ($showAds) {
-				$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
 				if (!empty(self::getAdBySlot('instart'))) {
 					$template->set('headelement', $template->data['headelement'].self::getAdBySlot('instart'));
 				}
-				if (!empty(self::getAdBySlot($jsTop))) {
-					$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
-				}
+			}
+
+			$jsTop = (self::isMobileSkin() ? 'mobile' : '').'jstop';
+			if (!empty(self::getAdBySlot($jsTop))) {
+				$template->set('headelement', $template->data['headelement'].self::getAdBySlot($jsTop));
 			}
 
 			if (!empty(self::getAdBySlot('googleanalyticsid'))) {
