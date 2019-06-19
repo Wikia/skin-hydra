@@ -72,12 +72,12 @@ div#netbar {
 	text-decoration: none;
 }
 
-#netbar a.gold-link {
-	color: #fc3;
+#netbar a.aqua-link {
+	color: #00d6d6;
 	font-weight: 700;
 }
 
-#netbar a.gold-link:hover {
+#netbar a.aqua-link:hover {
 	color: #fff;
 }
 
