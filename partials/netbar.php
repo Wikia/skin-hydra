@@ -72,9 +72,9 @@ $showHost = false;
 		}
 		?>
 		<?php if ($wgUser->isAnon()) { ?>
-		<div class="netbar-box right"><a href="<?php echo $personalTools['login']['links'][0]['href'] ?>" id="login-link" class="gold-link"><?php echo wfMessage('netbar-signin')->text() ?></a></div>
+		<div class="netbar-box right"><a href="<?php echo $personalTools['login']['links'][0]['href'] ?>" id="login-link" class="aqua-link"><?php echo wfMessage('netbar-signin')->text() ?></a></div>
 			<?php if ($wgUser->isAllowed('createaccount')) { ?>
-		<div class="netbar-box right"><a href="<?php echo $personalTools['createaccount']['links'][0]['href'] ?>" id="register-link" class="gold-link"><?php echo wfMessage('netbar-register')->text() ?></a></div>
+		<div class="netbar-box right"><a href="<?php echo $personalTools['createaccount']['links'][0]['href'] ?>" id="register-link" class="aqua-link"><?php echo wfMessage('netbar-register')->text() ?></a></div>
 			<?php } ?>
 		<?php } else { ?>
 			<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-alert'])) {
