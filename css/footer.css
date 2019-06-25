@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
+
 @font-face {
 	font-family: "footer-icons";
 	src: url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.eot) format("embedded-opentype"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.woff) format("woff"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.ttf) format("truetype"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.svg) format("svg");
@@ -27,69 +29,265 @@ html body.hide-ads #global-wrapper #footer-push {
 	height: 155px;
 }
 
-#curse-footer {
-	background-color: #1b1b1c;
-	clear: both;
-	font-family: 'Open Sans', sans-serif !important;
-	font-weight: 300 !important;
+#gamepedia-footer {
+	font-family: Rubik;
+	font-size: 15px;
+	background-color: #000;
+	padding: 10px 24px;
+}
+
+#gamepedia-footer .footer-wrapper-gp {
+	display: grid;
+	row-gap: 24px;
+	grid-template-areas:
+	'logo logo'
+	'social links';
+	grid-template-columns: 50%;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	#gamepedia-footer .footer-wrapper-gp {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas:
+		  'logo social links';
+		max-width: 1024px;
+		margin: auto;
+	}
+}
+
+#gamepedia-footer .footer-logo {
+	grid-area: logo;
+}
+
+#gamepedia-footer .footer-social {
+	grid-area: social;
+}
+
+#gamepedia-footer .footer-links {
+	grid-area: links;
+}
+
+#gamepedia-footer a {
+	color: #c9c9c9;
+}
+
+#gamepedia-footer ul {
+	list-style: none;
+	list-style-image: none;
 	margin: 0;
-	min-height: 292px;
-	overflow: auto;
 	padding: 0;
 }
 
-#curse-footer * {
-	box-sizing: border-box;
-}
-
-#curse-footer.hide-ads {
-	min-height: 155px;
-}
-
-#curse-footer .footer-flex {
-	align-content: center;
-	align-items: center;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin: auto;
-	max-width: 1000px;
-}
-
-#curse-footer.hide-ads .footer-flex {
-	margin-top: 0;
-}
-
-#curse-footer .footer-box {
-	flex: 0 0 auto;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-}
-
-#curse-footer div.footer-flex a.curse {
-	background-image: linear-gradient(transparent,transparent), url(../images/footer/logo-light.svg);
-	display: inline-block;
-	height: 148px;
-	overflow: hidden;
-	text-indent: -500px;
-	white-space: nowrap;
-	width: 216px;
-}
-
-#curse-footer.hide-ads div.footer-flex a.curse {
-	width: 214px;
-	height: 52px;
-	background-image: linear-gradient(transparent,transparent), url(../images/footer/premium-logo-light.svg);
-	background-repeat: no-repeat;
-}
-
-#curse-footer a, #curse-footer a:visited, #curse-footer a:active, #curse-footer a:hover {
+#gamepedia-footer div.footer-box ul li a::before {
 	color: #c9c9c9;
+	font-family: 'footer-icons';
+	font-size: 16px;
+	height: 16px;
+	left: 0;
+	line-height: 20px;
+	position: absolute;
+	top: 0;
+	width: 30px;
+}
+
+#gamepedia-footer .footer-wrapper-gp .footer-gp-logo {
+	height: 39px;
+}
+
+#gamepedia-footer div.footer-box ul.social li svg {
+	fill: #c9c9c9;
+}
+
+#gamepedia-footer div.footer-box ul.social li svg:hover {
+	fill: #fff;
+	transition: fill 0.3s;
+}
+
+#gamepedia-footer ul {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#gamepedia-footer .footer-social ul li {
+    display: inline-block;
+    text-align: center;
+}
+
+#gamepedia-footer .footer-social ul li a {
+	padding-left: 25px;
+	position: relative;
+}
+
+#gamepedia-footer .footer-social ul li:last-child {
+	padding-right: 0;
+}
+
+#gamepedia-footer .footer-links ul {
+	justify-content: space-around;
+}
+
+#gamepedia-footer .footer-links ul li {
+	display: inline-block;
+	padding-left: 25px;
+}
+
+#gamepedia-footer .footer-links ul li:first-child {
+	padding-left: 0;
+}
+
+#curse-footer {
+	background-color: #002a32;
+}
+
+#curse-footer .footer-wrapper {
+	font-family: 'Rubik', sans-serif !important;
+	padding: 24px 24px;
+	display: grid;
+	row-gap: 24px;
+	grid-template-areas:
+		'ad ad'
+		'logo logo'
+		'properties properties'
+		'social social'
+		'overview overview'
+		'community community'
+		'advertise advertise';
+}
+
+#curse-footer.hide-ads .footer-wrapper {
+	grid-template-areas:
+		'logo logo'
+		'properties properties'
+		'social social'
+		'overview overview'
+		'community community'
+		'advertise advertise';
+}
+
+@media (min-width: 768px) {
+	#curse-footer .footer-wrapper {
+		padding: 24px 18px;
+		grid-template-columns: 50%;
+		grid-template-areas:
+		  'logo logo'
+		  'properties properties'
+		  'social social'
+		  'overview overview'
+		  'community community'
+		  'advertise ad';
+		column-gap: 18px;
+	}
+
+	#curse-footer.hide-ads .footer-wrapper {
+		grid-template-areas:
+		  'logo logo'
+		  'properties properties'
+		  'social social'
+		  'overview overview'
+		  'community community'
+		  'advertise advertise';
+	}
+}
+
+@media (min-width: 1024px) {
+	#curse-footer .footer-wrapper {
+		grid-template-columns: 1fr 1fr 1fr 300px;
+		grid-template-areas:
+		  'logo logo logo logo'
+		  'properties overview community ad'
+		  'properties overview advertise ad'
+		  'social overview advertise ad';
+		width: 1024px;
+		margin: auto;
+	}
+
+	#curse-footer.hide-ads .footer-wrapper {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas:
+		  'logo logo logo'
+		  'properties overview community'
+		  'properties overview advertise'
+		  'social overview advertise';
+	}
+}
+
+#curse-footer h2 {
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+	border: 0;
+}
+
+#curse-footer .footer-ad {
+	grid-area: ad;
+	margin: auto;
+}
+
+@media (min-width: 768px) {
+	#curse-footer .footer-ad {
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 1024px) {
+	#curse-footer .footer-ad {
+		margin-left: auto;
+	}
+}
+
+.footer-logo, .footer-social, .footer-properties,
+.footer-overview, .footer-community, .footer-advertise {
+	padding: 0 18px;
+}
+
+@media (min-width: 500px) {
+	.footer-logo, .footer-social, .footer-properties,
+	.footer-overview,.footer-community, .footer-advertise {
+		padding: 0;
+	}
+}
+
+#curse-footer .footer-logo {
+    grid-area: logo;
+	height: 72px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+}
+
+#curse-footer .footer-properties {
+	grid-area: properties;
+}
+
+#curse-footer .footer-social {
+	grid-area: social;
+}
+
+#curse-footer .footer-overview {
+	grid-area: overview;
+}
+
+#curse-footer .footer-community {
+	grid-area: community;
+}
+
+#curse-footer .footer-advertise {
+	grid-area: advertise;
+}
+
+#curse-footer a, #curse-footer a:visited, #curse-footer a:active {
+	color: #00d6d6;
 	font-size: 14px;
 	text-decoration: none;
+}
+
+#curse-footer a:hover {
+	color: #fff;
 }
 
 #curse-footer ul {
@@ -99,20 +297,53 @@ html body.hide-ads #global-wrapper #footer-push {
 	padding: 0;
 }
 
+#curse-footer div.footer-box ul.mobile-split {
+	column-count: 2;
+}
+
+#curse-footer div.footer-box ul li {
+	line-height: 2.5;
+}
+
+@media (min-width: 1024px) {
+	#curse-footer div.footer-box ul li {
+		line-height: 2;
+	}
+}
+
+@media (min-width: 1024px) {
+	#curse-footer div.footer-box ul.mobile-split {
+		column-count: 1;
+	}
+}
+
 #curse-footer div.footer-box ul li {
 	border: 0 none;
 	content: none;
 	font-size: inherit;
-	line-height: 30px;
+	line-height: 2;
 	padding: 0;
 }
 
-#curse-footer div.footer-box ul li a {
-	padding-left: 25px;
-	position: relative;
+#curse-footer div.footer-box ul.social li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 6px;
+    text-align: center;
+    text-decoration: none;
 }
 
-#curse-footer.show-ads div.footer-box ul li a::before {
+#curse-footer div.footer-box ul.social li svg {
+	fill: #fff;
+	opacity: 0.3;
+}
+
+#curse-footer div.footer-box ul.social li svg:hover {
+	opacity: 1.0;
+	transition: opacity 0.3s;
+}
+
+#curse-footer div.footer-box ul li a::before {
 	color: #c9c9c9;
 	font-family: 'footer-icons';
 	font-size: 16px;
@@ -124,28 +355,7 @@ html body.hide-ads #global-wrapper #footer-push {
 	width: 16px;
 }
 
-#curse-footer.hide-ads div.footer-box ul.social li {
-	border-right: 2px solid #3a3a3a;
-	padding: 0 15px;
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li:last-child {
-	border-right: none;
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a {
-	display: inline-block;
-	height: 16px;
-	line-height: 1;
-	overflow: hidden;
-	position: relative;
-	text-indent: -10000px;
-	white-space: nowrap;
-	top: 3px;
-	width: 16px;
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a::after {
+#curse-footer div.footer-box ul.social li a::after {
 	position: absolute;
 	display: block;
 	top: 0;
@@ -154,80 +364,6 @@ html body.hide-ads #global-wrapper #footer-push {
 	font-size: 16px;
 	color: #838383;
 	text-indent: 0;
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a.fb::after {
-	content: '\e603';
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a.tw::after {
-	content: '\ea91';
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a.yt::after {
-	content: '\ea97';
-}
-
-#curse-footer.hide-ads div.footer-box ul.social li a.nl::after {
-	content: '\e601';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.fb::before {
-	content: '\e603';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.tw::before {
-	content: '\ea91';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.yt::before {
-	content: '\ea97';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.nl::before {
-	content: '\e601';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.sign-in::before,
-#curse-footer.show-ads div.footer-box ul li a.account::before {
-	content: '\e604';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.register::before {
-	content: '\e605';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.careers::before {
-	content: '\e602';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.help::before {
-	content: '\e609';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.about::before {
-	content: '\e607';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.advertise::before {
-	content: '\e608';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.tos::before {
-	content: '\e926';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.privacy-policy::before {
-	content: '\e600';
-}
-
-#curse-footer.show-ads div.footer-box ul li a.premium::before {
-	content: '\e606';
-}
-
-#curse-footer.hide-ads .footer-box ul.social, #curse-footer.hide-ads .footer-box ul.you, #curse-footer.hide-ads .footer-box ul.more,
-#curse-footer.hide-ads .footer-box ul.social li, #curse-footer.hide-ads .footer-box ul.you li, #curse-footer.hide-ads .footer-box ul.more li {
-	display: inline;
 }
 
 .hlist-separated #curse-footer div.footer-box ul li a {
@@ -246,11 +382,27 @@ html body.hide-ads #global-wrapper #footer-push {
 	width: 300px;
 }
 
-#curse-footer span.copyright {
-	color: #898989;
-	display: block;
+#curse-footer div.footer-post {
+	font-family: Rubik;
+	background-color: #13272b;
+	color: #fff;
+	padding: 12px 0;
 	font-size: 12px;
-	margin: 8px auto;
 	text-align: center;
 	width: 100%;
+	line-height: 3em;
+}
+
+#curse-footer div.footer-post hr {
+	color: #fff;
+	max-width: 1024px;
+	margin: auto;
+	opacity: 0.25;
+}
+
+#curse-footer div.footer-post .footer-post-mobile {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #00d6d6;
+	font-weight: bold;
 }
