@@ -21,6 +21,8 @@ $mobileViewUrl = MobileContext::singleton()->getMobileUrl( $mobileViewUrl );
 
 ?>
 
+<link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
+
 <div id="gamepedia-footer">
 	<div class="footer-wrapper-gp">
 		<div class="footer-box footer-logo">
