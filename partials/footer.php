@@ -1,5 +1,5 @@
 <?php
-global $wgUser, $wgScriptPath;
+global $wgUser, $wgScriptPath, $wgSitename;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 $showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
 
@@ -20,6 +20,8 @@ $mobileViewUrl = $skin->getTitle()->getFullURL(array('mobileaction' => 'toggle_v
 $mobileViewUrl = MobileContext::singleton()->getMobileUrl( $mobileViewUrl );
 
 ?>
+
+<link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
 
 <div id="gamepedia-footer">
 	<div class="footer-wrapper-gp">
@@ -99,13 +101,13 @@ $mobileViewUrl = MobileContext::singleton()->getMobileUrl( $mobileViewUrl );
 		<div class="footer-box footer-advertise">
 			<h2><?php echo wfMessage('footer-headers-advertise')->text() ?></h2>
 			<ul>
-				<li><a href="https://community.fandom.com/wiki/Community_Central"><?php echo wfMessage('footer-media-kit')->text() ?></a></li>
+				<li><a href="https://www.fandom.com/mediakit"><?php echo wfMessage('footer-media-kit')->text() ?></a></li>
 				<li><a href="https://www.fandom.com/about#contact"><?php echo wfMessage('footer-Contact_Us')->text() ?></a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="footer-post">
-		Gamepedia is a Fandom Gaming Community.
+		<? echo $wgSitename; ?> is a Fandom Gaming Community.
 		<hr />
 		<span class="footer-post-mobile"><a href="<? echo $mobileViewUrl; ?>">View Mobile Site</a></span>
 	</div>
