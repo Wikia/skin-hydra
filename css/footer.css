@@ -29,7 +29,6 @@ html body.hide-ads #global-wrapper #footer-push {
 
 #gamepedia-footer {
 	font-family: Rubik;
-	font-size: 15px;
 	background-color: #000;
 	padding: 10px 24px;
 }
@@ -39,19 +38,25 @@ html body.hide-ads #global-wrapper #footer-push {
 	row-gap: 24px;
 	grid-template-areas:
 	'logo logo'
-	'social links';
+	'social social'
+	'links links';
 	grid-template-columns: 50%;
 	text-align: center;
 }
 
 @media (min-width: 768px) {
 	#gamepedia-footer .footer-wrapper-gp {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 220px 1fr 1fr;
 		grid-template-areas:
 		  'logo social links';
-		max-width: 1024px;
+		max-width: 800px;
 		margin: auto;
+		font-size: 15px;
 	}
+}
+
+#gamepedia-footer {
+	clear: both;
 }
 
 #gamepedia-footer .footer-logo {
@@ -75,18 +80,22 @@ html body.hide-ads #global-wrapper #footer-push {
 	list-style-image: none;
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
-#gamepedia-footer div.footer-box ul li a::before {
-	color: #c9c9c9;
-	font-family: 'footer-icons';
-	font-size: 16px;
-	height: 16px;
-	left: 0;
-	line-height: 20px;
-	position: absolute;
-	top: 0;
-	width: 30px;
+@supports (-ms-ime-align:auto) { /* Edge only */
+    #gamepedia-footer ul {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 1024px) {
+	#gamepedia-footer ul li {
+		flex: 0 0 33.33%;
+	}
 }
 
 #gamepedia-footer .footer-wrapper-gp .footer-gp-logo {
@@ -102,20 +111,7 @@ html body.hide-ads #global-wrapper #footer-push {
 	transition: fill 0.3s;
 }
 
-#gamepedia-footer ul {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-#gamepedia-footer .footer-social ul li {
-    display: inline-block;
-    text-align: center;
-}
-
 #gamepedia-footer .footer-social ul li a {
-	padding-left: 25px;
 	position: relative;
 }
 
@@ -127,13 +123,8 @@ html body.hide-ads #global-wrapper #footer-push {
 	justify-content: space-around;
 }
 
-#gamepedia-footer .footer-links ul li {
-	display: inline-block;
-	padding-left: 25px;
-}
-
-#gamepedia-footer .footer-links ul li:first-child {
-	padding-left: 0;
+.minerva-footer .footer-content .hlist-separated #gamepedia-footer li:after {
+	display: none;
 }
 
 #curse-footer {
@@ -142,7 +133,7 @@ html body.hide-ads #global-wrapper #footer-push {
 
 #curse-footer .footer-wrapper {
 	font-family: 'Rubik', sans-serif !important;
-	padding: 24px 24px;
+	padding: 12px 5px;
 	display: grid;
 	row-gap: 24px;
 	grid-template-areas:
@@ -192,6 +183,7 @@ html body.hide-ads #global-wrapper #footer-push {
 
 @media (min-width: 1024px) {
 	#curse-footer .footer-wrapper {
+		padding: 24px 24px;
 		grid-template-columns: 1fr 1fr 1fr 300px;
 		grid-template-areas:
 		  'logo logo logo logo'
@@ -218,6 +210,12 @@ html body.hide-ads #global-wrapper #footer-push {
 	color: white;
 	text-transform: uppercase;
 	border: 0;
+}
+
+@media (max-width: 500px) {
+	#curse-footer h2 {
+		margin-bottom: 5px
+	}
 }
 
 #curse-footer .footer-ad {
@@ -251,7 +249,6 @@ html body.hide-ads #global-wrapper #footer-push {
 
 #curse-footer .footer-logo {
     grid-area: logo;
-	height: 72px;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
@@ -323,6 +320,17 @@ html body.hide-ads #global-wrapper #footer-push {
 	padding: 0;
 }
 
+@media (max-width: 768px) {
+	footer.minerva-footer #curse-footer div.footer-box ul.mobile-split {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	footer.minerva-footer #curse-footer div.footer-box ul.mobile-split li {
+		flex: 0 45%;
+	}
+}
+
 #curse-footer div.footer-box ul.social li {
     display: inline-block;
     margin-right: 10px;
@@ -339,29 +347,6 @@ html body.hide-ads #global-wrapper #footer-push {
 #curse-footer div.footer-box ul.social li svg:hover {
 	opacity: 1.0;
 	transition: opacity 0.3s;
-}
-
-#curse-footer div.footer-box ul li a::before {
-	color: #c9c9c9;
-	font-family: 'footer-icons';
-	font-size: 16px;
-	height: 16px;
-	left: 0;
-	line-height: 20px;
-	position: absolute;
-	top: 0;
-	width: 16px;
-}
-
-#curse-footer div.footer-box ul.social li a::after {
-	position: absolute;
-	display: block;
-	top: 0;
-	left: 0;
-	font-family: 'footer-icons';
-	font-size: 16px;
-	color: #838383;
-	text-indent: 0;
 }
 
 .hlist-separated #curse-footer div.footer-box ul li a {
@@ -390,6 +375,21 @@ html body.hide-ads #global-wrapper #footer-push {
 	width: 100%;
 	line-height: 3em;
 }
+
+@media (max-width: 768px) {
+	footer.minerva-footer #curse-footer div.footer-post {
+		padding-bottom: 50px;
+	}
+
+	footer.minerva-footer .post-content {
+		margin: 0px 0px;
+	}
+
+	footer.minerva-footer ul.hlist li#footer-hydra-hydrafooter {
+		margin: 0px;
+	}
+}
+
 
 #curse-footer div.footer-post hr {
 	color: #fff;

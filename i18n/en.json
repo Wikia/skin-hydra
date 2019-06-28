@@ -13,7 +13,7 @@
 	"netbar-user-page": "My User Page",
 	"footer-community": "Community Central",
 	"footer-My_Account": "My Account",
-	"footer-Pro": "Gamepedia PRO",
+	"footer-Pro": "PRO",
 	"footer-DDB": "D&D Beyond",
 	"footer-Fandom": "Fandom",
 	"footer-Facebook": "Facebook",
@@ -25,6 +25,7 @@
 	"footer-Twitter": "Twitter",
 	"footer-Youtube": "Youtube",
 	"footer-Contact_Us": "Contact Us",
+	"footer-Contact_Us_Short": "Contact",
 	"footer-Newsletter": "Newsletter",
 	"footer-Careers": "Careers",
 	"footer-Help": "Help",
@@ -45,5 +46,7 @@
 	"footer-privacy": "Privacy Policy",
 	"footer-support": "Support",
 	"footer-terms": "Terms of Service",
+	"footer-view-desktop": "View Desktop Site",
+	"footer-view-mobile": "View Mobile Site",
 	"purge": "Purge"
 }

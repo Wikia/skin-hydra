@@ -4,7 +4,7 @@
  */
 
 $(function(){
-    $footer = $('footer');
+    $footer = $('#footer-and-prefooter');
     $nav = $('#mw-panel');
     if (typeof $footer !== 'undefined'
         && typeof $nav !== 'undefined'
