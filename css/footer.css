@@ -127,6 +127,14 @@ html body.hide-ads #global-wrapper #footer-push {
 	display: none;
 }
 
+footer.minerva-footer > .post-content > * {
+	margin-bottom: 0px;
+}
+
+footer.minerva-footer {
+	padding-bottom: 0px;
+}
+
 #curse-footer {
 	background-color: #002a32;
 }
@@ -201,6 +209,8 @@ html body.hide-ads #global-wrapper #footer-push {
 		  'properties overview community'
 		  'properties overview advertise'
 		  'social overview advertise';
+		justify-items: center;
+		text-align: center;
 	}
 }
 
@@ -249,8 +259,7 @@ html body.hide-ads #global-wrapper #footer-push {
 
 #curse-footer .footer-logo {
     grid-area: logo;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 18px auto;
 	display: flex;
 	align-items: center;
 }
@@ -339,6 +348,11 @@ html body.hide-ads #global-wrapper #footer-push {
     text-decoration: none;
 }
 
+#curse-footer div.footer-box ul.social li:last-child {
+	margin-right: 0;
+	padding-right: 0;
+}
+
 #curse-footer div.footer-box ul.social li svg {
 	fill: #fff;
 	opacity: 0.3;
@@ -390,7 +404,6 @@ html body.hide-ads #global-wrapper #footer-push {
 	}
 }
 
-
 #curse-footer div.footer-post hr {
 	color: #fff;
 	max-width: 1024px;
@@ -403,4 +416,8 @@ html body.hide-ads #global-wrapper #footer-push {
 	text-transform: uppercase;
 	color: #00d6d6;
 	font-weight: bold;
+}
+
+#mw-mf-diffview #mw-mf-userinfo {
+	z-index: 1;
 }
