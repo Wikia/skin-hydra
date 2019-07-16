@@ -6,10 +6,6 @@ body[aria-hidden] {
 	position: static;
 }
 
-.mw-body {
-	padding: 1em;
-}
-
 /* No no vector. Serif fonts are ugly. */
 .mw-body h1, .mw-body h2 {
 	font-family: sans-serif;
