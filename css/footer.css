@@ -198,7 +198,7 @@ footer.minerva-footer {
 		  'properties overview community ad'
 		  'properties overview advertise ad'
 		  'social overview advertise ad';
-		width: 1024px;
+		max-width: 1024px;
 		margin: auto;
 	}
 
