@@ -1,7 +1,8 @@
 <?php
 global $wgUser, $wgScriptPath, $wgSitename;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
-$showAds = !HydraHooks::isMobileSkin() && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
+$isMobile = HydraHooks::isMobileSkin();
+$showAds = !$isMobile && HydraHooks::showAds($skin) && $config->get('HydraSkinShowFooterAd') && !empty(HydraHooks::getAdBySlot('footermrec'));
 
 if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 	$footerLinks = str_replace(['[', ']'], '', trim(HydraHooks::getAdBySlot('footerlinks')));
@@ -16,16 +17,9 @@ if ($showAds && !empty(HydraHooks::getAdBySlot('footerlinks'))) {
 	}
 }
 
-if(HydraHooks::isMobileSkin()) {
-	$switchViewMessage = wfMessage('footer-view-desktop')->escaped();
-	$switchViewURL = $skin->getTitle()->getFullURL(array('mobileaction' => 'toggle_view_desktop'));
-	$switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl( $switchViewURL ));
-}
-else {
-	$switchViewMessage = wfMessage('footer-view-mobile')->escaped();
-	$switchViewURL = $skin->getTitle()->getFullURL(array('mobileaction' => 'toggle_view_mobile'));
-	$switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl( $switchViewURL ));
-}
+$switchViewMessage = wfMessage($isMobile ? 'footer-view-desktop' : 'footer-view-mobile')->escaped();
+$switchViewURL = $skin->getTitle()->getFullURL(array('mobileaction' => $isMobile ? 'toggle_view_desktop' : 'toggle_view_mobile'));
+$switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($switchViewURL));
 
 ?>
 
