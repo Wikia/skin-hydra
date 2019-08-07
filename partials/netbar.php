@@ -16,13 +16,13 @@ $showHost = false;
 	<div class="netbar-flex">
 		<div class="netbar-box left logo"><a href="http://www.gamepedia.com">Gamepedia</a></div>
 		<?php if ($wgUser->isAnon()) { ?>
-		<div class="netbar-box left"><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->text() ?></a></div>
+		<div class="netbar-box left"><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></div>
 		<?php } else { ?>
 		<div class="netbar-box left links has-drop">
 			<span class="cog"></span>
 			<ul class="dropdown">
-				<li><a href="https://www.gamepedia.com/pro" class="premium"><?php echo wfMessage('netbar-pro')->text() ?></a></li>
-				<li><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->text() ?></a></li>
+				<li><a href="https://www.gamepedia.com/pro" class="premium"><?php echo wfMessage('netbar-pro')->escaped() ?></a></li>
+				<li><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></li>
 			</ul>
 		</div>
 		<?php } ?>
@@ -72,9 +72,9 @@ $showHost = false;
 		}
 		?>
 		<?php if ($wgUser->isAnon()) { ?>
-		<div class="netbar-box right"><a href="<?php echo $personalTools['login']['links'][0]['href'] ?>" id="login-link" class="aqua-link"><?php echo wfMessage('netbar-signin')->text() ?></a></div>
+		<div class="netbar-box right"><a href="<?php echo $personalTools['login']['links'][0]['href'] ?>" id="login-link" class="aqua-link"><?php echo wfMessage('netbar-signin')->escaped() ?></a></div>
 			<?php if ($wgUser->isAllowed('createaccount')) { ?>
-		<div class="netbar-box right"><a href="<?php echo $personalTools['createaccount']['links'][0]['href'] ?>" id="register-link" class="aqua-link"><?php echo wfMessage('netbar-register')->text() ?></a></div>
+		<div class="netbar-box right"><a href="<?php echo $personalTools['createaccount']['links'][0]['href'] ?>" id="register-link" class="aqua-link"><?php echo wfMessage('netbar-register')->escaped() ?></a></div>
 			<?php } ?>
 		<?php } else { ?>
 			<?php if (!$wgUser->isAnon() && isset($personalTools['notifications-alert'])) {
@@ -107,7 +107,7 @@ $showHost = false;
 					} elseif ($item['id'] == 'pt-userpage') {
 						echo "<li class='user'>
 								<a href='{$item['links'][0]['href']}'>
-									" . wfMessage('netbar-user-page')->text() . "
+									" . wfMessage('netbar-user-page')->escaped() . "
 								</a>
 							</li>";
 					} else {
