@@ -28,18 +28,18 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 	<div id="gamepedia-footer">
 		<div class="footer-wrapper-gp">
 			<div class="footer-box footer-logo">
-				<a href="http://www.gamepedia.com"><img src="/skins/Hydra/images/footer/premium-logo-light.svg" class="footer-gp-logo"/></a>
+				<a href="https://www.gamepedia.com"><img src="/skins/Hydra/images/footer/premium-logo-light.svg" class="footer-gp-logo"/></a>
 			</div>
 			<div class="footer-box footer-social">
 				<ul class="social">
 					<li><a href="https://www.facebook.com/CurseGamepedia" title="<?php echo wfMessage('footer-Facebook')->escaped() ?>"><svg width="10" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M9.364531 3.5096969H7.651507c-1.370419 0-1.598822.7261441-1.598822 1.6943364v2.2994565h3.311846l-.342605 3.6307209H6.281088v9.3188503H2.85504v-9.3188503H0V7.5034898h2.85504V4.8409612C2.85504 1.8153604 4.568064 0 7.080499 0c1.142016 0 2.16983.121024 2.512435.121024v3.3886729h-.228403z" fill-rule="evenodd"/></svg></a></li>
 					<li><a href="https://twitter.com/CurseGamepedia" title="<?php echo wfMessage('footer-Twitter')->escaped() ?>"><svg width="23" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M19.822727 4.2972696v.5729693c0 5.8729351-4.518416 12.6053241-12.826471 12.6053241-2.623596 0-4.955681-.7162116-6.996256-2.0053925.437266 0 .728777.1432423 1.166043.1432423 2.040575 0 4.081149-.7162116 5.684458-1.8621501-1.894819 0-3.643883-1.2891809-4.226905-3.151331.291511 0 .583022.1432423.874532.1432423.437266 0 .437266 0 1.020288-.1432423-2.186331-.429727-4.08115-2.2918772-4.08115-4.440512 0 .429727 1.603309.429727 2.332086.5729693C1.603309 5.8729351.874532 4.5837542.874532 3.0080887c0-.8594539.291511-1.5756655.728777-2.2918771 2.18633 2.7216041 5.684458 4.4405119 9.328342 4.7269965-.145756-.4297269-.145756-.7162116-.145756-1.0026962C10.785895 2.0053925 12.82647 0 15.304311 0c1.311798 0 2.477841.429727 3.352373 1.4324232 1.020287-.2864846 1.894819-.5729693 2.769351-1.1459386-.437266 1.1459386-1.166042 1.8621502-1.894819 2.4351195.874532-.1432423 1.894819-.429727 2.623596-.7162116-.728777.8594539-1.457553 1.7189078-2.332085 2.2918771z" fill-rule="evenodd"/></svg></a></li>
-					<li><a href="http://youtube.com/CurseEntertainment" title="<?php echo wfMessage('footer-Youtube')->escaped() ?>"><svg width="24" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M23.8 3.6s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1C17 0 12 0 12 0S7 0 3.6.2c-.5.1-1.5.1-2.4 1-.7.7-1 2.4-1 2.4S0 5.5 0 7.5v1.8c0 1.9.2 3.9.2 3.9s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8.2.2 8.2.2s5 0 8.4-.3c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.4 1-2.4s.2-1.9.2-3.9V7.4c0-1.9-.2-3.8-.2-3.8zM9.5 11.5V4.8L16 8.2l-6.5 3.3z" fill-rule="evenodd"/></svg></a></li>
+					<li><a href="https://youtube.com/CurseEntertainment" title="<?php echo wfMessage('footer-Youtube')->escaped() ?>"><svg width="24" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M23.8 3.6s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1C17 0 12 0 12 0S7 0 3.6.2c-.5.1-1.5.1-2.4 1-.7.7-1 2.4-1 2.4S0 5.5 0 7.5v1.8c0 1.9.2 3.9.2 3.9s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8.2.2 8.2.2s5 0 8.4-.3c.5-.1 1.5-.1 2.4-1 .7-.7 1-2.4 1-2.4s.2-1.9.2-3.9V7.4c0-1.9-.2-3.8-.2-3.8zM9.5 11.5V4.8L16 8.2l-6.5 3.3z" fill-rule="evenodd"/></svg></a></li>
 				</ul>
 			</div>
 			<div class="footer-box footer-links mobile-split">
 				<ul>
-					<li><a href="http://support.gamepedia.com"><?php echo wfMessage('footer-support')->escaped() ?></a></li>
+					<li><a href="https://support.gamepedia.com"><?php echo wfMessage('footer-support')->escaped() ?></a></li>
 					<li><a href="https://help.gamepedia.com/How_to_contact_Gamepedia"><?php echo wfMessage('footer-Contact_Us_Short')->escaped() ?></a></li>
 					<li><a href="https://www.gamepedia.com/pro"><?php echo wfMessage('footer-Pro')->escaped() ?></a></li>
 				</ul>
@@ -64,9 +64,9 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 				<ul class="properties mobile-split">
 					<li><a href="https://www.fandom.com"><?php echo wfMessage('footer-Fandom')->escaped() ?></a></li>
 					<li><a href="https://www.gamepedia.com"><?php echo wfMessage('footer-Gamepedia')->escaped() ?></a></li>
-					<li><a href="http://www.dndbeyond.com"><?php echo wfMessage('footer-DDB')->escaped() ?></a></li>
-					<li><a href="http://www.muthead.com"><?php echo wfMessage('footer-Muthead')->escaped() ?></a></li>
-					<li><a href="http://www.futhead.com"><?php echo wfMessage('footer-Futhead')->escaped() ?></a></li>
+					<li><a href="https://www.dndbeyond.com"><?php echo wfMessage('footer-DDB')->escaped() ?></a></li>
+					<li><a href="https://www.muthead.com"><?php echo wfMessage('footer-Muthead')->escaped() ?></a></li>
+					<li><a href="https://www.futhead.com"><?php echo wfMessage('footer-Futhead')->escaped() ?></a></li>
 				<?php if ($showAds && isset($footerLinks[0])) { ?>
 					<li><a href="<?php echo $footerLinks[0]['url'] ?>" class="advertise"><?php echo htmlentities($footerLinks[0]['text']) ?></a></li>
 				<?php } ?>

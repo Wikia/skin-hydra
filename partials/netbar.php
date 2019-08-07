@@ -14,15 +14,15 @@ $showHost = false;
 
 <div id="netbar">
 	<div class="netbar-flex">
-		<div class="netbar-box left logo"><a href="http://www.gamepedia.com">Gamepedia</a></div>
+		<div class="netbar-box left logo"><a href="https://www.gamepedia.com">Gamepedia</a></div>
 		<?php if ($wgUser->isAnon()) { ?>
-		<div class="netbar-box left"><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></div>
+		<div class="netbar-box left"><a href="https://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></div>
 		<?php } else { ?>
 		<div class="netbar-box left links has-drop">
 			<span class="cog"></span>
 			<ul class="dropdown">
 				<li><a href="https://www.gamepedia.com/pro" class="premium"><?php echo wfMessage('netbar-pro')->escaped() ?></a></li>
-				<li><a href="http://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></li>
+				<li><a href="https://support.gamepedia.com/"><?php echo wfMessage('netbar-help')->escaped() ?></a></li>
 			</ul>
 		</div>
 		<?php } ?>
