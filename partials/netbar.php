@@ -1,4 +1,16 @@
 <?php
+/**
+ * Curse Inc.
+ * Hydra Skin
+ * Footer Partial
+ *
+ * @package   HydraSkin
+ * @author    Curse
+ * @copyright (c) 2012 Curse Inc.
+ * @license   GPL-2.0-or-later
+ * @link      https://gitlab.com/hydrawiki/
+**/
+
 global $wgUser, $nrHydraVersion;
 
 $personalTools = $skin->getPersonalTools();
