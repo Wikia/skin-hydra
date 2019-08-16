@@ -178,10 +178,6 @@ div#netbar {
 #netbar .netbar-box ul.dropdown li a {
 	display: block;
 	padding: 8px 5px;
-	width: intrinsic;
-	width: max-content;
-	width: -moz-max-content;
-	width: -webkit-max-content;
 }
 
 #netbar .netbar-box.user > a {
