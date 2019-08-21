@@ -316,7 +316,7 @@ class HydraTemplate extends VectorTemplate {
 					}
 					?>" aria-labelledby="p-sharing-label">
 						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-sharing-label" />
-						<h3 id="p-cactions-label"><span><?php
+						<h3 id="p-sharing-label"><span><?php
 						if (isset($this->data['sharing_urls']['share']['text'])) {
 							echo $this->data['sharing_urls']['share']['text'];
 						}
