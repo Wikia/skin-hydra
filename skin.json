@@ -160,14 +160,12 @@
 			"jquery.ui.resizable": "../Vector/skinStyles/jquery.ui/jquery.ui.resizable.css",
 			"jquery.ui.selectable": "../Vector/skinStyles/jquery.ui/jquery.ui.selectable.css",
 			"jquery.ui.slider": "../Vector/skinStyles/jquery.ui/jquery.ui.slider.css",
-			"jquery.ui.spinner": "../Vector/skinStyles/jquery.ui/jquery.ui.spinner.css",
 			"jquery.ui.tabs": "../Vector/skinStyles/jquery.ui/jquery.ui.tabs.css",
 			"jquery.ui.tooltips": "../Vector/skinStyles/jquery.ui/jquery.ui.tooltips.css",
 			"+mediawiki.action.view.redirectPage": "../Vector/skinStyles/mediawiki.action.view.redirectPage.less",
 			"+mediawiki.notification": "../Vector/skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "../Vector/skinStyles/ooui.less",
-			"mediawiki.special": "../Vector/skinStyles/mediawiki.special.less",
-			"+mediawiki.special.preferences.styles": "../Vector/skinStyles/mediawiki.special.preferences.styles.less"
+			"mediawiki.special": "../Vector/skinStyles/mediawiki.special.less"
 		}
 	},
 	"ResourceFileModulePaths": {
