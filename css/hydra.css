@@ -95,10 +95,6 @@ div.vectorTabs li a {
 /*****************/
 /* Visual Editor */
 /*****************/
-.oo-ui-dialog .oo-ui-window-frame, .oo-ui-menuSelectWidget {
-	z-index: 10;
-}
-
 .ve-init-mw-switchPopupWidget .oo-ui-checkboxInputWidget [type='checkbox']{ opacity:1; }
 
 /* For elements which only display in the mobile view */
