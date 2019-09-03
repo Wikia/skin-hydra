@@ -141,7 +141,7 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 			</div>
 		</div>
 		<div class="footer-post">
-			<?php echo $wgSitename; ?> is a Fandom Gaming Community.
+			<?php echo wfMessage('footer-Gaming_Community', $wgSitename)->escaped() ?>
 			<hr />
 			<span class="footer-post-mobile"><a href="<?php echo $switchViewURL; ?>"><?php echo $switchViewMessage; ?></a></span>
 		</div>
