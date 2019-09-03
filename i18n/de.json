@@ -2,7 +2,15 @@
 	"@metadata": {
 		"authors": []
 	},
-	"footer-Contact_Us": "Kontakt",
+	"hydra.css": "/* Hier platziertes CSS wird Benutzer, die den Hydra-Skin benutzen, betreffen */",
+	"hydra.js": "/* Hier platziertes JavaScript wird für Benutzer, die den Hydra-Skin benutzen, geladen */",
+	"netbar-help": "Hilfe",
+	"netbar-signin": "Anmelden",
+	"netbar-register": "Registrieren",
+	"netbar-user-page": "Meine Benutzerseite",
+	"footer-community": "Community Central",
+	"footer-My_Account": "Mein Konto",
+	"footer-Contact_Us": "Kontaktiere uns",
 	"footer-Contact_Us_Short": "Kontakt",
 	"footer-Careers": "Stellenangebote",
 	"footer-Help": "Hilfe",
@@ -21,5 +29,8 @@
 	"footer-press": "Presse",
 	"footer-privacy": "Datenschutz",
 	"footer-support": "Support",
-	"footer-terms": "Nutzungs­bedingungen"
+	"footer-terms": "Nutzungs­bedingungen",
+	"footer-view-desktop": "Desktop-Seite ansehen",
+	"footer-view-mobile": "Mobile Seite ansehen",
+	"purge": "Purge"
 }
