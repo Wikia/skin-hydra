@@ -68,7 +68,7 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 						<a href="https://support.gamepedia.com"><?php echo wfMessage('footer-support')->escaped() ?></a>
 					</li>
 					<li>
-						<a href="https://help.gamepedia.com/How_to_contact_Gamepedia"><?php echo wfMessage('footer-Contact_Us_Short')->escaped() ?></a>
+						<a href="<?php echo wfMessage('footer-Contact_Us_Short-link')->escaped() ?>"><?php echo wfMessage('footer-Contact_Us_Short')->escaped() ?></a>
 					</li>
 					<li>
 						<a href="https://www.gamepedia.com/pro"><?php echo wfMessage('footer-Pro')->escaped() ?></a>
@@ -116,10 +116,10 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 			<div class="footer-box footer-overview">
 				<h2><?php echo wfMessage('footer-headers-overview')->escaped() ?></h2>
 				<ul class="mobile-split">
-					<li><a href="https://www.fandom.com/about"><?php echo wfMessage('footer-about')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-about-link')->escaped() ?>"><?php echo wfMessage('footer-about')->escaped() ?></a></li>
 					<li><a href="https://www.fandom.com/careers"><?php echo wfMessage('footer-careers')->escaped() ?></a></li>
 					<li><a href="https://www.fandom.com/press"><?php echo wfMessage('footer-press')->escaped() ?></a></li>
-					<li><a href="https://www.fandom.com/about#contact"><?php echo wfMessage('footer-Contact_Us')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-Contact_Us-link')->escaped() ?>"><?php echo wfMessage('footer-Contact_Us')->escaped() ?></a></li>
 					<li><a href="https://www.fandom.com/curse-terms-of-service"><?php echo wfMessage('footer-terms')->escaped() ?></a></li>
 					<li><a href="https://www.fandom.com/curse-privacy-policy"><?php echo wfMessage('footer-privacy')->escaped() ?></a></li>
 				</ul>
@@ -127,16 +127,16 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 			<div class="footer-box footer-community">
 				<h2><?php echo wfMessage('footer-headers-community')->escaped() ?></h2>
 				<ul class="mobile-split">
-					<li><a href="https://community.fandom.com/wiki/Community_Central"><?php echo wfMessage('footer-community')->escaped() ?></a></li>
-					<li><a href="https://fandom.zendesk.com/hc/en-us"><?php echo wfMessage('footer-support')->escaped() ?></a></li>
-					<li><a href="https://community.fandom.com/wiki/Help:Contents"><?php echo wfMessage('footer-help')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-community-link')->escaped() ?>"><?php echo wfMessage('footer-community')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-support-link')->escaped() ?>"><?php echo wfMessage('footer-support')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-help-link')->escaped() ?>"><?php echo wfMessage('footer-help')->escaped() ?></a></li>
 				</ul>
 			</div>
 			<div class="footer-box footer-advertise">
 				<h2><?php echo wfMessage('footer-headers-advertise')->escaped() ?></h2>
 				<ul class="mobile-split">
-					<li><a href="https://www.fandom.com/mediakit"><?php echo wfMessage('footer-media-kit')->escaped() ?></a></li>
-					<li><a href="https://www.fandom.com/mediakit#contact"><?php echo wfMessage('footer-Contact_Us')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-media-kit-link')->escaped() ?>"><?php echo wfMessage('footer-media-kit')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-media-kit-contact-link')->escaped() ?>"><?php echo wfMessage('footer-Contact_Us')->escaped() ?></a></li>
 				</ul>
 			</div>
 		</div>
