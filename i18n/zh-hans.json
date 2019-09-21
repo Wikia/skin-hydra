@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-		"Angrydog001"
+		"Angrydog001",
+		"Dianliang233"
 		]
 	},
 	"skinname-hydra": "Hydra",
@@ -35,6 +36,7 @@
 	"footer-Advertise": "广告",
 	"footer-Terms_of_Service": "服务条款",
 	"footer-Privacy_Policy": "隐私政策",
+	"footer-Gaming_Community": "$1是Fandom的游戏社区之一。",
 	"footer-headers-advertise": "广告",
 	"footer-headers-community": "社区",
 	"footer-headers-explore": "特性探索",
