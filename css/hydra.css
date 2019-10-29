@@ -153,3 +153,31 @@ div.vectorMenu {
 .mw-htmlform-ooui .mw-htmlform-matrix tbody tr:not(:first-child):hover td {
 	background-color: rgba(108, 129, 150, 0.4);
 }
+
+
+/****************************************************/
+/* Fix for 1.33 accessibility changes - T195256 */
+/****************************************************/
+
+@media screen {
+	#jump-to-nav {
+		/* Negate #contentSub margin */
+		margin-top: -1.4em;
+		margin-bottom: 1.4em;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.mw-jump, #jump-to-nav {
+		overflow: hidden;
+		height: 0;
+		zoom: 1;
+	}
+}
+
+@media print {
+	.mw-jump, #jump-to-nav {
+		display: none;
+	}
+}
