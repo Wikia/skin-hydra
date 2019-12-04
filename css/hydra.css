@@ -181,3 +181,11 @@ div.vectorMenu {
 		display: none;
 	}
 }
+
+/********************/
+/* Preferences      */
+/********************/
+
+.mw-prefs-buttons #prefcontrol {
+	margin-left: 0.5em;
+}
