@@ -189,3 +189,7 @@ div.vectorMenu {
 .mw-prefs-buttons #prefcontrol {
 	margin-left: 0.5em;
 }
+
+.skin-hydradark #preferences legend .fa-globe {
+	color: #fff;
+}
