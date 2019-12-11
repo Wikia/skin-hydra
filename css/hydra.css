@@ -142,7 +142,7 @@ div.vectorMenu {
 
 
 /* BotPasswords */
-.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:first-child td {
+.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:nth-child(1n) td {
 	background-color: rgba(200, 200, 200, 0.3);
 }
 
@@ -150,7 +150,7 @@ div.vectorMenu {
 	background-color: rgba(100, 100, 100, 0.2);
 }
 
-.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:not(:first-child):hover td {
+.mw-htmlform-ooui .mw-htmlform-matrix tbody tr:hover td {
 	background-color: rgba(108, 129, 150, 0.4);
 }
 
