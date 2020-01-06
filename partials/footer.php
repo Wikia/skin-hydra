@@ -130,6 +130,7 @@ $switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($swit
 					<li><a href="<?php echo wfMessage('footer-community-link')->escaped() ?>"><?php echo wfMessage('footer-community')->escaped() ?></a></li>
 					<li><a href="<?php echo wfMessage('footer-support-link')->escaped() ?>"><?php echo wfMessage('footer-support')->escaped() ?></a></li>
 					<li><a href="<?php echo wfMessage('footer-help-link')->escaped() ?>"><?php echo wfMessage('footer-help')->escaped() ?></a></li>
+					<li><a href="<?php echo wfMessage('footer-do_not_sell_my_info-link')->escaped() ?>"><?php echo wfMessage('footer-do_not_sell_my_info')->escaped() ?></a></li>
 				</ul>
 			</div>
 			<div class="footer-box footer-advertise">
