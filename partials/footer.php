@@ -36,7 +36,9 @@ $switchViewURL = $skin->getTitle()->getFullURL(
 		'mobileaction' => $isMobile ? 'toggle_view_desktop' : 'toggle_view_mobile'
 	]
 );
-$switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($switchViewURL));
+if (class_exists('MobileContext')) {
+	$switchViewURL = htmlspecialchars(MobileContext::singleton()->getMobileUrl($switchViewURL));
+}
 
 ?>
 
