@@ -11,7 +11,7 @@
  * @link      https://gitlab.com/hydrawiki/
 **/
 
-global $wgUser, $wgScriptPath, $wgSitename;
+global $wgUser, $wgScriptPath, $wgSitename, $wgStylePath;
 $config = ConfigFactory::getDefaultInstance()->makeConfig('hydraskin');
 $isMobile = HydraHooks::isMobileSkin();
 $showAds = !$isMobile && HydraHooks::showAds($skin) &&
@@ -48,7 +48,7 @@ if (class_exists('MobileContext')) {
 		<div class="footer-wrapper-gp">
 			<div class="footer-box footer-logo">
 				<a href="https://www.gamepedia.com">
-					<img src="/skins/Hydra/images/footer/premium-logo-light.svg" class="footer-gp-logo"/>
+					<img src="<?php echo $wgStylePath; ?>/Hydra/images/footer/premium-logo-light.svg" class="footer-gp-logo"/>
 				</a>
 			</div>
 			<div class="footer-box footer-social">
@@ -90,7 +90,7 @@ if (class_exists('MobileContext')) {
 			</div>
 			<?php } ?>
 			<div class="footer-box footer-logo">
-				<a href="https://www.fandom.com" target="_blank"><img src="/skins/Hydra/images/footer/fandom-logo.svg" /></a>
+				<a href="https://www.fandom.com" target="_blank"><img src="<?php echo $wgStylePath; ?>/Hydra/images/footer/fandom-logo.svg" /></a>
 			</div>
 			<div class="footer-box footer-properties">
 				<h2><?php echo wfMessage('footer-headers-explore')->escaped() ?></h2>

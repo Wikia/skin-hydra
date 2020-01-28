@@ -134,8 +134,13 @@ class HydraHooks {
 	 * @return boolean True
 	 */
 	public static function onSkinTemplateOutputPageBeforeExec(&$te, &$template) {
-		global $wgUser, $wgRequest;
+		global $wgUser, $wgRequest, $wgHydraSkinList;
 
+		// Don't run this hook on non-hydra skins
+		if (!in_array($te->getSkinName(), $wgHydraSkinList)) {
+			return true;
+		}
+		
 		if (defined('MW_API') && MW_API === true) {
 			return true;
 		}
@@ -396,11 +401,11 @@ class HydraHooks {
 			$bodyAttrs['class'] .= ' hide-ads';
 		}
 
-		switch ($_SERVER['PHP_ENV']) {
+		switch ($_SERVER['WIKIA_ENVIRONMENT']) {
 			case 'staging':
 				$bodyAttrs['class'] .= ' env-staging';
 				break;
-			case 'development':
+			case 'dev':
 				$bodyAttrs['class'] .= ' env-development';
 				break;
 		}
@@ -621,6 +626,31 @@ class HydraHooks {
 					'href' => $title->getLocalURL('action=purge')
 				];
 			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * Use the Oasis skin on selected Special Pages
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RequestContextCreateSkin
+	 *
+	 * @param  IContextSource   $context The RequestContext object the skin is being created for.
+	 * @param  Skin|null|string &$skin   A variable reference you may set a Skin instance or string
+	 *                                   key on to override the skin that will be used for the
+	 *                                   context.
+	 * @return bool
+	 */
+	public static function onRequestContextCreateSkin($context, &$skin) {
+		global $wgHydraSkinSpecialPageOverrides;
+		$pageBaseTitle = strtok($context->getTitle()->getDBKey(), '/');
+
+		if ($context->getTitle()->isSpecialPage() &&
+			array_key_exists('oasis', Skin::getSkinNames()) &&
+			in_array($pageBaseTitle, $wgHydraSkinSpecialPageOverrides) &&
+			$context->getTitle()->isSpecial($pageBaseTitle)) {
+			$skin = 'oasis';
 		}
 
 		return true;

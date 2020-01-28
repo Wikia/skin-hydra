@@ -20,9 +20,19 @@
 		"HydraSkinBodyName": "",
 		"HydraSkinDisclaimer": "",
 		"HydraSkinHideSideRailPages": [],
+		"HydraSkinList": [
+			"hydra",
+			"hydradark",
+			"exvius",
+			"minerva",
+			"vector"
+		],
 		"HydraSkinShowAnchorAd": false,
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinShowSideRail": true,
+		"HydraSkinSpecialPageOverrides": [
+			"WikiConfig"
+		],
 		"IsOfficialWiki": false,
 		"SideRailCollapseWidth": 1350,
 		"SideRailWidth": 310,
@@ -187,8 +197,8 @@
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
 		"SkinTemplateNavigation": "HydraHooks::onSkinTemplateNavigation",
 		"SkinTemplateOutputPageBeforeExec": "HydraHooks::onSkinTemplateOutputPageBeforeExec",
-		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules"
-
+		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules",
+		"RequestContextCreateSkin": "HydraHooks::onRequestContextCreateSkin"
 	},
 	"manifest_version": 1
 }

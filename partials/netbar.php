@@ -11,9 +11,19 @@
  * @link      https://gitlab.com/hydrawiki/
 **/
 
-global $wgUser, $nrHydraVersion;
+global $wgUser, $nrHydraVersion, $wgStylePath;
 
 $personalTools = $skin->getPersonalTools();
+
+// Ensure we have a log out link, regardless of platform
+if (!isset($personalTools['logout'])) {
+	// Add a log out link that works with Fandom UCP
+	$personalTools['logout'] = [
+		'text' => wfMessage( 'pt-userlogout' )->text(),
+		'href' => SkinTemplate::makeSpecialURL('UserLogout', null)
+	];
+}
+
 // Push the userpage stuff to the beginning, always.
 if (array_key_exists('userpage', $personalTools)) {
 	$_pt = [];
@@ -43,16 +53,16 @@ $showHost = false;
 			?>
 		<div class="netbar-box left"><span class="label-development"><?php echo strtoupper($nrHydraVersion) ?></span></div>
 		<?php } ?>
-		<?php if (strtolower($_SERVER['PHP_ENV']) != 'production') {
+		<?php if (strtolower($_SERVER['WIKIA_ENVIRONMENT']) != 'prod') {
 			$showHost = true;
 			?>
-		<div class="netbar-box left"><span class="label-development"><?php echo strtoupper($_SERVER['PHP_ENV']) ?></span></div>
+		<div class="netbar-box left"><span class="label-development"><?php echo strtoupper($_SERVER['WIKIA_ENVIRONMENT']) ?></span></div>
 		<?php } ?>
 		<?php if ($showHost) { ?>
 		<div class="netbar-box left"><span class="label-hostname"><?php echo htmlspecialchars(gethostname()) ?></span></div>
 		<?php } ?>
 		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
-		<div class="netbar-box left officialwiki"><a href="/index.php?title=Special:AllSites&amp;filter=official"><img src="/skins/Hydra/images/netbar/official-wiki.svg" width="90"></a></div>
+		<div class="netbar-box left officialwiki"><a href="/index.php?title=Special:AllSites&amp;filter=official"><img src="<?php echo $wgStylePath; ?>/Hydra/images/netbar/official-wiki.svg" width="90"></a></div>
 		<?php } ?>
 		<?php
 		/* $items['new-item'] = $rawHtml;
