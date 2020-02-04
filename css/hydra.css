@@ -97,6 +97,11 @@ div.vectorTabs li a {
 /*****************/
 .ve-init-mw-switchPopupWidget .oo-ui-checkboxInputWidget [type='checkbox']{ opacity:1; }
 
+/* Fix for Oasis SVG overrides */
+.oo-ui-iconElement-icon { 
+	background-color: #000000;
+}
+
 /* For elements which only display in the mobile view */
 .mobileonly {
 	display: none;
