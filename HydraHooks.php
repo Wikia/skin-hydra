@@ -102,7 +102,7 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.footer';
 		$modules[] = 'skins.hydra.smartbanner';
 		// $modules[] = 'skins.hydra.mobile.apu.js';
-
+		$modules[] = 'skins.hydra.mobile.styles';
 		return true;
 	}
 

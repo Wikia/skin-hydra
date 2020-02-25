@@ -1,0 +1,3 @@
+/* Hydra CSS customizations for the Minerva mobile skin */
+
+.content { max-width: calc(100% - 32px); }

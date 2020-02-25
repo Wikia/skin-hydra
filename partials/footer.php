@@ -122,8 +122,8 @@ if (class_exists('MobileContext')) {
 					<li><a href="https://www.fandom.com/careers"><?php echo wfMessage('footer-careers')->escaped() ?></a></li>
 					<li><a href="https://www.fandom.com/press"><?php echo wfMessage('footer-press')->escaped() ?></a></li>
 					<li><a href="<?php echo wfMessage('footer-Contact_Us-link')->escaped() ?>"><?php echo wfMessage('footer-Contact_Us')->escaped() ?></a></li>
-					<li><a href="https://www.fandom.com/curse-terms-of-service"><?php echo wfMessage('footer-terms')->escaped() ?></a></li>
-					<li><a href="https://www.fandom.com/curse-privacy-policy"><?php echo wfMessage('footer-privacy')->escaped() ?></a></li>
+					<li><a href="https://www.fandom.com/terms-of-use"><?php echo wfMessage('footer-terms')->escaped() ?></a></li>
+					<li><a href="https://www.fandom.com/privacy-policy"><?php echo wfMessage('footer-privacy')->escaped() ?></a></li>
 				</ul>
 			</div>
 			<div class="footer-box footer-community">
