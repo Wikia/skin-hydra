@@ -200,6 +200,7 @@
 		"BottomPlacements": "HydraHooks::onBottomPlacements",
 		"MobileMenu": "HydraHooks::onMobileMenu",
 		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
+		"RequestContextCreateSkin": "HydraHooks::onRequestContextCreateSkin",
 		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
 		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
