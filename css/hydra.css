@@ -102,6 +102,15 @@ div.vectorTabs li a {
 	background-color: #000000;
 }
 
+.oo-ui-iconElement-icon.oo-ui-iconElement-noIcon {
+	opacity: 0 !important;
+}
+
+/* Fix for dropdown arrows on light skin */
+.oo-ui-indicator-down {
+	background-color: #000000;
+}
+
 /* For elements which only display in the mobile view */
 .mobileonly {
 	display: none;
