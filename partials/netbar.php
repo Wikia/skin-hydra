@@ -20,7 +20,7 @@ if (!isset($personalTools['logout'])) {
 	// Add a log out link that works with Fandom UCP
 	$personalTools['logout'] = [
 		'text' => wfMessage( 'pt-userlogout' )->text(),
-		'href' => SkinTemplate::makeSpecialURL('UserLogout', null)
+		'href' => SkinTemplate::makeSpecialURL('UserLogout')
 	];
 }
 
@@ -104,7 +104,18 @@ $showHost = false;
 		?>
 		<?php if ($wgUser->isAnon()) { ?>
 		<div class="netbar-box right"><a href="<?php echo $personalTools['login']['links'][0]['href'] ?>" id="login-link" class="aqua-link"><?php echo wfMessage('netbar-signin')->escaped() ?></a></div>
-			<?php if ($wgUser->isAllowed('createaccount')) { ?>
+			<?php if ($wgUser->isAllowed('createaccount')) { 
+				
+				// Ensure we have a create account link, regardless of platform
+				if (!isset($personalTools['createaccount'])) {
+					// Add a create account link that works with Fandom UCP
+					$personalTools['createaccount'] = [
+						'links' => [['href' => SkinTemplate::makeSpecialURL('CreateAccount'), 'text' => wfMessage( 'pt-createaccount' )->text()]],
+						'id' => 'pt-createaccount'
+					];
+				}
+				
+			?>
 		<div class="netbar-box right"><a href="<?php echo $personalTools['createaccount']['links'][0]['href'] ?>" id="register-link" class="aqua-link"><?php echo wfMessage('netbar-register')->escaped() ?></a></div>
 			<?php } ?>
 		<?php } else { ?>
