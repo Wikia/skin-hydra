@@ -24,15 +24,6 @@ if (!isset($personalTools['logout'])) {
 	];
 }
 
-// Ensure we have a create account link, regardless of platform
-if (!isset($personalTools['createaccount'])) {
-	// Add a create account link that works with Fandom UCP
-	$personalTools['createaccount'] = [
-		'text' => wfMessage( 'pt-createaccount' )->text(),
-		'links' => [['href' => SkinTemplate::makeSpecialURL('CreateAccount', null)]]
-	];
-}
-
 // Push the userpage stuff to the beginning, always.
 if (array_key_exists('userpage', $personalTools)) {
 	$_pt = [];
