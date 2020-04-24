@@ -1,3 +1,24 @@
 /* Hydra CSS customizations for the Minerva mobile skin */
 
 .content { max-width: calc(100% - 32px); }
+
+/* Mobile header fixes for narrow width */
+.header {
+    width: 99%;
+    display: flex;
+}
+
+.header > div {
+    align-self: center;
+}
+
+.header .branding-box {
+    overflow: hidden;
+    flex-grow: 2;
+}
+
+.header .branding-box span {
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
+}
