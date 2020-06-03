@@ -76,13 +76,6 @@ class HydraTemplate extends VectorTemplate {
 				if (is_callable([$this, 'getIndicators'])) {
 					echo $this->getIndicators();
 				} ?>
-				<!-- ATF Leaderboard -->
-				<?php if ($this->data['showads'] && HydraHooks::getAdBySlot('atflb')) { ?>
-				<div id="atflb">
-					<?php echo HydraHooks::getAdBySlot('atflb'); ?>
-				</div>
-				<?php } ?>
-				<!-- /ATF Leaderboard -->
 				<?php
 				// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
 				if ($this->data['title'] != '') {
