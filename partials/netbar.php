@@ -61,7 +61,7 @@ $showHost = false;
 		<?php if ($showHost) { ?>
 		<div class="netbar-box left"><span class="label-hostname"><?php echo htmlspecialchars(gethostname()) ?></span></div>
 		<?php } ?>
-		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('IsOfficialWiki') == true) { ?>
+		<?php if (ConfigFactory::getDefaultInstance()->makeConfig('hydraskin')->get('OfficialWiki') == true) { ?>
 		<div class="netbar-box left officialwiki"><a href="/index.php?title=Special:AllSites&amp;filter=official"><img src="<?php echo $wgStylePath; ?>/Hydra/images/netbar/official-wiki.svg" width="90"></a></div>
 		<?php } ?>
 		<?php
