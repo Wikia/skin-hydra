@@ -33,7 +33,7 @@
 		"HydraSkinSpecialPageOverrides": [
 			"WikiConfig"
 		],
-		"IsOfficialWiki": false,
+		"OfficialWiki": false,
 		"SideRailCollapseWidth": 1350,
 		"SideRailWidth": 410,
 		"SiteAdSlots": [],
