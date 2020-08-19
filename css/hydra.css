@@ -102,6 +102,13 @@ div.vectorTabs li a {
 	background-color: #000000;
 }
 
+/* Fix custom CodeEditor icons background */
+.oo-ui-iconElement-icon.oo-ui-icon-gotoLine,
+.oo-ui-iconElement-icon.oo-ui-icon-wrapping,
+.oo-ui-iconElement-icon.oo-ui-icon-pilcrow {
+	background-color: transparent;
+}
+
 .oo-ui-iconElement-icon.oo-ui-iconElement-noIcon {
 	opacity: 0 !important;
 }
