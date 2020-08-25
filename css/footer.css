@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "footer-icons";
-	src: url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.eot) format("embedded-opentype"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.woff) format("woff"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.ttf) format("truetype"), url(https://gamepedia.cursecdn.com/hydra/fonts/footer-icons.svg) format("svg");
+	src: url('../fonts/footer-icons.eot') format("embedded-opentype"), url('../fonts/footer-icons.woff') format("woff"), url('../fonts/footer-icons.ttf') format("truetype"), url('../fonts/footer-icons.svg') format("svg");
 	font-weight: 400;
 	font-style: normal;
 }
