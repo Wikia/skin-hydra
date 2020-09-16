@@ -570,7 +570,7 @@ class HydraHooks {
 	 * @return boolean	True
 	 */
 	public static function onSideRailPlacements(&$placements) {
-		global $wgScriptPath;
+		global $wgScriptPath, $wgHydraSkinSiderailMrec;
 
 		if (($placement = self::getAdBySlot('atfmrec')) !== false) {
 			$placements['atfmrec'] = $placement;
@@ -578,6 +578,9 @@ class HydraHooks {
 
 		if (($placement = self::getAdBySlot('middlemrec')) !== false) {
 			$placements['middlemrec'] = $placement;
+		}
+		else if (isset($wgHydraSkinSiderailMrec)) {
+			$placements['middlemrec'] = $wgHydraSkinSiderailMrec;
 		}
 
 		if (($placement = self::getAdBySlot('btfmrec')) !== false) {
