@@ -98,7 +98,7 @@ div.vectorTabs li a {
 .ve-init-mw-switchPopupWidget .oo-ui-checkboxInputWidget [type='checkbox']{ opacity:1; }
 
 /* Fix for Oasis SVG overrides */
-.oo-ui-iconElement-icon { 
+.oo-ui-iconElement-icon {
 	background-color: #000000;
 }
 
@@ -219,4 +219,9 @@ div.vectorMenu {
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:not(:checked) + span {
 	mask: none;
 	background-color: transparent;
+}
+
+/* Fix Add Topic link on user talk pages - GPUCP-410 */
+#ca-addsection span {
+    pointer-events: auto;
 }
