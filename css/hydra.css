@@ -214,3 +214,9 @@ div.vectorMenu {
 .skin-hydradark #preferences legend .fa-globe {
 	color: #fff;
 }
+
+/* Fix unchecked checkboxes on Hydra skin bug, caused by Oasis masks */
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:not(:checked) + span {
+	mask: none;
+	background-color: transparent;
+}
