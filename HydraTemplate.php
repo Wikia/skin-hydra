@@ -61,6 +61,9 @@ class HydraTemplate extends VectorTemplate {
 		<div id="pageWrapper">
 			<div id="content" class="mw-body" role="main" itemprop="articleBody">
 				<a id="top"></a>
+				<div class="banner-notifications-placeholder">
+					<?= \F::app()->renderView( BannerNotificationsController::class, 'notifications' ) ?>
+				</div>
 				<?php
 				if ($this->data['sitenotice']) {
 					echo Html::rawElement(
@@ -263,6 +266,7 @@ class HydraTemplate extends VectorTemplate {
 			</div>
 		</div>
 		<div id="footer-push"></div>
+		<?= DesignSystemHelper::renderStore() ?>
 	</div>
 		<?php $this->printTrail(); ?>
 

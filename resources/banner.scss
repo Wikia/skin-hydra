@@ -1,0 +1,19 @@
+.wds-banner-notification {
+	&__container {
+		max-width: 1000px;
+	}
+
+	&__icon {
+		width: 60px;
+
+		> .wds-icon {
+			height: 30px;
+			width: 30px;
+			min-width: 30px;
+		}
+	}
+}
+
+.banner-notifications-placeholder {
+	margin-bottom: 1em;
+}
