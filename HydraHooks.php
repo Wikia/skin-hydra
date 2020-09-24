@@ -668,4 +668,45 @@ class HydraHooks {
 
 		return true;
 	}
+
+	/**
+	 * Handle SassResourceLoaderThemeSettings hook
+	 *
+	 * @param ResourceLoaderContext $context
+	 * @param array &$themeSettings
+	 *
+	 * @return true
+	 */
+	public static function onSassResourceLoaderThemeSettings($context, &$themeSettings) {
+		$skinName = $context->getSkin();
+
+		// Only on hydra/hydradark skins
+		if ($skinName != 'hydra' && $skinName != 'hydradark') {
+			return true;
+		}
+
+		// Don't override configured settings
+		$config = ConfigFactory::getDefaultInstance()->makeConfig('main');
+		$configSettings = $config->get('OasisThemeSettings');
+		if (!empty($configSettings)) {
+			return true;
+		}
+
+		$themeSettings['color-buttons'] = '#f37f20';
+		$themeSettings['color-body-middle'] = '#212121';
+		$themeSettings['color-community-header'] = '#b0e03b';
+		if ($skinName == 'hydra') {
+			$themeSettings['color-body'] = '#edeeee';
+			$themeSettings['color-page'] = '#fafafa';
+			$themeSettings['color-links'] = '#f37f20';
+			$themeSettings['color-header'] = '#eee';
+		} else if ($skinName == 'hydradark') {
+			$themeSettings['color-body'] = '#101010';
+			$themeSettings['color-page'] = '#212121';
+			$themeSettings['color-links'] = '#f37f20';
+			$themeSettings['color-header'] = '#101010';
+		}
+
+		return true;
+	}
 }

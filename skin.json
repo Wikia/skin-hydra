@@ -199,13 +199,13 @@
 		"MobileMenu": "HydraHooks::onMobileMenu",
 		"OutputPageBodyAttributes": "HydraHooks::onOutputPageBodyAttributes",
 		"RequestContextCreateSkin": "HydraHooks::onRequestContextCreateSkin",
+		"SassResourceLoaderThemeSettings": "HydraHooks::onSassResourceLoaderThemeSettings",
 		"SideRailPlacements": "HydraHooks::onSideRailPlacements",
 		"SkinMinervaDefaultModules": "HydraHooks::onSkinMinervaDefaultModules",
 		"SkinPreloadExistence": "HydraHooks::onSkinPreloadExistence",
 		"SkinTemplateNavigation": "HydraHooks::onSkinTemplateNavigation",
 		"SkinTemplateOutputPageBeforeExec": "HydraHooks::onSkinTemplateOutputPageBeforeExec",
 		"SkinVectorStyleModules": "HydraHooks::onSkinVectorStyleModules"
-
 	},
 	"manifest_version": 1
 }
