@@ -651,12 +651,18 @@ class HydraHooks {
 	 */
 	public static function onRequestContextCreateSkin($context, &$skin) {
 		global $wgHydraSkinSpecialPageOverrides;
-		$pageBaseTitle = strtok($context->getTitle()->getDBKey(), '/');
 
-		if ($context->getTitle()->isSpecialPage() &&
+		$title = $context->getTitle();
+		if (!$title) {
+			return true;
+		}
+
+		$pageBaseTitle = strtok($title->getDBKey(), '/');
+
+		if ($title->isSpecialPage() &&
 			array_key_exists('oasis', Skin::getSkinNames()) &&
 			in_array($pageBaseTitle, $wgHydraSkinSpecialPageOverrides) &&
-			$context->getTitle()->isSpecial($pageBaseTitle)) {
+			$title->isSpecial($pageBaseTitle)) {
 			$skin = 'oasis';
 		}
 
