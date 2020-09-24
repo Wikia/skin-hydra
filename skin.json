@@ -30,9 +30,7 @@
 		"HydraSkinShowAnchorAd": false,
 		"HydraSkinShowFooterAd": true,
 		"HydraSkinShowSideRail": true,
-		"HydraSkinSpecialPageOverrides": [
-			"WikiConfig"
-		],
+		"HydraSkinSpecialPageOverrides": [],
 		"OfficialWiki": false,
 		"SideRailCollapseWidth": 1350,
 		"SideRailWidth": 410,
