@@ -1,10 +1,10 @@
 .flaggedrevs-unreviewed {
-	background-color: #330252;
+	background-color: var(--themed-page-background--secondary);
 }
 
 .fr-pending-long2,
 .flaggedrevs-pending {
-	background-color: var(--themed-text-color);
+	background-color: var(--themed-page-background--secondary);
 	border: 1px solid var(--themed-border-color);
 }
 
