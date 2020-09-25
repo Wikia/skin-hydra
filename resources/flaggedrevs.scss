@@ -1,0 +1,66 @@
+.flaggedrevs-unreviewed {
+	background-color: #330252;
+}
+
+.fr-pending-long2,
+.flaggedrevs-pending {
+	background-color: var(--themed-text-color);
+	border: 1px solid var(--themed-border-color);
+}
+
+.flaggedrevs-pending a,
+.flaggedrevs-pending a:visited {
+	color: var(--text-color--light);
+}
+
+.flaggedrevs-color-1 {
+	background-color: rgba(4, 1, 31, 0.3);
+}
+
+.flaggedrevs-color-0 {
+	background-color: #700045;
+}
+
+.fr-rating-option-0,
+.fr-rating-option-1,
+.fr-rating-option-2,
+.fr-rating-option-3 {
+	background-color: inherit;
+	color: var(--themed-text-color);
+
+	option {
+		color: var(--text-color--dark);
+	}
+}
+
+table.flaggedrevs_editnotice,
+table.flaggedrevs_viewnotice {
+	background-color: inherit;
+	border-color: var(--themed-link-color);
+}
+
+#mw-fr-stablediff {
+	background-color: inherit;
+}
+
+div.flaggedrevs_short_details,
+div.flaggedrevs_short {
+	background-color: var(--themed-page-background--secondary);
+	color: var(--themed-text-color);
+}
+
+div.flaggedrevs_preview {
+	background-color: #031b30;
+	color: var(--themed-text-color);
+}
+
+div.flaggedrevs_notice {
+	background-color: #3d0000;
+}
+
+table.flaggedrevs_editnotice,
+table.flaggedrevs_viewnotice,
+.flaggedrevs_reviewform {
+	background-color: var(--themed-page-background--secondary);
+	color: var(--themed-text-color);
+}

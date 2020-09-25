@@ -117,6 +117,7 @@ class HydraHooks {
 	public static function onSkinPreloadExistence(array &$titles, Skin $skin) {
 		$skin->getOutput()->addModuleStyles([
 			'skin.hydra.css',
+			'skins.hydra.runtime.styles',
 		]);
 
 		if (class_exists('MobileContext')) {
