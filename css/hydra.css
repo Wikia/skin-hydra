@@ -217,8 +217,12 @@ div.vectorMenu {
 
 /* Fix unchecked checkboxes on Hydra skin bug, caused by Oasis masks */
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:not(:checked) + span {
-	mask: none;
 	background-color: transparent;
+}
+
+.oo-ui-checkboxInputWidget {
+    border: 1px solid #72777d;
+    border-radius: 2px;
 }
 
 /* Fix Add Topic link on user talk pages - GPUCP-410 */
