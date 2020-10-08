@@ -400,7 +400,7 @@ class HydraHooks {
 		}
 
 		// Add body class for advertisement toggling.
-		if ($showAds && self::getAdBySlot('footermrec')) {
+		if ($showAds) {
 			$bodyAttrs['class'] .= ' show-ads';
 		} else {
 			$bodyAttrs['class'] .= ' hide-ads';
@@ -458,30 +458,18 @@ class HydraHooks {
 	 * Should this page show advertisements?
 	 *
 	 * @access public
-	 * @param  object	Skin
+	 * @param  Skin Skin
 	 * @return boolean	Advertisements Visible
 	 */
 	public static function showAds($skin) {
-		global $wgUser;
-
 		if (self::$showAds !== null) {
 			return self::$showAds;
 		}
 
-		$isPremium = false;
-		if (class_exists('\Hydra\Subscription') && !empty($wgUser) && $wgUser->getId()) {
-			$subscription = \Hydra\Subscription::newFromUser($wgUser);
-			if ($subscription !== false) {
-				$isPremium = $subscription->hasSubscription();
-			}
-		}
+		$decider = new AdEngineDecider();
+		$reason = $decider->getNoAdsReason($skin->getContext());
 
-		$action = $skin->getRequest()->getVal('action');
-		$showAds = false;
-		if (!$isPremium && $action != 'edit' && $action != 'submit' && $skin->getRequest()->getVal('veaction') != 'edit' && $skin->getTitle()->getNamespace() != NS_SPECIAL) {
-			$showAds = true;
-		}
-		self::$showAds = $showAds;
+		self::$showAds = ($reason === null);
 
 		return self::$showAds;
 	}
@@ -490,7 +478,7 @@ class HydraHooks {
 	 * Should this page show the ATF MREC Advertisement?
 	 *
 	 * @access public
-	 * @param  object	Skin
+	 * @param  Skin Skin
 	 * @return boolean	Show ATF MREC Advertisement
 	 */
 	public static function showSideRailAPUs($skin) {
