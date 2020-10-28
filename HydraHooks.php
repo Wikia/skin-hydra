@@ -697,7 +697,8 @@ class HydraHooks {
 		//
 		// Wikis can set the OasisThemeSettings variable to a more appropriate value if desired.
 		$defaultSkin = $config->get('DefaultSkin');
-		$isLightSkin = ($skinName == 'hydra') || ($skinName == 'minerva' && $defaultSkin == 'hydra');
+		$isLightSkin = ($skinName == 'hydra') ||
+			($skinName == 'minerva' && ($defaultSkin == 'hydra' || $defaultSkin == 'exvius'));
 
 		$themeSettings['color-buttons'] = '#f37f20';
 		$themeSettings['color-body-middle'] = '#212121';
