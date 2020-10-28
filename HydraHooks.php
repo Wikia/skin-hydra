@@ -669,8 +669,8 @@ class HydraHooks {
 	public static function onSassResourceLoaderThemeSettings($context, &$themeSettings) {
 		$skinName = $context->getSkin();
 
-		// Only on hydra/hydradark skins
-		if ($skinName != 'hydra' && $skinName != 'hydradark') {
+		// Only on hydra/hydradark/minerva skins
+		if ($skinName != 'hydra' && $skinName != 'hydradark' && $skinName != 'minerva') {
 			return true;
 		}
 
@@ -681,15 +681,27 @@ class HydraHooks {
 			return true;
 		}
 
+		// @HACK: We want MobileFrontend to not look as much like a dumpster fire, so
+		// we're using $wgDefaultSkin to determine whether the mobile skin is (likely)
+		// dark theme or light theme.
+		//
+		// Wikis use a variety of methods for mobile theming, usually either MediaWiki:Mobile.css or
+		// via a default CSS Gadget which targets mobile.  It would be exceedingly difficult to pull
+		// real theme colors out of these CSS pages, so this is "good enough" for a default.
+		//
+		// Wikis can set the OasisThemeSettings variable to a more appropriate value if desired.
+		$defaultSkin = $config->get('DefaultSkin');
+		$isLightSkin = ($skinName == 'hydra') || ($skinName == 'minerva' && $defaultSkin == 'hydra');
+
 		$themeSettings['color-buttons'] = '#f37f20';
 		$themeSettings['color-body-middle'] = '#212121';
 		$themeSettings['color-community-header'] = '#b0e03b';
-		if ($skinName == 'hydra') {
+		if ($isLightSkin) {
 			$themeSettings['color-body'] = '#edeeee';
 			$themeSettings['color-page'] = '#fafafa';
 			$themeSettings['color-links'] = '#f37f20';
 			$themeSettings['color-header'] = '#eee';
-		} else if ($skinName == 'hydradark') {
+		} else {
 			$themeSettings['color-body'] = '#101010';
 			$themeSettings['color-page'] = '#212121';
 			$themeSettings['color-links'] = '#f37f20';
