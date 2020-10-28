@@ -163,6 +163,15 @@
 			"styles": [
 				"resources/hydra.runtime.scss"
 			]
+		},
+		"skins.hydra.mobile.runtime.styles": {
+			"class": "SassAwareResourceLoaderFileModule",
+			"styles": [
+				"resources/hydra.mobile.runtime.scss"
+			],
+			"targets": [
+				"mobile"
+			]
 		}
 	},
 	"ResourceModuleSkinStyles": {

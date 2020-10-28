@@ -266,7 +266,6 @@ class HydraTemplate extends VectorTemplate {
 			</div>
 		</div>
 		<div id="footer-push"></div>
-		<?= DesignSystemHelper::renderStore() ?>
 	</div>
 		<?php $this->printTrail(); ?>
 

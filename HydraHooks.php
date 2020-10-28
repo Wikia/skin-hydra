@@ -11,6 +11,8 @@
  * @link      https://gitlab.com/hydrawiki/
 **/
 
+use Fandom\DesignSystem\DesignSystemHelper;
+
 if (!defined('MEDIAWIKI')) {
 	echo("This is an extension to the MediaWiki software and is not a valid entry point.\n");
 	die(-1);
@@ -103,6 +105,7 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.smartbanner';
 		// $modules[] = 'skins.hydra.mobile.apu.js';
 		$modules[] = 'skins.hydra.mobile.styles';
+		$modules[] = 'skins.hydra.mobile.runtime.styles';
 		return true;
 	}
 
@@ -347,6 +350,9 @@ class HydraHooks {
 
 			$template->set('bottomscripts', $template->data['bottomscripts'] . $_bottomExtra);
 		}
+
+		$template->set('bottomscripts',
+			($template->data['bottomscripts'] ?? '') . DesignSystemHelper::renderStore());
 
 		if (self::isMobileSkin()) {
 			$cpHolder = 'mobile-license';
