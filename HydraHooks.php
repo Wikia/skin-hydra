@@ -412,13 +412,16 @@ class HydraHooks {
 			$bodyAttrs['class'] .= ' hide-ads';
 		}
 
-		switch ($_SERVER['WIKIA_ENVIRONMENT']) {
-			case 'staging':
-				$bodyAttrs['class'] .= ' env-staging';
-				break;
-			case 'dev':
-				$bodyAttrs['class'] .= ' env-development';
-				break;
+		// Note if not defined, skin is being used outside Wikia environment
+		if (isset($_SERVER['WIKIA_ENVIRONMENT'])) {
+			switch ($_SERVER['WIKIA_ENVIRONMENT']) {
+				case 'staging':
+					$bodyAttrs['class'] .= ' env-staging';
+					break;
+				case 'dev':
+					$bodyAttrs['class'] .= ' env-development';
+					break;
+			}
 		}
 
 		return true;
@@ -472,12 +475,15 @@ class HydraHooks {
 			return self::$showAds;
 		}
 
-		$decider = new AdEngineDecider();
-		$reason = $decider->getNoAdsReason($skin->getContext());
+		// Note without this class installed, vanilla MediaWiki is assumed
+		if (class_exists('AdEngineDecider')) {
+			$decider = new AdEngineDecider();
+			$reason = $decider->getNoAdsReason($skin->getContext());
+			self::$showAds = ($reason === null);
+			return self::$showAds;
+		}
 
-		self::$showAds = ($reason === null);
-
-		return self::$showAds;
+		return false;
 	}
 
 	/**
@@ -621,7 +627,20 @@ class HydraHooks {
 	public static function onSkinTemplateNavigation(SkinTemplate &$skinTemplate, array &$links) {
 		if (isset($links['actions'])) {
 			$title = $skinTemplate->getRelevantTitle();
-			if ($title->exists() && $title->quickUserCan('purge', $skinTemplate->getSkin()->getContext()->getUser())) {
+
+			if (!$title->exists()) {
+				return true;
+			}
+
+			if (method_exists($title, 'quickUserCan')) {
+				$exists = $title->quickUserCan('purge', $user);
+			} else {
+				$services = MediaWiki\MediaWikiServices::getInstance();
+				$permissionManager = $services->getPermissionManager();
+				$user = $skinTemplate->getSkin()->getContext()->getUser();
+				$exists = $permissionManager->quickUserCan('purge', $user, $title);
+			}
+			if ($exists) {
 				$links['actions']['purge'] = [
 					'class' => false,
 					'text' => wfMessageFallback("{$skinTemplate->skinname}-action-purge", 'purge')->setContext($skinTemplate->getContext())->text(),
@@ -646,6 +665,7 @@ class HydraHooks {
 	 */
 	public static function onRequestContextCreateSkin($context, &$skin) {
 		global $wgHydraSkinSpecialPageOverrides;
+		global $wgVersion;
 
 		$title = $context->getTitle();
 		if (!$title) {
@@ -654,8 +674,15 @@ class HydraHooks {
 
 		$pageBaseTitle = strtok($title->getDBKey(), '/');
 
+		if ( version_compare( $wgVersion, '1.36', '<' ) ) {
+			$skinNames = Skin::getSkinNames();
+		} else {
+			$skinFactory = MediaWiki\MediaWikiServices::getInstance()->getSkinFactory();
+			$skinNames = $skinFactory->getSkinNames();
+		}
+
 		if ($title->isSpecialPage() &&
-			array_key_exists('oasis', Skin::getSkinNames()) &&
+			array_key_exists('oasis', $skinNames) &&
 			in_array($pageBaseTitle, $wgHydraSkinSpecialPageOverrides) &&
 			$title->isSpecial($pageBaseTitle)) {
 			$skin = 'oasis';
