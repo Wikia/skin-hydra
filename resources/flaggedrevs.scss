@@ -1,16 +1,23 @@
+:root {
+	--flaggedrevs-bg-color: #fafafa;
+	--flaggedrevs-border-color: #bcbcbc;
+	--flaggedrevs-text-color: #3a3a3a;
+	--flaggedrevs-link-color: #f37f20;
+}
+
 .flaggedrevs-unreviewed {
-	background-color: var(--themed-page-background--secondary);
+	background-color: var(--flaggedrevs-bg-color);
 }
 
 .fr-pending-long2,
 .flaggedrevs-pending {
-	background-color: var(--themed-page-background--secondary);
-	border: 1px solid var(--themed-border-color);
+	background-color: var(--flaggedrevs-bg-color);
+	border: 1px solid var(--flaggedrevs-border-color);
 }
 
 .flaggedrevs-pending a,
 .flaggedrevs-pending a:visited {
-	color: var(--text-color--light);
+	color: var(--flaggedrevs-link-color);
 }
 
 .flaggedrevs-color-1 {
@@ -26,17 +33,17 @@
 .fr-rating-option-2,
 .fr-rating-option-3 {
 	background-color: inherit;
-	color: var(--themed-text-color);
+	color: var(--flaggedrevs-text-color);
 
 	option {
-		color: var(--text-color--dark);
+		color: var(--flaggedrevs-text-color);
 	}
 }
 
 table.flaggedrevs_editnotice,
 table.flaggedrevs_viewnotice {
 	background-color: inherit;
-	border-color: var(--themed-link-color);
+	border-color: var(--flaggedrevs-link-color);
 }
 
 #mw-fr-stablediff {
@@ -45,13 +52,13 @@ table.flaggedrevs_viewnotice {
 
 div.flaggedrevs_short_details,
 div.flaggedrevs_short {
-	background-color: var(--themed-page-background--secondary);
-	color: var(--themed-text-color);
+	background-color: var(--flaggedrevs-bg-color);
+	color: var(--flaggedrevs-text-color);
 }
 
 div.flaggedrevs_preview {
 	background-color: #031b30;
-	color: var(--themed-text-color);
+	color: var(--flaggedrevs-text-color);
 }
 
 div.flaggedrevs_notice {
@@ -61,6 +68,6 @@ div.flaggedrevs_notice {
 table.flaggedrevs_editnotice,
 table.flaggedrevs_viewnotice,
 .flaggedrevs_reviewform {
-	background-color: var(--themed-page-background--secondary);
-	color: var(--themed-text-color);
+	background-color: var(--flaggedrevs-bg-color);
+	color: var(--flaggedrevs-text-color);
 }

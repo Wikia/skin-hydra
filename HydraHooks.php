@@ -105,7 +105,6 @@ class HydraHooks {
 		$modules[] = 'skins.hydra.smartbanner';
 		// $modules[] = 'skins.hydra.mobile.apu.js';
 		$modules[] = 'skins.hydra.mobile.styles';
-		$modules[] = 'skins.hydra.mobile.runtime.styles';
 		return true;
 	}
 
@@ -118,10 +117,7 @@ class HydraHooks {
 	 * @return boolean True
 	 */
 	public static function onSkinPreloadExistence(array &$titles, Skin $skin) {
-		$skin->getOutput()->addModuleStyles([
-			'skin.hydra.css',
-			'skins.hydra.runtime.styles',
-		]);
+		$skin->getOutput()->addModuleStyles(['skin.hydra.css']);
 
 		if (class_exists('MobileContext')) {
 			$mobileContext = MobileContext::singleton();
@@ -148,7 +144,7 @@ class HydraHooks {
 		if (!in_array($te->getSkinName(), $wgHydraSkinList)) {
 			return true;
 		}
-		
+
 		if (defined('MW_API') && MW_API === true) {
 			return true;
 		}
