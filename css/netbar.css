@@ -83,20 +83,20 @@ div#netbar {
 
 #netbar .netbar-box.logo {
 	transition: width 500ms;
-	width: 104px;
+	width: 282px;
 }
 
 #netbar .netbar-box.logo a {
 	background-image: linear-gradient(transparent,transparent),url(../images/netbar/logo.svg);
 	background-position: center center;
 	background-repeat: no-repeat;
-	background: url(../images/netbar/logo-fallback.png);
+	background: url(../images/netbar/gamepedia-powered-by-fandom-logo.svg);
 	display: block;
 	overflow: hidden;
 	text-indent: -500px;
 	transition: width 500ms;
 	white-space: nowrap;
-	width: 104px;
+	width: 282px;
 }
 
 @media screen and (max-width: 700px) {
