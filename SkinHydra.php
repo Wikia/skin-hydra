@@ -42,7 +42,9 @@ class SkinHydra extends SkinVector {
 				'skins.hydra.googlefont.styles',
 				'skins.hydra.netbar',
 				'skins.hydra.footer',
-				'skins.hydra.advertisements.styles'
+				'skins.hydra.advertisements.styles',
+				'skins.hydra.oasisOverrides',
+				'skins.hydra.theme'
 			]
 		);
 	}

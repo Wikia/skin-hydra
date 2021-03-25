@@ -1,0 +1,60 @@
+@_active-color-modification-factor: 20%;
+.rgb-components(@selector, @color) {
+	@selector: red(@color), green(@color), blue(@color);
+}
+
+.skin-hydra {
+	@_article-background-color: #fafafa;
+	@_article-background-color--secondary: #fafafa;
+	@_article-text-color: #3a3a3a;
+	@_border-color: #bed1cf;
+	@_accent-color: #f37f20;
+	@_accent-label-color: #3a3a3a;
+	@_link-color: #f37f20;
+	@_link-label-color: #3a3a3a;
+
+	--theme-article-background-color: @_article-background-color;
+	.rgb-components(--theme-article-background-color--rgb, @_article-background-color);
+	--theme-article-background-color--secondary: @_article-background-color--secondary;
+	--theme-article-text-color: @_article-text-color;
+	.rgb-components(--theme-article-text-color--rgb, @_article-text-color);
+	--theme-article-text-color--hover: darken(@_article-text-color, @_active-color-modification-factor);
+	--theme-link-color: @_link-color;
+	.rgb-components(--theme-link-color--rgb, @_link-color);
+	--theme-link-color--hover: darken(@_link-color, @_active-color-modification-factor);
+	--theme-link-label-color: @_link-label-color;
+	--theme-accent-color: @_accent-color;
+	.rgb-components(--theme-accent-color--rgb, @_accent-color);
+	--theme-accent-color--hover: darken(@_accent-color, @_active-color-modification-factor);
+	--theme-accent-label-color: @_accent-label-color;
+	--theme-border-color: @_border-color;
+	.rgb-components(--theme-border-color--rgb, @_border-color);
+}
+
+.skin-hydradark {
+	@_article-background-color: #212121;
+	@_article-background-color--secondary: #212121;
+	@_article-text-color: #e6e6e6;
+	@_border-color: #bed1cf;
+	@_accent-color: #f37f20;
+	@_accent-label-color: #3a3a3a;
+	@_link-color: #f37f20;
+	@_link-label-color: #3a3a3a;
+
+	--theme-article-background-color: @_article-background-color;
+	.rgb-components(--theme-article-background-color--rgb, @_article-background-color);
+	--theme-article-background-color--secondary: @_article-background-color--secondary;
+	--theme-article-text-color: @_article-text-color;
+	.rgb-components(--theme-article-text-color--rgb, @_article-text-color);
+	--theme-article-text-color--hover: darken(@_article-text-color, @_active-color-modification-factor);
+	--theme-link-color: @_link-color;
+	.rgb-components(--theme-link-color--rgb, @_link-color);
+	--theme-link-color--hover: darken(@_link-color, @_active-color-modification-factor);
+	--theme-link-label-color: @_link-label-color;
+	--theme-accent-color: @_accent-color;
+	.rgb-components(--theme-accent-color--rgb, @_accent-color);
+	--theme-accent-color--hover: darken(@_accent-color, @_active-color-modification-factor);
+	--theme-accent-label-color: @_accent-label-color;
+	--theme-border-color: @_border-color;
+	.rgb-components(--theme-border-color--rgb, @_border-color);
+}
