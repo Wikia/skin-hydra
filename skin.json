@@ -110,6 +110,19 @@
 			],
 			"position": "top"
 		},
+		"skins.hydra.theme": {
+			"class": "ResourceLoaderLessVariableModule",
+			"styles": [
+				"css/theme.less"
+			],
+			"position": "top"
+		},
+		"skins.hydra.oasisOverrides": {
+			"styles": [
+				"css/oasis-overrides.css"
+			],
+			"position": "top"
+		},
 		"skins.hydra.advertisements.js": {
 			"scripts": [
 				"js/siderail.js"
