@@ -26,15 +26,6 @@ class SkinHydra extends SkinVector {
 		if (HydraHooks::showAds($this) && $config->get('HydraSkinShowAnchorAd') && !empty(HydraHooks::getAdBySlot('anchor'))) {
 			$out->addModuleScripts('skins.hydra.anchor.apu.js');
 		}
-	}
-
-	/**
-	 * Loads skin and user CSS files.
-	 *
-	 * @param OutputPage $out
-	 */
-	public function setupSkinUserCss(OutputPage $out) {
-		parent::setupSkinUserCss($out);
 
 		$out->addModuleStyles(
 			[
